@@ -1,0 +1,661 @@
+﻿
+@{
+    ViewBag.Title = "verHistorialEstadosExpediente";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"] </span>
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promocion</a></li>
+            <li class="active">Historial de Estados de Expediente</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1>Historial de Estados de Expediente</h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+        <!-- inicio pasos-->
+
+        <div class="col-xs-12 col-md-12">
+            <!-- contenido de ACORDEON 1 -->
+            <div id="accordion" style="border:1px solid;">
+
+                <div class="card">
+
+                    <div class="widget-header card-header" id="headingOne" style="text-align:left; background-color:#005e3a">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-pencil-square-o"></i>
+                                &nbsp; Historial de Estados de Expediente
+                            </a>
+                        </h5>
+
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                            <br />
+
+                            <div class="row" style="margin-bottom:5px;">
+
+
+                                <div class="row" style="padding-left:25px;padding-right:25px; padding-bottom:25px; margin-left:auto;">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                &nbsp; DATOS DE LA ORGANIZACIÓN
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <form class="card-body" style="margin-left:auto; padding-right:13px;">
+
+                                        @using (Html.BeginForm())
+                                        {
+
+                                            <div class="row" style="margin-bottom:10px; margin-left:auto;">
+
+                                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                    <div><label style="text-align:left; width:40%">RUC:</label></div>
+                                                    <div>
+                                                        @Html.TextBox("RUC", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                        <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 5px;">
+                                                    <div><label style="text-align:left; width:40%">Razón Social:</label></div>
+                                                    <div>
+                                                        @Html.TextBox("RazonSocial", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                        <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </form>
+
+
+                                </div>
+
+                                <!--INICIO ESTADO EXTERNO -->
+
+                                <div class="row" style="padding-left:25px;padding-right:25px; padding-bottom:25px; margin-left:auto;">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                &nbsp; DATOS DE DIRECCIÓN
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <form class="card-body" style="margin-left:auto; padding-right:13px;">
+
+                                        @using (Html.BeginForm())
+                                        {
+
+                                            <div class="row" style="margin-bottom:10px; margin-left:auto;">
+
+                                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                    <div><label style="text-align:left; width:40%">Departamento:</label></div>
+                                                    <div>
+                                                        @Html.TextBox("departamentoOA", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                        <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                    <div><label style="text-align:left; width:40%">Provincia:</label></div>
+                                                    <div>
+                                                        @Html.TextBox("provinciaOA", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                        <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                    <div><label style="text-align:left; width:40%">Distrito:</label></div>
+                                                    <div>
+                                                        @Html.TextBox("distritoOA", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                        <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                    <div><label style="text-align:left; width:40%">Centro Poblado:</label></div>
+                                                    <div>
+                                                        @Html.TextBox("centroPoblado", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                        <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </form>
+
+                                    <div class="row" style="margin-bottom:10px; margin-left: auto;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Teléfono:</label></div>
+                                            <div>
+                                                @Html.TextBox("telefonoOA", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Altitud:</label></div>
+                                            <div>
+                                                @Html.TextBox("altitudHistorial", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Tipo Ámbito:</label></div>
+                                            <div>
+                                                @Html.TextBox("tipoAmbito", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Nivel Quintil:</label></div>
+                                            <div>
+                                                @Html.TextBox("nivelQuintil", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo número en este campo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:10px; margin-left: auto;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Valor Quintil:</label></div>
+                                            <div>
+                                                @Html.TextBox("valorQuintil", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    
+
+                                </div>
+                                <!--FIN ESTADO EXTERNO -->
+                                <!--INICIO ESTADO INTERNO -->
+
+                                <div class="row" style="padding-left:25px;padding-right:25px; padding-bottom:25px; margin-left:auto;">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                &nbsp; REPRESENTANTE LEGAL
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:10px; margin-left:auto;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Apellidos y Nombres:</label></div>
+                                            <div>
+                                                @Html.TextBox("apellidosNombresRepreLegal", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Correo Electrónico:</label></div>
+                                            <div>
+                                                @Html.TextBox("correoRepreLegal", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Teléfono:</label></div>
+                                            <div>
+                                                @Html.TextBox("telefonoRepreLegal", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   
+                                </div>
+                                <!--FIN ESTADO INTERNO -->
+                                <!--INICIO MONTO INCENTIVO -->
+
+                                <div class="row" style="padding-left:25px;padding-right:25px; padding-bottom:25px; margin-left:auto;">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                &nbsp; PERSONA DE CONTACTO
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:10px; margin-left:auto;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Apellidos y Nombres:</label></div>
+                                            <div>
+                                                @Html.TextBox("apellidosNombresContacto", (string)"", new { @class = "campoNumero", @style = "width:70%", disabled = true, Value = @Session["RucOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Correo Electrónico:</label></div>
+                                            <div>
+                                                @Html.TextBox("correoContacto", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:40%">Teléfono:</label></div>
+                                            <div>
+                                                @Html.TextBox("telefonoContacto", (string)"", new { @class = "campoTexto", @style = "width:85%", disabled = true, Value = @Session["RazonSocialOA"] })
+                                                <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--FIN MONTO INCENTIVO -->
+                               
+
+
+                            </div><!-- contenido -->
+                        </div>
+
+                    </div>
+
+                    @*FIN DE ACORDEONES*@
+                </div>
+
+
+                <div class="col-xs-12 col-md-12" style="align-content:center;">
+                    <br />
+                    <br />
+
+                    <h3 style="text-align:left; margin-bottom:15px;"><b>DATOS DEL EXPEDIENTE</b></h3>
+                    <!-- inicio tabla-->
+
+                    <div class="row">
+
+                        <div class="table-responsive margen col-md-12" style="align-content:center;">
+                            <table id="tb_HistorialDatosEstadoExp" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" width="2%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                        <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">N° Expediente</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Tipo de SDA</th>
+                                        <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Proceso</th>
+                                        <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Tipo de Incentivo</th>
+                                        <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">CUT_SGD</th>
+                                       
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Código SEL</th>
+
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Historial de Estados</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Documentos Adjuntos</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Doc. Anexos Expediente</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="center"> 01 </td>
+                                        <td class="center"> -- </td>
+                                        <td class="center"> Aprobado </td>
+                                        <td class="center"> 20/11/2018 </td>
+                                        <td class="center">--    </td>
+                                        <td class="center">--    </td>
+                                        <td class="center">--    </td>
+
+                                        <td class="center">
+                                            <a class="btn btn-success" id="btnVerListaDocAsociatividad" href="#eliminarModal" title="Ver Archivo" data-toggle="modal">
+                                                <i class="ace-icon fa fa-file-text-o"></i>
+                                            </a>
+                                        </td>
+
+                                        <td class="center">
+                                            <a class="btn btn-info" id="btnVerListaDocAsociatividad" href="#eliminarModal" title="Ver Archivo" data-toggle="modal">
+                                                <i class="ace-icon fa fa-file-text-o"></i>
+                                            </a>
+                                        </td>
+
+                                        <td class="center">
+                                            <a class="btn btn-warning" id="btnVerListaDocAsociatividad" href="#eliminarModal" title="Ver Archivo" data-toggle="modal">
+                                                <i class="ace-icon fa fa-file-text-o"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-xs-12 col-md-2">
+                            <div> &nbsp;&nbsp; </div>
+                        </div>
+
+                    </div>
+
+                    <br />
+
+                </div>
+
+
+            </div>
+            <!--FIN 1ER ACORDEONES-->
+
+
+
+
+        </div>
+
+        <!--COMIENZO 2DO ACORDEON PARA VISTAS-->
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+            <!--------- ACORDEON ------------>
+            <!-- fin de Acordeon -->
+            <!--------- ACORDEON 2 ------------>
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingsix" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-file"></i>
+                                &nbsp; HISTORIAL DE ESTADOS
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapsefour" class="collapse" aria-labelledby="headingsix" data-parent="#accordion">
+                        <!-- Inicio Card Body  -->
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                            <br />
+                            <!--INICIO TABLA -->
+
+                            <div class="table-responsive margen col-md-12" style="align-content:center;">
+                                <table id="tb_HistorialEstados" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" width="2%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                            <th rowspan="2" width="18%" style="background-color:#005e3a; color:white;" class="center">Estado</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Fecha y Hora de Registro</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Fecha de Notificación</th>
+                                            <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Especialista</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Días de Prórroga</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Comentario</th>
+                                            <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Usuario de Registro</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center"> 01 </td>
+                                            <td class="center"> Aprobado </td>
+                                            <td class="center"> 20/11/2018</td>
+                                            <td class="center">20/10/2018</td>
+                                            <td class="center">-- </td>
+                                            <td class="center"> 10</td>
+                                            <td class="center">--</td>
+                                            <td class="center">-- </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <!--FIN TABLA-->
+                            <div class="table-responsive margen col-md-12" style="align-content:center;">
+                                <br />
+                            </div>
+
+                            <!-- ESTADO INTERNO -->
+                            <br />
+
+
+                            <!--NUEVO ESTADO -->
+
+                            <br />
+
+
+                            <br />
+
+                            <!-- DATOS DEL DOCUMENTO -->
+                            <br />
+
+
+                            <br />
+
+                        </div>
+                        <!-- Fin Card Body  -->
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingTen" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseseven" aria-expanded="true" aria-controls="collapseseven">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-file"></i>
+                                &nbsp; HISTORIAL DOCUMENTOS ADJUNTOS
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseseven" aria-expanded="true" aria-controls="collapseseven">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapseseven" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+                        <!-- Inicio Card Body  -->
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                            <br />
+                            <!--INICIO TABLA -->
+
+                            <div class="table-responsive margen col-md-12" style="align-content:center;">
+                                <table id="tb_DocumentosAdjuntos" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" width="2%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                            <th rowspan="2" width="18%" style="background-color:#005e3a; color:white;" class="center">Unidad PCC</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Oficina Regular</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Tipo Documento</th>
+                                            <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Asunto</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">N° Documento</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Fecha Documento</th>
+                                            <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Estado</th>
+                                            <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Fecha Registro</th>
+                                            <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Documento Adjunto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center"> 01 </td>
+                                            <td class="center"> Aprobado </td>
+                                            <td class="center"> 20/11/2018</td>
+                                            <td class="center">20/10/2018</td>
+                                            <td class="center">-- </td>
+                                            <td class="center"> 10</td>
+                                            <td class="center">--</td>
+                                            <td class="center">-- </td>
+                                            <td class="center">--</td>
+                                            <td class="center">-- </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <!--FIN TABLA-->
+
+                            <br />
+
+                            <!-- DATOS DEL DOCUMENTO -->
+                            <br />
+                            <div class="row">
+                                
+                            </div>
+
+
+                            <br />
+
+                        </div>
+                        <!-- Fin Card Body  -->
+                    </div>
+
+                </div>
+            </div>
+            <!-- fin de Acordeon 2 -->
+
+
+            <div id="accordion" style="border:1px solid; ">
+            <div class="card">
+
+                <div class="card-header widget-header" id="headingnine" style="text-align:left;">
+                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseeight" aria-expanded="true" aria-controls="collapseeight">
+                        <a href="#" style="color:white; text-decoration:none;">
+                            <i class="ace-icon fa fa-file"></i>
+                            &nbsp; DOCUMENTOS ANEXOS DEL EXPEDIENTE EN MESA DE PARTES
+                        </a>
+                    </h5>
+                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseeight" aria-expanded="true" aria-controls="collapseeight">
+                        <a href="#" data-action="collapse" style="color:#fff;">
+                            <i class="ace-icon fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--------- card body ------------>
+                <div id="collapseeight" class="collapse" aria-labelledby="headingnine" data-parent="#accordion">
+                    <!-- Inicio Card Body  -->
+                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                        <br />
+                        <!--INICIO TABLA -->
+
+                        <div class="table-responsive margen col-md-12" style="align-content:center;">
+                            <table id="tb_DocumAnexosExpMesaPartes" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" width="2%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                        <th rowspan="2" width="18%" style="background-color:#005e3a; color:white;" class="center">Tipo Documento</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">N° Documento</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Fecha de Registro</th>
+                                        <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Asunto</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Descripción</th>
+                                        <th rowspan="2" width="8%" style="background-color:#005e3a; color:white;" class="center">Unidaad de Destino</th>
+                                        <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Oficina de Registro</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="center"> 01 </td>
+                                        <td class="center"> Aprobado </td>
+                                        <td class="center"> 20/11/2018</td>
+                                        <td class="center">20/10/2018</td>
+                                        <td class="center">-- </td>
+                                        <td class="center"> 10</td>
+                                        <td class="center">--</td>
+                                        <td class="center">-- </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!--FIN TABLA-->
+                        <div class="table-responsive margen col-md-12" style="align-content:center;">
+                            <br />
+                        </div>
+
+                        <!-- ESTADO INTERNO -->
+                        <br />
+
+
+                        <!--NUEVO ESTADO -->
+
+                        <br />
+
+
+                        <br />
+
+                        <!-- DATOS DEL DOCUMENTO -->
+                        <br />
+
+
+                        <br />
+
+                    </div>
+                    <!-- Fin Card Body  -->
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+
+
+        <!--FIN 2DO ACORDEON-->
+
+
+
+    </div>
+</div>
+</div>

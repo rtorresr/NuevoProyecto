@@ -1,0 +1,406 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<head>
+    <title>Ver Actividad</title>
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li class="active">Ver Actividades</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column" style="text-align:left;">
+
+                    <h1> Ver Actividades </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="col-xs-12 col-sm-12 widget-container-col" id="widget-container-col-1">
+                    <div class="widget-box" id="widget-box-1">
+                        <div class="widget-header" style="text-align:left;">
+                            <h5 class="widget-title">
+                                <i class="ace-icon fa fa-search"></i>
+                                Criterios de Búsqueda
+                            </h5>
+                            <div class="widget-toolbar">
+                                <a href="#" data-action="collapse">
+                                    <i class="ace-icon fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="widget-body">
+
+                            <form class="cbp-mc-form" id="myForm1" method="post">
+
+                                <div class="row"> 
+                                        <div class="col-xs-12 col-md-4" >
+                                            <label style="text-align:left;">Actividad :</label>
+                                            @{
+                                                List<KeyValuePair<int, string>> dropdownList1 = new List<KeyValuePair<int, string>>();
+                                                dropdownList1.Add(new KeyValuePair<int, string>(1, "CAPACITACION"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(2, "ASESORIA"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(3, "MESA DE DIALOGO"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(4, "MUNI-EJECUTIVO"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(5, "VISITA DE CAMPO"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(6, "ASESORAMIENTO PARA ELABORACION DE POA"));
+                                                SelectList selectList1 = new SelectList(dropdownList1, "key", "value", 0); 
+                                            }
+
+                                            @Html.DropDownList("foo", selectList1, new {style="width:60%" })
+
+                                        </div>
+                                     
+
+                                    <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                        <label style=" text-align:left;"> Fecha de Inicio : </label>   
+                                            
+                                        <div class="input-group date" style="width:35%;">
+                                            @Html.TextBox("nro_orden", (string)" ", new { @class = "datetimepicker2", style = "width:100%" })
+                                            <span class="input-group-addon" >
+                                                <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                            </span>
+                                        </div>
+                                   </div>
+
+                                    <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                        <label style=" text-align:left;"> Fecha de Fin : </label>
+
+                                        <div class="input-group date" style="width:35%;">
+                                            @Html.TextBox("nro_orden", (string)" ", new { @class = "datetimepicker2", style = "width:100%" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                            </span>
+                                        </div>
+                                    </div> 
+                                     
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-4">
+
+                                        <label style="text-align:left;">Departamento : </label>
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList = new List<KeyValuePair<int, string>>();
+                                            dropdownList.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                            dropdownList.Add(new KeyValuePair<int, string>(1, "Arequipa"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                            SelectList selectList = new SelectList(dropdownList, "key", "value", 0);
+
+                                        }
+
+                                        @Html.DropDownList("foo", selectList, new { style = "width:50%" })
+
+
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-4">
+                                        <label style="text-align:left;">Provincia :</label>
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList3 = new List<KeyValuePair<int, string>>();
+                                            dropdownList3.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(1, "Barranca"));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(2, "Cañete"));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(2, "Yauyos"));
+                                            SelectList selectList3 = new SelectList(dropdownList3, "key", "value", 0);
+
+                                        }
+
+                                        @Html.DropDownList("foo", selectList3, new { style = "width:50%" })
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="col-xs-12 col-md-4">
+                                        <label style="text-align:left;">Distrito :</label>
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList4 = new List<KeyValuePair<int, string>>();
+                                            dropdownList4.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(1, "Calango"));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(2, "Cerro Azul"));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(2, "Imperial"));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(2, "Mala"));
+                                            SelectList selectList4 = new SelectList(dropdownList4, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList4, new { style = "width:50%" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <br />
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <br />
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="cbp-mc-column ">
+                                        <br>
+                                        <br>
+
+                                        <button class="btn btn-success"><i class="ace-icon fa fa-search"></i>Consultar</button>
+                                        <button class="btn btn-success"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+
+                            <br>
+
+                            <br>
+
+
+
+                        </div><!-- fin contenido-->
+                    </div>
+                </div>
+                <!-- -->
+            </div>
+
+            <br>
+            <br>
+            <br> <div class="col-xs-12">
+                <!-- inicio tabla-->
+                <div class=" table-responsive margen">
+                    <table id="tab_opa" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="3%" class="center">Nº</th> 
+                                <th width="10%" class="center">Actividad</th>
+                                <th width="40%" class="center">Descripción</th>
+                                <th width="20%" class="center">Especialista</th>
+                                <th width="7%" class="center">Fecha</th>
+                                <th width="8%" class="center">Estado</th>
+                                <th width="17%" class="hidden-480">&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td> 
+                                <td class="center">CAPACITACION </td>
+                                <td class="center">CAPACITACION A ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO</td>
+                                <td class="center">YURI ALTAMIRANO</td>
+                                <td class="center">17/08/2018 </td>
+                                <td class="center">PENDIENTE </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocion/detalleActividad" title="Detalle Actividad" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>VER ARCTIVIDAD
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td class="center">CAPACITACION </td>
+                                <td class="center">CAPACITACION A ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO </td>
+                                <td class="center">YURI ALTAMIRANO</td> 
+                                <td class="center">17/08/2018 </td>
+                                <td class="center">PENDIENTE </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocion/detalleActividad" title="Detalle Actividad" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>VER ARCTIVIDAD
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td class="center">CAPACITACION </td>
+                                <td class="center">CAPACITACION A ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO </td>
+                                <td class="center">YURI ALTAMIRANO</td>
+                                <td class="center">17/08/2018 </td>
+                                <td class="center">PENDIENTE </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocion/detalleActividad" title="Detalle Actividad" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>VER ARCTIVIDAD
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">4</td> 
+                                <td class="center">CAPACITACION </td>
+                                <td class="center">CAPACITACION A ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO </td>
+                                <td class="center">YURI ALTAMIRANO</td>
+                                <td class="center">17/08/2018 </td>
+                                <td class="center">PENDIENTE </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocion/detalleActividad" title="Detalle Actividad" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>VER ARCTIVIDAD
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">5</td>
+                                <td class="center">CAPACITACION </td>
+                                <td class="center">CAPACITACION A ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO </td>
+                                <td class="center">YURI ALTAMIRANO</td> 
+                                <td class="center">17/08/2018 </td>
+                                <td class="center">PENDIENTE </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocion/detalleActividad" title="Detalle Actividad" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>VER ARCTIVIDAD
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="registrarResultado" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Registrar Resultado</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Datos de la Actividad</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Actividad:</label></div>
+                                <div class="col-xs-8" style="text-align:left;">@Html.TextBox("nro_orden", (string)"CAPACITACION", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Descripción de Actividad:</label></div>
+                                <div class="col-xs-8">@Html.TextArea("nro_orden", (string)"CAPACITACION A ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO EN LA OFICINA REGIONAL", new { @rows = "3", style = "width:100%; resize:none;", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Organización:</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"ORGANIZACION DE PRODUCTORES AGRARIOS ABC DE CACAO", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Aliado :</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"---", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:10px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Fecha de Actividad :</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"17/08/2018", new { style = "width:100%;", disabled = "true" })</div>
+                            </div>
+                            <br />
+                            <p>Resultado</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Resultado de la Actividad:</label></div>
+                                <div class="col-xs-8">
+                                    @{
+                                        List<KeyValuePair<int, string>> dropdownList9 = new List<KeyValuePair<int, string>>();
+                                        dropdownList9.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(1, "REALIZADO"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(2, "NO REALIZADO"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(2, "REPORGRAMADO"));
+                                        SelectList selectList9 = new SelectList(dropdownList9, "key", "value", 0);
+
+                                    }
+                                    @Html.DropDownList("foo", selectList9, new { style = "width:100%" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;">Fecha de Realización :</div>
+                                <div class="col-xs-8">
+                                    <div class="txtFormulario" style="width:100% ">
+                                        <div class='input-group date' id='datetimepicker2' style=" width:40%;">
+                                            @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Descripción de Actividad:</label></div>
+                                <div class="col-xs-8">@Html.TextArea("nro_orden", (string)"", new { @rows = "3", style = "width:100%; resize:none;" })</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Registrar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+         
+    });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+

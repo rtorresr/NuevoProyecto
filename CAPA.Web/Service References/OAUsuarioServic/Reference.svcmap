@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b7287ec-1ba9-4d0b-a5b9-9724ebd72b6e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:21970/UsuarioOAServ.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UsuarioOAServ.xsd" MetadataType="Schema" ID="c26ed367-e4f6-4dfa-84d5-e16a16dc7e02" SourceId="1" SourceUrl="http://localhost:21970/UsuarioOAServ.svc?xsd=xsd3" />
+    <MetadataFile FileName="UsuarioOAServ.wsdl" MetadataType="Wsdl" ID="142ec785-cc46-4105-b8e7-53c586103ff1" SourceId="1" SourceUrl="http://localhost:21970/UsuarioOAServ.svc?wsdl" />
+    <MetadataFile FileName="UsuarioOAServ.disco" MetadataType="Disco" ID="a904778d-ad72-4e2c-83f2-63afc11980d1" SourceId="1" SourceUrl="http://localhost:21970/UsuarioOAServ.svc?disco" />
+    <MetadataFile FileName="UsuarioOAServ1.xsd" MetadataType="Schema" ID="be10d282-acf4-4157-b753-574eafe38e86" SourceId="1" SourceUrl="http://localhost:21970/UsuarioOAServ.svc?xsd=xsd0" />
+    <MetadataFile FileName="UsuarioOAServ2.xsd" MetadataType="Schema" ID="c63c1b8d-3d0d-4980-90b4-d3cd02f87e47" SourceId="1" SourceUrl="http://localhost:21970/UsuarioOAServ.svc?xsd=xsd1" />
+    <MetadataFile FileName="UsuarioOAServ3.xsd" MetadataType="Schema" ID="42b4bfd9-aedf-4d1e-afc7-6609b4cc31fc" SourceId="1" SourceUrl="http://localhost:21970/UsuarioOAServ.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

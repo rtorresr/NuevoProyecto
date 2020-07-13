@@ -1,0 +1,559 @@
+﻿
+@{
+    ViewBag.Title = "unidadMedida";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+ 
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.PromocionPrp</a></li>
+                <li class="active">Unidad Medidas</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> UNIDAD DE MEDIDAS </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+
+            <div class="col-xs-12 col-md-12">
+
+                <!--CONTENEDOR PESTAÑAS-->
+                <div class="row" style="margin-bottom:5px;">
+
+                    @*INICIO PESTAÑA*@
+
+                    <div class="col-md-12">
+
+                        <div class="nav-tabs-custom">
+
+                            <ul class="nav nav-pills">
+
+                                <li class="active"><a href="#pesTipoUnMedida" data-toggle="tab">TIPO UNIDAD DE MEDIDA</a></li>
+                                <li><a href="#pesUnMedida" data-toggle="tab">UNIDAD DE MEDIDA</a></li>
+                                <li><a href="#pesUnMedidaEstandarizado" data-toggle="tab">UNIDAD DE MEDIDA ESTANDARIZADA</a></li>
+                            </ul>
+
+                            <!--INICIO CONTENEDOR DE TODAS LAS PESTAÑAS-->
+                            <div class="tab-content">
+
+                                <!-- INICIO PESTAÑA 1 TIPO UNIDAD MEDIDA-->
+                                <div class="active tab-pane" id="pesTipoUnMedida">
+                                    <!-- The indicaEspecifico -->
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                TIPO DE UNIDAD DE MEDIDA
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <br />
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-2 col-sm-2 col-md-2">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-xs-8 col-sm-8 col-md-8 panel panel-default">
+                                            <br />
+
+                                            <div class="row" style="margin-bottom: 5px;">
+                                                <div class="col-xs-12 col-sm-6 col-md-6" style="text-align: right; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label> Tipo Unidad de Medida: </label>
+                                                        @Html.TextBox("idUsuario", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "display:none; width:30%", Value = Session["IdUsua"] })
+                                                        @Html.TextBox("idTipoUnidadMed", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "display:none; width:30%" })
+                                                        @Html.TextBox("tipoUnidMedida", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:65%" })
+                                                        <p id="AtipoUnidMedida" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-xs-12 col-sm-6 col-md-6" style="text-align:rigth; margin-bottom:5px;">
+                                                    <button id="btnConsultarTipoUnidMed" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarTipoUnidMed" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarTipoUnidMed" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarTipoUnidMed" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="col-xs-2 col-sm-2 col-md-2">
+                                            <div>&nbsp;</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4col-md-4" style="text-align:center">
+                                            <button id="btnNuevaTipoUnidMed" class="btn btn-info">
+                                                <i class="ace-icon fa fa-pencil-square"></i> AGREGAR TIPO UNIDAD MEDIDA
+                                            </button>
+
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-2 col-md-2">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-8 col-md-8">
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    Lista de Tipos de Unidad de Medida
+                                                </h3>
+                                            </div>
+
+                                            @*TABLA*@
+                                            <br />
+                                            <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+                                                <table id="tablaTipoUndMed" class="table table-bordered table-hover" style="width:100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                            <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tipo Unidad de Medida</th>
+                                                            <th rowspan="2" width="15%" style="display:none; background-color:darkseagreen; color:black;" class="center">Activo</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Registrado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha registro</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Modificado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha modificacion</th>
+                                                            <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                </table>
+                                            </div>
+                                            <div class="col-xs-12 col-md-3">
+                                                <div> &nbsp;&nbsp; </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-xs-2 col-xm-2 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                </div>
+                                <!-- FIN PESTAÑA 1 TIPO UNIDAD MEDIDA-->
+                                <!--INICIO 2DA PESTAÑA UNIDADA DE MEDIDA -->
+                                <div class="tab-pane" id="pesUnMedida">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                UNIDAD DE MEDIDA
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-2 col-xm-2 col-md-2">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+
+                                        <div class="col-xs-8 col-sm-8 col-md-8 panel panel-default">
+                                            <br />
+
+                                            <div class="row" style="margin-bottom: 5px;">
+
+                                                <div class="col-xs-12 col-sm-3 col-md-2 campoVacionUnd" style="display:none; text-align:left; margin-bottom:5px;">
+                                                    <div style="width:90%"> &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                                    <div style="width:90%"> &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                                </div>
+
+
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:5px;">
+                                                    <div>
+                                                        <label>Tipo de Unidad de Medida: </label>
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxTipoUnidMedFr" class="custom-select col-xs-12 col-sm-6 col-md-8"> </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:5px;">
+                                                    <div>
+                                                        <label>Unidad de Medida: </label>&nbsp;&nbsp;
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("idUndMedida", (string)"", new { @class = "campoTexto", style = "display:none;" })
+                                                        @Html.TextBox("unidadMedida", (string)"", new { @class = "campoTexto  col-xs-12 col-sm-6 col-md-8", @maxlength = "250" })
+                                                        <p id="AunidadMedida" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div id="simboloUnid" class="col-xs-12 col-sm-6 col-md-4" style="display:none; text-align:left; margin-bottom:5px;">
+                                                    <div>
+                                                        <label>Símbolo: </label>
+                                                    </div>
+
+                                                    <div>
+                                                        @Html.TextBox("simboloUndMedida", (string)"", new { @class = "campoTexto col-xs-12 col-sm-6 col-md-10" })
+                                                        <p id="AsimboloUndMedida" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-3 col-md-2 campoVacionUnd" style="display:none; text-align:left; margin-bottom:5px;">
+                                                    <div style="width:90%"> &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <br />
+                                            <div class="row" style="margin-bottom: 5px;">
+                                                <div class="col-xs-3 col-xm-3 col-md-3">
+                                                    <div>&nbsp;</div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6" style="text-align:center; margin-bottom: 5px;">
+                                                    <button id="btnConsultarUnidadMed" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarUnidadMed" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarUnidadMed" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarUnidadMed" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                                    <div>&nbsp;</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-2 col-xm-2 col-md-2">
+                                                <div>&nbsp;</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <div>&nbsp;&nbsp;</div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4col-md-4" style="text-align:center">
+                                                <button id="btnNuevaUnidadMed" class="btn btn-info">
+                                                    <i class="ace-icon fa fa-pencil-square"></i> AGREGAR UNIDAD MEDIDA
+                                                </button>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <div>&nbsp;&nbsp;</div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-xs-2 col-sm-2 col-md-2">
+                                                <div> &nbsp;&nbsp; </div>
+                                            </div>
+
+                                            <div class="col-xs-8 col-sm-8 col-md-8">
+                                                <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                    <h3>
+                                                        Lista de unidades de medida
+                                                    </h3>
+                                                </div>
+
+                                                @*TABLA*@
+                                                <br />
+                                                <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                                    <table id="tablaUnidadMed" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                                <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                                <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tipo de Unidad de Medida</th>
+                                                                <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Unidad de Medida</th>
+                                                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Simbolo</th>
+                                                                <th rowspan="2" width="4%" style="display:none; background-color:darkseagreen; color:black;" class="center">activo</th>
+                                                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Registado por</th>
+                                                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Fecha de registro</th>
+                                                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Modificado por</th>
+                                                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Fecha de modificacion</th>
+                                                                <th colspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                    </table>
+                                                </div>
+
+                                                <div class="col-xs-2 col-sm-2 col-md-2">
+                                                    <div> &nbsp;&nbsp; </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--FIN 2DA PESTAÑA UNIDADA DE MEDIDA -->
+                                <!--INICIO 3RA PESTAÑA UNIDAD MEDIDA ESTANDARIZADA -->
+                                <div class="tab-pane" id="pesUnMedidaEstandarizado">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                UNIDAD DE MEDIDA ESTANDARIZADA
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-2 col-xm-2 col-md-2">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-xs-8 col-sm-8 col-md-8 panel panel-default">
+                                            <br />
+
+
+                                            <div class="row" style="margin-bottom: 5px;">
+
+                                                <div class="col-xs-1 col-xm-1 col-md-1 campoVacionUndEst">
+                                                    <div>&nbsp;</div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:5px;">
+                                                    <div>
+                                                        <label>Tipo de U. Medida: </label> &nbsp;&nbsp;
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxTipoUnidMedFr2" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label>Unidad de Medida: </label>   &nbsp;&nbsp;
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("idUndMedidaEst", (string)"", new { @class = "campoTexto", style = "display:none" })
+                                                        <select id="cbxUnidMedidaFr2" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+                                                    </div>
+                                                </div>
+
+                                                <div id="simboloEst" class="col-xs-12 col-sm-6 col-md-3" style="display:none; text-align:left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label>Símbolo:   </label> &nbsp;&nbsp;
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("simboloUndEst", (string)"", new { @class = "campoTexto col-xs-12 col-sm-6 col-md-10", disabled = true })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label>Act. económica:</label> &nbsp;&nbsp;
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxActEconoFr" class="col-xs-12 col-sm-6 col-md-10 custom-select"> </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-1 col-xm-1 col-md-1 campoVacionUndEst">
+                                                    <div>&nbsp;</div>
+                                                </div>
+
+                                            </div>
+
+                                            <br />
+                                            <div class="row" style="margin-bottom: 5px;">
+
+                                                <div class="col-xs-12 col-xm-3 col-md-3">
+                                                    <div>&nbsp;</div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-6" style="text-align:center; margin-bottom: 5px;">
+                                                    <button id="btnConsultarUnidadMedEst" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarUnidadMedEst" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarUnidadMedEst" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarUnidadMedEst" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+                                                <div class="col-xs-12 col-xm-3 col-md-3">
+                                                    <div>&nbsp;</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-2 col-xm-2 col-md-2">
+                                            <div>&nbsp;</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4col-md-4" style="text-align:center">
+                                            <button id="btnNuevaUnidadMedEst" class="btn btn-info">
+                                                <i class="ace-icon fa fa-pencil-square"></i> AGREGAR UNID. MEDIDA ESTANDAR
+                                            </button>
+
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                        <div class="col-xs-10 col-sm-10 col-md-10">
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    Lista de unidades de medida estandar
+                                                </h3>
+                                            </div>
+
+                                            @*TABLA*@
+                                            <br />
+                                            <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                                <table id="tablaUnidMedEstandar" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                                                            <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black; min-width:3%; max-width:5%" class="center">N°</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:12%" class="center">Tipo de Unidad de Medida</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:12%" class="center">Unidad de Medida Estandar</th>
+                                                            <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:10%" class="center">Simbolo</th>
+                                                            <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:10%" class="center">Act. Económica</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:12%" class="center"> Registrado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:12%" class="center">Fecha registro</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:12%" class="center">Modificado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:12%" class="center">Fecha modificacion</th>
+                                                            <th colspan="2" width="12%" style="background-color:darkseagreen; color:black; min-width:10%; max-width:15%" class="center">Acciones</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--FIN 3RA PESTAÑA UNIDAD MEDIDA ESTANDARIZADA -->
+                        <!-- /.tab-content -->
+                    </div>
+
+
+                    <!-- /.nav-tabs-custom -->
+                </div>
+
+                @*FIN DE LA PESTAÑA*@
+
+
+                <!--FIN CONTENEDOR PESTAÑAS-->
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_TipoUnidMed();
+        controles_UnidadMedida();
+        controles_UnidadMedidaEst();
+
+
+    });
+</script>

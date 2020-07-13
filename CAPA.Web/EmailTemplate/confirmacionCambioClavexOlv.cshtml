@@ -1,0 +1,34 @@
+﻿<div class="col-xs-12 col-md-12" style="width: 65%; margin-left: 20%">
+    <div style="text-align:center;background-color:#1A6225; font-size:30px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+        <b> </b>
+        <div class="titulo" style="color:white">Confirmación de actualización de credenciales del Sistema en Linea (SEL)  </div>
+    </div>
+
+    <div style="background-color:azure; ">
+        <br />
+        <article style="font-size:15px; margin-left: 5%; color:black;">
+            Sr. / Sra.: <br />
+            <strong> @ViewBag.repreLegal </strong> <br />
+            Representante Legal de <strong> @ViewBag.RazSocial </strong>.
+            <br /><br />
+            Sus credenciales de ingreso al sistema han sido modificadas, sus nuevas credenciales son las siguientes:
+            <br />
+        </article>
+
+        <article style="font-size:14px; margin-left: 25%; background-color:#F2F6F4; width:55%; color:black;">
+            <div style="margin-left:25%;" class="col-xs-12 col-md-12">
+                <br />
+                <strong>Usuario  : </strong> @ViewBag.usuario <br />
+                <strong>Password : </strong> @ViewBag.clave <br />
+                <br />
+            </div>
+        </article>
+
+        <article style="font-size:15px; color:black; margin-left: 5%">
+            Para iniciar sesion haga click <a href="@ViewBag.ConfirmationLink">aqui</a>
+        </article>
+
+        <br />
+
+    </div>
+</div>

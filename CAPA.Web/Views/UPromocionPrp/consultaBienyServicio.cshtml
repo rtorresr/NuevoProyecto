@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "consultaBienyServicio";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<title>Consultar Bien y Servicio</title>
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <!-- INICIO RUTA -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción PRP</a></li>
+            <li class="active"><a href="/UPromocionPrp/padronSocios_PRP">Consultar Bien/Servicio</a></li>
+        </ul>
+
+    </div><!-- FIN RUTA -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+                <h1> Consultar Bien/Servicio </h1>
+            </div>
+
+        </div>
+        <!-- Fin titulo -->
+        <!-- inicio pasos-->
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+            <!-- contenido de pasos -->
+            <!--------- ACORDEON ------------>
+
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-search"></i>
+                                Consultar Bien/Servicio
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                            <br />
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                
+                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                    <div>
+                                        <label style="text-align: left;"> Bien / Servicio: &nbsp;&nbsp; </label>
+                                    </div>
+                                    <div>
+                                        <select id="cbxBienServicio" class="custom-select" style="width:65%;"> </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                    <div>
+                                        <label style="text-align: left;"> Componente de inversión: &nbsp;&nbsp; </label>
+                                    </div>
+                                    <div>
+                                        <select id="cbxComponenteInversion" class="custom-select" style="width:65%;"> </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                    <div>
+                                        <label style="text-align: left;"> Categoría: &nbsp;&nbsp; </label>
+                                    </div>
+                                    <div>
+                                        <select id="cbxCatUP" class="custom-select" style="width:65%;"> </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                    <div>
+                                        <label style="text-align: left;"> Sub Categoría: &nbsp;&nbsp; </label>
+                                    </div>
+                                    <div>
+                                        <select id="cbxCSubCatUP" class="custom-select" style="width:65%;"> </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 10px;">
+                                    <div>
+                                        <label style="text-align: left;"> Descripción B/S: &nbsp;&nbsp; </label>
+                                     </div>
+                                    <div>
+                                        <select id="cbxDescripcionByS" class="custom-select" style="width:80%;"> </select>
+                                    </div>
+                                </div>
+
+                            <div class="col-xs-12 col-md-6" style="text-align: left; margin-top: 20px;">
+                                <div class="col-xs-12 col-md-12" style="text-align: left;">
+                                    <button id="btnBuscarBienServicioUP" class="btn btn-success" style="margin-bottom:auto;"><i class="ace-icon fa fa-search"></i> &nbsp;Buscar</button>&nbsp;&nbsp;
+                                    <button id="btnBuscarBienServicioUP" class="btn btn-primary" style="margin-bottom:auto;"><i class="ace-icon fa fa-eraser"></i> &nbsp;Limpiar</button>
+                              </div>
+
+                            </div>
+                        </div>
+                            
+
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- fin de Acrodeon -->
+        </div>
+        <!-- fin  pasos-->
+    </div>
+    <!-- fin contenido-->
+    <!--TABLA PADRON SOCIOS-->
+    <div class="col-xs-12" style="margin-bottom:25px;">
+        <!-- inicio tabla-->
+        <div class="table-responsive margen">
+            <br />
+            <table id="TablaPadronSocioPRP" class="table table-bordered table-hover table-striped display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">Nro.</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Bien/Servicio</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:25%">Componente</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Categoría</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Subcategoría</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Descripción B/S</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Especificación técnica / término</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Cantidad</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Precio uintario</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Costo total</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">RUC</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Razón Social</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Línea de acción</th>
+                        
+
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                        <td class="center">01</td>
+                        <td class="center">Arequipa </td>
+                        <td style="text-align:center"> 15/10/2016 </td>
+                        <td class="center">20/11/2018 </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center">-</td>
+                        <td class="center">-</td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center">-</td>
+                       
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    <!-- FIN TABLA PADRON SOCIOS-->
+    <!--TABLA LISTADO SOCIOS OA-->
+  
+
+
+</div>
+<!-- fin contenido-->
+</div>

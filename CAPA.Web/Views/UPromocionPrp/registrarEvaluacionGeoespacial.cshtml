@@ -1,0 +1,447 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+<title>Registrar Evaluación Geoespacial</title>
+<!---link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">-->
+
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.Promoción</a></li>
+                <li><a href="/UPromocionPrp/evaluacionGeoespacial">Evaluación Geo-espacial</a></li>
+                <li class="active">Registrar Evaluación Geo-espacial</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+
+
+                <div class="col-md-6" style="text-align:left">
+
+                    <h1> Registrar Evaluación Geo-espacial</h1>
+                </div>
+
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            R.U.C :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Razón Social :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Nro de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"PRP-130-2018", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha Inscripción en SUNARP :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20/10/2014", new { @class = "solo-numero", style = "width:40%" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            FECHA REGISTRO en S.E.L :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"01/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"07/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+
+                <br />
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/actualizarPadron" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+
+                <!-- -->
+            </div>
+
+            <br>
+            <br>
+            <br> <div class="col-xs-12">
+                <!-- inicio tabla-->
+                <div class=" table-responsive margen">
+                    <table id="tab_opa" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="3%" class="center">Nº</th>
+                                <th width="10%" class="center">D.N.I</th>
+                                <th width="20%" class="center">Nombre Completo </th>
+                                <th width="10%" class="center">Region</th>
+                                <th width="7%" class="center">Cadena Productiva</th>
+                                <th width="17%" class="hidden-480">&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> JUNIN </td>
+                                <td class="center"> CAFE</td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#verticeModal" title="Verificar Vertices" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Ver Vertices
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-success" id="" href="#evaluacionModal" title="Registrar Resultado" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Resultado Verificación
+                                    </a>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> JUNIN </td>
+                                <td class="center"> CAFE</td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#verticeModal" title="Verificar Vertices" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Ver Vertices
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-success" id="" href="#evaluacionModal" title="Registrar Resultado" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Resultado Verificación
+                                    </a>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> JUNIN </td>
+                                <td class="center"> CAFE</td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#verticeModal" title="Verificar Vertices" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Ver Vertices
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-success" id="" href="#evaluacionModal" title="Registrar Resultado" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Resultado Verificación
+                                    </a>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">4</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> JUNIN </td>
+                                <td class="center"> CAFE</td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#verticeModal" title="Verificar Vertices" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Ver Vertices
+                                    </a>
+                                    &nbsp;&nbsp;
+                                    <a class="btn btn-success" id="" href="#evaluacionModal" title="Registrar Resultado" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>Resultado Verificación
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="verticeModal" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Verificar Vertices de Predio</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" style="margin-bottom: 25px;">
+                                <div class=" table-responsive margen">
+                                    <table id="tab_vertice" class="table  table-bordered table-hover" style="width:50%; margin-left:25%; margin-right:25%;">
+                                        <thead>
+                                            <tr>
+                                                <th width="5%" class="center">Nº</th>
+                                                <th width="40%" class="center">Eje (X)</th>
+                                                <th width="40%" class="center">Eje (Y) </th>
+                                              
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    -73.67827198
+                                                </td>
+                                                <td>
+                                                    -12.73367205
+                                                </td>
+                                             
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    -73.67827198
+                                                </td>
+                                                <td>
+                                                    -12.73367205
+                                                </td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    3
+                                                </td>
+                                                <td>
+                                                    -73.67827198
+                                                </td>
+                                                <td>
+                                                    -12.73367205
+                                                </td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    4
+                                                </td>
+                                                <td>
+                                                    -73.67827198
+                                                </td>
+                                                <td>
+                                                    -12.73367205
+                                                </td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="evaluacionModal" class="modal fade">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Registrar Evaluación Geo-espacial</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-5" style="text-align:left;"><label style="text-align:left;">Ubicación de área a reconvertir en Unidades Catastrales :</label></div>
+                                <div class="col-xs-5" style="text-align:left;">@Html.TextBox("nro_orden", (string)"UC 77095", new { style = "width:70%" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-5" style="text-align:left;"><label style="text-align:left;">Titular Catastral :</label></div>
+                                <div class="col-xs-7" style="text-align:left;">@Html.TextBox("nro_orden", (string)"", new { style = "width:70%" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-5" style="text-align:left;"><label style="text-align:left;">Área de la Unidad Catastal (Ha.) :</label></div>
+                                <div class="col-xs-5" style="text-align:left;">@Html.TextBox("nro_orden", (string)"5.0967", new { style = "width:70%" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-5" style="text-align:left;"><label style="text-align:left;">Resultado :</label></div>
+                                <div class="col-xs-5" style="text-align:left;">
+                                    @{
+                                        List<KeyValuePair<int, string>> dropdownList = new List<KeyValuePair<int, string>>();
+                                        dropdownList.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                        dropdownList.Add(new KeyValuePair<int, string>(1, "CORRECTO"));
+                                        dropdownList.Add(new KeyValuePair<int, string>(2, "OBSERVADO"));
+                                        SelectList selectList = new SelectList(dropdownList, "key", "value", 0);
+
+                                    }
+                                    @Html.DropDownList("foo", selectList, new { style = "width:80%" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-5" style="text-align:left;"><label style="text-align:left;">Observación o Recomendación:</label></div>
+                                <div class="col-xs-7" style="text-align:left;">
+                                    @Html.TextArea("nro_orden", (string)"", new { @class = "solo-numero", @rows = "3", style = "width:90%; resize:none;" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Registrar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on('click', '.Ver_OT', function () {
+
+            var val = $(this).attr('id');
+            var url_scan = "/OrdenTrabajo/Variable_ver_OT/" + val;
+            window.location.href = url_scan;
+
+        });
+
+        $(document).ready(function () {
+            $('.solo-numero').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+
+        $("#tab_opa").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $("#tab_vertice").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $('#datetimepicker2').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        }); //Initialise any date pickers
+        $('#datetimepicker3').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        });
+    });
+
+
+
+
+</script>
+
+
+
+

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "reporte_UP_OA_Recepcionada";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción</a></li>
+            <li class="active">Reporte OA Recepcionada</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1> Reporte OA Recepcionada</h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+
+        <div class="col-xs-12 col-md-12">
+
+            
+
+            @*TABLA*@
+            <br />
+            <div class="table-responsive margen col-md-12" style="align-content:center; margin-left: auto">
+             
+
+                <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                    <button id="btnVerReporte" class="btn btn-primary" style="margin-bottom:auto;">
+
+
+                        <a href="@Url.Action("ReporteOA_Recep","UPromocion")"> <p style="color:white;"> <i class="ace-icon fa fa-eye"> </i> VER REPORTE</p> </a>
+                    </button>
+                    <br />
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+</div>
+

@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "calificacionCriterio";
+    Layout = "~/Views/Shared/_LayoutMenuUn.cshtml";
+}
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UNegocios/Index">U.Negocios</a></li>
+                <li class="active">Calificación por Criterios</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Calificación por Criterios </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12 col-md-12">
+
+                <div class="card" style="border:1px solid;">
+
+                    <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-search"></i>
+                                &nbsp; BUSQUEDA
+                            </a>
+                        </h5>
+
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                            <br />
+
+                            <!----- VALIDA RUC ----->
+
+                            <div class="row" style="margin-bottom:5px;">
+                                <form class="card-body" style="padding-left:25px;padding-right:25px;">
+
+                                    <div class="row" style="margin-bottom:20px; text-align:left;">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-1" style="text-align: left;">
+
+                                            <label style="text-align:left"><strong> Buscar por:</strong></label>
+
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-2" style="text-align: left;">
+
+                                            <div class="radio">
+
+                                                <label for="text" class="col-lg-12 col-form-label align-right width-35">
+                                                    <input type="radio" name="optionsRadios" id="rdbRucFl" value="option1" checked>
+                                                    RUC:
+                                                </label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-2" style="text-align: left;">
+
+                                            <div class="radio">
+                                                <label for="text" class="col-lg-12 col-form-label align-left width-45">
+                                                    <input type="radio" name="optionsRadios" id="rdbSgdCutFl" value="option2" style="text-align:left">
+                                                    N° SGD_CUT:
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    @*margin-bottom: 5px;*@
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @*<div class="row" style="margin-bottom:5px;">*@
+
+                                        <div class="row" style="margin-bottom:10px;">
+
+                                            <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 5px;">
+                                                <label style="text-align:left; width:20%">R.U.C :</label>
+                                                @Html.Hidden("usuario", (string)"", new { Value = @Session["Usuario"] })
+                                                @Html.Hidden("fechaAlta", (string)"", new { @class = "" })
+                                                @Html.Hidden("fechaBaja", (string)"", new { @class = "" })
+
+                                                @Html.TextBox("nroRucFl", (string)"", new { @class = "campoNumero", @style = "width:23%", disabled = true, Value = @Session["RucOA"] })
+                                                <button type="button" class="btn btn-info" id="btnBuscarExpediente" title="Validar"> <i class="ace-icon fa fa-search"></i></button><br />
+                                                <p id="ArucOA" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                                <div><label style="text-align:left; width:50%">No Expediente:</label></div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <div><select id="cbxNroExpedienteFl" class="custom-select" style="width:65%;"> </select></div>
+
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align:left; width:50%">Nº SGD (CUT):</label>
+                                                </div>
+
+                                                @*@Html.TextBox("nroSGD", (string)ViewBag.bus_ruc, new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <div>
+                                                    <select id="cbxNroSGD" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 5px;">
+                                                <label style="text-align:left; width:20%">No SGD (CUT):</label>
+                                                @Html.Hidden("usuario", (string)"", new { Value = @Session["Usuario"] })
+                                                @*@Html.Hidden("rucOA", (string)"", new { Value = @Session["RucOA"] })*@
+
+                                                @Html.Hidden("fechaAlta", (string)"", new { @class = "" })
+                                                @Html.Hidden("fechaBaja", (string)"", new { @class = "" })
+
+                                                @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @style = "width:23%", disabled = true, Value = @Session["RucOA"] })
+                                               
+                                                <p id="ArucOA" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </form>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="cbp-mc-column " style="align-content:center">
+                                    <br>
+                                    <button id="btnConsultarCaliCriterios" class="btn btn-success" style="margin-bottom:25px"><i class="ace-icon fa fa-search"></i>BUSCAR</button>
+                                    &nbsp;
+                                    <button id="btnLimpiarFiltro" class="btn btn-success" style="margin-bottom:25px"><i class="ace-icon fa fa-eraser"></i>LIMPIAR</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- inicio grid-->
+                        <!-- Fin tabla-->
+
+                    </div><!-- fin grid -->
+                   <div class="col-xs-12">
+                    <br />
+                    <h2>Expedientes Asignados al Especialista para Evaluación</h2>
+                    <!-- inicio tabla-->
+                    <div class=" table-responsive margen">
+                        <table id="tab_opa" class="table  table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="3%" style="background-color:darkseagreen; color:black;" class="center">Nº</th>
+                                    <th width="5%" style="background-color:darkseagreen; color:black;" class="center">RUC</th>
+                                    <th width="7%" style="background-color:darkseagreen; color:black;" class="center">Razón Social</th>
+                                    <th width="7%" style="background-color:darkseagreen; color:black;" class="center">Unidad Regional</th>
+                                    <th width="6%" style="background-color:darkseagreen; color:black;" class="center">Tipo Incentivo</th>
+                                    <th width="7%" style="background-color:darkseagreen; color:black;" class="center">No Expediente</th>
+                                    <th width="7%" style="background-color:darkseagreen; color:black;" class="center">No SGD(CUT)</th>
+                                    <th width="9%" style="background-color:darkseagreen; color:black;" class="center">Asunto</th>
+                                    <th width="5%" style="background-color:darkseagreen; color:black;" class="center">Estado</th>
+                                    <th width="5%" style="background-color:darkseagreen; color:black;" class="center">Fecha Recepción</th>
+                                    <th width="9%" style="background-color:darkseagreen; color:black;" class="center">Especialista</th>
+                                    <th width="7%" style="background-color:darkseagreen; color:black;" class="center">Calificación por Criterio</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td class="center">1</td>
+                                    <td class="center">CAFE </td>
+                                    <td style="text-align:left"> AGRÍCOLA </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center"> ACTIVO </td>
+                                    <td class="center">
+                                             
+                                            <button id="btnRegistrarExpEsp" class="btn btn-primary" title="Registrar">
+                                                <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                                            </button>    
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                </div><!-- contenido -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

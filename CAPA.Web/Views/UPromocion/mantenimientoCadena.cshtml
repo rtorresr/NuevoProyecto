@@ -1,0 +1,436 @@
+﻿
+@{
+    ViewBag.Title = "mantenimientoCadena";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+ <head>
+    <title>Mantenimiento Cadena Productiva</title>
+ </head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li>Mantenimiento</li>
+                <li class="active">Cadena Productiva</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Mantenimiento Cadena Productiva</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="col-xs-12 col-sm-12 widget-container-col" id="widget-container-col-1">
+                    <div class="widget-box" id="widget-box-1">
+                        <div class="widget-header" style="text-align:left;">
+                            <h5 class="widget-title">
+                                <i class="ace-icon fa fa-search"></i>
+                                Criterios de Búsqueda
+                            </h5>
+                            <div class="widget-toolbar">
+                                <a href="#" data-action="collapse">
+                                    <i class="ace-icon fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="widget-body">
+
+                            <form class="cbp-mc-form" id="myForm1" method="post">
+
+                                <div class="row">
+                                    <div class="cbp-mc-column">
+
+                                        <label style="text-align:left;">Nombre</label>
+
+                                        @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { @class = "solo-numero" })
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <label style="text-align:left;">Descripción</label>
+                                        @Html.TextBox("razon_social", (string)ViewBag.bus_razon, new { @MaxLength = "500" })
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+                                    </div>
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+                                    </div>
+                                </div>
+
+                             
+
+                                <div class="row">
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <br />
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <br />
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="cbp-mc-column ">
+                                        <br>
+                                        <br>
+
+                                        <button class="btn btn-success"><i class="ace-icon fa fa-search"></i>Consultar</button>
+                                        <button class="btn btn-success"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+
+                            <br>
+
+                            <br>
+
+
+
+                        </div><!-- fin contenido-->
+                    </div>
+                </div>
+                <!-- -->
+            </div>
+            
+            <div class="col-xs-12" >
+                <br />
+                <br />
+                <a class="btn btn-success" id="" href="#nuevoModal" title="Nuevo" data-toggle="modal">
+                    <i class="ace-icon fa fa-file"></i>AGREGAR NUEVO
+                </a>
+            </div>
+            <br>
+            <br> <div class="col-xs-12">
+                <!-- inicio tabla-->
+                <div class=" table-responsive margen">
+                    <table id="tab_opa" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="3%" class="center">Nº</th>
+                                <th width="20%" class="center">Nombre</th>
+                                <th width="30%" class="center">Tipo </th>    
+                                <th width="27%" class="center">Estado Actual</th>
+                                <th width="20%" class="hidden-480">&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center">CAFE </td>
+                                <td style="text-align:left"> AGRICOLA </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>MODIFICAR
+                                    </a>
+                                    <a class="btn btn-danger" id="eliminarBtn" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>ELIMINAR
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td class="center">MAIZ </td>
+                                <td style="text-align:left"> AGRICOLA </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>MODIFICAR
+                                    </a>
+                                    <a class="btn btn-danger" id="eliminarBtn" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>ELIMINAR
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td class="center">PALTA </td>
+                                <td style="text-align:left"> AGRICOLA </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>MODIFICAR
+                                    </a>
+                                    <a class="btn btn-danger" id="eliminarBtn" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>ELIMINAR
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">4</td>
+                                <td class="center">PAPA </td>
+                                <td style="text-align:left"> AGRICOLA </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>MODIFICAR
+                                    </a>
+                                    <a class="btn btn-danger" id="eliminarBtn" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>ELIMINAR
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">5</td>
+                                <td class="center">CUYES </td>
+                                <td style="text-align:left"> PECUARIO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>MODIFICAR
+                                    </a>
+                                    <a class="btn btn-danger" id="eliminarBtn" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>ELIMINAR
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">6</td>
+                                <td class="center">TARA </td>
+                                <td style="text-align:left"> FORESTAL </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>MODIFICAR
+                                    </a>
+                                    <a class="btn btn-danger" id="eliminarBtn" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-file"></i>ELIMINAR
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="modificarModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Modificar Cadena Productiva</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Datos de la Cadena</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Nombre : </label></div>
+                                <div class="col-xs-8" style="text-align:left;">@Html.TextBox("nro_orden", (string)"CAFE", new { style = "width:100%"})</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Tipo :</label></div>
+                                <div class="col-xs-8">
+                                    @{
+                                        List<KeyValuePair<int, string>> dropdownList9 = new List<KeyValuePair<int, string>>();
+                                        dropdownList9.Add(new KeyValuePair<int, string>(0, "Agrícola"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(2, "Pecuario"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(3, "Forestal"));
+                                        SelectList selectList9 = new SelectList(dropdownList9, "key", "value", 0);
+
+                                    }
+                                    @Html.DropDownList("foo", selectList9, new { style = "width:100%" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Modificar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eliminarModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Eliminar Cadena Productiva</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Datos de la Cadena</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Nombre : </label></div>
+                                <div class="col-xs-8" style="text-align:left;">@Html.TextBox("nro_orden", (string)"CAFE", new { style = "width:100%", disabled = true })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Tipo :</label></div>
+                                <div class="col-xs-8">
+                                   @Html.TextBox("nro_orden", (string)"AGRÍCOLA", new { style = "width:100%", disabled = true })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nuevoModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Nueva Cadena Productiva</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Datos de la Cadena</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Nombre : </label></div>
+                                <div class="col-xs-8" style="text-align:left;">@Html.TextBox("nro_orden", (string)"CAFE", new { style = "width:100%" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Tipo :</label></div>
+                                <div class="col-xs-8">
+                                    @{
+                                        List<KeyValuePair<int, string>> dropdownList10 = new List<KeyValuePair<int, string>>();
+                                        dropdownList10.Add(new KeyValuePair<int, string>(0, "Agrícola..."));
+                                        dropdownList10.Add(new KeyValuePair<int, string>(1, "Pecuario"));
+                                        dropdownList10.Add(new KeyValuePair<int, string>(2, "Forestal"));
+                                        SelectList selectList10 = new SelectList(dropdownList10, "key", "value", 0);
+
+                                    }
+                                    @Html.DropDownList("foo", selectList10, new { style = "width:100%" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Agregar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on('click', '.Ver_OT', function () {
+
+            var val = $(this).attr('id');
+            var url_scan = "/OrdenTrabajo/Variable_ver_OT/" + val;
+            window.location.href = url_scan;
+
+        });
+
+        $(document).ready(function () {
+            $('.solo-numero').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+
+        $("#tab_opa").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $('#datetimepicker2').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        }); //Initialise any date pickers
+
+    });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+

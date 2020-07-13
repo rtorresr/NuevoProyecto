@@ -1,0 +1,509 @@
+﻿@*@if (@Session["IdUsua"] == null)
+{
+    <script> 
+            alert('Debe iniciar sesion.');
+            window.location.href = '@Url.Action("Index", "Account")';
+
+    </script>
+}*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta http-equiv="x-ua-compatible" content="FF=31">
+    <meta http-equiv="x-ua-compatible" content="chrome=35">
+
+
+    <link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Comun")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquerySel")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @if (Request.IsAuthenticated)
+    {
+        <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+    }
+    else
+    {
+        <link href="~/Content/style_login.css" rel="stylesheet" type="text/css">
+    }
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/es.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+
+
+    <style>
+        .pull-right > .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+
+        .dropup .caret,
+        .navbar-fixed-bottom .dropdown .caret {
+            border-top: 0;
+            border-bottom: 4px solid #fff;
+            content: "";
+        }
+
+        .dropup .dropdown-menu,
+        .navbar-fixed-bottom .dropdown .dropdown-menu {
+            top: auto;
+            bottom: 100%;
+            margin-bottom: 1px;
+        }
+
+
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .dropup .dropdown-submenu > .dropdown-menu {
+            top: auto;
+            bottom: 0;
+            margin-top: 0;
+            margin-bottom: -2px;
+            -webkit-border-radius: 5px 5px 5px 0;
+            -moz-border-radius: 5px 5px 5px 0;
+            border-radius: 5px 5px 5px 0;
+        }
+
+        .dropdown-submenu > a:after {
+            display: block;
+            float: right;
+            width: 0;
+            height: 0;
+            margin-top: 5px;
+            margin-right: -10px;
+            border-color: transparent;
+            border-left-color: #cccccc;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            content: " ";
+        }
+
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #ffffff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+            .dropdown-submenu.pull-left > .dropdown-menu {
+                left: -100%;
+                margin-left: 10px;
+                -webkit-border-radius: 6px 0 6px 6px;
+                -moz-border-radius: 6px 0 6px 6px;
+                border-radius: 6px 0 6px 6px;
+            }
+
+
+        .navbar .nav li.dropdown > a:hover .caret,
+        .navbar .nav li.dropdown > a:focus .caret {
+            border-top-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .navbar .nav li.dropdown.open > .dropdown-toggle,
+        .navbar .nav li.dropdown.active > .dropdown-toggle,
+        .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+            color: #555555;
+            background-color: #e5e5e5;
+        }
+
+        .navbar .nav li.dropdown > .dropdown-toggle .caret {
+            border-top-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+        .navbar .nav li.dropdown.active > .dropdown-toggle .caret,
+        .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+            border-top-color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .navbar .pull-right > li > .dropdown-menu,
+        .navbar .nav > li > .dropdown-menu.pull-right {
+            right: 0;
+            left: auto;
+        }
+
+            .navbar .pull-right > li > .dropdown-menu:before,
+            .navbar .nav > li > .dropdown-menu.pull-right:before {
+                right: 12px;
+                left: auto;
+            }
+
+            .navbar .pull-right > li > .dropdown-menu:after,
+            .navbar .nav > li > .dropdown-menu.pull-right:after {
+                right: 13px;
+                left: auto;
+            }
+
+            .navbar .pull-right > li > .dropdown-menu .dropdown-menu,
+            .navbar .nav > li > .dropdown-menu.pull-right .dropdown-menu {
+                right: 100%;
+                left: auto;
+                margin-right: -1px;
+                margin-left: 0;
+                -webkit-border-radius: 6px 0 6px 6px;
+                -moz-border-radius: 6px 0 6px 6px;
+                border-radius: 6px 0 6px 6px;
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/Home/Modulos/">
+                <img src="~/Content/img/logo-agroideas-b.png" width="100" height="54" alt="" style="margin-right: 15px;" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Home/Modulos/">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        S.D.A <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UNegocios/recepcionarSda">Recepcionar S.D.A.</a></li>
+                        <li><a href="/UNegocios/registroDatosSda">Registrar Datos S.D.A.</a></li>
+                        @*borrar del menu*@
+                        <li><a href="/UNegocios/reasignarEspecialista">Reasignar Especialista</a></li>
+                        @*borrar del menu*@
+                        <li><a href="/UNegocios/asignarEspecialista">Asignar Especialista</a></li>
+                        @*borrar del menu*@
+                        <li><a href="/UNegocios/historialSDA">Ver Historial SDA</a></li>
+                        <li><a href="/UNegocios/expAsignadosSDA">Expedientes Asignados</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Evaluación SDA <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UNegocios/revExpedienteSDA">Registrar Evaluación</a></li>
+                        <li><a href="/UNegocios/calificacionCriterio">Calificacion x Criterio</a></li>
+                        <li><a href="/UNegocios/planProduccion">Plan de Producción</a></li>
+                        <li><a href="/UNegocios/actualizarSda">Actualizar Estado</a></li>
+                        <li><a href="/UNegocios/adjuntarDocSDA">Adjuntar Documento</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Consultas<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UNegocios/consultaSda">Consulta SDA</a></li>
+                        <li><a href="/UNegocios/trazabilidadExpediente">Trazabilidad del Expediente</a></li>
+
+                        <li><a href="/UNegocios/plazosSda">Plazos de SDA</a></li>
+                        <li><a href="/UNegocios/consultaExpedienteSDA">Consultar Expedientes</a></li>
+                        <li><a href="/UNegocios/expedienteElegibilidad">Expediente de Elegibilidad</a></li>
+                        <li><a href="/UNegocios/consultaPlanProducccion">Planes de Producción</a></li>
+                        <li><a href="/UNegocios/criterioEvaluacion">Criterios de evaluación</a></li>
+                        <li><a href="/UNegocios/consultaEstructuraInversion">Consulta Estructura de Inversión</a></li>
+                        @*borrar del menu*@
+                        <li><a href="/UNegocios/registroEstructuraInversion">Registra Estructura de Inversión</a></li>
+                        @*borrar del menu*@
+                        <li><a href="/UNegocios/registroProgramaAct">Registra Programación de Actividades</a></li>
+                        @*borrar del menu*@
+                        <li><a href="/UNegocios/registraSDA">Registra S.D.A.</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Reportes<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UNegocios/cargaTrabajoEsp">Carga de trabajo del Especialista</a></li>
+                        <li><a href="/UNegocios/planNegocioxIncentivo">Planes de Negocio por Incentivo</a></li>
+                        <li><a href="/UNegocios/reportePRPA">Reporte de PRPA</a></li>
+                        <li><a href="/UNegocios/sdaRegionEstado">SDA por Región y Estado</a></li>
+                        <li><a href="/UNegocios/PN_PRPAaprobadoCD">PN-PRPA aprobado x CD</a></li>
+                        <li><a href="/UNegocios/estructuraInversion">Estructura de Inversión PN-PRPA</a></li>
+                        <li><a href="/UNegocios/programaActividades">Programación de Actividades</a></li>
+                        <li><a href="/UNegocios/reportePlanProduccion">Plan de Producción</a></li>
+                        <li><a href="/UNegocios/reportePlanVentas">Plan de Ventas</a></li>
+                        <li><a href="/UNegocios/indicadoresMercado">Indicadores de Mercado</a></li>
+                        <li><a href="/UNegocios/indicadoresCosto">Indicadores de Costo</a></li>
+                        <li><a href="/UNegocios/indicadoresJornal">Indicadores de Jornal</a></li>
+                        <li><a href="/UNegocios/planManejoAmbiental">Plan Manejo Ambiental</a></li>
+                        <li><a href="/UNegocios/evaluacionDocumentaria">Evaluación Documentaria</a></li>
+                    </ul>
+
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Mantenimiento<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UNegocios/objetivoGenerales">Registrar Objetivos Generales</a></li>
+                        <li><a href="/UNegocios/componente">Registrar Componentes</a></li>
+                        <li><a href="/UNegocios/bienes">Registrar Bienes</a></li>
+                        <li><a href="/UNegocios/servicios">Registrar Servicios</a></li>
+                        <li><a href="/UNegocios/catBienesServicios">Registrar Categoría B/S</a></li>
+                        <li><a href="/UNegocios/cadenaProductiva">Registrar Cadena Productiva</a></li>
+                        <li><a href="/UNegocios/producto">Registrar Producto</a></li>
+                        <li><a href="/UNegocios/unidadMedida">Registrar Unidad de Medida</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav ace-nav navbar-right  ">
+                <li class="purple dropdown-modal">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                        <span class="badge badge-important">8</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header" style="margin-top: 0px !important; color: #125230;">Tienes 5 Notificaciones</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu" style="list-style-type:none; margin-left:2px;">
+                                <li style="line-height:22px !important; margin-bottom:10px; width:350px;">
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-warning text-yellow">&nbsp;</i>
+                                        <span style="color:#555555; line-height:none !important;"> Hay 3 Planes de Negocios observados con plazo por vencer</span>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li style="line-height: 22px !important; margin-bottom: 10px; width: 350px;">
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-warning text-yellow">&nbsp;</i>
+                                        <span style="color:#555555; line-height:none !important;">Se recepcionó 4 S.D.A de Tecnología</span>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li style="line-height: 22px !important; margin-bottom: 10px; width: 350px;">
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-warning text-yellow">&nbsp;</i>
+                                        <span style="color:#555555; line-height:none !important;">Hay 10 S.D.A sin especialista asignado</span>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                        <li style="margin-top:0px; padding-top:0px; text-align:right;"><a href="#">Ver todas</a></li>
+                    </ul>
+                </li>
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="~/Content/img/user.jpg" alt="" />
+                        <span class="user-info">
+                            <small>Bienvenido</small>
+                            <small>Usuario:</small>
+                            @Session["Usuario"]
+                        </span>
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close ">
+                        <li>
+                            <a id="cambiaPWD" href="#modalCambiarContraseña" data-toggle="modal">
+                                <i class="ace-icon fa fa-asterisk"></i>
+                                Cambiar Contraseña
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/Account/Logout">
+                                @*<a href="/Account/Index">*@
+                                <i class="ace-icon fa fa-power-off"></i>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="main-container ace-save-state" id="main-container">
+        <!-- Inicio contenedor-->
+        <script type="text/javascript">
+            try { ace.settings.loadState('main-container') } catch (e) { }
+        </script>
+
+        <div class="main-content">
+            <!-- contenedor -->
+
+            <div class="main-content-inner">
+
+                <div class="page-content">
+                    <!-- contenido -->
+                    @RenderBody()
+                </div><!-- contenido -->
+            </div>
+
+            <!--INGRESAR PRE INFORMACION-->
+            <div id="modalCambiarContraseña" class="modal fade" role="dialog" data-backdrop="false" style="background-color:rgba(0,0,0,0.5);">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title"> Cambiar Contraseña de Usuario </h4>
+                        </div>
+
+                        <div id="form_Registro" class="modal-body">
+                            <div class="row" style="text-align:left">
+                                <div class="col-xs-12 col-md-2" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-8" style="text-align:left">
+                                    <div>
+                                        <label>Contraseña Actual</label>
+                                    </div>
+                                    <div class="inline-block">
+                                        @Html.Password("pwdActual", (string)"", new { style = "width:70%" })
+                                        @Html.CheckBox("chkMostrarPA")
+                                        <label> mostrar.</label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-2" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="text-align:left">
+                                <div class="col-xs-12 col-md-2" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-8" style="text-align:left">
+                                    <div>
+                                        <label>Nueva Contraseña</label>
+                                    </div>
+                                    <div class="inline-block">
+                                        @Html.TextBox("usuario", (string)"", new { style = "display:none", Value = @Session["Usuario"] })
+                                        @Html.TextBox("idUsuar", (string)"", new { style = "display:none", Value = @Session["IdUsua"] })
+                                        @Html.Password("pwdNueva", (string)"", new { style = "width:70%" })
+                                        @Html.CheckBox("chkMostrarPN")
+                                        <label> mostrar.</label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-2" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="text-align:left;">
+                                <div class="col-xs-12 col-md-2" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-8" style="text-align:left">
+                                    <div>
+                                        <label>Confirmar Contraseña</label>
+                                    </div>
+                                    <div>
+                                        @Html.Password("pwdNuevaConf", (string)"", new { style = "width:70%" })
+                                        @Html.CheckBox("chkMostrarNP")
+                                        <label> mostrar.</label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-2" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btnSalvarCambiosPWD">Grabar</button>
+                            <button type="button" class="btn btn-danger" id="btnCerrarCambioPWD" data-dismiss="modal">Cerrar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+
+
+    </div><!-- fin contenedor -->
+
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <span class="bigger-120">
+                    <span class="green bolder">AGROIDEAS</span>
+                    &copy; 2018
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_ModuloHome();
+    });
+</script>
+

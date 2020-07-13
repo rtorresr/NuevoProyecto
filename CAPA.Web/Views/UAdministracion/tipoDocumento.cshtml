@@ -1,0 +1,171 @@
+﻿@model SEL_Entidades.RRHH_E.TipoDocumento_E
+@{
+    ViewBag.Title = "tipoDocumento";
+    Layout = "~/Views/Shared/_LayoutMenuUa.cshtml";
+}
+
+
+<head>
+    <title>TIPO DOCUMENTO</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Home/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UAdministracion/Index">U.Administración</a></li>
+                    <li class="active"> <a href="/UAdministracion/tipoDocumento">Tipos de Documento</a></li>
+                </ul>
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+                    <div class="col-md-12">
+                        <h1> TIPOS DE DOCUMENTO </h1>
+                    </div>
+                </div>                  <!-- Fin titulo -->
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    @*<div id="accordion" style="border:1px solid;">
+                            <div class="card">
+
+
+                            </div>
+                        </div>*@
+
+
+
+                    <div class="col-xs-12 col-md-12">
+
+                        <br>
+                        <div align="right" class="row">
+
+                            <button id="btn_nuevo" type="button" class="btn btn-primary" style="width:10%; margin-right:2%;" data-toggle="modal" data-target="#myModal">
+                                <i class="glyphicon glyphicon-plus"></i> Nuevo
+                            </button><br />
+                        </div>
+
+                        <div class="table-responsive margen">
+
+
+
+                            <table id="tablaTDocumento" class="display table table-bordered table-hover table-striped">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID.</th>
+										<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo Documento </th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Siglas</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Registrado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Registro</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha de Modificación</th>
+                                        <th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acción</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbodyDoc" class="tbodyDoc"></tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                    @*fade*@
+                    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" id="myModalLabel"> TIPOS DE DOCUMENTO </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        @using (Html.BeginForm())
+                                        {
+                                            <div id="idtipoDoc"  class="form-inline col-xs-12 col-md-12" style="margin-bottom:5%; display:none;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ID :</label>
+                                                @Html.TextBoxFor(model => model.IdTipoDocumento, new { @class = "campoNumero", @maxlength = "4", style = "width:60%" , disabled = "disabled"})
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Tipo Documento :</label>
+                                                @Html.TextBoxFor(model => model.Descripcion,  new { @class = "campoTexto", @maxlength = "50", style = "width:60%" })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Siglas :</label>
+                                                @Html.TextBoxFor(model => model.Siglas,  new { @class = "campoTexto", @maxlength = "10", style = "width:60%" })
+                                            </div>
+
+
+                                            <div id="AActivo" class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ACTIVO :</label>
+                                                @Html.TextBox("EActivo", (string)"SI", new { @class = "campoTexto", @MaxLength = "2", style = "width:60%", disabled = "disabled" })
+                                            </div>
+
+                                            <div id="UActivo" class="form-inline col-xs-12 col-md-12" style="display:none;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ACTIVO :</label>
+                                                @Html.TextBoxFor(model => model.Activo, new { @class = "campoTexto", @maxlength = "2", style = "width:60%", disabled = "disabled"})
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Responsable :</label>
+                                                @Html.TextBoxFor(m => m.IdUsuarioRegistro, new { @class = "campoNumero", style = "width:25%", Value = Session["IdUsua"] })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Responsable :</label>
+                                                @Html.TextBoxFor(m => m.IdUsuarioModificacion, new { @class = "campoNumero",style = "width:60%", Value = Session["IdUsua"] })
+                                            </div>
+                                        }
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="btnAdd" onclick="return validarTipoDocumento();">Salvar</button>
+                                    <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="validarTipoDocumento();">Modificar</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiarFormulario();">Cerrar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+ 
+<script type="text/javascript">
+    $(document).ready(function () {
+        listarTipoDocumento();
+        controles_TipoDocumento();
+    });
+
+</script>
+ 

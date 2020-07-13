@@ -1,0 +1,226 @@
+﻿@model SEL_Entidades.SEL_E.OA_Socio_E
+
+@{
+    ViewBag.Title = "registrarCoordenadasUTM";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+
+<title> Registrar coordenadas UTM</title>
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+        <!-- Inicio Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Opa/"> </a>
+            </li>
+            <li><a href="/Opa/Index">OPA</a></li>
+            <li class="active"><a href="registrarCoordenadasUTM">Registrar coordenadas UTM</a></li>
+        </ul>
+
+    </div><!-- Fin ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+                <h1> Registrar coordenadas UTM </h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+        <!-- inicio pasos-->
+
+
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+            <!--------- ACORDEON ------------>
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-file"></i>
+                                Registrar coordenadas UTM de la parcela del socio
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row" ; style="margin-left:auto">
+                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                            <h3>
+                                <i class="ace-icon fa fa-file"></i>
+                                Registro de coordenada
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom:15px; margin-left:auto">
+                     
+                        <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                            <div><label style="text-align:left;"> Socio: </label></div>
+                            <div>
+                                @Html.TextBox("socio", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:80%", disabled = "disabled" })
+                                <p id="txtSocio" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                            <div>
+                                <label style="text-align:left;">Total de parcelas:</label>
+                            </div>
+                            <div>
+                                @Html.TextBoxFor(m => m.totalParcelas, new { @class = "campoDecimal", style = "width:65%", placeholder = "0.00", })
+                                <p id="AtotalHectareas" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                            <div>
+                                <label style="text-align:left;">Área a reconvertir(Ha.):</label>
+                            </div>
+                            <div>
+                                @Html.TextBox("areaReconvertir", (string)"", new { @class = "campoDecimal", style = "width:65%", placeholder = "0.00", })
+                                <p id="AhPastizales" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
+                            <div>
+                                <button id="btnGuardarUTMparcela" class="btn btn-success" style="margin-top:25px"><i class="ace-icon fa fa-floppy-o"></i>Guardar</button>
+                                &nbsp; &nbsp;
+                                <button id="btnLimpiarFiltro" class="btn btn-success" style="margin-top:25px"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+                                
+                            </div>
+
+                        </div>
+                        <br />
+
+                    </div>
+
+                    <!--------- card body ------------>
+                    
+                    <!-- fin de card body -->
+                </div>
+                <!-- fin de card -->
+            </div>
+            <!-- fin de Acrodeon -->
+        </div>
+
+    </div>
+
+    <br />
+
+    <!-- inicio Tabla Junta -->
+    <div class="col-xs-12" style="margin-bottom:20px;">
+        <!-- inicio tabla-->
+
+    <h3 style="text-align:center"><b>Coordenadas UTM-WGS 84</b></h3>
+        <div class="table-responsive margen" style="align-content:center; text-align:center; margin-left:23%">
+            <table id="tablaCoordenadasUTM" class="table table-bordered table-hover" style="max-width:70%; align-content:center; text-align:center">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:15%">Vértice</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:20%">Este (X)</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:20%">Norte (Y)</th>
+
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:15%">Acción</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center">
+                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("dniMiembroJD", (string)"", new { style = "width:100%", })</div>
+                        </td>
+                        <td class="center">
+                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("nombrecompletoMiembroJD", (string)"", new { style = "width:100%", })</div>
+                        </td>
+                      
+                        <td class="center">
+
+                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("telfMiembroJD", (string)"", new { style = "width:100%", })</div>
+                        </td>
+                        <td class="center">
+                            <button class="btn btn-success" id="btnRegistrarCoordenada" href="" title="Agregar coordenadas">
+                                <i class="ace-icon fa fa-plus"></i>Agregar
+                            </button>
+                        </td>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- inicio Tabla MIEMBROS JUNTA DIRECTIVA -->
+        <div class="col-xs-12" style="margin-bottom:25px;">
+            <!-- inicio tabla-->
+            <h3>Listado</h3>
+            <div class="table-responsive margen" style="margin-left:16%">
+                <table id="tablaListaMiembroJD" class="table table-bordered table-hover" style="text-align:center; max-width:80%">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:20%">Nro. Parcela </th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:20%">Área a reconvertir</th>
+
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:15%">Vértice</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:15%">Este (X)</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:15%">Norte (Y)</th>
+
+                            <th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Acciones</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="center">01</td>
+                            <td class="center"> --</td>
+                            <td class="center">-- </td>
+                            <td style="text-align:center">--</td>
+                            <td class="center">-- </td>
+                            <td class="center">-- </td>
+                            <td class="center">
+                                <button class="btn btn-warning" id="btnModificarCoord" href="" title="Modificar coordenada">
+                                    <i class="ace-icon fa fa-edit"></i>
+                                </button>
+                            </td>
+                            <td class="center">
+                                <button class="btn btn-danger" id="btnEliminarCoord" href="" title="Eliminar coordenada">
+                                    <i class="ace-icon fa fa-trash"></i>
+                                </button>
+                            </td>
+                    </tbody>
+
+                </table>
+
+                <div class="col-md-12 text-center">
+                    <ul class="pagination pagination-lg pager" id="developer_page"></ul>
+                </div>
+            </div>
+
+        </div> <!-- Fin tabla Junta  -->
+        @*----- MODAL ACTUALIZAR  JUNTA DIRECTIVA -----*@
+
+
+    </div><!-- contenido -->
+</div>
+    </div><!-- fin contenedor -->

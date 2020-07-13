@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E.filtros" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E.filtros" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:21970/TrabajadorServ.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E" />
+  <xs:complexType name="_listarxfiltroTrabajadorReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nomComTrab" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nrodoc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroTrabajadorReq" nillable="true" type="tns:_listarxfiltroTrabajadorReq" />
+  <xs:complexType name="_listarxfiltroTrabajadorResp">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E" minOccurs="0" name="lstTrabajador_E" nillable="true" type="q1:ArrayOfTrabajador_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroTrabajadorResp" nillable="true" type="tns:_listarxfiltroTrabajadorResp" />
+  <xs:complexType name="_buscarTrabajadorxDniReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nrodoc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_buscarTrabajadorxDniReq" nillable="true" type="tns:_buscarTrabajadorxDniReq" />
+  <xs:complexType name="_buscarTrabajadorxDniResp">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E" minOccurs="0" name="trabajadorxDni_E" nillable="true" type="q2:Trabajador_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_buscarTrabajadorxDniResp" nillable="true" type="tns:_buscarTrabajadorxDniResp" />
+</xs:schema>

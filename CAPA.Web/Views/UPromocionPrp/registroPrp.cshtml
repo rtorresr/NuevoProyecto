@@ -1,0 +1,791 @@
+﻿@{
+    ViewBag.Title = "registró de Organización Prp";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>registró de Organización PRP</title>  
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.Promoción</a></li>
+                <li class="active">registró de Organización PRP</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="row" style="text-align:left">
+
+                    <h1> registró de Información de Organizaciones para el P.R.P </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <div class="col-xs-12">
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/Index" title="Registrar">
+                        <i class="ace-icon fa fa-pencil"></i>REGISTRAR
+                    </a>
+
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/Index" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #e5e5e5;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                           ¿ Que tipo de Pedido de Reconversión Productiva se registrará ?
+
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom:25px; text-align:left">
+                    <br />
+                    <a class="btn btn-success" id="organizacion" href="#" title="Organización">
+                        <i class="ace-icon fa fa-users"></i>ORGANIZACION
+                    </a>
+                    &nbsp;&nbsp; &nbsp;&nbsp;
+                    <a class="btn btn-success" id="individual" href="#" title="Productor Individual">
+                        <i class="ace-icon fa fa-user"></i>PRODUCTOR INDIVIDUAL
+                    </a>
+
+                </div>
+
+                <div id="registróOrganizacion" hidden="true">
+                    <div class="row">
+                        <div class="col-xs-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #e5e5e5;">
+                            <h3>
+                                <i class="ace-icon fa fa-file"></i>
+                                Datos de la Organización
+
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px; text-align:left">
+                        <div class="col-md-1" style=" text-align: left;">
+
+                            <label style=" text-align: left;">
+                                R.U.C.:
+                            </label>
+
+
+                        </div>
+                        <div class="col-md-3" style="text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:50%" })
+                            &nbsp;&nbsp; &nbsp;&nbsp;
+                            <a class="btn btn-success" id="" href="#" title="Validar">
+                                <i class="ace-icon fa fa-check-circle"></i>VALIDAR
+                            </a>
+                        </div>
+                        <div class="col-md-1">
+                            <label style=" text-align:left;">
+                                Razón Social :
+                            </label>
+                        </div>
+                        <div class="col-md-7">
+                            @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:100%", disabled = "true" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-2" style="text-align:left;">
+                            <label style=" text-align:left;">
+                                Fecha de Inscripción en SUNARP :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"28/02/2017", new { @class = "solo-numero", style = "width:50%", disabled = "true" })
+                        </div>
+                        <div class="col-md-1" style="text-align:left;">
+                            <label style=" text-align:left;">
+                                Ficha Registral :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:80%" })
+                        </div>
+                        <div class="col-md-2" style="text-align:left;">
+                            <label style=" text-align:left;">
+                                Fecha de Acta de Constitución :
+                            </label>
+                        </div>
+                        <div class="col-md-3" style=" text-align:left;">
+                            <div class="txtFormulario" style="width:100% ">
+                                <div class='input-group date' id='datetimepicker2' style=" width:50%;">
+                                    @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #e5e5e5;">
+                            <h3>
+                                <i class="ace-icon fa fa-file"></i>
+                                Datos del Representante Legal de la Organización
+
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-1" style=" text-align:left;">
+
+                            <label style=" text-align:left;">
+                                D.N.I :
+                            </label>
+
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"08459962", new { @class = "solo-numero", style = "width:50%" })
+                            &nbsp;&nbsp;
+                            <a class="btn btn-success" id="" href="#" title="Validar">
+                                <i class="ace-icon fa fa-check-circle"></i>VALIDAR
+                            </a>
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Nombres :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"JUAN GUSTAVO", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Apellido Paterno :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"ARANIBAR", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                        </div>
+                        <div class="col-md-1">
+                            <label style=" text-align:left;">
+                                Apellido Materno :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"PEREZ", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-1" style=" text-align: left; padding-right: 0px !important;">
+                            <label style=" text-align:left;">
+                                Correo Electrónico:
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:80%" })
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Tipo de Teléfono :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @{
+                                List<KeyValuePair<int, string>> dropdownList1 = new List<KeyValuePair<int, string>>();
+                                dropdownList1.Add(new KeyValuePair<int, string>(0, "Seleccione"));
+                                dropdownList1.Add(new KeyValuePair<int, string>(1, "Celular"));
+                                dropdownList1.Add(new KeyValuePair<int, string>(2, "Oficina"));
+                                dropdownList1.Add(new KeyValuePair<int, string>(2, "Casa"));
+                                SelectList selectList1 = new SelectList(dropdownList1, "key", "value", 0);
+
+                            }
+                            @Html.DropDownList("foo", selectList1, new { style = "width:70%" })
+                        </div>
+                        <div class="col-md-1" style=" text-align: left; padding-right: 0px !important;">
+                            <label style=" text-align:left;">
+                                Nº de Teléfono :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:60%" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #e5e5e5;">
+                            <h3>
+                                <i class="ace-icon fa fa-file"></i>
+                                Datos de la Persona de Contacto de la Organización
+
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-1" style=" text-align:left;">
+
+                            <label style=" text-align:left;">
+                                D.N.I :
+                            </label>
+
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"08459962", new { @class = "solo-numero", style = "width:50%" })
+                            &nbsp;&nbsp;
+                            <a class="btn btn-success" id="" href="#" title="Validar">
+                                <i class="ace-icon fa fa-check-circle"></i>VALIDAR
+                            </a>
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Nombres :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"PEDRO ALEJANDRO", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Apellido Paterno :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"REQUEJO", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                        </div>
+                        <div class="col-md-1">
+                            <label style=" text-align:left;">
+                                Apellido Materno :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"ALVA", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-1" style=" text-align: left; padding-right: 0px !important;">
+                            <label style=" text-align:left;">
+                                Correo Electrónico:
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:80%" })
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Tipo de Teléfono :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @{
+                                List<KeyValuePair<int, string>> dropdownList2 = new List<KeyValuePair<int, string>>();
+                                dropdownList2.Add(new KeyValuePair<int, string>(0, "Seleccione"));
+                                dropdownList2.Add(new KeyValuePair<int, string>(1, "Celular"));
+                                dropdownList2.Add(new KeyValuePair<int, string>(2, "Oficina"));
+                                dropdownList2.Add(new KeyValuePair<int, string>(2, "Casa"));
+                                SelectList selectList2 = new SelectList(dropdownList2, "key", "value", 0);
+
+                            }
+                            @Html.DropDownList("foo", selectList2, new { style = "width:70%" })
+                        </div>
+                        <div class="col-md-1" style=" text-align: left; padding-right: 0px !important;">
+                            <label style=" text-align:left;">
+                                Nº de Teléfono :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:60%" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="accordion" style="border:1px solid;">
+
+                            <div class="card">
+                                <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <a href="#" style="color:white; text-decoration:none;" data-toggle="collapse">
+                                            <i class="ace-icon fa fa-file"></i>
+                                            Datos del Pedido de Reconversión Productiva
+                                        </a>
+                                    </h5>
+                                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <a href="#" data-action="collapse" style="color:#fff;">
+                                            <i class="ace-icon fa fa-chevron-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body" style="padding-left:12px;">
+                                        <div class="card-body" style="padding-left:12px;">
+                                            <br />
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                                    <label style=" text-align:left;">
+                                                        Lugar donde se desarrollará el Pedido de Reconversión Productiva
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Departamento :
+                                                    </label>
+
+
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList20 =
+                                                                                                            new List<KeyValuePair<int, string>>();
+                                                        dropdownList20.Add(new KeyValuePair<int, string>(0, "Cajamarca"));
+                                                        dropdownList20.Add(new KeyValuePair<int, string>(1, "Arequipa"));
+                                                        dropdownList20.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                                        dropdownList20.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                                        dropdownList20.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                                        SelectList selectList20 = new SelectList(dropdownList20, "key", "value", 0);
+
+                                                    }
+
+                                                    @Html.DropDownList("foo", selectList20)
+
+                                                </div>
+                                                <div class="col-md-3" style="text-align:left;">
+                                                    <label style=" text-align:left;">
+                                                        Provincia :
+                                                    </label>
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList21 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList21.Add(new KeyValuePair<int, string>(0, "San Ignacio"));
+                                                        dropdownList21.Add(new KeyValuePair<int, string>(1, "Barranca"));
+                                                        dropdownList21.Add(new KeyValuePair<int, string>(2, "Cañete"));
+                                                        dropdownList21.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                                        dropdownList21.Add(new KeyValuePair<int, string>(2, "Yauyos"));
+                                                        SelectList selectList21 = new SelectList(dropdownList21, "key", "value", 0);
+
+                                                    }
+
+                                                    @Html.DropDownList("foo", selectList21)
+
+                                                </div>
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Distrito :
+                                                    </label>
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList22 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList22.Add(new KeyValuePair<int, string>(0, "San Jose de Lourdes"));
+                                                        dropdownList22.Add(new KeyValuePair<int, string>(1, "Calango"));
+                                                        dropdownList22.Add(new KeyValuePair<int, string>(2, "Cerro Azul"));
+                                                        dropdownList22.Add(new KeyValuePair<int, string>(2, "Imperial"));
+                                                        dropdownList22.Add(new KeyValuePair<int, string>(2, "Mala"));
+                                                        SelectList selectList22 = new SelectList(dropdownList22, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectList22)
+
+
+                                                </div>
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Centro Poblado :
+                                                    </label>
+
+                                                    @Html.TextBox("nro_orden", (string)"SAN JOSE DE LOURDES", new { @class = "solo-numero", style = "width:60%" })
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo a Reconvertir
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo :
+                                                    </label>
+
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList23 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList23.Add(new KeyValuePair<int, string>(0, "ARROZ"));
+                                                        dropdownList23.Add(new KeyValuePair<int, string>(1, "ALGODÓN"));
+                                                        dropdownList23.Add(new KeyValuePair<int, string>(2, "HOJA DE COCA"));
+                                                        dropdownList23.Add(new KeyValuePair<int, string>(2, "QUINUA"));
+                                                        dropdownList23.Add(new KeyValuePair<int, string>(2, "PAPA"));
+                                                        SelectList selectList23 = new SelectList(dropdownList23, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectList23)
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo a Instalar
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo :
+                                                    </label>
+
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList24 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList24.Add(new KeyValuePair<int, string>(0, "CACAO"));
+                                                        dropdownList24.Add(new KeyValuePair<int, string>(1, "CAFE"));
+                                                        dropdownList24.Add(new KeyValuePair<int, string>(2, "PIÑA"));
+                                                        dropdownList24.Add(new KeyValuePair<int, string>(2, "PALTA"));
+                                                        dropdownList24.Add(new KeyValuePair<int, string>(2, "BANANO"));
+                                                        SelectList selectList24 = new SelectList(dropdownList24, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectList24)
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="registróIndividual" hidden="true">
+                    <div class="row">
+                        <div class="col-xs-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #e5e5e5;">
+                            <h3>
+                                <i class="ace-icon fa fa-file"></i>
+                                Datos del Productor Individual
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px; text-align:left">
+                        <div class="col-md-1" style=" text-align: left;">
+
+                            <label style=" text-align: left;">
+                                D.N.I :
+                            </label>
+
+
+                        </div>
+                        <div class="col-md-3" style="text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"47622288", new { @class = "solo-numero", style = "width:50%" })
+                            &nbsp;&nbsp; &nbsp;&nbsp;
+                            <a class="btn btn-success" id="" href="#" title="Validar">
+                                <i class="ace-icon fa fa-check-circle"></i>VALIDAR
+                            </a>
+                        </div>
+                        <div class="col-md-1">
+                            <label style=" text-align:left;">
+                                Nombres:
+                            </label>
+                        </div>
+                        <div class="col-md-7">
+                            @Html.TextBox("razon_social", (string)"JULIO ALBERTO, NAVARRO CASTRO", new { @MaxLength = "500", style = "width:100%", disabled = "true" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-2" style="text-align:left;">
+                            <label style=" text-align:left;">
+                                Fecha de Nacimiento :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("nro_orden", (string)"15/08/1967", new { @class = "solo-numero", style = "width:50%", disabled = "true" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #e5e5e5;">
+                            <h3>
+                                <i class="ace-icon fa fa-file"></i>
+                                Datos de contacto con el Productor
+
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:25px;">
+                        <div class="col-md-1" style=" text-align: left; padding-right: 0px !important;">
+                            <label style=" text-align:left;">
+                                Correo Electrónico:
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:80%" })
+                        </div>
+                        <div class="col-md-1" style=" text-align:left;">
+                            <label style=" text-align:left;">
+                                Tipo de Teléfono :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @{
+                                List<KeyValuePair<int, string>> dropdownList5 = new List<KeyValuePair<int, string>>();
+                                dropdownList5.Add(new KeyValuePair<int, string>(0, "Seleccione"));
+                                dropdownList5.Add(new KeyValuePair<int, string>(1, "Celular"));
+                                dropdownList5.Add(new KeyValuePair<int, string>(2, "Oficina"));
+                                dropdownList5.Add(new KeyValuePair<int, string>(2, "Casa"));
+                                SelectList selectList5 = new SelectList(dropdownList5, "key", "value", 0);
+
+                            }
+                            @Html.DropDownList("foo", selectList1, new { style = "width:70%" })
+                        </div>
+                        <div class="col-md-1" style=" text-align: left; padding-right: 0px !important;">
+                            <label style=" text-align:left;">
+                                Nº de Teléfono :
+                            </label>
+                        </div>
+                        <div class="col-md-2" style=" text-align:left;">
+                            @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:60%" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="accordionDos" style="border:1px solid;">
+
+                            <div class="card">
+                                <div class="card-header widget-header" id="headingDosUno" style="text-align:left;">
+                                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseDosUno" aria-expanded="true" aria-controls="collapseDosUno">
+                                        <a href="#" style="color:white; text-decoration:none;" data-toggle="collapse">
+                                            <i class="ace-icon fa fa-file"></i>
+                                            Datos del Pedido de Reconversión Productiva
+                                        </a>
+                                    </h5>
+                                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseDosUno" aria-expanded="true" aria-controls="collapseDosUno">
+                                        <a href="#" data-action="collapse" style="color:#fff;">
+                                            <i class="ace-icon fa fa-chevron-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="collapseDosUno" class="collapse" aria-labelledby="headingDosUno" data-parent="#accordion">
+                                    <div class="card-body" style="padding-left:12px;">
+                                        <div class="card-body" style="padding-left:12px;">
+                                            <br />
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                                    <label style=" text-align:left;">
+                                                        Lugar donde se desarrollará el Pedido de Reconversión Productiva
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Departamento :
+                                                    </label>
+
+
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList11 =
+                                                                                                            new List<KeyValuePair<int, string>>();
+                                                        dropdownList11.Add(new KeyValuePair<int, string>(0, "Cajamarca"));
+                                                        dropdownList11.Add(new KeyValuePair<int, string>(1, "Arequipa"));
+                                                        dropdownList11.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                                        dropdownList11.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                                        dropdownList11.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                                        SelectList selectList11 = new SelectList(dropdownList11, "key", "value", 0);
+
+                                                    }
+
+                                                    @Html.DropDownList("foo", selectList20)
+
+                                                </div>
+                                                <div class="col-md-3" style="text-align:left;">
+                                                    <label style=" text-align:left;">
+                                                        Provincia :
+                                                    </label>
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList12 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList12.Add(new KeyValuePair<int, string>(0, "San Ignacio"));
+                                                        dropdownList12.Add(new KeyValuePair<int, string>(1, "Barranca"));
+                                                        dropdownList12.Add(new KeyValuePair<int, string>(2, "Cañete"));
+                                                        dropdownList12.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                                        dropdownList12.Add(new KeyValuePair<int, string>(2, "Yauyos"));
+                                                        SelectList selectList12 = new SelectList(dropdownList12, "key", "value", 0);
+
+                                                    }
+
+                                                    @Html.DropDownList("foo", selectList21)
+
+                                                </div>
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Distrito :
+                                                    </label>
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList13 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList13.Add(new KeyValuePair<int, string>(0, "San Jose de Lourdes"));
+                                                        dropdownList13.Add(new KeyValuePair<int, string>(1, "Calango"));
+                                                        dropdownList13.Add(new KeyValuePair<int, string>(2, "Cerro Azul"));
+                                                        dropdownList13.Add(new KeyValuePair<int, string>(2, "Imperial"));
+                                                        dropdownList13.Add(new KeyValuePair<int, string>(2, "Mala"));
+                                                        SelectList selectList13 = new SelectList(dropdownList13, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectList22)
+
+
+                                                </div>
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Centro Poblado :
+                                                    </label>
+
+                                                    @Html.TextBox("nro_orden", (string)"SAN JOSE DE LOURDES", new { @class = "solo-numero", style = "width:60%" })
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo a Reconvertir
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo :
+                                                    </label>
+
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList6 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList6.Add(new KeyValuePair<int, string>(0, "ARROZ"));
+                                                        dropdownList6.Add(new KeyValuePair<int, string>(1, "ALGODÓN"));
+                                                        dropdownList6.Add(new KeyValuePair<int, string>(2, "HOJA DE COCA"));
+                                                        dropdownList6.Add(new KeyValuePair<int, string>(2, "QUINUA"));
+                                                        dropdownList6.Add(new KeyValuePair<int, string>(2, "PAPA"));
+                                                        SelectList selectList6 = new SelectList(dropdownList6, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectList6)
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo a Instalar
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:25px;">
+                                                <div class="col-md-3" style="text-align:left;">
+
+                                                    <label style=" text-align:left;">
+                                                        Cultivo :
+                                                    </label>
+
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownList7 = new List<KeyValuePair<int, string>>();
+                                                        dropdownList7.Add(new KeyValuePair<int, string>(0, "CACAO"));
+                                                        dropdownList7.Add(new KeyValuePair<int, string>(1, "CAFE"));
+                                                        dropdownList7.Add(new KeyValuePair<int, string>(2, "PIÑA"));
+                                                        dropdownList7.Add(new KeyValuePair<int, string>(2, "PALTA"));
+                                                        dropdownList7.Add(new KeyValuePair<int, string>(2, "BANANO"));
+                                                        SelectList selectList7 = new SelectList(dropdownList7, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectList7)
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+
+        </div>
+
+
+       
+    </div>
+    </div>
+
+</div><!-- fin contenedor -->
+<script>
+
+    $('#organizacion').click(function () {
+
+        $('#registróOrganizacion').show();
+        $('#registróIndividual').hide();
+    });
+
+    $('#individual').click(function () {
+
+        $('#registróOrganizacion').hide();
+        $('#registróIndividual').show();
+    });
+
+    $('#datetimepicker2').datetimepicker({
+        locale: 'es',
+        format: 'DD/MM/YYYY',
+        maxDate: Date.now(),
+        showClose: true,
+        allowInputToggle: true,
+        keepInvalid: true,
+        ignoreReadonly: true,
+        widgetPositioning: {
+            horizontal: 'auto',
+            vertical: 'top'
+        }
+    });
+</script>

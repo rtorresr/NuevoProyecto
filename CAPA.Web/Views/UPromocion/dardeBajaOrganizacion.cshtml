@@ -1,0 +1,354 @@
+﻿@model SEL_Entidades.SEL_E.OA_E
+
+@{
+    ViewBag.Title = "dardeBajaOrganizacion";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li class="active">Dar de baja Organización</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Dar de baja Organización</h1>
+                </div>
+            </div>
+
+            <!-- Fin titulo -->
+
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+
+                    <div class="tab-content">
+
+                        <div class="active tab-pane" id="pesProrroga">
+
+                            <div class="row">
+                                <div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+                                    <h3>
+                                        <i class="ace-icon fa fa-file"></i>
+                                       <b>Dar de baja Organización</b> 
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <br />
+                            <div>
+                                <div class="row" style="margin-bottom:5px;">
+
+                                    <div class="col-xs-1 col-sm-1 col-md-1">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                    <div class="col-xs-10 col-sm-10 col-md-10 panel panel-default">
+
+                                       <div class="row" style="margin-bottom:10px; margin-left:auto">
+                                            <br />
+                                            
+                                           
+                                           <div class="col-xs-12 col-sm-12 col-md-4" style="text-align:left; margin-bottom:5px; margin-left:auto">
+                                                <div>
+                                                    <label style="text-align:left">RUC:</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.idOA, new { @class = "campoNumero", style = "display:none" })
+                                                    @Html.TextBoxFor(m => m.rucOA, new { @class = "campoNumero", @maxlength = "11", style = "width:45%" })
+
+                                                     <button id="btnCargarOA" class="btn btn-info2 btn-sm" title="Buscar OA"> <ion-icon name="search"></ion-icon></button>
+                                                </div>
+                                            </div>
+
+                                           <div class="col-xs-12 col-md-4" style="text-align:left; margin-bottom: 10px; display:none;">
+
+                                               <div>
+                                                   @Html.TextBox("idoabaja", (string)"", new { @class = "campoNumero", @MaxLength = "250", style = "width:80%", disabled = "disabled" })
+                                               </div>
+                                           </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-8" style="text-align:left; margin-bottom:5px; margin-left:auto">
+                                                <div><label style="text-align:left"> Razón Social: </label></div>
+                                                <div>
+                                                    @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:85%", disabled = "disabled" })
+                                                    <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:10px; margin-left:auto">
+                                        
+                                            <div class="col-xs-12 col-md-4" style="text-align:left; margin-bottom: 10px; display:none;">
+                                                <div>
+                                                    <label style="text-align: left;"> Id Especialista: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div>
+
+                                                    @Html.TextBox("idEspecialista", (string)"", new { @class = "campoNumero", @MaxLength = "250", style = "width:80%", disabled = "disabled" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left; margin-bottom: 10px; display:none;">
+                                                <div>
+                                                    <label style="text-align: left;"> ID Jefe : &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div>
+
+                                                    @Html.TextBox("idJefeCargo", (string)"", new { @class = "campoNumero", @MaxLength = "250", style = "width:80%", disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-xs-12 col-md-4" style="text-align:left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Especialista de registro: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div>
+
+                                                    @*@Html.Hidden("idEspecialista", (string)"", new { @class = "campoNumero", @MaxLength = "250", style = "width:80%", disabled = "disabled" })*@
+                                                     @Html.TextBox("especialistaOA", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:80%", disabled="disabled" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-12" hidden="hidden" style="text-align:left; margin-bottom:5%;">
+                                                <label style="text-align: left;">Usuario :</label>
+                                                @Html.TextBox("idusuario", (string)"", new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = @Session["IdUsua"] })
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-12" hidden="hidden" style="text-align:left; margin-bottom:5%;">
+                                                <label style="text-align: left;">Usuario Modifica :</label>
+                                                @Html.TextBox("idUsuarioModifica", (string)"", new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = @Session["IdUsua"] })
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-2" style="text-align: left; margin-bottom: 10px;">
+                                                <div >
+                                                    <div> <br/> </div>
+                                                </div>
+                                                
+                                                <div>
+                                                    <label style="text-align: left;"> Dar de baja: &nbsp;&nbsp; </label>
+                                                
+                                                    <label style="align-content:center">
+                                                    <input id="checkBox_Baja" type="checkbox" name="optradio">
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align:left;"> Motivo de baja: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("motivoBaja", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:80%" })
+                                                   
+                                                    <p id="ARequisitosDocOA" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha de solicitud de baja: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div class="input-group" style="width:65%">
+                                                    @Html.TextBox("fechaSolicitudBaja", (string)"", new { @class = "datetimepicker", @MaxLength = 10, style = "width:100%" })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left; margin-bottom: 10px; display:none">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha Confirmacion jefe: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div class="input-group" style="width:65%">
+                                                    @Html.TextBox("fechaConfJefe", (string)"", new { @class = "datetimepicker", @MaxLength = 10, style = "width:100%" })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha de baja: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div class="input-group" style="width:65%">
+                                                    @Html.TextBox("fechaBaja", (string)"", new { @class = "datetimepicker", @MaxLength = 10, style = "width:100%", disabled = true })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <input type="file" id="fileinput" style="text-align:center; align-content:center">
+
+                                                <button id="btnLoadFile" class="btn btn-success" style="text-align:right; margin-left:40%; align-content:center">
+                                                     Subir Archivo
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div id="file-content"></div>
+
+                                            <div class="row" style="margin-bottom:0px; margin-left:auto; text-align:center">
+
+                                                <div class="col-xs-12 col-sm-6 col-md-12" style="text-align:center; margin-top:25px">
+                                                    <button id="btnConsultarDarBajaOA" class="btn btn-success" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+                                                    &nbsp;
+                                                    <button id="btnLimpiarDarBajaOA" class="btn btn-info" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+                                                    &nbsp;
+                                                    <button id="btnGrabarDarBajaOA" class="btn btn-warning" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+                                                    &nbsp;
+                                                    <button id="btnMmodificaDarBajaOA" class="btn btn-warning" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-undo"></i> MODIFICAR
+                                                    </button>
+                                                    &nbsp;
+                                                    <button id="btnCancelarDarBajaOA" class="btn btn-danger" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-6 col-md-12" style="text-align:center">
+                                        <button id="btnAgregarOAparaBaja" class="btn btn-info" style="margin-bottom:0px;">
+                                            <i class="ace-icon fa fa-pencil-square"></i> AGREGAR
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                @*--- TABLA PLAZOS --*@
+
+                                <div class="col-xs-12 col-md-12" style="align-content:center;">
+
+
+                                    <!-- inicio tabla-->
+
+                                    <div class="row" style="margin-top:25px">
+                                        <div class="col-xs-1  col-sm-1  col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; margin-top:25px; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                   <br /> <b>Listado de Organizaciones por dar de Baja</b>
+                                                </h3>
+                                            </div>
+
+                                            <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                                <table id="tbOAsdeBaja" class="table table-bordered table-hover" style="width:100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">IDBaja</th>
+                                                            <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">IDoa</th>
+                                                            <th rowspan="1" width="2%" style="background-color:darkseagreen; color:black; min-width:3%; max-width:5%" class="center">N°</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:6%; max-width:12%" class="center">RUC</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:6%; max-width:8%" class="center">Razón Social</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:6%; max-width:8%" class="center">Unidad PCC</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:6%; max-width:8%" class="center">Especialista registro</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:10%" class="center">¿De baja?</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:15%; max-width:20%" class="center"> Motivo de baja</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:10%" class="center">Fecha solicitud de baja</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:10%" class="center">Fecha registro baja</th>
+                                                            <th rowspan="1" width="15%" style="background-color:darkseagreen; color:black; min-width:7%; max-width:10%" class="center">¿Baja confirmado?</th>
+                                                            <th rowspan="1" width="10%" style="background-color:darkseagreen; color:black; min-width:10%; max-width:15%" class="center">Fecha confirmación</th>
+                                                            <th rowspan="1" width="10%" style="background-color:darkseagreen; color:black; min-width:10%; max-width:15%" class="center">Confirmado por:</th>
+                                                            <th rowspan="1" width="12%" style="background-color:darkseagreen; color:black; min-width:10%; max-width:15%" class="center">Ver Doc. Adjunto</th>
+                                                            <th colspan="1" width="12%" style="background-color:darkseagreen; color:black; min-width:10%; max-width:15%" class="center">Modificar</th>
+                                                        </tr>
+                                                  
+                                                          @*<tr>
+                                                            
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                        </tr>*@
+
+                                                    </thead>
+
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <br />
+
+                                <div class="col-xs-1 col-sm-1 col-md-1">
+                                    <div>&nbsp;</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var xfileName = "";
+        obtenerFechaActualBajaOA();
+        controlesDarBajaOrganizacion();
+       
+    })
+
+</script>
+
+@*@Scripts.Render("~/bundles/bootstrap")*@

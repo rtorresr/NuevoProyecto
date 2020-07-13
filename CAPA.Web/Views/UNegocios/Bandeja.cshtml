@@ -1,0 +1,225 @@
+﻿@{
+    ViewBag.Title = "Bandeja de Expedientes";
+    Layout = "~/Views/Shared/_LayoutMenuUn_Nuevo.cshtml";
+
+}
+
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]  </span>
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UNegocios/index"> U.Negocios</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ul>
+        </div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <div class="cbp-mc-column">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        <li><button class="btn btn-primary navbar-btn">Recepcionar</button></li>
+                        <li><button class="btn btn-primary navbar-btn">Registrar</button></li>
+                        <li><button class="btn btn-primary navbar-btn">Asignar</button></li>
+                        <li><button class="btn btn-primary navbar-btn">Reasignar</button></li>
+                        <li><button class="btn btn-primary navbar-btn">Detalle</button></li>
+                        <li><button class="btn btn-primary navbar-btn">Historial</button></li>
+                    </ul>
+                </nav>
+                <div class="pull-right"><button class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#busqueda">Buscar</button></div>
+                <br /><br /><br />
+                <table id="tablaUNRecepcionarSDA" class="table table-bordered table-hover table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:8%"></th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:8%">N° Expediente</th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:8%">Nro. CUT</th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Razon Social </th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo de incentivo</th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:12%">Asunto</th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:8%">Estado</th>
+                            <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:7%">Fecha del Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>123-2020</td>
+                            <td>034272-2020</td>
+                            <td>Comunidad Campesina</td>
+                            <td>Tecnología</td>
+                            <td>Presentación plan de negocio</td>
+                            <td>Sin recepcionar</td>
+                            <td>07/07/2020</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>123-2020</td>
+                            <td>034272-2020</td>
+                            <td>Comunidad Campesina</td>
+                            <td>Tecnología</td>
+                            <td>Presentación plan de negocio</td>
+                            <td>Recepcionado</td>
+                            <td>07/07/2020</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>123-2020</td>
+                            <td>034272-2020</td>
+                            <td>Comunidad Campesina</td>
+                            <td>Tecnología</td>
+                            <td>Presentación plan de negocio</td>
+                            <td>Asignado</td>
+                            <td>07/07/2020</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="busqueda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="conRuc" style="margin-bottom:25px; margin-left:auto">
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-left:auto">
+                        <div>
+                            <label style="text-align:left;">RUC:</label>
+                        </div>
+                        <div>
+                            @Html.TextBox("nroRucFl", (string)"", new { style = "width:100%" })
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-9" style="text-align: left; margin-left:auto">
+                        <div>
+                            <label style="text-align:left;">Razon Social:</label>
+                        </div>
+                        <div>
+                            @Html.TextBox("nroRucFl", (string)"", new { style = "width:100%" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom:25px; margin-left:auto">
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">N° Expediente: </label> </div>
+                        <div>  <select id="cbxNoExpFl" class="custom-select" style="width:60%;"> </select> </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div>  <label style="text-align:left;">N° CUT:</label> </div>
+                        <div>
+                            @Html.TextBox("NroSgdCutFl", (string)"", new { @class = "campoNumero", style = "width:100%", disabled = true })
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Estado: </label> </div>
+                        <div>
+                            @{
+                                List<KeyValuePair<int, string>> ddlstEstado = new List<KeyValuePair<int, string>>();
+                                ddlstEstado.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                ddlstEstado.Add(new KeyValuePair<int, string>(1, "NUEVO"));
+                                ddlstEstado.Add(new KeyValuePair<int, string>(2, "RECEPCIONADO"));
+                                SelectList selectEstado = new SelectList(ddlstEstado, "key", "value", 0);
+                            }
+                            @Html.DropDownList("cbxEstadoF", selectEstado, new { style = "width:100%" })
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Línea de acción:</label> </div>
+                        <div>
+                            <select id="cbxTipoSdaFl" class="custom-select" style="width:100%;"> </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:25px; margin-left:auto">
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Tipo SDA:</label> </div>
+                        <div>
+                            <select id="cbxTipoSdaFl" class="custom-select" style="width:100%;"> </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Actividad Economica:</label> </div>
+                        <div>
+                            <select id="cbxTipoSdaFl" class="custom-select" style="width:100%;"> </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Cadena Productiva:</label> </div>
+                        <div>
+                            <select id="cbxTipoSdaFl" class="custom-select" style="width:100%;"> </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-bottom:5px; margin-left:auto">
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Departamento: </label> </div>
+                        <div> <select id="cbxDepartamentoFl" class="custom-select" style="width:100%;"> </select> </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div> <label style="text-align:left;">Provincia:</label> </div>
+                        <div>
+                            <select id="cbxProvinciaFl" class="custom-select" style="width:100%;"> </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                        <div><label style="text-align:left;">Distrito:</label></div>
+                        <div>
+                            <select id="cbxDistritoFl" class="custom-select" style="width:100%;"> </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:5px; margin-left:auto">
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: left; margin-bottom: 5px;">
+                        <div>
+                            <label style="text-align:left;"><strong>Fecha de trámite:</strong></label>
+                        </div>
+                        <div class="form-inline">
+                            Del:&nbsp;
+                            <div class="input-group date" style="width:40%; Text-align:left;">
+                                @Html.TextBox("fecIni1", (string)"", new { @class = "datetimepicker", style = "width:95%; text-align:left;" })
+                                <span class="input-group-addon" style="text-align:left; width:20%;">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                            &nbsp;&nbsp; al:&nbsp;
+                            <div class="input-group date" style="width:40%; Text-align:left;">
+                                @Html.TextBox("fecIni2", (string)"", new { @class = "datetimepicker", style = "width:95%; text-align:left;" })
+                                <span class="input-group-addon" style="text-align:left; width:20%;">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Buscar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Limpiar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

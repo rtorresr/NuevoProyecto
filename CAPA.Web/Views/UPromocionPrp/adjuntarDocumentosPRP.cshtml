@@ -1,0 +1,493 @@
+﻿@model SEL_Entidades.SEL_E.OA_Socio_E
+
+@{
+    ViewBag.Title = "adjuntarDocumentosPRP";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title> Adjuntar documentos PRP</title>
+</head>
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <!-- INICIO RUTA -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción PRP</a></li>
+            <li class="active"><a href="/UPromocionPrp/adjuntarDocumentosPRP">Adjuntar documentos PRP</a></li>
+        </ul>
+
+    </div><!-- FIN RUTA -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+                <h1> Adjuntar documentos PRP</h1>
+            </div>
+
+        </div>
+        <!-- Fin titulo -->
+        <!-- inicio pasos-->
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+            <!-- contenido de pasos -->
+            <!--------- ACORDEON ------------>
+
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-search"></i>
+                                Busqueda adjuntar documentos PRP
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+
+                            <div class="row" style="margin-bottom:0px;">
+
+                                <div class="col-xs-12 col-md-12 panel panel-default" style="width:20%; margin-left:1%; margin-top:1%;">
+                                    <div class="panel-body inline-block" style="text-align:left">
+                                        <label>Buscar Por:</label>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <label><input id="rb_ruc" type="radio" name="optradio" checked> RUC</label>
+                                        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                        <label><input id="rb_sgd" type="radio" name="optradio"> Nro. CUT</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="conRuc" class="row" style="margin-bottom:15px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>RUC:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @MaxLenght = "11", style = "width:70%" })
+                                        <button id="btnCargarDatos" class="btn btn-info2 btn-sm" title="Cargar Datos"> <i class="ace-icon glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Nro. Expediente:</label>
+                                    </div>
+                                    <div>
+                                        <select id="cbxExpedientes" class="custom-select" style="width:70%;"> </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Nro. CUT:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("nroCutSgd", (string)"", new { @class = "", style = "width:70%", disabled=true})
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="conSGD" class="row" style="margin-bottom:15px; display:none; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left">
+                                    <div>
+                                        <label>Nro. CUT:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("nroCutSgd", (string)"", new { @class = "", style = "width:60%", })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                    <div>
+                                        <label style="text-align:left;">
+                                            Razón social:
+                                        </label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row" style="margin-bottom:15px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                    <div>
+                                        <label style="text-align:left;">
+                                            Razón social:
+                                        </label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:80%", })
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-md-4" style="text-align:left">
+                                    <div>
+                                        <label>Nombre Plan Negocio PRP:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:80%", disabled = "true" })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left">
+                                    <div>
+                                        <label>Especialista asignado:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:80%", disabled = "true" })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row" style="margin-bottom:15px; margin-left:auto">
+
+
+                            </div>
+
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--ACORDEON 2-->
+                <div class="card">
+                @* Acordeaon Cabecera *@
+                <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <a style="color:white; text-decoration:none;">
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos del documento
+                        </a>
+                    </h5>
+                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                            <i class="ace-icon fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                @* Acordeaon Cuerpo *@
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
+                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                        <br />
+                        <div class="row" style="margin-bottom:15px; margin-left:auto">
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left">
+                                <div>
+                                    <label>RUC:</label>
+                                </div>
+                                <div>
+                                    @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @MaxLenght = "11", style = "width:70%" })
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left">
+                                <div>
+                                    <label>Nro. Expediente:</label>
+                                </div>
+                                <div>
+                                    <select id="cbxExpedientes" class="custom-select" style="width:65%;"> </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left">
+                                <div>
+                                    <label>Nro. CUT:</label>
+                                </div>
+                                <div>
+                                    @Html.TextBox("nroCutSgd", (string)"", new { @class = "", style = "width:70%", disabled = true })
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align:left;"> Unidad PCC: </label>
+                                </div>
+                                <div>
+                                    <select id="cbxUnidadPCCFl" class="custom-select" style="width:70%;"> </select>   
+                                 </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row" style="margin-bottom:15px; margin-left:auto">
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align:left;"> Línea de acción: </label>
+                                </div>
+                                <div>
+                                    <select id="cbxTipoSDAFl" class="custom-select" style="width:70%;"> </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;  width:30%;">Proceso:</label>
+                                </div>
+                                <div>
+                                    @Html.TextBox("cargoActual", (string)"", new { @class = "campoTexto ", @maxlenght = "8", style = "width:70%;", disabled = true })
+                                    <p id="AcargoActual" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;  width:30%;">Estado actual:</label>
+                                </div>
+                                <div>
+                                    @Html.TextBox("cargoActual", (string)"", new { @class = "campoTexto ", @maxlenght = "8", style = "width:70%;", disabled = true })
+                                    <p id="AcargoActual" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;  width:30%;">Registrado por:</label>
+                                </div>
+                                <div>
+                                    @Html.TextBox("cargoActual", (string)"", new { @class = "campoTexto ", @maxlenght = "8", style = "width:70%;", disabled = true })
+                                    <p id="AcargoActual" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row" style="margin-bottom:15px; margin-left:auto">
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;"> Oficina regional:  </label>
+                                </div>
+                                <div>
+                                    <select id="cbxAreaGeogFr" class="custom-select" style="width:70%;"> </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;"> Tipo documento:  </label>
+                                </div>
+                                <div>
+                                    <select id="cbxAreaGeogFr" class="custom-select" style="width:70%;"> </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;"> Nro Documento adjunto:  </label>
+                                </div>
+                                <div>
+                                    <select id="cbxAreaGeogFr" class="custom-select" style="width:70%;"> </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;">Asunto: </label>
+                                </div>
+                                <div>
+                                    @Html.TextBoxFor(m => m.direccionUbigeo, new { @class = "campoGenerico", @maxlength = "250", style = "width:70%", })
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row" style="margin-bottom:5px; margin-left:auto">
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;">Referencia: </label>
+                                </div>
+                                <div>
+                                    @Html.TextBoxFor(m => m.direccionUbigeo, new { @class = "campoGenerico", @maxlength = "250", style = "width:70%", })
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align: left; ">
+                                <div>
+                                    <label>Fecha de ingreso al padrón: </label>
+                                </div>
+                             
+                                <div class="input-group date" style="width:70%; text-align: left;">
+                                    @Html.TextBoxFor(m => m.fechaRegistroSocio, new { @class = "datetimepicker", style = "width:100%; text-align:left;", })
+                                    <span class="input-group-addon" style="text-align:left;">
+                                        <span style="text-align:left;" class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;"> Visualiza el documento:  </label>
+                                </div>
+                                <div>
+                                    <select id="cbxAreaGeogFr" class="custom-select" style="width:70%;"> </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align: left;"> </label>
+                                </div>
+                                <div>
+                                    <input type="file" id="cargarArchivo" title="Adjuntar" style="text-align:center; align-content:center">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <br />
+
+                        <div class="row" style="margin-bottom:5px; margin-left:auto">
+
+                            <div class="col-xs-12 col-md-12" style="text-align:center;">
+                                <div>  &nbsp; </div>
+                                <div>
+                                    <button id="btnGuardarAdjuntardocPRP" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="glyphicon glyphicon-floppy-save"></i>  Guardar </button>
+                                    &nbsp; &nbsp;
+                                    <button id="btnLimpiar" class="btn btn-warning" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="glyphicon glyphicon-pencil"></i>  Limpiar </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+                <!--FIN ACORDEON 2-->
+
+            </div>
+            <!-- fin de Acrodeon -->
+        </div>
+        <!-- fin  pasos-->
+    </div>
+    <!-- fin contenido-->
+    <!--TABLA PADRON SOCIOS-->
+    <div class="col-xs-12" style="margin-bottom:25px;">
+        <!-- inicio tabla-->
+        <h3 style="text-align:left; margin-left:auto"><b>Lista de documentos adjuntos</b></h3>
+        <div class="table-responsive margen">
+
+            <table id="TablaListaDocAdjuntoPRP" class="table table-bordered table-hover table-striped display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">Nro.</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Tipo documento</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:25%">Asunto</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Nro documento</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Unidad PCC</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Oficina regional</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Fecha docuento adjunto</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Fecha registro</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Visualizdo por OA</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Fecha revisión</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ver documento</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">MOdificar</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Eliminar</th>
+                        
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                        <td class="center">01</td>
+                        <td class="center">Arequipa </td>
+                        <td style="text-align:center"> 15/10/2016 </td>
+                        <td class="center">20/11/2018 </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center">-</td>
+                        <td class="center">-</td>
+                        
+                        <td class="center">--  </td>
+                        <td class="center">
+                            <a class="btn btn-primary" id="btnRegistraDocEvaViabilidad" href="#registrarModal" title="RegistrarDocEvaluacion" data-toggle="modal">
+                                <i class="glyphicon glyphicon-eye-open"></i>
+                            </a>
+                        </td>
+                        <td class="center">
+                            <a class="btn btn-warning" id="btnRegistraDocEvaViabilidad" href="#registrarModal" title="RegistrarDocEvaluacion" data-toggle="modal">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </a>
+                        </td>
+                        <td class="center">
+                            <a class="btn btn-danger" id="btnRegistraDocEvaViabilidad" href="#registrarModal" title="RegistrarDocEvaluacion" data-toggle="modal">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    <!-- FIN TABLA PADRON SOCIOS-->
+
+
+
+</div>
+<!-- fin contenido-->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_ExpAsignadosPRP();
+
+    });
+
+</script>

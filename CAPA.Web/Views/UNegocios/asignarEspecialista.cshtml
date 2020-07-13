@@ -1,0 +1,324 @@
+﻿
+@{
+    ViewBag.Title = "asignarEspecialista";
+    Layout = "~/Views/Shared/_LayoutMenuUn.cshtml";
+}
+
+<head>
+    <title>Asignar Expediente a Especialista</title> 
+
+</head>
+
+<style>
+
+</style>
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UNegocios/index"> U.Negocios</a></li>
+            <li class="active">S.D.A.</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+
+    </div>
+
+    <div class="page-header">
+        <!-- Inicio titulo -->
+
+        <div class="cbp-mc-column">
+
+            <h1> Asignar Expediente a Especialista</h1>
+        </div>
+    </div>       <!-- Fin titulo -->
+
+
+    <div class="col-xs-12 col-md-12">
+
+        @*INICIO FORM*@
+
+        <div id="accordion" style="border:1px solid;">
+
+            <div class="card">
+
+                <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <a style="color:white; text-decoration:none;">
+                            <i class="ace-icon fa fa-file"> </i>
+                            &nbsp; ASIGNAR ESPECIALISTA
+                        </a>
+                    </h5>
+                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                            <i class="ace-icon fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body" style="padding-left:35px;padding-right:35px;">
+                        <br />
+                        <form class="form-horizontal" style="margin:0 auto; text-align:left;">
+
+
+
+                            <div class="row" style="margin-bottom:10px;">
+
+
+                                @*margin-bottom: 5px;*@
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                    <div>
+                                        <label style="text-align:left;"> RUC: </label>
+                                    </div>
+                                    <div>
+
+                                        @Html.TextBox("rucOAf", (string)"", new { style = "width:65%", disabled = true, Value = @Session["RucOA"] })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                    <div><label style="text-align:left;"> N° Expediente: </label></div>
+                                    <div>
+                                        @Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:65%", disabled = "disabled" })
+                                        <p id="nroExp" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+                                @*margin-bottom: 5px;*@
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                    <div><label style="text-align:left;"> N° SGD(CUT): </label></div>
+                                    <div>
+                                        @Html.TextBox("nroSgdCut", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:65%", disabled = "disabled" })
+                                        <p id="nroSgdCut" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-bottom:10px;">
+
+
+                                @*margin-bottom: 5px;*@
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom:15px;">
+                                    <div><label style="text-align:left;">Estado: </label></div>
+                                    <div>
+                                        @Html.TextBox("estado", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:65%", disabled = "disabled" })
+                                        <p id="estado" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom:15px;">
+                                    <div><label style="text-align:left;">Tipo Compromiso: </label></div>
+                                    <div>
+                                        <select id="cbxTipoComp" class="custom-select" style="width:65%;"> </select>
+                                    </div>
+                                </div>
+
+                                @*margin-bottom: 5px;*@
+
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom:15px;">
+                                    <div><label style="text-align:left;">Compromiso: </label></div>
+                                    <div>
+                                        <select id="cbxComp" class="custom-select" style="width:65%;"> </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*OTRA FILA*@
+
+                            <div class="row" style="margin-bottom:10px;">
+
+
+                                @*margin-bottom: 5px;*@
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom:15px;">
+                                    <div><label style="text-align:left;">Especialista Asignado: </label></div>
+                                    <div>
+                                        @Html.TextBox("espAsignado", (string)"", new { @class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = "disabled" })
+                                        <p id="espAsignado" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom:15px;">
+                                    <div><label style="text-align:left;">Fecha y Hora Asignación: </label></div>
+                                    <div>
+                                        @Html.TextBox("fechaHoraAsignacion", (string)"", new { @class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = "disabled" })
+                                        <p id="fechaHoraAsignacion" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+                                @*margin-bottom: 5px;*@
+
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            @*TABLA EXTERIOR*@
+            <div class="col-xs-12">
+                <br />
+                <h2>Carga de trabajo de los Especialistas</h2>
+                <!-- inicio tabla-->
+                <div class="table-responsive margen">
+                    <table id="tab_opa" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th style="background-color:darkseagreen; color:black; min-width:2%; max-width:4%" class="center">Nº</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:5%; max-width:15%" class="center">Apellidos y Nombres</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:5%" class="center">Oficina Regional</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%" class="center">Tipo SDA del Especialista</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:4%" class="center">Total Exp. Asignados</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:4%" class="center">Revisión de Requisitos</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%" class="center">Evaluación</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:4%" class="center">Observación Enviada</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:4%" class="center">Re-Evaluación</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:4%" class="center">Verificación en Campo</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:4%; max-width:4%" class="center">Opinión Favorable</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%" class="center">Opinión Desfavorable</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%" class="center">Enviado a JP</th>
+                                <th style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%" class="center">Asignar Especialista</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center">CAFE </td>
+                                <td style="text-align:left"> AGRÍCOLA </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center"> ACTIVO </td>
+                                <td class="center">
+
+                                    <button id="btnAsignarEsp" class="btn btn-primary" title="Asignar">
+                                        <i class="ace-icon fa fa-pencil"></i> ASIGNAR
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cbp-mc-column ">
+                    <br>
+                    <button id="btnRegresarAsig" class="btn btn-warning" style="margin-bottom:25px"><i class="ace-icon fa fa-undo"></i>VOLVER</button>
+                    &nbsp;&nbsp;
+                    <button id="btnListaAsigEsp" class="btn btn-info" style="margin-bottom:25px"><i class="ace-icon fa fa-list"></i>LISTA DE ASIGNACIONES</button>
+                </div>
+                <br />
+              
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+</div>
+
+
+
+
+<!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        controles_SDA();
+
+        $(document).on('click', '.Ver_OT', function () {
+
+            var val = $(this).attr('id');
+            var url_scan = "/OrdenTrabajo/Variable_ver_OT/" + val;
+            window.location.href = url_scan;
+
+        });
+
+        $(document).ready(function () {
+            $('.solo-numero').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+
+        $("#tab_opa").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $('#datetimepicker2').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+
+        });
+
+        $('#datetimepicker3').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        });
+
+    });
+
+
+
+
+</script>
+

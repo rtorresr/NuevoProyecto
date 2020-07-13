@@ -1,0 +1,320 @@
+﻿
+@{
+    ViewBag.Title = "formatoO1_L1_PRP";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<title>Ficha de formato O-1 / L1</title> 
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción</a></li>
+            <li class="active">Formato O-1 / L1</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1> Formato O-1 / L1 </h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+        <!-- inicio pasos-->
+
+
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+
+            <!--------- ACORDEON ------------>
+
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-search"></i>
+                                Ficha de formato O-1 / L1
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                        <!-- Inicio Card Body  -->
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                            <br />
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>RUC:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @MaxLenght = "11", disabled = true, style = "width:70%" })
+                                        @*<button id="btnCargarDatos" class="btn btn-info2 btn-sm" title="Cargar Datos"> <ion-icon name="search"></ion-icon></button>*@
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-6" style="text-align:left">
+                                    <div>
+                                        <label>Razón social:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("razonSocial", (string)"", new { @Class = "camposTexto", disabled = true, style = "width:60%", })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Tipo de solicitante:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("tipoSolicitante", (string)"", new { @Class = "camposTexto", disabled = true, style = "width:60%", })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Oficina regional</label>
+                                    </div>
+                                    <div>
+                                        <select id="cbxOficinaRegionalFl" class="custom-select" style="width:60%;"> </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Nro. Expediente:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("nroExpediente", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Nro. CUT:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("nroCutSgd", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Especialista:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("especialista", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Motivo de actualización:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("motivoAct", (string)"", new { @class = "", style = "width:60%" })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                    <div>  &nbsp; </div>
+                                    <div>
+                                        <button id="btnConsultarEvaluaciones" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-floppy-o"></i>  Guardar  </button>
+                                        &nbsp; &nbsp;
+                                        <button id="btnLimpiarConsultaEvaluaciones" class="btn btn-warning" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-pencil"></i>  Modificar  </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <br />
+
+
+                        </div>
+                        <!-- Fn Card Body  -->
+                    </div>
+
+                </div>
+            </div>
+            <!-- fin de Acrodeon -->
+
+        </div>
+
+        <br>
+        <br>
+
+        <!-- TABLA CHECKLIST FRMTO O-1 -->
+        <div class="table-responsive margen">
+            <h3 style="text-align:left;">Checklist de formato O-1</h3>
+            <table id="tabChecklist_O1" class="table table-bordered table-hover table-striped display" style="width:100%; margin-left:auto">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:4%; max-width:4%">Nro.</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:30%">Documentos</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:04%; max-width:04%">Conforme</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:25%">Observación</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr>
+                        @*<td class="center">1</td>*@
+                        <td class="center">01</td>
+                        <td class="center">20570607945 </td>
+                        <td style="text-align:center">
+                            <label style="align-content:center"><input id="rb_checkList_O1" type="checkbox" name="optradio" checked></label>
+                        </td>
+                        <td class="center">
+
+                            <div class="col-xs-6" style="text-align:left;">@Html.TextBox("obsFormato_O1", (string)"", new { style = "width:100%", })</div>
+                        </td>
+
+                </tbody>
+
+            </table>
+
+            <div class="row" ; style="margin-left:auto">
+
+                <div class="col-xs-9 col-md-3" style="text-align:left">
+                    <div>
+                        <label>Resultado final:</label>
+                    </div>
+                    <div>
+                        @Html.TextBox("resultFinalFrmto_O1", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                    </div>
+                </div>
+
+                <div class="col-xs-9 col-md-3" style="text-align:left">
+                    <div>
+                        <label>Recomendación:</label>
+                    </div>
+                    <div>
+                        @Html.TextBox("resultFinalFrmto_O1", (string)"", new { @class = "", style = "width:60%", })
+                    </div>
+                </div>
+
+                <div class="col-xs-9 col-md-3" style="text-align:left;">
+                    <div>  &nbsp; </div>
+                    <div>
+                        <button id="btnGuardarFrmto_O1" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-floppy-o"></i>  Guardar  </button>
+                        &nbsp; &nbsp;
+                        <button id="btnModificarFrmto_O1" class="btn btn-warning" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-pencil"></i>  Modificar  </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TABLA CHECKLIST FRMTO I-1 -->
+        <div class="table-responsive margen">
+        <h3 style="text-align:left;">Checklist de formato I-1</h3>
+        <table id="tabChecklist_I1" class="table table-bordered table-hover table-striped display" style="width:100%; margin-left:auto">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:4%; max-width:4%">Nro.</th>
+                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:30%">Documentos</th>
+                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:04%; max-width:04%">Conforme</th>
+                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:25%">Observación</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <tr>
+                    @*<td class="center">1</td>*@
+                    <td class="center">01</td>
+                    <td class="center">20570607945 </td>
+                    <td style="text-align:center">
+                        <label style="align-content:center"><input id="rb_checkList_I1" type="checkbox" name="optradio" checked></label>
+                    </td>
+                    <td class="center">
+
+                        <div class="col-xs-6" style="text-align:left;">@Html.TextBox("obsFormato_I1", (string)"", new { style = "width:100%", })</div>
+                    </td>
+
+            </tbody>
+
+        </table>
+
+        <div class="row" ; style="margin-left:auto">
+
+            <div class="col-xs-9 col-md-3" style="text-align:left">
+                <div>
+                    <label>Resultado final:</label>
+                </div>
+                <div>
+                    @Html.TextBox("resultFinalFrmto_I1", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                </div>
+            </div>
+
+            <div class="col-xs-9 col-md-3" style="text-align:left">
+                <div>
+                    <label>Recomendación:</label>
+                </div>
+                <div>
+                    @Html.TextBox("resultFinalFrmto_I1", (string)"", new { @class = "", style = "width:60%", })
+                </div>
+            </div>
+
+            <div class="col-xs-9 col-md-3" style="text-align:left;">
+                <div>  &nbsp; </div>
+                <div>
+                    <button id="btnGuardarFrmto_I1" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-floppy-o"></i>  Guardar  </button>
+                    &nbsp; &nbsp;
+                    <button id="btnModificarFrmto_I1" class="btn btn-warning" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-pencil"></i>  Modificar  </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+       
+        <div class="row">
+            <!-- inicio grid-->
+            <!-- Fin tabla-->
+
+
+        </div><!-- fin grid -->
+    </div><!-- contenido -->
+</div>
+
+</div><!-- fin contenedor -->

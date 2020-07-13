@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="197cd2dc-37b3-4cf2-a050-bb4731391aa1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:21970/UbigeoServ.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UbigeoServ.disco" MetadataType="Disco" ID="3c1d90a6-d40d-4ae6-ab57-c29493403523" SourceId="1" SourceUrl="http://localhost:21970/UbigeoServ.svc?disco" />
+    <MetadataFile FileName="UbigeoServ.wsdl" MetadataType="Wsdl" ID="660de1a8-ec5a-46e8-ad8d-52b2c31d16db" SourceId="1" SourceUrl="http://localhost:21970/UbigeoServ.svc?wsdl" />
+    <MetadataFile FileName="UbigeoServ1.xsd" MetadataType="Schema" ID="13d15d3b-07df-473b-b65d-8ca584c29c85" SourceId="1" SourceUrl="http://localhost:21970/UbigeoServ.svc?xsd=xsd2" />
+    <MetadataFile FileName="UbigeoServ3.xsd" MetadataType="Schema" ID="8082a06b-0baf-4048-abc1-bfc097be822e" SourceId="1" SourceUrl="http://localhost:21970/UbigeoServ.svc?xsd=xsd3" />
+    <MetadataFile FileName="UbigeoServ2.xsd" MetadataType="Schema" ID="928232fd-b274-40d2-a55a-8aaede4c56fa" SourceId="1" SourceUrl="http://localhost:21970/UbigeoServ.svc?xsd=xsd0" />
+    <MetadataFile FileName="UbigeoServ.xsd" MetadataType="Schema" ID="227007ff-f981-421a-9f5d-418968bd581e" SourceId="1" SourceUrl="http://localhost:21970/UbigeoServ.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

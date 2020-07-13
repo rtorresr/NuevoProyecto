@@ -1,0 +1,165 @@
+﻿ 
+@{
+    ViewBag.Title = "perfil";
+    Layout = "~/Views/Shared/_LayoutMenuASist.cshtml";
+}
+
+
+<head>
+    <title>PERFIL DE USUARIO</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Home/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UASistemas/Index">U. Sitesmas</a></li>
+                    <li class="active"> <a href="/UASistemas/perfil">Perfil de Usuario</a></li>
+                </ul>
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+                    <div class="col-md-12">
+                        <h1> Perfil de Usuario  </h1>
+                    </div>
+                </div>                  <!-- Fin titulo -->
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    @*<div id="accordion" style="border:1px solid;">
+                            <div class="card">
+
+
+                            </div>
+                        </div>*@
+
+
+
+                    <div class="col-xs-12 col-md-12">
+
+                        <br>
+                        <div align="right" class="row">
+
+                            <button id="btnNuevoPerf" type="button" class="btn btn-primary" style="width:10%; margin-right:2%;" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">
+                                <i class="glyphicon glyphicon-plus"></i> Nuevo
+                            </button><br />
+                        </div>
+
+                        <div id="div-tabla" class="table-responsive margen">
+
+                            <table id="tablaPerfiles" class="table table-bordered table-hover table-striped" style="width:100%">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Id</th>
+										<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Pefil</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:35%; max-width:35%">DESCRIPCIÓN</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Siglas</th>  
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Registrado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Fecha Registro</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Fecha de Modificación</th>
+                                        <th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acción</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbodyP" class="tbodyP"></tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                    @*fade*@
+                    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  style="overflow-y: auto;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" id="myModalLabel"> Aplicación del Programa</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                       
+                                            <div id="idperfil" class="form-inline col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom:5%; display:none;">
+                                                <label style="text-align: left; margin-bottom:5%; width:30%;">ID :</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                @Html.TextBox("idPerfil", (string)"", new { @class = "campoNumero", @maxlength = "100", style = "width:31%", disabled = "disabled" })
+												@Html.TextBox("idUsuario", (string)"", new { Value = Session["IdUsua"]})
+                                            </div>
+
+											<div class="form-inline col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom:5%">
+												<label class="col-xs-12 col-sm-6 col-md-2">Perfil :</label>
+												@Html.TextBox("perfil", (string)"", new { @class = "campoTexto col-xs-12 col-sm-6 col-md-4" })
+											</div>
+
+                                            <div class="form-inline col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom:5%">
+												<label class="col-xs-12 col-sm-6 col-md-2">Descripción :</label>
+                                                @Html.TextArea("descripPerfil", (string)"",  new { @class = "campoTexto col-xs-12 col-sm-6 col-md-10 textArea", rows="5", cols="100" })
+                                            </div>
+
+											<div class="form-inline col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom:5%">
+												<label class="col-xs-12 col-sm-6 col-md-2">Siglas :</label>
+												@Html.TextBox("siglas",(string)"", new { @class = "campoTexto col-xs-12 col-sm-6 col-md-4" })
+											</div>
+
+											@*<div class="form-inline col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom:5%">
+												<label class="col-xs-12 col-sm-6 col-md-4">Orden :</label>
+												@Html.TextBoxFor(model => model.OrdenPerfil,  new { @class = "campoTexto col-xs-12 col-sm-6 col-md-6" })
+											</div>*@
+										 
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="btnSalvarPerfil">Salvar</button>
+                                    <button  type="button" class="btn btn-primary" id="btnModificarPerfil" style="display:none;">Modificar</button>
+                                    <button id="btnCerrarFormPerfil" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    	controles_Perfil(); 
+    });
+     
+</script>
+
+
+

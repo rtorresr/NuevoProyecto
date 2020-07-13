@@ -1,0 +1,372 @@
+﻿
+@{
+    ViewBag.Title = "ejecutasPorEspecialista";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"] </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promocion</a></li>
+                <li class="active">Tarea Registrado por Especialista</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1>Tarea Registrada por Especialista</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12 col-md-12">
+                <!-- contenido de ACORDEON 1 -->
+                <div id="accordion" style="border:1px solid;">
+
+                    <div class="card">
+
+                        <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    &nbsp; BUSQUEDA DE TAREAS REGISTRADAS
+                                </a>
+                            </h5>
+
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                               
+                                <br />
+                                <!----- FORMULARIO ----->
+
+                                  <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                      <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                          <div><label style="text-align:left; width:50%">Oficina Regional:</label></div>
+                                          @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                          <div><select id="cbxOfRegAFr" class="custom-select" style="width:60%;"> </select></div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                          <div><label style="text-align:left;">Profesional a Cargo :</label></div>
+                                          <div>
+                                              @Html.TextBox("profCargoFl", (string)"", new { @class = "campoTexto", @style = "width:60%", disabled = true, Value = @Session["RucOA"] })
+                                              <button type="button" class="btn btn-info" id="btnBuscarExpediente" title="Validar"> <i class="ace-icon fa fa-search"></i></button><br />
+                                              <p id="profCargoFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                          </div>
+                                      </div>
+
+                                      <div class="col-xs-12 col-md-4" style="text-align: left; margin-top: 24px;">
+                                          <button type="button" class="btn btn-primary" id="btnbuscarTarea" style="text-align:left;"><i class="ace-icon fa fa-search"> </i> BUSCAR</button> &nbsp;
+                                          <button id="btnLimpiarFiltro" class="btn btn-success" title="Limpiar" style="text-align:left;">
+                                              <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                          </button>
+
+                                      </div>
+
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                    <br />
+                                </div>
+
+                         </div>
+                        </div>
+                     
+
+
+                        <div class="row">
+                            <!-- inicio grid-->
+                            <!-- Fin tabla-->
+
+
+                        </div><!-- fin grid -->
+                    </div><!-- contenido -->
+                </div>
+
+                    @*FIN DE ACORDEONES*@
+                </div>
+
+
+            <div class="col-xs-12 col-md-12" style="align-content:center;">
+                <br />
+                <br />
+
+                <h3 style="text-align:center; margin-bottom:15px;"><b>REGISTRO DE TAREAS POR ESPECIALISTA</b></h3>
+                <!-- inicio tabla-->
+                
+                <div class="row">
+
+                    <div class="col-xs-12 col-md-2">
+                        <div> &nbsp;&nbsp; </div>
+                    </div>
+
+                    <div class="table-responsive margen col-md-8" style="align-content:center;">
+                        <table id="tbRegTareaEspecialista" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" width="2%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                    <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Oficina Regional</th>
+                                    <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Profesional a Cargo</th>
+                                    <th rowspan="2" width="3%" style="background-color:#005e3a; color:white;" class="center">Reporte de Tareas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td class="center"> 01 </td>
+                                    <td class="center"> Arequipa </td>
+
+                                    <td class="center"> José Luis Rodriguez </td>
+
+                                    <td class="center">
+                                        <a class="btn btn-success" id="btnVerReporteTarea" href="#eliminarModal" title="Ver Reporte" data-toggle="modal">
+                                            <i class="ace-icon fa fa-eye"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-xs-12 col-md-2">
+                        <div> &nbsp;&nbsp; </div>
+                    </div>
+
+                    </div>
+                
+                    <!--MODAL REPORTE TAREAS EJECUTADAS-->
+                    <div class="modal" id="modalReporteTareasEje" tabindex="-1" role="dialog" aria-labelledby="recepcionarLabel" aria-hidden="true" style="overflow-y: auto;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content" style="width:190%; margin-left:-45%;">
+                                <div class="modal-header" style="background:#005e3a;">
+                                    <button id="btnClose" type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" style="color:white;"><b>Reporte de Tareas Ejecutadas</b></h4>
+                                </div>
+
+                                <div class="modal-body" style="max-height:100%">
+
+                                    @*<h3 style="text-align:left; margin-bottom:25px;"><b>REPORTE DE TAREAS EJECUTADAS</b></h3>*@
+                                    <!-- inicio tabla-->
+
+                                    <div class="table-responsive margen">
+                                        <table id="tbReporteTareasEje" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2" width="2%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                                    <th rowspan="2" width="4%" style="background-color:#005e3a; color:white;" class="center">Ubicación</th>
+                                                    <th rowspan="2" width="4%" style="background-color:#005e3a; color:white;" class="center">Fecha Inicio</th>
+                                                    <th rowspan="2" width="4%" style="background-color:#005e3a; color:white;" class="center">Fecha Término</th>
+                                                    <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Tarea para la Unidad</th>
+                                                    <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Actividad Operativa</th>
+                                                    <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Tarea</th>
+                                                    <th rowspan="2" width="10%" style="background-color:#005e3a; color:white;" class="center">Acción</th>
+                                                    <th rowspan="2" width="5%" style="background-color:#005e3a; color:white;" class="center">Tipo Tarea</th>
+                                                    <th rowspan="2" width="3%" style="background-color:#005e3a; color:white;" class="center">Acuerdo / Compromiso</th>
+                                                    <th rowspan="2" width="3%" style="background-color:#005e3a; color:white;" class="center">Ver Detalle</th>
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">01</td>
+                                                    <td class="center">Arequipa </td>
+                                                    <td style="text-align:center"> 15/10/2016 </td>
+                                                    <td class="center">20/11/2018 </td>
+                                                    <td class="center"> - </td>
+                                                    <td class="center"> - </td>
+                                                    <td class="center"> - </td>
+                                                    <td class="center">-</td>
+                                                    <td class="center">-</td>
+
+
+                                                    <td class="center">
+
+                                                        <a class="btn btn-primary" id="btnRegistraAcuerdo" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-pencil"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="center">
+                                                        <a class="btn btn-success" id="btnVerDetalleTarea" href="#eliminarModal" title="Ver" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-eye"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br />
+                                        <div class="cbp-mc-column ">
+                                            <button id="btnSalirReporTareas" class="btn btn-danger" style="margin-bottom:25px"><i class="ace-icon fa fa-close"></i>Cerrar</button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--FIN MODAL REPORTE TREAS EJECUTADAS-->
+                    <br />
+
+                    <!-- INICIO MODAL ACUERDO COMPROMISO-->
+
+                    <div class="modal" id="modalAcuerdoCompromiso" tabindex="-1" role="dialog" aria-labelledby="recepcionarLabel" aria-hidden="true" style="overflow-y: auto;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content" style="width:150%; margin-left:-25%;">
+                                <div class="modal-header" style="background:#005e3a;">
+                                    <button id="btnCloseAcuerdoComp" type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" style="color:white;"><strong>ACUERDO / COMPROMISO</strong></h4>
+                                </div>
+
+                                <div class="modal-body" style="max-height:150%">
+
+                                    <div class="row">
+                                        <form class="form-horizontal" style="padding-left:30px;padding-right:30px;">
+                                            <div class="form-group row">
+
+                                                <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 0px; margin-left:auto">
+                                                    <div>
+                                                        <label style="text-align: left;"> Descripción del Acuerdo/Compromiso:</label>
+                                                    </div>
+                                                    @Html.TextBox("txbDescripAcuerdo", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:65%" })
+                                                    <p id="ACargo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 10px;">
+                                                    <div>
+                                                        <label style="text-align: left;">Entidad Responsable: </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("numVaronesTE", (string)" ", new { @class = "campoNumero", @maxlength = "250", style = "width:65%" })
+                                                        <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 0px; margin-left:auto">
+                                                    <div>
+                                                        <label style="text-align: left;"> Plazo de Cumplimiento: </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("totalPartTE", (string)" ", new { @class = "campoNumero", @maxlength = "250", style = "width:65%" })
+                                                        <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="form-group row">
+                                                <div class="offset-16 col-lg-12 align-center">
+                                                    <button id="btnAgregarAcuerdo" name="submit" type="submit" class="btn btn-primary">AGREGAR</button>
+
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                    <!--Tbla acuerdo-->
+
+                                    <h3 style="text-align:left; margin-bottom:25px; margin-left:15px;"><b>ACUERDO / COMPROMISO RELACIONADO DIRECTAMENTE CON AGROIDEAS</b></h3>
+                                    <div class="table-responsive margen">
+                                        <table id="tab_dae" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+
+                                                    <th width="1%" style="background-color:#005e3a; color:white;" class="center">N°</th>
+                                                    <th width="17%" style="background-color:#005e3a; color:white;" class="center">Descripción del Acuerdo / Compromiso</th>
+                                                    <th width="4%" style="background-color:#005e3a; color:white;" class="center">Entidad Responsable</th>
+                                                    <th width="3%" style="background-color:#005e3a; color:white;" class="center">Plazo de Cumplimiento</th>
+                                                    <th width="2%" style="background-color:#005e3a; color:white;" class="center">Editar</th>
+                                                    <th width="2%" style="background-color:#005e3a; color:white;" class="center">Eliminar</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">Activo</td>
+                                                    <td class="center">15/10/2019 </td>
+                                                    <td style="text-align:center"> Juan Gomez Blanco </td>
+                                                    <td class="center"> 05 </td>
+                                                    <td class="center">
+                                                        <a class="btn btn-success" id="btnEditarAcuerdo" href="#eliminarModal" title="Editar" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-pencil"> </i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="center">
+                                                        <a class="btn btn-danger" id="btnEliminarAcuerdo" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-trash"> </i>
+                                                        </a>
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                        <div class="cbp-mc-column ">
+                                            <br>
+                                            <button id="btnSalirAcuerdo" class="btn btn-danger" style="margin-bottom:25px"><i class="ace-icon fa fa-close"></i>Cerrar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- FIN MODAL ACUERDO COMPROMISO-->
+
+                    <div class="row" style="margin-bottom:10px;">
+                        @*<div class="row" style="margin-bottom:25px;">
+                            <br />
+
+                            <a id="btnRegresar" class="btn btn-success" href="/OA/Index" title="Cancelar">
+                                <i class="ace-icon fa fa-undo"></i> REGRESAR
+                            </a>
+
+                        </div>*@
+                    </div>
+
+                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        eventos_TareasEjec();
+
+    });
+
+</script>              

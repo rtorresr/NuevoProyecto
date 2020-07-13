@@ -1,0 +1,530 @@
+﻿@{
+    ViewBag.Title = "informaciondeCultivoCrianza";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+@*<head>
+    <title>Información del Cultivo o Crianza que Maneja la Organización (Situación Actual)</title>
+</head>*@
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-container ace-save-state" id="main-container">
+        <div class="main-content-inner">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr(a).: @Session["NombreUsua"]   </span>
+                <!-- Fin Ruta -->
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Opa/"> </a>
+                    </li>
+                    <li><a href="/Opa/Index">OPA</a></li>
+                    <li class="active"> <a href="informaciondeCultivoCrianza">Información del Cultivo o Crianza que Maneja la Organización</a></li>
+                </ul>
+
+            </div><!-- Inicio ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+                <!--Inicio titulo  -->
+                @*<div class="page-header">
+                   
+                    <div class="col-md-12">
+                        <h1> Información del Cultivo o Crianza que Maneja la Organización (Situación Actual) </h1>
+                    </div> 
+                </div>*@     
+                  <!-- Fin titulo -->
+                <!-- inicio pasos-->
+
+                <div class="col-md-12">
+                    <!-- contenido de pasos -->
+                    <div class="row" style="margin-bottom:25px;">
+                        <br />
+                        <button id="btnRegistrarCC" class="btn btn-success" style="display:none" title="Registrar">
+                            <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                        </button>
+
+                        <button id="btnModificarCC" class="btn btn-warning" style="display:none" title="Modificar">
+                            <i class="ace-icon fa fa-edit"></i> MODIFICAR
+                        </button>
+
+                        <button id="btnGrabarCC" class="btn btn-info" style="display:none" title="Grabar">
+                            <i class="ace-icon fa fa-save"></i> GRABAR
+                        </button>
+
+                        <button id="btnCancelarCC" class="btn btn-danger" style="display:none" title="Cancelar">
+                            <i class="ace-icon fa fa-undo"></i> CANCELAR
+                        </button>
+
+                        <button id="btnSalirCC" class="btn btn-success" style="display:none" title="Regresar">
+                            <i class="ace-icon fa fa-undo"></i> REGRESAR
+                        </button>
+                    </div>
+
+
+                    <div style="display:none">
+                        @Html.TextBox("idUsuario", (string)"", new { style = "width:20%", Value = Session["IdUsua"] })
+						@Html.TextBox("idOA", (string)"", new { @class = "camposTexto", dissbled = true })
+                        @Html.TextBox("rucOA", (string)"", new { @class = "camposTexto", Value = @Session["RucOA"] })
+                        @Html.TextBox("idOADatos", (string)"", new { style = "width:20%", dissbled = true })
+                        @Html.TextBox("idActividadEconomicaCC", (string)"", new { style = "width:20%" })
+                        @Html.TextBox("idCultivoCrianza", (string)"", new { style = "width:20%", dissbled = true })
+                        @Html.TextBox("completado", (string)"", new { style = "width:20%", dissbled = true })
+                    </div>
+
+
+                    <!---- DATOS DEL PRODUCTO AGRICOLA----->
+                    <!--------- ACORDEON ------------>
+                    <div id="accordion" class="Agricola" style="border:1px solid; display:none">
+                        <div class="card">
+
+                            <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-file"></i>
+                                        Información del Cultivo o Crianza que Maneja la Organización (Situación Actual)
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+								<div class="card-body" style="padding-left: 12px; padding-right: 12px;">
+									<br />
+
+
+									<div class="row" style="margin-bottom:10px;">
+										<div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+											<div>
+												<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left">3.1. La organización tiene áreas insaladas con el cultivo priorizado: </label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%;">
+												<select id="cbxtieneAerasInst" class="custom-select col-xs-12 col-sm-10 col-md-1">
+													<option value="0">Seleccione</option>
+													<option value="1">Si</option>
+													<option value="2">No</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:10px;">
+										<div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+											<div>
+												<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left">3.2. Total de Has. que tiene la organización con el producto priorizado: </label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%;">
+												@Html.TextBox("totalHas", (string)"", new { @class = "campoMilesDeci col-xs-12 col-sm-6 col-md-1", @placeholder = "0.00" })
+												&nbsp;
+												<label style="text-align:left;"> Has. </label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%;">
+												<p class="col-xs-12 col-sm-6 col-md-10" style="font-family:'Gill Sans'; color:black"> <strong>(Considerar áreas en producción y crecimiento, si fuera el caso)  </strong></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:10px;">
+										<div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+											<div>
+												<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left">3.3. Total de nuevas Has. que esperan instalar con el producto priorizado : </label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%;">
+												@Html.TextBox("totalNuevasHas", (string)"", new { @Class = "campoMilesDeci col-xs-12 col-sm-6 col-md-1", @placeholder = "0.00" })
+												&nbsp;
+												<label style="text-align:left;"> Has. </label>
+											</div>
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:10px;">
+										<div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+											<div>
+												<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left">3.4. Productividad del Cultivo priorizado: </label>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:2px;">
+												<label class="col-xs-12 col-sm-6 col-md-2" style="text-align:left">a) De la Organización : </label>
+												@Html.TextBox("productividadOAA", (string)"", new { @class = "campoMilesDeci col-xs-12 col-sm-6 col-md-1", @placeholder = "0.00" })&nbsp;
+												<label class="col-xs-12 col-sm-6 col-md-2" style="text-align:right">unid. medida:</label>
+												<div class="col-xs-12 col-sm-6 col-md-2">
+													<select id="cbxTipoUnidMedFr" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left;">
+													<select id="cbxUnidMedidaFr" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+												</div>
+											</div>
+
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:2px;">
+												<label class="col-xs-12 col-sm-6 col-md-2" style="text-align:left">B) De la provincia o departamento : </label>
+												@Html.TextBox("productividadRegionA", (string)"", new { @class = "campoMilesDeci col-xs-12 col-sm-6 col-md-1", @placeholder = "0.00" })&nbsp;
+												<label class="col-xs-12 col-sm-6 col-md-2" style="text-align:right">unid. medida:</label>
+												<div class="col-xs-12 col-sm-6 col-md-2">
+													<select id="cbxTipoUnidMedFr2" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left;">
+													<select id="cbxUnidMedidaFr2" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+												</div>
+											</div>
+
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%; margin-bottom:2px;">
+												<label>
+													Fuente :
+												</label>
+												<div>
+													@Html.TextBox("fuenteA", (string)"", new { @class = "campoTexto col-xs-12 col-sm-6 col-md-6" })
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:10px;">
+										<div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+											<div>
+												<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left">3.5. Cultivo Permanente: </label>
+											</div>
+
+											@*<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+												<label class="col-xs-12 col-sm-6 col-md-3" style="text-align:left">3.5.1) ¿Cuál es el periódo vegetativo?: </label>
+												@Html.TextBox("periodoProduccionV", (string)"", new { @class = "campoNumero col-xs-12 col-sm-6 col-md-1", @placeholder = "0" })&nbsp; &nbsp; meses.
+											</div>*@
+
+                                            <div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+                                                <label class="col-xs-12 col-sm-6 col-md-4" style="text-align:left">3.5.1) ¿Cuál es el número promedio de plantas por hectárea?: </label>
+                                                @Html.TextBox("promedioPlantasxHectareas", (string)"", new { @class = "campoDecimal col-xs-12 col-sm-6 col-md-1", @placeholder = "0" })&nbsp; &nbsp; meses.
+                                            </div>
+
+
+											@*<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+												<label class="col-xs-12 col-sm-6 col-md-3" style="text-align:left">3.5.2) ¿Cuál es la densidad de la siembre promedio?: </label>
+												@Html.TextBox("promDensidadSiembrea", (string)"", new { @class = "campoMilesDeci col-xs-12 col-sm-6 col-md-1", @placeholder = "0.00" })&nbsp;&nbsp;
+												<label class="col-xs-12 col-sm-6 col-md-1" style="text-align:left">unid. medida:</label> 
+												<div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left;">
+													<select id="cbxTipoUnidMedFr3" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>&nbsp;&nbsp;
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left;">
+													<select id="cbxUnidMedidaFr3" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+												</div>
+											</div>*@
+
+                                            <div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+                                                <label class="col-xs-12 col-sm-6 col-md-4" style="text-align:left">3.5.2) ¿Cuál es la edad promedio de la plantación?: </label>
+                                                @Html.TextBox("edadPromedioPlantacion", (string)"", new { @class = "campoDecimal col-xs-12 col-sm-6 col-md-1", @placeholder = "0.00" })&nbsp;&nbsp;
+                                                <label class="col-xs-12 col-sm-6 col-md-1" style="text-align:left">unid. medida:</label>
+                                                <div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left;">
+                                                    <select id="cbxTipoUnidMedFr3" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left;">
+                                                    <select id="cbxUnidMedidaFr3" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+                                                </div>
+                                            </div>
+
+
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+												<label class="col-xs-12 col-sm-6 col-md-4" style="text-align:left">3.5.3) ¿Cuál es el número de cosechas al año?: </label>
+												@Html.TextBox("cosechaAnual", (string)"", new { @class = "campoNumero col-xs-12 col-sm-6 col-md-1", @placeholder = "0" })&nbsp; &nbsp; cosechas.
+											</div>
+
+											@*<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+												<label class="col-xs-12 col-sm-6 col-md-3" style="text-align:left">3.5.4) ¿Lo rotan con otro cultivo?: </label> 
+												<select id="cbxrotaCultivo" class="custom-select col-xs-12 col-sm-10 col-md-1">
+													<option value="0">Seleccione</option>
+													<option value="1">Si</option>
+													<option value="2">No</option>
+												</select>
+												 
+											</div>
+
+											<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%; margin-bottom:3px;">
+												<label class="col-xs-12 col-sm-6 col-md-3" style="text-align:left">3.5.5) ¿Con qué cultivo lo rotan?: </label>
+												@Html.TextBox("otroCultivo", (string)"", new { @class = "campoTexto  col-xs-12 col-sm-6 col-md-1", disabled = true })
+											</div>*@
+										</div>
+
+									</div>
+
+
+									<div class="row" style="margin-bottom:25px;">
+										<div class="col-xs-12 col-md-12" style="text-align:left;">
+											<div>
+												<label style="text-align:left;">3.6. Periódo de cosecha para cultivos anuales o permanentes priorizados en el plan de negocio: </label>
+											</div>
+											<div class="col-xs-12 col-md-4 ">
+												<div>
+													<label style="text-align: left; margin-left:1.5%;">Cosecha 1: </label>
+												</div>
+												<div style="width: 60%; margin-left: 4%; margin-bottom: 5px; text-align: left;">
+													&nbsp;
+													<label style="text-align:left;"> De: </label>
+													<div class="input-group date col-xs-12 col-md-3" style="width:100%; Text-align: left;">
+														@Html.TextBox("fechaIni1", (string)"", new { @class = "datetimepicker2", style = "width:100%" })
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+														</span>
+													</div>
+
+												</div>
+												<div style="width:60%; margin-left: 4%; margin-bottom: 5px; text-align: left;">
+													&nbsp;
+													<label style="text-align:left;"> a </label>
+													<div class="input-group date col-xs-12 col-md-3" style="width: 100%; Text-align: left;">
+														@Html.TextBox("fechaFin1", (string)"", new { @class = "datetimepicker2", style = "width:100%" })
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-4">
+												<div>
+													<label style="text-align: left; margin-left:1.5%;">Cosecha 2: </label>
+												</div>
+												<div style="width: 60%; margin-left: 4%; margin-bottom: 5px; text-align: left;">
+													&nbsp;
+													<label style="text-align:left;"> De: </label>
+													<div class="input-group date col-xs-12 col-md-3" style="width: 100%; Text-align: left;">
+														@Html.TextBox("fechaIni2", (string)"", new { @class = "datetimepicker2", style = "width:100%" })
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+														</span>
+													</div>
+												</div>
+												<div style="width: 60%; margin-left: 4%; margin-bottom: 5px; text-align: left;">
+													&nbsp;
+													<label style="text-align:left;"> a </label>
+													<div class="input-group date col-xs-12 col-md-3" style="width: 100%; Text-align: left;">
+														@Html.TextBox("fechaFin2", (string)"", new { @class = "datetimepicker2", style = "width:100%" })
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+														</span>
+													</div>
+												</div>
+											</div>
+
+
+										</div>
+									</div>
+
+
+								</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!---- DATOS DEL PRODUCTO PECUARIO ----->
+                    <!--------- ACORDEON ------------>
+                    <div id="accordion" class="Pecuario" style="border:1px solid; display:none">
+                        <div class="card">
+
+                            <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a href="#" style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-file"></i>
+                                        Información del Cultivo o Crianza que Maneja la Organización (Situación Actual)
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a href="#" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body" style="padding-left: 12px; padding-right: 12px; margin-left: 10%;margin-right: 5%;">
+                                    <br />
+
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.1. La organización tiene animales de crianza para el plan de negocio : </label>
+                                            </div>
+                                            <div style="width: 80%; text-align: left; margin-left: 3.3%;">
+                                                @{ List<KeyValuePair<int, string>> ddlTieneAnimales = new List<KeyValuePair<int, string>>();
+                                                    ddlTieneAnimales.Add(new KeyValuePair<int, string>(0, "Seleccione"));
+                                                    ddlTieneAnimales.Add(new KeyValuePair<int, string>(1, "SI"));
+                                                    ddlTieneAnimales.Add(new KeyValuePair<int, string>(2, "NO"));
+                                                    SelectList selectAnimales = new SelectList(ddlTieneAnimales, "key", "value", 0);
+                                                }
+                                                @Html.DropDownList("cbxtieneAnimal", selectAnimales, new { style = "width:75%;" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.2. Total de animales que en promedio tiene cada socio de la crianza priorizada: </label>
+                                            </div>
+                                            <div style="width: 70%; text-align: left; margin-left: 3.3%;">
+                                                @Html.TextBox("totalAnimales", (string)"", new { @class = "numeroDeciMil", style = "width:15%;" })
+                                                <label style="text-align:left;"> unidades. </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.3. Total de madres o vientres que tiene cada socio de la crianza priorizada : </label>
+                                            </div>
+                                            <div style="width: 70%; text-align: left; margin-left: 3.3%;">
+                                                @Html.TextBox("totalMadres", (string)"", new { style = "width:15%;" })
+                                                &nbsp;
+                                                <label style="text-align:left;"> madres. </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.4. Raza de la crianza priorizada : </label>
+                                            </div>
+                                            <div style="width: 80%; text-align: left; margin-left: 3.3%;">
+                                                @Html.TextBox("razaCrianza", (string)"", new { style = "width:60%;" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.5. Hectáreas promedio que tiene cada socio para pastar, forraje, maíz u otro para alimentar a la crianza: </label>
+                                            </div>
+                                            <div style="width: 75%; text-align: left; margin-left: 3.3%;">
+                                                @Html.TextBox("hasPromPastar", (string)"", new { style = "width:15%;" })
+                                                &nbsp;
+                                                <label style="text-align:left;"> Ha. </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.6. Productividad pecuaria : </label>
+                                            </div>
+                                            <div>
+                                                <label style="text-align: left; margin-left: 3.3%;">a. De la organización : </label>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-10 col-md-10"  style="margin-left: 4%; margin-bottom: 5px; text-align: left;">
+                                                @Html.TextBox("productividadOAP", (string)"", new { style = "width:20%;" })
+                                                <label style="text-align:right">unid. medida:</label>&nbsp;&nbsp;
+                                                <select id="cbxTipoUnidMedFr4" class="custom-select" style="width:25%;"> </select>&nbsp;&nbsp;
+                                                <select id="cbxUnidMedidaFr4" class="custom-select" style="width:25%;"> </select>
+                                            </div>
+
+                                            <div>
+                                                <label style="text-align: left; margin-left: 3.3%;">b. De la provincia o región : </label>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-10 col-md-10" style="margin-left: 4%; margin-bottom: 5px; text-align: left;">
+                                                @Html.TextBox("productividadRegionP", (string)"", new { style = "width:20%;" })
+                                                <label style="text-align:right">unid. medida:</label>&nbsp;&nbsp;
+                                                <select id="cbxTipoUnidMedFr5" class="custom-select" style="width:25%;"> </select>&nbsp;&nbsp;
+                                                <select id="cbxUnidMedidaFr5" class="custom-select" style="width:25%;"> </select>
+                                            </div>
+                                             
+											<div class="col-xs-12 col-sm-10 col-md-10">
+												<label style="text-align: left; margin-left: 3.3%;"> Fuente :  </label>
+											</div>
+											<div style="width: 90%; text-align: left; margin-left: 3.3%;">
+												@Html.TextBox("fuenteP", (string)"", new { style = "width:100%;", disabled = true })
+											</div>
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-md-8" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">3.7. En caso es ganado vacuno lechero. ¿Cuál es el periodo de producción de leche? : </label>
+                                            </div>
+                                            <div style="width: 70%; text-align: left;margin-left: 3.3%;">
+                                                @Html.TextBox("periodoProduccionP", (string)"", new { style = "width:20%;" })
+                                                &nbsp;
+                                                <label style="text-align:left;">días.</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!---- DATOS DEL PRODUCTO FORESTAL ----->
+                    <!--------- ACORDEON ------------>
+                    <div id="accordion" class="fOPRESTAL" style="border:1px solid; display:none">
+                        <div class="card">
+
+                            <div class="card-header widget-header" id="headingThree" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <a href="#" style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-file"></i>
+                                        Datos de la Organización Forestal
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <a href="#" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body" style="padding-left: 12px; padding-right: 12px; margin-left: 10%;margin-right: 5%;">
+                                    <br />
+
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                            <div>
+                                                <h1 style="font-size:60px;"> No Sea ha creado formato para este tipo de actividad</h1>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+
+    	controles_cultivo();
+
+      //  llenarCbxTipoUnidad(0);
+         
+      //  obtenerCultivoCrianza();
+
+
+    })
+</script>

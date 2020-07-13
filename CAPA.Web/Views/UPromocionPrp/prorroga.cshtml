@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "prorroga";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+
+<head>
+    <title>Prórroga</title>
+</head>
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+
+            <!-- Inicio ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.PromociónPrp</a></li>
+                <li class="active">Registrar Prórroga</li>
+            </ul>
+
+            <!-- Fin Ruta -->
+        </div>
+
+        <div class="page-content">
+            <!-- contenido -->
+            <!-- Inicio titulo -->
+            <div class="page-header">
+                <div class="cbp-mc-column">
+                    <h1> PRÓRROGA</h1>
+                </div>
+            </div>
+            <!-- Fin titulo -->
+
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+
+                    <div class="tab-content">
+
+                        <div class="active tab-pane" id="pesProrroga">
+
+                            <div class="row">
+                                <div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+                                    <h3>
+                                        <i class="ace-icon fa fa-file"></i>
+                                        DATOS DE PRÓRROGA
+                                    </h3>
+                                </div>
+                            </div>
+
+
+                            <br />
+                            <div class="row" style="margin-bottom:10px;">
+
+                                <div class="col-xs-12 col-xm-6 col-md-2">
+                                    <div>&nbsp;</div>
+                                </div>
+
+                                <div class="col-xs-12 col-xm-6 col-md-8 panel panel-default">
+                                    <br />
+                                    <div class="col-xs-12 col-sm-6 col-md-5" style="text-align:left; margin-bottom:5px;">
+                                        <div>
+                                            <label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left;">Motivo de prórroga: </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("idUsuario", (string)"", new { @class = "campoNumero", style = "display:none", Value = Session["IdUsua"] })
+                                            @Html.TextBox("idProrroga", (string)"", new { @class = "campoNumero", style = "display:none" })
+                                            @Html.TextBox("motivoProrroga", (string)"", new { @class = "col-xs-12 col-sm-6 col-md-10" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left; margin-bottom:5px;">
+                                        <div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6 col-md-5" style="text-align: center; margin-bottom: 10px;">
+                                        <div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                        </div>
+                                        <div>
+                                            <button id="btnConsultarProrroga" class="btn btn-success" style="display:none; margin-bottom:25px;">
+                                                <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                            </button>
+
+                                            <button id="btnLimpiarProrroga" class="btn btn-info" style="display:none; margin-bottom:25px;">
+                                                <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                            </button>
+
+
+                                            <button id="btnGrabarProrroga" class="btn btn-warning" style="display:none; margin-bottom:25px;">
+                                                <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                            </button>
+
+                                            <button id="btnCancelarProrroga" class="btn btn-danger" style="display:none; margin-bottom:25px;">
+                                                <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+                                <div class="col-xs-12 col-xm-6 col-md-2">
+                                    <div>&nbsp;</div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div>&nbsp;&nbsp;</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:center">
+                                    <button id="btnNuevaProrroga" class="btn btn-info" style="margin-bottom:auto;">
+                                        <i class="ace-icon fa fa-pencil-square"></i> AGREGAR PRÓRROGA
+                                    </button>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div>&nbsp;&nbsp;</div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-2 col-md-2">
+                                    <div> &nbsp;&nbsp; </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            Listado de tipo de prorrogas
+                                        </h3>
+                                    </div>
+
+                                    @*TABLA*@
+                                    <br />
+                                    <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                        <table id="tablaProrrogas" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2" style="display:none; background-color:#005e3a; color:white;" class="center" min-width="2%" width="2%" max-width="5%">ID</th>
+                                                    <th rowspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="2%" max-width="5%">N°</th>
+                                                    <th rowspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="10%" max-width="15%">Motivo de prórroga</th>
+                                                    <th rowspan="2" style="display:none; background-color:#005e3a; color:white;" class="center" min-width="2%" width="10%" max-width="15%">Activo</th>
+                                                    <th rowspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="10%" max-width="15%">Registrado Por</th>
+                                                    <th rowspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="10%" max-width="15%">Fecha Registro</th>
+                                                    <th rowspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="10%" max-width="15%">Modificado Por</th>
+                                                    <th rowspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="10%" max-width="15%">Fecha Modificacion</th>
+                                                    <th colspan="2" style="background-color:#005e3a; color:white;" class="center" min-width="5%" width="5%" max-width="5%">Accion</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-center" style="background-color:#005e3a; color:white;" min-width="2%" width="2%" max-width="5%">Modificar</th>
+                                                    <th class="text-center" style="background-color:#005e3a; color:white;" min-width="2%" width="2%" max-width="5%">Eliminar</th>
+                                                </tr>
+                                            </thead>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-2 col-md-2">
+                                    <div> &nbsp;&nbsp; </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_Prorroga();
+
+    });
+</script>
+

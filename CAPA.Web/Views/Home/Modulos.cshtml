@@ -1,0 +1,325 @@
+﻿@if (@Session["IdUsua"] == null)
+{
+    <script>
+
+            alert('Debe iniciar sesion.');
+            window.location.href = '@Url.Action("Index", "Account")';
+    </script>
+}
+
+
+<div id="navbar" class="navbar navbar-default  ace-save-state">
+    <!-- barrar top -->
+    <div class="navbar-container ace-save-state" id="navbar-container">
+
+
+        <div class="navbar-header pull-left logo ">
+            <!-- logo  -->
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="~/Content/img/logo-agroideas-b.png" width="100" height="54" alt="" style="margin-right: 15px;" />
+                </small>
+            </a>
+
+            <div class="titulo"> PROGRAMA DE COMPENSACIONES PARA LA COMPETITIVIDAD </div>
+
+        </div> <!-- Fin logo  -->
+
+
+
+        <div class="navbar-buttons navbar-header pull-right " role="navigation">
+            <!-- Mensajes -->
+            <ul class="nav ace-nav">
+
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="~/Content/img/user.jpg" alt="" />
+                        <span class="user-info">
+                            <small>Bienvenido</small>
+                            Sr: @Session["Usuario"]
+                        </span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close ">
+                        <li>
+                            <a id="cambiaPWD" href="#modalCambiarContraseña" data-toggle="modal">
+                                <i class="ace-icon fa fa-asterisk"></i>
+                                Cambiar Contraseña
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="/Account/Logout">
+                                @*<a class="cerrar_sesion" href="/Account/Index">*@
+                                <i class="ace-icon fa fa-power-off"></i>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </li>
+            </ul>
+        </div> <!-- Fin Mensajes -->
+    </div>
+</div><!-- Fin barrar top -->
+
+<div class="main-container ace-save-state" id="main-container">
+    <!-- Inicio contenedor-->
+    <script type="text/javascript">
+        try { ace.settings.loadState('main-container') } catch (e) { }
+    </script>
+
+
+    <!-- Fin Menu -->
+
+    <div class="main-content">
+        <!-- contenedor -->
+
+        <div class="main-content-inner">
+
+
+            <div class="page-content">
+                <!-- contenido -->
+
+
+                <div class="row">
+                    <!-- inicio grid-->
+                    <div class="col-sm-4 col-xs-6 center" style="margin-bottom:5%; margin-top:2%;">
+                        <a id="linkUProm" href="#upModal" data-toggle="modal">
+                            <img src="~/Content/img/ico-up.png" width="151" height="153" alt="" /><br /><br />
+                            Unidad de Promoción
+                        </a>
+                        <div id="upModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header alert-success alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title">Líneas de Acción de AGROIDEAS</h4>
+                                    </div>
+                                    <div class="modal-body"> 
+                                        <a href="/UPromocion/Index" disabled:"true">
+                                            <img src="~/Content/img/ico-clasico-c.png" width="100" alt="" style="margin-right:10px;" />
+                                        </a>
+                                        <a href="/UPromocionPrp/Index">
+                                            <img src="~/Content/img/ico-reconv-c-v.png" width="100" alt="" style="margin-left:10px;" />
+                                        </a>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-6  center" style="margin-bottom: 5%; margin-top: 2%;">
+
+                        <a id="linkUNeg" href="/UNegocios/Index">
+                            <img src="~/Content/img/ico-un.png" width="151" height="153" alt="" /><br /><br />
+                            Unidad de Negocios
+                        </a>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-6  center" style="margin-bottom: 5%; margin-top: 2%;">
+
+                        <a id="linkUMon" href="/UMonitoreo/Index">
+                            <img src="~/Content/img/ico-um.png" width="151" height="153" alt="" /><br /><br />
+                            Unidad de Monitoreo
+                        </a>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-4 col-xs-6 center" style="margin-bottom:5%;">
+                        <a id="linkUPSE" href="#">
+                            <img src="~/Content/img/ico-upse.png" width="151" height="153" alt="" /><br /><br />
+                            Unidad de Planificación, Seguimiento y Evaluación
+                        </a>
+                    </div>
+
+
+                    <div class="col-sm-4 col-xs-6  center" style="margin-bottom:5%;">
+                        <a id="linkUAdmin" href="/UAdministracion/Index">
+                            <img src="~/Content/img/ico-ua.png" width="151" height="153" alt="" /><br /><br />
+                            Unidad de Administración
+                        </a>
+                    </div>
+
+
+                    <div class="col-sm-4 col-xs-6  center" style="margin-bottom:5%;">
+                        <a id="linkULeg" href="#" data-toggle="modal">
+                            <img src="~/Content/img/ico-legal.png" width="151" height="153" alt="" /><br /><br />
+                            Asesoría Legal
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-4 col-xs-6 center">
+                        <a id="linkUJefP" href="#">
+                            <img src="~/Content/img/ico-jp.png" width="151" height="153" alt="" /><br /><br />
+                            Jefatura del Programa
+                        </a>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-6  center">
+                        <a id="linkUASist" href="/UASistemas/index">
+                            <img src="~/Content/img/ico-adm.png" width="151" height="153" alt="" /><br /><br />
+                            Administración del Sistema
+                        </a>
+                    </div>
+
+
+                    <div class="col-sm-4 col-xs-6  center">
+                        <a id="linkOA" href="/OA/Index">
+                            <img src="~/Content/img/ico-OA.png" width="151" height="153" alt="" /><br /><br />
+                            Organización Agricola
+                        </a>
+                    </div>
+
+                </div>
+                <!-- fin grid -->
+                <!--INGRESAR PRE INFORMACION-->
+                <div id="modalCambiarContraseña" class="modal fade" role="dialog" data-backdrop="false" style="background-color:rgba(0,0,0,0.5);">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title"> Cambiar Contraseña de Usuario </h4>
+                            </div>
+
+                            <div id="form_Registro" class="modal-body">
+                                <div class="row" style="text-align:left">
+                                    <div class="col-xs-12 col-md-2" style="text-align:left">
+                                        <div>
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-8" style="text-align:left">
+                                        <div>
+                                            <label>Contraseña Actual</label>
+                                        </div>
+                                        <div class="inline-block">
+                                            @Html.Password("pwdActual", (string)"", new { style = "width:70%" })
+                                            @Html.CheckBox("chkMostrarPA")
+                                            <label> mostrar.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2" style="text-align:left">
+                                        <div>
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="text-align:left">
+                                    <div class="col-xs-12 col-md-2" style="text-align:left">
+                                        <div>
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-8" style="text-align:left">
+                                        <div>
+                                            <label>Nueva Contraseña</label>
+                                        </div>
+                                        <div class="inline-block">
+                                            @Html.TextBox("usuario", (string)"", new { style = "display:none", Value = @Session["Usuario"] })
+                                            @Html.TextBox("idUsuar", (string)"", new { style = "display:none", Value = @Session["IdUsua"] })
+                                            @Html.Password("pwdNueva", (string)"", new { style = "width:70%" })
+                                            @Html.CheckBox("chkMostrarPN")
+                                            <label> mostrar.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2" style="text-align:left">
+                                        <div>
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align:left;">
+                                    <div class="col-xs-12 col-md-2" style="text-align:left">
+                                        <div>
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-8" style="text-align:left">
+                                        <div>
+                                            <label>Confirmar Contraseña</label>
+                                        </div>
+                                        <div class="inline-block">
+                                            @Html.Password("pwdNuevaConf", (string)"", new { style = "width:70%" })
+                                            @Html.CheckBox("chkMostrarNP")
+                                            <label> mostrar.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2" style="text-align:left">
+                                        <div>
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="btnSalvarCambiosPWD">Grabar</button>
+                                <button type="button" class="btn btn-danger" id="btnCerrarCambioPWD" data-dismiss="modal">Cerrar </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div><!-- contenido -->
+    </div>
+
+
+
+</div><!-- fin contenedor -->
+
+<div class="footer" style="margin-top:0px !important;">
+    <div class="footer-inner">
+        <div class="footer-content">
+            <span class="bigger-120">
+                <span class="green bolder">AGROIDEAS</span>
+                2018
+            </span>
+
+        </div>
+    </div>
+</div>
+
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+</a>
+   
+
+<script>
+
+     $(document).ready(function () {
+
+         controles_ModuloHome();
+
+         var idUsuario = @Session["IdUsua"];
+         obtenerModulos(idUsuario, 2);
+          
+         
+     });
+
+</script>
+
+

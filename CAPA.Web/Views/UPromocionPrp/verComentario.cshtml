@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "verComentario";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<title>Registrar nuevo comentario</title> 
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocionPrp/Index">U.PromociónPRP</a></li>
+            <li class="active">Registrar nuevo comentario</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1> Registrar nuevo comentario </h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+        <!-- inicio pasos-->
+
+
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+
+            <!--------- ACORDEON ------------>
+
+            <div id="accordion" style="border:1px solid; ">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-search"></i>
+                                Registrar nuevo comentario
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                        <!-- Inicio Card Body  -->
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                            <br />
+                            <div class="row" style="margin-bottom:2px; margin-left:10%;">
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Estado actual:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("estadoActualE", (string)"", new { @class = "campoTexto", style = "width:50%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Especialista asignado:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("idEspecialista", (string)"", new { @class = "campoNumero", style = "width:50%; display:none;" })
+                                        @Html.TextBox("especialista", (string)"", new { @class = "campoTexto", style = "width:50%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <br />
+                        </div>
+                        <!-- Fn Card Body  -->
+
+                        <!-- TABLA DOC QUE FORMARAN PARTE PRPA -->
+                        <div class="table-responsive margen">
+                            <h3 style="text-align:center;">Registro de comentarios</h3>
+                            <table id="tabDocPRPA" class="table table-bordered table-hover table-striped display" style="width:70%; margin-left:15%">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:15%">Fecha de comentario</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:35%">Comentario</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Acción</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:25%">Eliminar</th>*@
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+
+                                        <td class="center">
+                                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("txbFechaComentario", (string)"", new { style = "width:100%", })</div>
+
+                                        </td>
+                                        <td style="text-align:center">
+                                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("txbComentario", (string)"", new { style = "width:100%", })</div>
+                                        </td>
+                                        <td class="center">
+
+                                            <button id="btnAgregarComentario" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-save"></i>Agregar</button>
+                                            &nbsp; &nbsp;
+                                        </td>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- fin de Acrodeon -->
+
+        </div>
+
+
+       
+        <br />
+
+
+        <!-- TABLA 2 DOC PRESENTADOS POR OA PARA PRPA -->
+        <div class="table-responsive margen">
+            <h3 style="text-align:left;">Lista de comentarios</h3>
+            <table id="tabListaComentarios" class="table table-bordered table-hover table-striped display" style="width:100%; margin-left:auto">
+                <thead>
+                    <tr>
+                        @*<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>*@
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:20%">Estado actual</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:30%">Especialista</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:25%">Comentario</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:25%">Fecha de comentario</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:25%">Usuario registro</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Modificar</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        @*<td class="center">1</td>*@
+                        <td class="center"> --</td>
+                        <td class="center"> --</td>
+                        <td class="center"> --</td>
+                        <td class="center"> --</td>
+                        <td style="text-align:center">  </td>
+                        <td class="center">
+
+                            <button id="btnListarComentario" class="btn btn-warning" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-pencil"></i></button>
+
+                        </td>
+                        <td class="center">
+
+                            <button id="btnEliminarComentario" class="btn btn-danger" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-trash"></i></button>
+
+                        </td>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+
+        <div class="row">
+            <!-- inicio grid-->
+            <!-- Fin tabla-->
+
+
+        </div><!-- fin grid -->
+    </div><!-- contenido -->
+</div>
+
+</div><!-- fin contenedor -->

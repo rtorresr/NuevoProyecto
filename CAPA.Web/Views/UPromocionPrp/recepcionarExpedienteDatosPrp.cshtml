@@ -1,0 +1,391 @@
+﻿@{
+    ViewBag.Title = "Recepcionar Expediente del P.R.P";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>Actualizar Organización</title>
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li><a href="/UPromocion/recepcionarExpedientePrp">Recepcionar Expediente P.R.P</a></li>
+                <li class="active">Recepcionar Expediente Datos P.R.P </li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Recepcionar Expediente P.R.P </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+                    <a class="btn btn-success" id="" href="#recepcionModal" title="Recepcionar" data-toggle="modal">
+                        <i class="ace-icon fa fa-pencil"></i>RECEPCIONAR
+                    </a>
+
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/recepcionarExpedientePrp" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            R.U.C :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Razón Social :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+
+                    </div>
+                 
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha Inscripción en SUNARP :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20/10/2014", new { @class = "solo-numero", style = "width:40%" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Fecha de Constitución :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"21/10/2014", new { @MaxLength = "500", style = "width:40%" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            FECHA REGISTRO en S.E.L :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"01/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    
+                </div>
+
+
+
+
+
+                <br />
+
+
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" style="color:white; text-decoration:none;" data-toggle="collapse">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Documentos presentados por la Organizacion
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;">
+                                <br />
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-6" style="text-align:left; border-bottom:1px solid #ede9e9;">
+
+                                        <label style=" text-align:left;">
+                                            Lista de Documentos
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Ficha de Formato O-1 ó Formato I-1 :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList = new List<KeyValuePair<int, string>>();
+                                            dropdownList.Add(new KeyValuePair<int, string>(0, "Seleccione"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(1, "SI TIENE"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "NO TIENE"));
+                                            SelectList selectList = new SelectList(dropdownList, "key", "value", 0);
+
+                                        }
+
+                                        @Html.DropDownList("foo", selectList, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Copia Literal de la Partida Registral :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @Html.DropDownList("foo", selectList, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Acta de Asamblea en la que se aprueba la presentación del P.R.P :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @Html.DropDownList("foo", selectList, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Fecha del documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        <div class="txtFormulario" style="width:100% ">
+                                            <div class='input-group date' id='datetimepicker2' style=" width:50%;">
+                                                @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            C.I.R de la SUNAT :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @Html.DropDownList("foo", selectList, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Fecha del documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        <div class="txtFormulario" style="width:100% ">
+                                            <div class='input-group date' id='datetimepicker3' style=" width:50%;">
+                                                @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Certificado de Vigencia :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @Html.DropDownList("foo", selectList, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Fecha del documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        <div class="txtFormulario" style="width:100% ">
+                                            <div class='input-group date' id='datetimepicker4' style=" width:50%;">
+                                                @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <div id="recepcionModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Recepcionar Expediente P.R.P</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row" style="margin-bottom:5px; text-align:left;">
+                                    <span>Se recepcionó correctamente el expediente del P.R.P.</span><br /><br />
+                                    <span>Se generó el numero de P.R.P : </span><span class="alert-warning" style="font-size:large; padding:5px;"><strong>PRP-321-2018</strong></span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.href='/UPromocionPrp/recepcionarExpedientePrp'">Aceptar</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- -->
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+<script>
+
+    $('#datetimepicker2').datetimepicker({
+        locale: 'es',
+        format: 'DD/MM/YYYY',
+        maxDate: Date.now(),
+        showClose: true,
+        allowInputToggle: true,
+        keepInvalid: true,
+        ignoreReadonly: true,
+        widgetPositioning: {
+            horizontal: 'auto',
+            vertical: 'top'
+        }
+    });
+
+    $('#datetimepicker3').datetimepicker({
+        locale: 'es',
+        format: 'DD/MM/YYYY',
+        maxDate: Date.now(),
+        showClose: true,
+        allowInputToggle: true,
+        keepInvalid: true,
+        ignoreReadonly: true,
+        widgetPositioning: {
+            horizontal: 'auto',
+            vertical: 'top'
+        }
+    });
+
+    $('#datetimepicker4').datetimepicker({
+        locale: 'es',
+        format: 'DD/MM/YYYY',
+        maxDate: Date.now(),
+        showClose: true,
+        allowInputToggle: true,
+        keepInvalid: true,
+        ignoreReadonly: true,
+        widgetPositioning: {
+            horizontal: 'auto',
+            vertical: 'top'
+        }
+    });
+</script>

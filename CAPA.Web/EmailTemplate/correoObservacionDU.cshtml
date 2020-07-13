@@ -1,0 +1,64 @@
+﻿<div class="row" style="width: 70%; margin-left: 25%">
+    <div style="text-align:center;background-color:#1A6225; font-size:30px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+        <b> </b>
+        <div class="titulo" style="color:white"> Observación en los datos del Usuario </div>
+    </div>
+    <div style="background-color:azure;">
+        <br />
+        <article class="col-xs-12 col-md-6" style="font-size:15px; margin-left: 5%">
+            Estimado Sr. <strong>@ViewBag.repreLegal</strong> representante legal de la organización <strong> @ViewBag.RazSocial</strong>, con cuenta de usuario: <strong> @ViewBag.usuario</strong>, el siguiente que correo es para informarle
+            que los datos ingresados de su organización con número de RUC: <strong> @ViewBag.rucOA </strong>, presentarón la siguiente observación: <strong>" @ViewBag.Observacion "</strong>.
+            <blockquote class="col-xs-12 col-md-6" style="font-size:14px;  background-color:#F2F6F4; width:80%; color:black;">
+
+
+                <table border="1px" style="margin: 0 auto;" ">
+                    <tr>
+                        <th>
+                            Datos Ingesados al SEL
+                        </th>
+                        <th>
+                            Datos registrados en SUNAT
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+
+                            @ViewBag.RazSocial
+                        </th>
+                        <th>
+                            @ViewBag.razSocialSunat
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @ViewBag.dniRepreLegal
+                        </th>
+                        <th>
+                            @ViewBag.dniRepLegalSunat
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @ViewBag.repreLegal
+                        </th>
+                        <th>
+                            @ViewBag.repLegalSunat
+                        </th>
+                    <tr></tr>
+                </table>
+            </blockquote>
+
+            Por tal motivo, sus credenciales de acceso serán anuladas del Sistema en Linea.
+        </article>
+
+        <article style="font-size:15px; margin-left: 5%">
+            Si tiene algún incoveniente por favor contáctenos al correo eléctronico <strong>sel@agroideas.gob.pe</strong> o al <strong>teléfono: 511-416-9880, Anexo: 857</strong>
+        </article>
+        <article style="font-size:15px; margin-left: 5%">
+            Horario de Atención de Lunes a Viernes de 8:30 a.m. a 5:30 p.m.
+        </article>
+
+        <br />
+        <br />
+    </div>
+</div>

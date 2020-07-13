@@ -1,0 +1,530 @@
+﻿
+@{
+    ViewBag.Title = "registraJuntaDirectiva_PRP";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>Junta Directiva de la organización </title>
+</head>
+
+<div class="main-content">
+<!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Inicio Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Opa/"> </a>
+                </li>
+                <li><a href="/Opa/Index">OPA</a></li>
+                <li class="active"><a href="verJuntaDirectiva">Junta directiva de la organización</a></li>
+            </ul>
+
+        </div><!-- Fin ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+                    <h1>  junta directiva de la organización</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+
+            <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+                <!--------- ACORDEON ------------>
+                <div id="accordion" style="border:1px solid; ">
+                    <div class="card">
+
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-search"></i>
+                                    Criterio de busqueda
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="row" style="margin-bottom:5px; margin-left:auto">
+                         
+                            <div class="col-xs-12  col-md-4" style="text-align: left;">
+                                <div>
+                                    <label style="text-align:left;">RUC:</label>
+                                </div>
+                                <div>
+
+                                    @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+
+                                    @Html.Hidden("idOA", (string)"", new { @class = "campoNumero", @maxlength = "8", style = "width:32%" })
+                                    @Html.Hidden("idTipoSolic", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:32%", disabled = true })
+                                    @Html.TextBox("permitirAct", (string)"", new { style = "display:none" })
+                                    @Html.Hidden("completado", (string)"", new { @class = "campoTexto", @maxlength = "6", style = "width:32%" })
+                                    @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:65%" })
+
+                                    <p id="ANroDocIdent" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                <div><label style="text-align:left;"> Razón Social: </label></div>
+                                <div>
+                                    @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:80%" })
+                                    <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                <div>
+                                    <button id="btnBuscarOA" class="btn btn-success" style="margin-top:25px"><i class="ace-icon fa fa-search"></i>Consultar</button>
+                                    &nbsp;
+                                    <button id="btnLimpiarFiltro" class="btn btn-success" style="margin-top:25px"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <br />
+                            
+                        </div>
+                        <br />
+                        <!-- fin de card body -->
+                    </div>
+                    <!-- fin de card -->
+                </div>
+                <!-- fin de Acrodeon -->
+
+                <br />
+                <div class="col-xs-12 col-sm-12 col-md-12">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; border-bottom: 1px solid #ede9e9;">
+                        <h3>
+                            <label class="col-xs-12 col-sm-12 col-md-12" style="text-align:left">Lista de organizaciones registradas.</label>
+                        </h3>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-12" style="margin-bottom:25px;">
+                        <!-- inicio tabla-->
+                        <div class="table-responsive margen">
+                            <br />
+                            <table id="TablaOAJD" class="table table-bordered table-hover table-striped display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; max-width:3%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">RUC</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:27%; max-width:27%">Razón social</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:20%">Representante legal</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:15%">Persona de contacto</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Departamento</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Provincia</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Distrito</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; max-width:15%">Junta Directiva</th>
+
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        @*<td class="center">1</td>*@
+                                        <td class="center">01</td>
+                                        <td class="center">20570607945 </td>
+                                        <td style="text-align:center"> -- </td>
+                                        <td class="center"> -- </td>
+                                        <td style="text-align:center"> -- </td>
+                                        <td class="center"> -- </td>
+                                        <td style="text-align:center"> -- </td>
+                                        <td class="center"> -- </td>
+                                        <td class="center">
+                                            <button id="btnModalRegistroJD" class="btn btn-info" style="vertical-align:middle;"><i class="fa fa-pencil"> </i>&nbsp;  Registrar </button>
+                                        </td>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!--------- Agregrar Miembros --------->
+
+      
+
+            <!-- inicio Tabla Junta -->
+            <div class="col-xs-12" style="margin-bottom:25px;">
+                <!-- inicio tabla-->
+                <div class="table-responsive margen">
+                    <!-- inicio Tabla MIEMBROS JUNTA DIRECTIVA -->
+                    
+                    <!--MODAL REGISTRA JUNTA DIRECTIVA-->
+
+                    <div class="modal" id="modalRegistraJuntaDirectiva" tabindex="-1" role="dialog" aria-labelledby="recepcionarLabel" aria-hidden="true" style="overflow-y: auto;">
+                        <div class="modal-dialog modal-lg;" style="align-content:center; margin-right:60%">
+                            <div class="modal-content" style="width:260%;">
+                                <div class="modal-header">
+                                    <button id="btnClosemodalRegistraJuntaDirectiva" type="button" class="close" data-dismiss="modal">x</button>
+                                    <h4 class="modal-title"><strong>Datos de junta directiva</strong></h4>
+                                </div>
+
+                                <div class="modal-body" style="max-height:150%">
+
+                                    <!-- FORMULARIO registra junta directiva -->
+
+                                    <div class="text-center">
+
+                                        <div class="row" style="margin-bottom:25px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;"> Razón social: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("razonSocialf", (string)"", new { style = "width:90%", disabled = true })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align:left;">Fecha de inscripción SUNARP: </label>
+                                                </div>
+                                                <div class="input-group" style="width:65%">
+                                                    @Html.TextBox("FecInscSunatf", (string)"", new { @Class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%", disabled = true })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align:left;">Fecha de constitución: </label>
+                                                </div>
+                                                <div class="input-group" style="width:65%">
+                                                    @Html.TextBox("FechaConstit", (string)"", new { @Class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%", disabled = true })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Fecha de registro en SEL: </label>
+                                                </div>
+                                                <div class="input-group" style="width:65%">
+                                                    @Html.TextBox("fechaRegistroSelf", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", @MaxLength = 10, style = "width:100%", disabled = true })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:25px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Periodo duración: </label>
+                                                </div>
+                                                <div class="input-group date" style="width: 65%;">
+                                                    @Html.TextBox("periodoDuracionf", (string)"", new { @class = "campoNumero", style = "width:40%", })
+                                                    <label style="text-align:left;"> meses. </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha de inicio: </label>
+                                                </div>
+                                                <div class="input-group date" style="width: 65%;">
+                                                    @Html.TextBox("fechaIniciof", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%; Text_align:left;", })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha de culminación: </label>
+                                                </div>
+                                                <div class="input-group date" style="width: 65%;">
+                                                    @Html.TextBox("fechaFinf", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%; Text_align:left;", })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;">  Motivo actualización: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("actEconomica", (string)"", new { @class = "campotexto", @maxlength = "10", style = "width:65%", })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-12" style="text-align:center;">
+                                            <div>
+                                                </br>
+                                            </div>
+                                            <div>
+                                                <button id="btnRegistroJuntaDirect" class="btn btn-success" style="vertical-align:middle;"><i class="fa fa-floppy-o"> </i>&nbsp; Guardar </button>
+                                                <button id="btnModificarJuntaDirec" class="btn btn-warning" style="vertical-align:middle; display:none;"><i class="ace-icon fa fa-edit"></i> Modificar junta directiva </button> &nbsp; &nbsp; 
+                                                <button class="btn btn-primary" id="btnRegistrarMiembroJD" href="" title="Agregar Miembro">
+                                                    <i class="ace-icon fa fa-user-plus"></i>Agregar miembro en junta directiva </button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="divAgregarMiembro" class="row" style="margin-bottom:25px;">
+                                        <br />
+                                        <br />
+                                       
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="margin-bottom:5px; margin-left:auto">
+                                        <div class="col-xs-12 col-md-3" style="text-align:left">
+                                            <div>
+                                                <label>DNI:</label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("dni", (string)"", new { @class = "campoNumero", @MaxLenght = 8, style = "width:70%" })
+                                                <button id="btnBuscarxDni" class="btn btn-primary btn-sm" title="Cargar Datos"> <ion-icon name="search"></ion-icon></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- inicio Tabla Junta -->
+                                    <div class="col-xs-12" style="margin-bottom:25px;">
+                                        <div class="table-responsive margen">
+                                            <table id="tablaMiembroJD" class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+
+                                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:30%">Nombre y apellidos </th>
+                                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Cargo</th>
+                                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Correo Eléctronico</th>
+                                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:10%">Teléfono</th>
+                                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:10%">Registrar</th>
+                                                        @*<th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acciones</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                    <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                </tr>*@
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="center">
+                                                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("dniMiembroJD", (string)"", new { style = "width:100%", })</div>
+                                                        </td>
+
+                                                        <td class="center">
+                                                            <select id="cbxCargoFl" class="custom-select" style="width:70%;"> </select>
+                                                        </td>
+                                                        <td style="text-align:center">
+                                                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("correoMiembroJD", (string)"", new { style = "width:100%", })</div>
+                                                        </td>
+                                                        <td class="center">
+
+                                                            <div class="col-xs-12" style="text-align:left;">@Html.TextBox("telfMiembroJD", (string)"", new { style = "width:100%", })</div>
+                                                        </td>
+                                                        <td class="center">
+                                                            <button class="btn btn-success" id="btnRegistrarMiembroJD" href="" title="Agregar Miembro">
+                                                                <i class="ace-icon fa fa-plus"></i>Agregar
+                                                            </button>
+                                                        </td>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <br /><br />
+                                    <!--TABLA 3 LISTADO-->
+                                    <div class="col-xs-12" style="margin-bottom:25px;">
+                                    <!-- inicio tabla-->
+                                    <h3 style="text-align:left">Miembros de la junta directiva</h3>
+                                    <div class="table-responsive margen">
+                                        <table id="tablaListaMiembroJD" class="table  table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+
+                                                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">DNI</th>
+                                                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; max-width:30%">Nombre y apellidos </th>
+                                                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Cargo</th>
+
+                                                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">Correo Eléctronico</th>
+                                                    <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:10%">Teléfono</th>
+
+                                                    <th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acciones</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                    <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center"></td>
+                                                    <td class="center"> </td>
+                                                    <td class="center"> </td>
+                                                    <td style="text-align:center"></td>
+                                                    <td class="center"> </td>
+                                                    <td class="center">
+                                                        <button class="btn btn-warning" id="btnRegistrarMiembroJD" href="" title="Agregar Miembro">
+                                                            <i class="ace-icon fa fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td class="center">
+                                                        <button class="btn btn-danger" id="btnRegistrarMiembroJD" href="" title="Agregar Miembro">
+                                                            <i class="ace-icon fa fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                            </tbody>
+
+                                        </table>
+
+
+
+
+                                        <div class="col-md-12 text-center">
+                                            <ul class="pagination pagination-lg pager" id="developer_page"></ul>
+                                        </div>
+                                    </div>
+
+                                </div> <!-- Fin tabla Junta  -->
+
+
+
+
+
+
+                                </div>
+
+                                <!-- tabla con busqueda dni-->
+
+                              
+
+
+
+
+                                <!-- inicio Tabla Junta -->
+                                <di
+
+
+
+                            </div>
+                        </div>
+
+                        
+
+
+                       
+                        
+                        </div>
+
+                    <!--MODAL REGISTRA JUNTA DIRECTIVA-->
+
+
+
+                    @*----- MODAL ACTUALIZAR  JUNTA DIRECTIVA -----*@
+                    <div id="actualizarJuntaDirec" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Actualizar Miembro</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Actualizar Datos del Miembro</p>
+                                    <hr />
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <div class="col-md-4" style="text-align:left;"><label style="text-align:left;">D.N.I :</label></div>
+                                        <div class="col-md-8" style="text-align:left;">@Html.TextBox("nro_orden", (string)"08559050", new { style = "width:100%", disabled = "true" })</div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <div class="col-md-4" style="text-align:left;"><label style=" text-align:left;">Nombre Completo :</label></div>
+                                        <div class="col-md-8">@Html.TextBox("nro_orden", (string)"RAMIRO, VEGA MOLINA", new { style = "width:100%", disabled = "true" })</div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <div class="col-md-4" style="text-align:left;"><label style=" text-align:left;">Cargo :</label></div>
+                                        <div class="col-md-8">
+                                            @{
+                                                List<KeyValuePair<int, string>> dropdownList1 = new List<KeyValuePair<int, string>>();
+                                                dropdownList1.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(1, "Presidente"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(2, "Vicepresidente"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(3, "Secretario"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(4, "Tesorero"));
+                                                dropdownList1.Add(new KeyValuePair<int, string>(5, "Vocal"));
+                                                SelectList selectList1 = new SelectList(dropdownList1, "key", "value", 1);
+
+                                            }
+                                            @Html.DropDownList("foo", selectList1, new { style = "width:100%" })
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <div class="col-md-4" style="text-align:left;"><label style="text-align:left;">Correo Eléctronico</label></div>
+                                        <div class="col-md-8">@Html.TextBox("nro_orden", (string)"RVEGA@GMAIL.COM", new { style = "width:100%", disabled = "true" })</div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:10px;">
+                                        <div class="col-md-4" style="text-align:left;"><label style="text-align:left;">Teléfono</label></div>
+                                        <div class="col-md-8">@Html.TextBox("nro_orden", (string)"987654321", new { style = "width:100%;", disabled = "true" })</div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Actualizar</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div><!-- contenido -->
+        </div>
+    </div><!-- fin contenedor -->
+
+<script>
+    $(document).ready(function () {
+        controles_junta_directiva_PRP();
+
+    })
+</script>

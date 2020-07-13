@@ -1,0 +1,426 @@
+﻿@model SEL_Entidades.RRHH_E.FamTrabajador_E
+@{
+    ViewBag.Title = "familiares";
+    Layout = "~/Views/Shared/_LayoutMenuUa.cshtml";
+}
+
+
+<head>
+    <title>FAMILIARES</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+           
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UAdministracion/Index">U.Administración</a></li>
+                    <li class="active"> <a href="/UAdministracion/familiares">Familiares</a></li>
+                </ul>
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+                    <div class="col-md-12">
+                        <h1>FAMILIARES  </h1>
+                    </div>
+                </div>                  <!-- Fin titulo -->
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    <div id="accordion" style="border:1px solid;">
+                        <div class="card">
+
+                            <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-file"></i>
+                                        Criterios de Búsqueda
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                    <br />
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align:left;">Nro. Documento :</label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("nroDocTrab", (string)"", new { @class = "soloNumero", style = "width:60%" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align:left;">Trabajador :</label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("trabajador", (string)" ", new { @class = "campoTexto", style = "width:100%" })
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="cbp-mc-column">
+
+                                            <br />
+
+
+                                        </div>
+
+                                        <div class="cbp-mc-column">
+                                            <br />
+
+                                        </div>
+
+                                        <div class="cbp-mc-column">
+                                            <br />
+
+                                        </div>
+
+                                        <!-- columna  3 -->
+
+                                        <div class="cbp-mc-column ">
+                                            <br>
+                                            <button id="btnConsultarFam" class="btn btn-success" style="margin-bottom:25px"><i class="ace-icon fa fa-search"></i>Consultar</button>
+                                            <button id="btnLimpiarFam" class="btn btn-success" style="margin-bottom:25px"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+                                        </div>
+                                    </div>
+
+
+                                </div><!-- fin contenido-->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-12 col-md-12">
+
+                        <br>
+                        <div align="center" class="row">
+                            <button id="btn_nuevofam" type="button" class="btn btn-primary" style="width:100px; margin-right:2%;" data-toggle="modal" data-target="#myModal">
+                                <i class="glyphicon glyphicon-plus"></i> Nuevo
+                            </button><br />
+                        </div>
+
+                        <div id="div-tabla" class="table-responsive margen">
+
+                            <table id="tablaFam" class="table table-bordered table-hover table-striped" style="width:100%">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</th>
+										<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Trabajador </th> 
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Documento</th> 
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro. Documento</th> 
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Familiar</th> 
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Lazo Familiar</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Genero</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Nacimiento</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Estado Civil</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Ubigeo</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Dirección</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Teléfono</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Celular</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Email</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th> 
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Registro</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Modificación</th> 
+                                        <th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">Acción</th>
+                                    </tr>
+
+                                    <tr>
+                                        @*<th class="text-center" style="background-color:darkseagreen; color:black;">Ver</th>*@
+                                        <th class="text-center" style="background-color:darkseagreen; color:black;">Modificar</th>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black;">Eliminar</th>
+                                    </tr>
+                                </thead>
+ 
+                            </table>
+
+                        </div>
+                    </div>
+
+                      
+                    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto; display: none;">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    <button id="btnClose" type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" id="myModalLabel"> Familiar </h4>
+                                </div>
+                                <div class="modal-body" id="mdialTamanio" style="max-height:90%;">
+                                    <form>
+                                        @using (Html.BeginForm())
+                                        {
+                                            <div class="row" style="margin-bottom: 25px;">
+                                                <div class="col-xs-12 col-md-12" style="text-align: left; border-bottom: 1px solid #ede9e9; background-color: darkseagreen">
+                                                    <label style="text-align:left;">
+                                                        Datos del Trabajador
+                                                    </label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                            
+                                                <div id="" class="col-xs-12 col-md-4" style="margin-bottom:5%; display:none;">
+                                                    <br />
+                                                </div>
+                                                <div id="" class="col-xs-12 col-md-4" style="margin-bottom:5%; display:none;">
+                                                    <br />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Nro Documento :</label>
+                                                    @Html.TextBox("NroDocT", (string)"", new { @class = "campoNumero ", @maxlength = "8", style = "width:40%;" })
+                                                    <button id="btnConsTrab" type="button" class="btn btn-success"> Buscar </button>
+                                                    <p id="ANroDocT" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                    <p id="ANroDocT2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">No se encuentra registrado.</p>
+                                                </div>
+                                     
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Trabajador : </label>
+                                                    @Html.HiddenFor(model => model.IdTrabajador, new { @class = "campoNumero", style = "width:65%", disabled = true })
+                                                    @Html.TextBoxFor(model => model.nombTrabajador, new { @class = "campoTexto", style = "width:65%", disabled = true })
+                                                    <p id="AnombTrabajador" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            <div class="row" style="margin-bottom: 25px;">
+                                                <div class="col-xs-12 col-md-12" style="text-align: left; border-bottom: 1px solid #ede9e9; background-color: darkseagreen">
+                                                    <label style="text-align:left;">
+                                                        Datos del Familiar
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div id="idFamiliar" class="col-xs-12 col-md-6" style="text-align:left; display:none;">
+                                                    <label style="text-align:left; width:30%;">ID :</label>
+                                                    @Html.TextBox("IdFamTrabajador", (string)"", new { @class = "campoNumero",  style = "width:55%", disabled = true })
+                                                </div>
+                                                 
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Nro Documento :</label>
+                                                    @Html.TextBox("NroDocumento", (string)"", new { @class = "campoNumero ", @maxlength = "8", style = "width:40%;" })
+                                                    @Html.Hidden("Usuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", @Value = Session["Usuario"] })
+                                                    @Html.Hidden("docUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", @Value = Session["DocumentoUsua"] })
+                                                    <button id="btnConsultaPide" type="button" class="btn btn-success"> Validar </button>
+                                                    <p id="ANroDocFT" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div> 
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Ap. Paterno : </label>
+                                                    @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "campoTexto", style = "width:55%", disabled = "true" })
+                                                    <p id="AApellidoPaterno" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Foto : </label>
+                                                    @Html.HiddenFor(model => model.Foto, new { style = "width:55%" })
+                                                    <span class="rounded-top" style="margin-bottom:5%; position:absolute;">
+                                                        <img id="Ifoto" class="img-thumbnail" style="width:75%; height:85%">
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:10px; position:relative;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Ap. Materno : </label>
+                                                    @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "campoTexto", style = "width:55%", disabled = "true" })
+                                                    <p id="AApellidoMaterno" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Nombre : </label>
+                                                    @Html.TextBoxFor(model => model.Nombres, new { @class = "campoTexto", style = "width:55%", disabled = "true" })
+                                                    <p id="ANombres" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Genero : </label>
+                                                    <select id="cbxSexoFr" class="custom-select" style="width:55%;"> </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="row" style="margin-bottom:10px;">
+
+                                                <div class="col-xs-12 col-md-6 form-inline" style="text-align:left;">
+                                                    <label style="text-align:left; width:30%;">Fecha de Nac. : </label>
+                                                    <div class="input-group date" style="width:55%; Text-align:left;">
+                                                        @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "datetimepicker", style = "width:100%; text-align:left;" })
+                                                        <span class="input-group-addon" style="text-align:left; width:5%;">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Parentesco : </label>
+                                                    <select id="cbxTipoLazoFr" class="custom-select" style="width:55%;"> </select>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:6%; width:30%;">Estado Civil : </label>
+                                                    @Html.TextBoxFor(model => model.EstadoCivil, new { @class = "campoTexto", style = "width:55%", disabled = true })
+                                                    <p id="AEstadoCivil" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Dep./Prov./Dist. :</label>
+                                                    @Html.TextBoxFor(model => model.UbigeoRef, new { @class = "", style = "width:60%", disabled = true })
+                                                    @Html.HiddenFor(model => model.CodigoUbigeo, new { @class = "", style = "width:65%", })
+                                                    <p id="AUbigeoRef" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto y signos("/",".") en este campo.</p>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Dirección :</label>
+                                                    @Html.TextBoxFor(model => model.Direccion, new { @class = "", style = "width:60%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Teléfono Fijo :</label>
+                                                    @Html.TextBoxFor(model => model.Telefono, new { @class = "campoTelefono", @maxlength = "9", style = "width:55%" })
+                                                    <p id="ATelefono" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                    <label style="text-align: left; margin-bottom:5%; width:30%;">Celular :</label>
+                                                    @Html.TextBoxFor(model => model.Celular, new { @class = "campoTelefono", @maxlength = "9", style = "width:55%" })
+                                                    <p id="ACelular" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+
+                                            </div>
+
+                                                <div class="row" style="margin-bottom:10px;">
+                                                    <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                        <label style="text-align: left; margin-bottom:5%; width:30%;">Email :</label>
+                                                        @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "campoEmail", style = "width:60%" })
+                                                        <p id="ACorreoElectronico" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Formato incompleto o incorrecto para correo.</p>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row" style="margin-bottom:10px;">
+
+                                                    <div id="AActivo" class="col-xs-12 col-md-6" style="text-align:left;">
+                                                        <label style="text-align: left; margin-bottom:5%; width:30%;">ACTIVO :</label>
+                                                        @Html.TextBox("EActivo", (string)"SI", new { @class = "campoTexto", style = "width:45%", disabled = "false", })
+                                                    </div>
+
+                                                    <div id="UActivo" class="col-xs-12 col-md-6" style="text-align:left; display:none;">
+                                                        <label style="text-align: left; margin-bottom:5%; width:30%;">ACTIVO </label>
+                                                        @Html.TextBoxFor(model => model.Activo, new { @class = "campoTexto", style = "width:45%", disabled = "true", })
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                        <label style="text-align:left; margin-bottom:5%; width:30%;">Restricción :</label>
+                                                        @Html.TextBox("restric", (string)"", new { @class = "campoTexto", style = "width:45%", disabled = true })
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-12" hidden="hidden" style="text-align:left; margin-bottom:5%;">
+                                                    <label style="text-align: left;">Responsable :</label>
+                                                    @Html.TextBoxFor(m => m.IdUsuarioRegistro, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = @Session["IdUsua"] })
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-12" hidden="hidden" style="text-align:left; margin-bottom:5%;">
+                                                    <label style="text-align: left;">Responsable :</label>
+                                                    @Html.TextBoxFor(m => m.IdUsuarioModificacion, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = @Session["IdUsua"] })
+                                                </div>
+
+                                        }
+                                    </form>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="btnGrabarFam">Salvar</button>
+                                        <button type="button" class="btn btn-primary" id="btnModFam" style="display:none;">Modificar</button>
+                                        <button id="btnCerrarFormulario" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar </button>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_FamiliarTrabajador();
+        llenarCbxLazoFam(); 
+        llenarCboxSexo();
+       
+   });
+</script>
+

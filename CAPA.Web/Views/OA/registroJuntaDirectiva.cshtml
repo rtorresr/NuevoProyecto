@@ -1,0 +1,220 @@
+﻿@{
+    ViewBag.Title = "registroJuntaDirectiva";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+<head>
+    <title>registró de Junta Directiva</title>
+</head>
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Fin Ruta -->
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/OA/"> </a>
+                    </li>
+                    <li><a href="/OA/Index">OA</a></li>
+                    <li class="active"> <a href="verJuntaDirectiva">Junta Directiva de la Organización</a></li>
+                    <li class="active"> <a href="registróJuntaDirectiva">registró de Junta Directiva </a></li>
+                </ul>
+
+            </div><!-- Inicio ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+
+                    <div class="col-xs-12">
+                        <h1> Registrar Junta Directiva de la Organización </h1>
+                    </div>
+                </div>       <!-- Fin titulo -->
+                <!-- inicio pasos-->
+
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    <div class="row" style="margin-bottom:25px;">
+                        <br />
+                        <a class="btn btn-success" id="btnGrabarjuntaD"  title="Registrar">
+                            <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                        </a>
+
+                        <a class="btn btn-success" id="btnCancelarjuntaD"  title="Cancelar">
+                            <i class="ace-icon fa fa-undo"></i> CANCELAR
+                        </a>
+                    </div>
+
+                    <br />
+                     
+
+
+                    <!--------- ACORDEON ------------>
+                    <div id="accordion" style="border:1px solid;">
+                        <div class="card">
+
+                            <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-file"></i>
+                                        Junta Directiva la Organización
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                    <br />
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">  RUC : </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("idJuntaDirectiva", (string)"", new { style = "width:40%; display:none;" })
+                                                @Html.TextBox("idOA", (string)"", new { style = "width:40%; display:none;" })
+                                                @Html.TextBox("rucOA", (string)"", new { style = "width:40%", Value = @Session["RucOA"], disabled = true })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">  Razón Social : </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("razSocialOA", (string)"", new { style = "width:90%", disabled = "true" })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left;">Fecha de Inscripción SUNARP : </label>
+                                            </div>
+                                            <div class="input-group" style="width:50%">
+                                                @Html.TextBox("fechaRegistroSunarp", (string)"", new { @Class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%", disabled = "true" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+
+                                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left;"> Fecha de Inicio : </label>
+                                            </div>
+                                            <div class="input-group date" style="width: 50%;">
+                                                @Html.TextBox("fechInicio", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%; Text_align:left;" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left;"> Fecha Fin : </label>
+                                            </div>
+                                            <div class="input-group date" style="width: 50%;">
+                                                @Html.TextBox("fechFin", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", style = "width:100%; Text_align:left;" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left;"> Periodo Duración : </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("periodoDuracion", (string)"", new { @class = "campoDecimal", style = "width:30%", disabled = "true;" })
+                                                <label style="text-align:left;"> meses. </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">Fecha de registro en Sel : </label>
+                                            </div>
+                                            <div class="input-group" style="width:50%">
+                                                @Html.TextBox("fechaRegistroSel", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker",  style = "width:100%", disabled = "true" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="display:none; text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">Motivo de actualización : </label>
+                                            </div>
+                                            <div class="input-group" style="width:50%">
+                                                @Html.TextBox("motivoActualizacion", (string)"", new { @class = "campoTexto", style = "width:100%" })
+
+                                            </div>
+                                        </div>
+                                         
+                                        <div class="col-xs-12 col-md-4" style="display:none; text-align:left;"> 
+                                            <div class="input-group" style="width:50%">
+                                                @Html.TextBox("idUsuarioRegistro", (string)"", new { @class = "campoTexto", style = "width:100%", Value = @Session["IdUsua"] }) 
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* -- FIN -- *@
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            controles_Juntadirectiva(); 
+           
+             
+        });
+
+    </script>
+
+
+
+
+
+

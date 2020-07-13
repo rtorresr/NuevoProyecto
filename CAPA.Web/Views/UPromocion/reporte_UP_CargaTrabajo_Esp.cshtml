@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "reporte_UP_CargaTrabajo_Esp";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li class="active">Reporte Carga Trabajo de Especialistas</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Reporte Carga Trabajo de Especialistas</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+
+            <div class="col-xs-12 col-md-12">
+
+                <div class="col-md-12">
+                <div class="nav-tabs-custom">
+
+                    <div class="tab-content">
+
+                        <div class="active tab-pane" id="pesProrroga">
+
+                            <div class="row">
+                                <div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+                                    <h3>
+                                        <i class="ace-icon fa fa-calendar-plus-o"></i>
+                                        <b>Ingresar fecha de busqueda:</b>
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <br />
+                            <div>
+                                <div class="row" style="margin-bottom:5px;">
+
+                                    <div class="col-xs-1 col-sm-1 col-md-1">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                    <div class="col-xs-10 col-sm-10 col-md-10 panel panel-default">
+
+                                        <div class="row" style="margin-bottom:10px; margin-left:auto">
+                                            <br />
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                            <div class="col-xs-12 col-md-2" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <div> <br /> </div>
+                                                </div>
+                                            </div>
+
+                                            <form action="input" id="form">
+
+                                                @*<input type="date" name="comienzo" id="fechaInicio" placeholder="dd/mm/yy">
+                                                <input type="date" name="fin" id="fechaFinal" placeholder="dd/mm/yy">*@
+
+                                            </form>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha de Inicio: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div class="input-group" style="width:80%">
+                                                    @Html.TextBox("fechaInicio", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", @MaxLength = 10, style = "width:100%" })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha de término: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div class="input-group" style="width:80%">
+                                                    @Html.TextBox("fechaFinal", (string)"", new { @class = "col-xs-12 col-md-4 datetimepicker", @MaxLength = 10, style = "width:100%" })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 10px; margin-top:25px">
+
+                                                <div class="table-responsive margen col-md-12" style="align-content:center; margin-left: auto">
+
+                                                    <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+
+                                                        <button style="background-color:powderblue" type="button" onclick="getData()"> <a href="@Url.Action("reporte_CargaTrabajo_Esp","UPromocion")"> <p style="color:black;"> <i class="ace-icon fa fa-eye"> </i>  VER REPORTE</p> </a> Enviar</button>
+
+                                                        @*<button id="btnRptCargaTrabajo" onclick="getData" class="btn btn-primary" style="margin-bottom:auto;">
+
+                    <a href="@Url.Action("reporte_CargaTrabajo_Esp","Upromocion")"> <p style="color:white;"> <i class="ace-icon fa fa-eye"> </i>  VER REPORTE</p> </a>
+                </button>*@
+                                                        <br />
+                                                    </div>
+
+                                                </div>
+                                                
+                                                 @*<div style="text-align:left">
+                                                    <button id="btnGrabarDocumentoFormato" class="btn btn-success" style="margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+                                                    &nbsp;  &nbsp;
+                                                    <button id="btnLimpiarDocumentoFormato" class="btn btn-warning" style="margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+                                                </div>*@
+                                             </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-xs-12 col-md-12" style="align-content:center;">
+
+                                    <div class="row" style="margin-top:25px">
+                                      
+                                    </div>
+
+                                </div>
+
+                                <br />
+
+                              
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var getData = function (){
+        var inicio = document.getElementById("fechaInicio").value;
+        var final = document.getElementById("fechaFinal").value;
+        console.log(inicio+" "+final);
+    }
+
+</script>
+
+

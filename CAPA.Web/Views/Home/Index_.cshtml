@@ -1,0 +1,270 @@
+﻿ @*<div id="contendor">
+    <!-- contenedor-->
+
+    <div class="contenido">
+        <!-- contenido-->
+
+        <div class="sideA">
+            <!-- A -->
+            <img class="imgs" src="~/Content/img/logo-minagri.jpg" width="401" style="margin-bottom:5px;" />
+            <img class="imgs" src="~/Content/img/logo-agroideas-b.png" width="270">
+            <!--<img  class="imgs" src="css/logo_sanipes.jpg" width="26%" height="15%"  alt=""/> -->
+        </div>
+        <!--Fin A -->
+
+        <div class="sideB">
+            <!-- B -->
+
+            <div class="titulo" style="width:272px !important;">
+                <h3> Bienvenido al</h3>
+                <h2> ¡ SISTEMA EN LINEA ! </h2>
+            </div>
+
+
+
+            <div id ="form_login" class="login-form">
+
+                <div class="inicia">Iniciar Sesión</div>
+
+                <div class="form-group" style="display:none">
+                    <i class="fa"> <img src="~/Content/img/ico_user.jpg" width="16" height="17" alt="" /> </i>
+                    @Html.TextBox("idAplicacion", "2", new { @class = "form-control"})
+
+                </div>
+                <div class="form-group ">
+                    <i class="fa"> <img src="~/Content/img/ico_user.jpg" width="16" height="17" alt="" /> </i>
+                    @Html.TextBox("UserName", "", new { @class = "form-control", @maxlength = "50", @placeholder = "Usuario" })
+
+                </div>
+                <div class="form-group log-status">
+                    <i class="fa "> <img src="~/Content/img/ico_clave.jpg" width="16" height="17" alt="" /></i>
+                    @Html.Password("Clave", "", new { @class = "form-control", @maxlength = "15", @placeholder = "Clave"})
+
+                </div>
+                <div id="msg"><ul style="color:red;"> Usuario o Clave incorrecta</ul></div>
+                <input type="button" class="log-btn" id="btn_ingresar"  value="Ingresar" style="width:30%" />
+                <input type="button" class="log-btn" id="btn_limpiar" value="Limpiar"  style="width:30%"/>
+                <br />
+                <br />
+                <a href="#modalRecuperar" data-toggle="modal">¿ Has olvidado tu contraseña ?</a>
+                <br />
+                <br />
+                @*<a href="#preregistrómodal" data-toggle="modal"> Registarse en el Sistema en Linea </a>*@
+
+@*--- desde aqui empieza ----*@
+
+                @*<a href="#registróInfoPreliminarOPAModal" data-toggle="modal"> Registarse en el Sistema en Linea </a>
+                   </div>
+
+
+                        <div>
+                            <div id="modalRecuperar" class="modal fade" role="dialog" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header alert-success alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">¿ Has olvidado tu contraseña ?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Elije que tipo de usuario recuperará su contraseña:</p>
+                                            <br />
+                                            <div style="margin-bottom:15px;">
+                                                <a class="btn btn-success" id="" href="#" title="Organizacion">
+                                                    Organizacion de Productores Agrarios
+                                                </a>
+                                            </div>
+
+                                            <div style="margin-bottom:15px;">
+                                                <a class="btn btn-success" id="" href="#" title="Agroideas">
+                                                    Productor Individual
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <!--INGRESAR PRE INFORMACION-->
+
+                            <div id="registróInfoPreliminarOPAModal" class="modal fade" role="dialog" data-backdrop="false" style="background-color:rgba(0,0,0,0.5);">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header alert-success alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title"> Registrar Nuevo Usuario </h4>
+                                        </div>
+                                        <div class="modal-body">
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+
+
+                                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Tipo de Usuario :</label></div>
+                                                <div class="col-xs-6">
+                                                    @{
+                                                        List<KeyValuePair<int, string>> dropdownLista = new List<KeyValuePair<int, string>>();
+                                                        dropdownLista.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                                        dropdownLista.Add(new KeyValuePair<int, string>(1, "Organizacion de Productores Agrarios"));
+                                                        dropdownLista.Add(new KeyValuePair<int, string>(2, "Productor Individual"));
+                                                        SelectList selectLista = new SelectList(dropdownLista, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("foo", selectLista, new { style = "width:100%" })
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">R.U.C. : </label></div>
+                                                <div class="col-xs-4" style="text-align:left;">@Html.TextBox("nro_orden", (string)" ", new { style = "width:100%", enabled = "true" })</div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Razón Social :</label></div>
+                                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"", new { style = "width:100%", enabled = "true" })</div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">D.N.I. Del Representante Legal: </label></div>
+                                                <div class="col-xs-4" style="text-align:left;">@Html.TextBox("nro_orden", (string)" ", new { style = "width:100%", enabled = "true" })</div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Nombre del Representante Legal :</label></div>
+                                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"", new { style = "width:100%", enabled = "true" })</div>
+                                            </div>
+
+
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Correo Electronico Del Representante Legal : </label></div>
+                                                <div class="col-xs-6">@Html.TextBox("nro_orden", (string)"", new { style = "width:100%", enabled = "true" })</div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Registrar</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="footer">
+                            <span align="right"><img class="imgs-min" src="~/Content/img/logo-peru.jpg" width="240" height="50" alt="" /> </span>
+                        </div>
+
+                    </div> <!--Fin B -->
+
+
+        </div>
+        <!-- FIN contenido-->
+
+    </div><!-- Fin Contenedor-->*@
+
+@*<script>*@
+
+    //$(document).ready(function () {
+         
+    //    $("#msg").hide();
+
+    //    $("#btn_limpiar").click(function () {
+    //        $("#UserName").val("");
+    //        $("#Clave").val("");
+    //    });
+         
+    //});
+     
+     
+    //(function ($) { 
+    //    $.prototype.enterPressed = function (fn) {
+    //        $(this).keyup(function (e) {
+    //            if ((e.keyCode || e.which) == 13) {
+    //                fn();
+    //            }
+    //        });
+    //    };
+
+    //}(jQuery || {}));
+
+    //function submitted() {
+    //   // alert('submitted');
+    //  //  $("#btn_ingresar").click();
+    //    validarLogin();
+    //}
+
+   //$("#Clave").enterPressed(submitted);
+   //$("#btn_ingresar").click(submitted);
+
+
+
+
+
+
+
+   //function validarLogin(){
+        
+  // // $("#btn_ingresar").click(function () { 
+  //      var idaplicacion = "2";
+  //      var usuario = $("#UserName").val();
+  //      var passw = $("#Clave").val();
+         
+  //      if (usuario.trim() == "") {
+  //          $("#UserName").val("");
+  //          $("#UserName").focus();
+  //          alert("Debe de ingresar el nombre de usuario");
+  //          return false;
+  //      }
+
+  //      if (passw.trim() == "") {
+  //          $("#Clave").val("");
+  //          $("#Clave").focus();
+  //          alert("Debe de ingresar la clave");
+  //          return false;
+  //      }
+         
+  //      $.ajax({
+  //          type: "POST",
+  //          url: "/Home/loginUsuario/",
+  //          data:
+  //          {
+  //              usuar: usuario,
+  //              clave: passw,
+  //              idaplic: idaplicacion
+  //          },
+  //          dataType: "json",
+  //          success: function (result) {
+  //              if (result == "Fallido") {
+  //                  $("#btn_limpiar").click(); 
+  //                  $("#msg").show();
+  //              }
+  //              else {
+  //                  window.location.href = "/Home/Modulos";
+  //                  $("#msg").hide();
+  //              }
+  //          }, error: function (errormessage) {
+  //              alert("error: " + errormessage )
+  //          }
+  //      })
+  ////  });
+  // }
+
+@*</script>*@

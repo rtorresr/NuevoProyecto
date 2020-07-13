@@ -1,0 +1,488 @@
+﻿@model SEL_Entidades.SEL_E.UP_FuncionOperativa_E
+@*@model SEL_Entidades.SEL_E.UP_ActividadOperativa_E*@
+  
+@{
+    ViewBag.Title = "actividadesUR";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Fin Ruta -->
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UPromocion/Index">U.Promocion</a></li>
+                    <li class="active">Actividades UR</li>
+                </ul>
+
+             </div><!-- Inicio ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                    <div class="page-header">
+                        <!-- Inicio titulo -->
+
+                        <div class="cbp-mc-column">
+
+                            <h1> Actividades UR </h1>
+                        </div>
+                    </div>       <!-- Fin titulo -->
+
+                    <div class="col-xs-12 col-md-12">
+
+<!--CONTENEDOR PESTAÑAS-->      <div class="row" style="margin-bottom:5px;">
+
+                                    @*INICIO PESTAÑA*@
+
+                                    <div class="col-md-12">
+
+                                        <div class="nav-tabs-custom">
+
+                                            <ul class="nav nav-pills">
+                                               
+                                                <li class="active"><a href="#registraFuncionOperativa" data-toggle="tab">REGISTRAR FUNCIÓN OPERATIVA</a></li>
+                                                <li ><a href="#pesActividadOperativa" data-toggle="tab">ACTIVIDAD OPERATIVA</a></li>
+                                                <li ><a href="#pesTarea" data-toggle="tab">TAREA</a></li>
+                                                <li><a href="#pesAcciones" data-toggle="tab">ACCIONES</a></li>
+                                            </ul>
+
+                                            <!--INICIO CONTENEDOR DE TODAS LAS PESTAÑAS-->
+                                            <div class="tab-content">
+
+                                              
+                                                <!-- INICIO PESTAÑA 1 REGISTRA FUNCION OPERATIVA-->
+                                                <div class="active tab-pane" id="registraFuncionOperativa">
+                                                    <!-- The indicaEspecifico -->
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                            <h3>
+                                                                <i class="ace-icon fa fa-file"></i>
+                                                                &nbsp; REGISTRAR FUNCION OPERATIVA
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin-bottom:10px;">
+                                                        <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Función Operativa: &nbsp;&nbsp; </label>
+                                                               @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+                                                                @Html.TextBoxFor(m => m.idFuncionOperativa, new { @class = "campoTexto", @maxlength = "250", style = "width:20%; display : none" })
+                                                                @Html.TextBoxFor(m => m.descripFuncion, new { @class = "campoTexto", @maxlength = "250", style = "width:20%" })
+                                                                <p id="MantdescripFuncion" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin-bottom:10px;">
+                                                        <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                                                            <button id="btnRegistraFO" class="btn btn-primary" style="margin-bottom:auto;"><i class="ace-icon fa fa-floppy-o"></i> &nbsp;GUARDAR</button>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-md-3">
+                                                            <div> &nbsp;&nbsp; </div>
+                                                         </div>
+                                                        <div class="table-responsive margen col-md-6" style="text-align:center">
+                                                            <table id="tbRegistraFO" class="table table-bordered table-hover" style="width:100%;">
+                                                                <thead> 
+                                                                    <tr>
+                                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Función Operativa</th>
+                                                                        <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                                    </tr>
+                                                                </thead>
+                                                               
+                                                            </table>
+                                                            <br /><br /><br /><br />
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    
+                                                    </div>
+                                                <!-- /.tab-pane -->
+                                               <!--INICIO 2DA PESTAÑA ACTIVIDAD OPERATIVA -->
+                                                <div class="tab-pane" id="pesActividadOperativa">
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                            <h3>
+                                                                <i class="ace-icon fa fa-file"></i>
+                                                                &nbsp; REGISTRAR ACTIVIDAD OPERATIVA
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin-bottom:10px;">
+                                                        <div class="col-xs-12 col-md-6" style="text-align: center; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Función Operativa: &nbsp;&nbsp; </label>
+
+                                                                <select id="cbxFuncOperativa" class="custom-select" style="width:50%;"> </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-6" style="text-align: center; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Actividad Operativa: &nbsp;&nbsp; </label>
+
+                                                                @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+                                                              
+                                                               @Html.TextBox("idActividadOperativa", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:50%" })
+                                                               @Html.TextBox("descripActividad", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:50%" })
+                                                                
+                                                                <p id="AdescActividad" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row" style="margin-bottom:10px;">
+                                                        <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                                                            <button id="btnRegistraAO" class="btn btn-primary" style="margin-bottom:auto;"><i class="ace-icon fa fa-floppy-o"></i> &nbsp;GUARDAR</button>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-md-2">
+                                                            <div> &nbsp;&nbsp; </div>
+                                                        </div>
+
+                                                        <div class="table-responsive margen col-md-8" style="align-content:center;">
+                                                            <table id="tbRegistraAO" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Función Operativa</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Actividad Operativa</th>
+                                                                        <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="center">01</td>
+                                                                        <td style="text-align:center"> Registrar usuarios </td>
+                                                                        <td style="text-align:center"> Tecnología </td>
+                                                                        <td class="center">
+                                                                            <a class="btn btn-warning" id="btnModificarRegAO" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                                                                <i class="ace-icon fa fa-edit"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                        <td class="center">
+                                                                            <a> &nbsp;</a>
+                                                                            <a class="btn btn-danger" id="btnEliminarRegAO" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                                                                <i class="ace-icon fa fa-trash"></i>
+                                                                            </a>
+                                                                        </td>
+
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-2">
+                                                            <div> &nbsp;&nbsp; </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <!--FIN 2DA PESTAÑA ACTIVIDAD OPERATIVA -->
+
+                                                <!-- INICIO 3TA PESTAÑA TAREA--> 
+                                                 <div class="tab-pane" id="pesTarea">
+
+                                                     <div class="row">
+                                                         <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                             <h3>
+                                                                 <i class="ace-icon fa fa-file"></i>
+                                                                 &nbsp; REGISTRAR TAREA
+                                                             </h3>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="row" style="margin-bottom:10px;">
+                                                         <div class="col-xs-12 col-md-4" style="text-align: center; margin-bottom: 10px;">
+                                                             <div>
+                                                                 <label style="text-align: left;"> Función Operativa: &nbsp;&nbsp; </label>
+                                                                 <select id="cbxFuncOperativa" class="custom-select" style="width:65%;"> </select>
+                                                             </div>
+
+                                                         </div>
+
+                                                         <div class="col-xs-12 col-md-4" style="text-align: center; margin-bottom: 10px;">
+                                                             <div>
+                                                                 <label style="text-align: left;"> Actividad Operativa: &nbsp;&nbsp; </label>
+                                                                 <select id="cbxActOperativa" class="custom-select" style="width:65%;"> </select>
+                                                             </div>
+
+                                                         </div> 
+
+                                                         <div class="col-xs-12 col-md-4" style="text-align: center; margin-bottom: 10px;">
+                                                             <div>
+                                                                 <label style="text-align: left;"> Tarea: &nbsp;&nbsp; </label>
+
+                                                                 @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+                                                                 @Html.TextBox("idTarea", (string)" ", new { @class = "campoTexto", @maxlength = "9", style = "width:50%" })
+                                                                 @Html.TextBox("descripTarea", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:50%" })
+                                                                 <p id="MantRegTarea" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                             </div>
+
+                                                         </div>
+                                                     </div>
+
+
+                                                     <div class="row" style="margin-bottom:10px;">
+                                                         <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                                                             <button id="btnRegistraTarea" class="btn btn-primary" style="margin-bottom:auto;"><i class="ace-icon fa fa-floppy-o"></i> &nbsp;GUARDAR</button>
+
+                                                         </div>
+                                                     </div>
+                                                     <div class="row">
+
+                                                         <div class="col-xs-12 col-md-1">
+                                                             <div> &nbsp;&nbsp; </div>
+                                                         </div>
+
+                                                         <div class="table-responsive margen col-md-10" style="align-content:center;">
+                                                             <table id="tbRegistraTarea" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                                 <thead>
+                                                                     <tr>
+
+                                                                         <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                                         <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Función Operativa</th>
+                                                                         <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Actividad Operativa</th>
+                                                                         <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tarea</th>
+                                                                         <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                                     </tr>
+                                                                     <tr>
+                                                                         <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                                         <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                                     </tr>
+                                                                 </thead>
+
+                                                                 <tbody>
+                                                                     <tr>
+                                                                         <td class="center">01</td>
+                                                                         <td style="text-align:center"> Registrar usuarios </td>
+                                                                         <td style="text-align:center"> Tecnología </td>
+                                                                         <td style="text-align:center"> Verificar Registros </td>
+                                                                         <td class="center">
+                                                                             <a class="btn btn-warning" id="btnModificarRegTarea" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                                                                 <i class="ace-icon fa fa-edit"></i>
+                                                                             </a>
+                                                                         </td>
+                                                                         <td class="center">
+                                                                             <a> &nbsp;</a>
+                                                                             <a class="btn btn-danger" id="btnEliminarRegTarea" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                                                                 <i class="ace-icon fa fa-trash"></i>
+                                                                             </a>
+                                                                         </td>
+
+                                                                     </tr>
+
+                                                                 </tbody>
+                                                             </table>
+                                                         </div>
+
+                                                         <div class="col-xs-12 col-md-1">
+                                                             <div> &nbsp;&nbsp; </div>
+                                                         </div>
+
+                                                     </div>  
+                                                </div>
+                                                <!-- FIN 3TA PESTAÑA TAREA--> 
+
+                                                <!--INICIO 4TA PESTAÑA ACCIONES  -->  
+                                                <div class="tab-pane" id="pesAcciones">
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                            <h3>
+                                                                <i class="ace-icon fa fa-file"></i>
+                                                                &nbsp; REGISTRAR ACCIONES
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Función Operativa: &nbsp;&nbsp; </label></div>
+                                                              <div> <select id="cbxFuncOperativa" class="custom-select" style="width:65%; text-align:right;"> </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Actividad Operativa: &nbsp;&nbsp; </label></div>
+                                                              <div>  <select id="cbxActOperativa" class="custom-select" style="width:65%; text-align:right;"> </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Tarea: &nbsp;&nbsp; </label></div>
+
+                                                             <div>   <select id="cbxRegTarea" class="custom-select" style="width:65%; text-align:right;"> </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Acción: &nbsp;&nbsp; </label></div>
+                                                            <div>
+                                                                @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+                                                                @Html.TextBox("idAcciones", (string)" ", new { @class = "campoTexto", @maxlength = "9", style = "width:65%" })
+                                                                @Html.TextBox("descripAcciones", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:50%" })
+
+                                                                <p id="MantRegAcciones" class="alerta" style="display:none; text-align:right; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Unidad de Medida: &nbsp;&nbsp; </label></div>
+
+                                                             <div>   @Html.TextBox("MantRegAccionesUM", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:65%" })
+                                                                <p id="MantRegAccionesUM" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                            <div>
+                                                                <label style="text-align: left;"> Medio de Verificación: &nbsp;&nbsp; </label></div>
+
+                                                            <div>  @Html.TextBox("MantRegAccionesMV", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:65%" })
+                                                                <p id="MantRegAccionesMV" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="row" style="margin-bottom:10px;">
+                                                        <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                                                            <button id="btnRegistraAcciones" class="btn btn-primary" style="margin-bottom:auto;"><i class="ace-icon fa fa-floppy-o"></i> &nbsp;GUARDAR</button>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="margin-bottom:10px;">
+
+                                                        <div class="table-responsive margen" style="align-content:center;">
+                                                            <table id="tbRegistraAccion" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Función Operativa</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Actividad Operativa</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tarea</th>
+                                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Acción</th>
+                                                                        <th rowspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Unidad de Medida</th>
+                                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Medio de Verificación</th>
+                                                                        <th colspan="2" width="13%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="center">01</td>
+                                                                        <td style="text-align:center"> Registrar usuarios </td>
+                                                                        <td style="text-align:center"> Tecnología </td>
+                                                                        <td style="text-align:center"> Verificar Registros </td>
+                                                                        <td style="text-align:center"> Delegar </td>
+                                                                        <td style="text-align:center"> Kilogramos </td>
+                                                                        <td style="text-align:center"> Escrito </td>
+                                                                        <td class="center">
+                                                                            <a class="btn btn-warning" id="btnModificarRegAcciones" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                                                                <i class="ace-icon fa fa-edit"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                        <td class="center">
+                                                                            <a> &nbsp;</a>
+                                                                            <a class="btn btn-danger" id="btnEliminarRegAcciones" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                                                                <i class="ace-icon fa fa-trash"></i>
+                                                                            </a>
+                                                                        </td>
+
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>  
+                                                   
+
+                                                </div>
+
+                                                <!-- /.tab-pane -->
+                                                @*FINAL DEL DIV CONTENT PESTAÑAS*@
+                                            </div>
+                                            <!-- /.tab-content -->
+                                        </div>
+                                        <!-- /.nav-tabs-custom -->
+                                    </div>
+
+                                    @*FIN DE LA PESTAÑA*@      
+
+
+<!--FIN CONTENEDOR PESTAÑAS-->  </div>
+                    </div>
+
+
+              </div>
+
+       </div>
+        
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        controles_FuncOperativa();
+     
+
+    });
+</script>

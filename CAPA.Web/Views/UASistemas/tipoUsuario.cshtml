@@ -1,0 +1,180 @@
+﻿@model SEL_Entidades.Seguridad_E.TipoUsuario_E
+@{
+    ViewBag.Title = "tipoUsuario";
+    Layout = "~/Views/Shared/_LayoutMenuASist.cshtml";
+}
+
+
+<head>
+    <title>TIPOS DE USUARIO</title>
+</head>
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Home/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UASistemas/Index">U.Administración</a></li>
+                    <li class="active"> <a href="/UASistemas/tipousuario">Tipos de Usuario</a></li>
+                </ul>
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+                    <div class="col-md-12">
+                        <h1> TIPOS DE USUARIO </h1>
+                    </div>
+                </div>                  <!-- Fin titulo -->
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    @*<div id="accordion" style="border:1px solid;">
+                            <div class="card">
+
+
+                            </div>
+                        </div>*@
+
+
+
+                    <div class="col-xs-12 col-md-12">
+
+                        <br>
+                        <div align="right" class="row">
+
+                            <button id="btnNuevoT_Usuar" type="button" class="btn btn-primary" style="width:10%; margin-right:2%;" data-toggle="modal" data-target="#myModal";">
+                                <i class="glyphicon glyphicon-plus"></i> Nuevo
+                            </button><br />
+                        </div>
+
+                        <div id="div-tabla" class="table-responsive margen">
+
+                            <table id="tablaT_Usuario" class="table table-bordered table-hover table-striped" style="width:100%">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Id</th>
+										<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo Usuario</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Siglas</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Registrado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Registro</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha de Modificación</th>
+                                        <th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">Acción</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody" class="tbody"></tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                    @*fade*@
+                    <div class="modal" id="frmTipoUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  style="overflow-y: auto;  display: none;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    @*<button id="closeTipoUdsuario" type="button" class="close" data-dismiss="modal"></button>*@
+                                    <h4 class="modal-title" id="myModalLabel"> Tipo Usuarios</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        @using (Html.BeginForm())
+                                        {
+                                            <div id="idtipoUsu" class="form-inline" style="margin-bottom:5%; display:none;">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">ID :</label> 
+                                                @Html.TextBoxFor(model => model.IdTipoUsuario, new { @class = "campoNumero", @maxlength = "100", style = "width:31%", disabled = "disabled" })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">Tipo Usuario :</label> 
+                                                @Html.TextBoxFor(model => model.DescripTipoUsuario, new { HtmlAttributes = new { @class = "campoTexto", @maxlength = "10", style = "width:85%" } })
+                                                <p id="ADescripTipoUsuario" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p> 
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">Siglas :</label> 
+                                                @Html.TextBoxFor(model => model.Siglas, new { HtmlAttributes = new { @class = "campoTexto", @maxlength = "10", style = "width:25%" } })
+                                                @Html.TextBox("idUsuario", (string)"", new { @class = "campoNumero", @maxlength = "10", style = "display:none; width:25%", Value = Session["IdUsua"] })
+                                                <p id="ASiglas" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p> 
+                                            </div>
+
+
+                                            @*<div id="AActivo" class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">ACTIVO :</label> 
+                                                @Html.TextBox("EActivo", (string)"SI", new { @class = "campoTexto", @MaxLength = "2", style = "width:30%", disabled = "false", })
+                                            </div>
+
+                                            <div id="UActivo" class="form-inline col-xs-12 col-md-12" style="display:none;">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">ACTIVO :</label> 
+                                                @Html.TextBoxFor(model => model.Activo, new { @class = "campoTexto", @maxlength = "10", style = "width:30%", disabled = "disabled", })
+                                            </div>*@
+
+                                            @*<div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">Responsable :</label> 
+                                                @Html.TextBoxFor(m => m.IdUsuarioRegistro, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = "1" })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                <label style="text-align: left; margin-bottom:5%; width:25%;">Responsable :</label> 
+                                                @Html.TextBoxFor(m => m.IdUsuarioModificacion, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = "2" })
+                                            </div>*@
+                                        }
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button  class="btn btn-primary" id="btnAgregarT_Usua">Salvar</button>
+                                    <button   class="btn btn-warning" id="btnModificarT_Usua" style="display:none;">Modificar</button>
+                                    <button   class="btn btn-danger" id="btnCerrarformularioT_Usua">Cerrar </button> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        controles_TipoUsuario();
+    });
+     
+</script>
+
+
+

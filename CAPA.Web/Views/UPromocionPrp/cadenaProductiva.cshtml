@@ -1,0 +1,396 @@
+﻿
+@{
+    ViewBag.Title = "cadenaProductiva";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.PromocionPrp</a></li>
+                <li class="active">Cadena Productiva y Producto</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1>Registrar Cadena Productiva</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+
+            <div class="col-xs-12 col-md-12">
+
+                <!--CONTENEDOR PESTAÑAS-->
+                <div class="row" style="margin-bottom:5px;">
+                    <!--INICIO CONTENEDOR PESTAÑAS-->
+                    <div class="col-md-12">
+
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-pills">
+                                <li class="active"><a href="#pesRegistraCadenaProductiva" data-toggle="tab">CADENA PRODUCTIVA</a></li>
+                                <li><a href="#pesRegistraProducto" data-toggle="tab">PRODUCTO</a></li>
+                            </ul>
+
+                            <!--INICIO CONTENEDOR DE TODAS LAS PESTAÑAS-->
+                            <div class="tab-content">
+                                <!-- INICIO 1RA PESTAÑA CADENA PRODUCTIVA-->
+                                <div class="active tab-pane" id="pesRegistraCadenaProductiva">
+                                    <!-- The indicaEspecifico -->
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                CADENA PRODUCTIVA
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <br />
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-1 col-xm-1 col-md-1">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-xs-10 col-sm-10 col-md-10 panel panel-default">
+                                            <br />
+
+                                            <div class="row" style="margin-bottom:5px;">
+
+                                                <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: px;">
+                                                    <div>
+                                                        <label> Actividad Económica: </label>
+                                                        <select id="cbxActEconoFr" class="custom-select" style="width:85%;"> </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom:5px;">
+                                                    <div>
+                                                        <label>Cadena Productiva: </label>
+                                                        @Html.TextBox("idUsuario", (string)"", new { @class = "campoTexto", style = "display:none; width:65%", Value = Session["IdUsua"] })
+                                                        @Html.TextBox("idCadenaProductiva", (string)"", new { @class = "campoTexto", style = "display:none; width:65%" })
+                                                        @Html.TextBox("cadenaProductiva", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:85%" })
+                                                        <p id="AcadenaProductiva" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom:5px;">
+                                                    <div>
+                                                        <label>Código CNPA (MINAGRI): </label>
+
+                                                        @Html.TextBox("codCNPAMinagri", (string)"", new { @class = "campoNumero", @maxlength = "12", style = "width:65%" })
+                                                        <label style="font-size:12px; width:70%"> <a href="http://siea.minagri.gob.pe/siea/?q=cnpa/clasificacion-nacional-de-productos-agrarios-cnpa" target="_blank">Catálogo CNPA de referenia</a></label>
+                                                        <p id="AcodCNPAMinagri" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo digitos en este campo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:5px;">
+                                                <div class="col-xs-1 col-sm-1 col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+
+                                                <div class="col-xs-10 col-sm-10 col-md-10" style="text-align:center;">
+                                                    <button id="btnConsultarCadenaProductiva" class="btn btn-success" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarCadenaProductiva" class="btn btn-info" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarCadenaProductiva" class="btn btn-warning" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarCadenaProductiva" class="btn btn-danger" style="display:none; margin-bottom:25px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-xs-1 col-sm-1 col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:center">
+                                            <button id="btnNuevaCadenaProductiva" class="btn btn-info" style="margin-bottom:auto;">
+                                                <i class="ace-icon fa fa-pencil-square"></i> AGREGAR CADENA PRODUCTIVA
+                                            </button>
+
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                        <div class="col-xs-10 col-sm-10 col-md-10">
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    Listado de Cadenas Productivas
+                                                </h3>
+                                            </div>
+
+                                            @*TABLA*@
+                                            <br />
+                                            <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                                <table id="tablaCadenaProductiva" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                            <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Actividad Económica</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Cadena Productiva</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Código CNPA</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Registrado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha registro</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Modificado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha modificación</th>
+                                                            <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--INICIO 2DA PESTAÑA PRODUCTO -->
+                                <div class="tab-pane" id="pesRegistraProducto">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                PRODUCTO
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-1 col-xm-1 col-md-1">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+                                        <div class="col-xs-10 col-sm-10 col-md-10 panel panel-default">
+                                            <br />
+
+                                            <div class="row" style="margin-bottom:5px;">
+
+                                                <div class="col-xs-12 col-sm-3 col-md-3" style="text-align:left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label> Actividad Económica: </label>
+                                                        <select id="cbxActEconoFr2" class="custom-select" style="width:85%;"> </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-3 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label> Cadena Productiva:</label>
+                                                        <select id="cbxCadenaProdFr2" class="custom-select" style="width:85%;"> </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-3 col-md-3" style="text-align:left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label> Producto: </label>
+                                                        @Html.TextBox("idProducto", (string)"", new { style = "display:none; width:65%" })
+                                                        @Html.TextBox("producto", (string)"", new { @class = "campoTexto", style = "width:85%" })
+                                                        <p id="Aproducto" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-3 col-md-3" style="text-align:left; margin-bottom: 5px;">
+                                                    <div>
+                                                        <label> Código CNPA (MINAGRI): </label>
+                                                        @Html.TextBox("codCNPAMinagri2", (string)"", new { @class = "campoNumero", @maxlength = "10", style = "width:85%" })
+                                                        <label style="font-size:12px; width:70%"> <a href="http://siea.minagri.gob.pe/siea/?q=cnpa/clasificacion-nacional-de-productos-agrarios-cnpa" target="_blank">Catálogo CNPA de referenia</a></label>
+                                                        <p id="AcodCNPAMinagri2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo numeros en este campo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; margin-bottom: 5px;">
+                                                <div>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+
+                                                <div>
+                                                    <button id="btnConsultarProducto" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarProducto" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarProducto" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarProducto" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+
+                                                <div>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-1 col-xm-1 col-md-1">
+                                            <div>&nbsp;</div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-10 col-md-10" style="text-align:center">
+                                            <button id="btnNuevoProducto" class="btn btn-info" style="margin-bottom:auto;">
+                                                <i class="ace-icon fa fa-pencil-square"></i> AGREGAR PRODUCTO
+                                            </button>
+
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div>&nbsp;&nbsp;</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-1 col-sm-1 col-md-1">
+                                            <div> &nbsp;&nbsp; </div>
+                                        </div>
+
+                                        <div class="col-xs-10 col-sm-10 col-md-10">
+                                            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    Listado de Productos
+                                                </h3>
+                                            </div>
+
+                                            @*TABLA*@
+                                            <br />
+
+                                            <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                                <table id="tablaProducto" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">Id</th>
+                                                            <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Cadena Productiva</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Producto</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Código CNPA</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Registrado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha registro</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Modificado por</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha modificacion</th>
+                                                            <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                        </tr>
+                                                    </thead>
+
+
+                                                </table>
+                                            </div>
+
+                                            <div class="col-xs-1 col-sm-1 col-md-1">
+                                                <div> &nbsp;&nbsp; </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!--FIN CONTENEDOR PESTAÑAS-->
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+ 
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_CadenaProductiva();
+        controles_Producto();
+    }); 
+</script>
+
+
+
+
+
+
+
+

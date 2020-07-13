@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="45244f26-cae4-495b-944d-d9d83950ac4f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:21970/TrabajadorServ.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TrabajadorServ1.wsdl" MetadataType="Wsdl" ID="fa72e829-10ee-492d-8743-004247bd43c2" SourceId="1" SourceUrl="http://localhost:21970/TrabajadorServ.svc?wsdl" />
+    <MetadataFile FileName="TrabajadorServ3.xsd" MetadataType="Schema" ID="4c6d2671-e642-404d-8b6b-7e461dbfcff1" SourceId="1" SourceUrl="http://localhost:21970/TrabajadorServ.svc?xsd=xsd2" />
+    <MetadataFile FileName="TrabajadorServ.xsd" MetadataType="Schema" ID="2f892182-5209-497f-b0de-6645680d258d" SourceId="1" SourceUrl="http://localhost:21970/TrabajadorServ.svc?xsd=xsd3" />
+    <MetadataFile FileName="TrabajadorServ31.xsd" MetadataType="Schema" ID="e820b8bc-3129-41e3-bec1-383521f36edc" SourceId="1" SourceUrl="http://localhost:21970/TrabajadorServ.svc?xsd=xsd0" />
+    <MetadataFile FileName="TrabajadorServ32.xsd" MetadataType="Schema" ID="6aae80a9-fbaa-46e3-84da-6c3ca2debf58" SourceId="1" SourceUrl="http://localhost:21970/TrabajadorServ.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

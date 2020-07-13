@@ -1,0 +1,553 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>Bienes y Servicios - Datos de la Organización</title> 
+
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.Promoción</a></li>
+                <li><a href="/UPromocionPrp/registrarByS">Registrar Bienes y Servicios</a></li>
+                <li class="active">Bienes y Servicios - Datos de la Organización </li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="col-xs-12" style="text-align:left">
+
+                    <h1> Bienes y Servicios - Datos de la Organización</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            R.U.C :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Razón Social :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Nro de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"PRP-130-2018", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha Inscripción en SUNARP :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20/10/2014", new { @class = "solo-numero", style = "width:40%" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Fecha de Constitución :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"21/10/2014", new { @MaxLength = "500", style = "width:40%" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            FECHA REGISTRO en S.E.L :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"01/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"07/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+
+
+
+
+
+                <br />
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBien" title="Registrar Bien">
+                        <i class="ace-icon fa fa-pencil"></i>REGISTRAR BIEN
+                    </a>
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarServicio" title="Registrar Servicio">
+                        <i class="ace-icon fa fa-pencil"></i>REGISTRAR SERVICIO
+                    </a>
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarByS" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+                <br />
+
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Lista de Bienes Registrados
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <!-- inicio tabla-->
+                                        <div class=" table-responsive margen">
+                                            <table id="tab_bien" class="table  table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="3%" class="center">Nº</th>
+                                                        <th width="10%" class="center">Rubro</th>
+                                                        <th width="15%" class="center">Nombre</th>
+                                                        <th width="8%" class="center">Cantidad</th>
+                                                        <th width="7%" class="center">Precio Unitario (S/.)</th>
+                                                        <th width="7%" class="center">Monto Total (S/.)</th>
+                                                        <th width="7%" class="center">Aporte  Agroideas (S/.)</th>
+                                                        <th width="7%" class="center">(%) Agroideas</th>
+                                                        <th width="7%" class="center">Aporte Organización (S/.)</th>
+                                                        <th width="7%" class="center">(%) Organziación</th>
+                                                        <th width="15%" class="center">&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="center">1</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">2</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">3</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">4</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">5</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div><br />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" data-action="collapse" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Lista de Servicios Registrados
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;">
+                                <br />
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-xs-12">
+                                        <!-- inicio tabla-->
+                                        <div class=" table-responsive margen">
+                                            <table id="tab_servicio" class="table  table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="3%" class="center">Nº</th>
+                                                        <th width="10%" class="center">Rubro</th>
+                                                        <th width="15%" class="center">Nombre</th>
+                                                        <th width="8%" class="center">Cantidad</th>
+                                                        <th width="7%" class="center">Precio Unitario (S/.)</th>
+                                                        <th width="7%" class="center">Monto Total (S/.)</th>
+                                                        <th width="7%" class="center">Aporte  Agroideas (S/.)</th>
+                                                        <th width="7%" class="center">(%) Agroideas</th>
+                                                        <th width="7%" class="center">Aporte Organización (S/.)</th>
+                                                        <th width="7%" class="center">(%) Organziación</th>
+                                                        <th width="15%" class="center">&nbsp;</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="center">1</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">2</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">3</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">4</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center">5</td>
+                                                        <td class="center">MAQUINARIA  </td>
+                                                        <td style="text-align:left"> TRACTOR </td>
+                                                        <td class="center"> 1 </td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 100,000</td>
+                                                        <td class="center"> 80,000</td>
+                                                        <td class="center"> 80 %</td>
+                                                        <td class="center"> 20,000</td>
+                                                        <td class="center"> 20%</td>
+                                                        <td>
+                                                            <a class="btn btn-success" id="" href="" title="Modificar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" id="" href="" title="Eliminar" data-toggle="modal">
+                                                                <i class="ace-icon fa fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Resumen de Bienes y ServicioS de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <!-- inicio tabla-->
+                    <div class=" table-responsive margen">
+                        <table id="tab_opa" class="table  table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="3%" class="center">Nº</th>
+                                    <th width="7%" class="center">Categoria</th>
+                                    <th width="7%" class="center">Monto Total (S/.)</th>
+                                    <th width="7%" class="center">Aporte  Agroideas (S/.)</th>
+                                    <th width="7%" class="center">(%) Agroideas</th>
+                                    <th width="7%" class="center">Aporte Organización (S/.)</th>
+                                    <th width="7%" class="center">(%) Organziación</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td class="center">1</td>
+                                    <td style="text-align:left">BIENES   </td>
+                                    <td class="center"> 350,000</td>
+                                    <td class="center"> 280,000</td>
+                                    <td class="center"> 80 %</td>
+                                    <td class="center"> 70,000</td>
+                                    <td class="center"> 20%</td>
+                                </tr>
+                                <tr>
+                                    <td class="center">2</td>
+                                    <td style="text-align:left">SERVICIOS  </td>
+                                    <td class="center"> 100,000</td>
+                                    <td class="center"> 80,000</td>
+                                    <td class="center"> 80 %</td>
+                                    <td class="center"> 20,000</td>
+                                    <td class="center"> 20%</td>
+                                </tr>
+                                <tr>
+                                    <td class="center">3</td>
+                                    <td style="text-align:left">TOTAL GENERAL  </td>
+                                    <td class="center"> 450,000</td>
+                                    <td class="center"> 360,000</td>
+                                    <td class="center"> 80 %</td>
+                                    <td class="center"> 90,000</td>
+                                    <td class="center"> 20%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <!-- -->
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+<script>
+
+    $("#tab_bien").DataTable({
+        "ordering": false,
+        "lengthChange": false,
+        "searching": false,
+        //"info": false,
+        "language": {
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Siguiente"
+            }
+        }
+    });
+
+    $("#tab_servicio").DataTable({
+        "ordering": false,
+        "lengthChange": false,
+        "searching": false,
+        //"info": false,
+        "language": {
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Siguiente"
+            }
+        }
+    });
+    
+</script>

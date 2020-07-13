@@ -1,0 +1,1297 @@
+﻿
+@{
+    ViewBag.Title = "datosOAPRP";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>Datos de Organización de Agropecuaria</title>
+</head>
+
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="main-container ace-save-state" id="main-container">
+
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            
+            <span>Bienvenido Sr: @Session["NombreUsua"]   </span>
+            <!-- Inicio Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="~/Startup.cs"> </a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">UP-PRP</a></li>
+                <li class="active"> <a href="/OA/datosOAPRP">Datos OA PRP</a></li>
+            </ul>
+
+        </div><!-- Fin ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="col-md-12">
+                    <h1>Datos de organización agropecuaria</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-md-12">
+                <!-- contenido de pasos -->
+             
+                <br />
+
+                <div class="col-xs-12 col-md-12">
+                    <!--------- ACORDEON 1  card-header ------------>
+                    <div id="accordion" style="border:1px solid;">
+
+                        <div class="card">
+
+                            <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a style="color:white; text-decoration:none;">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                        Organización PRP
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                           
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                        <br />
+
+                                        <div class="row" style="margin-bottom:10px;">
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom:10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Tipo de solicitante:  </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxTipoSolicitanteFr2" class="custom-select" style="width:60%;"> </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    <i class="ace-icon fa fa-file"></i>
+                                                    Datos de la Organización
+                                                </h3>
+                                            </div>
+                                        </div>
+
+
+                                        <!----- VALIDA RUC ----->
+                                        <div class="row" style="margin-bottom:5px;">
+                                            @*margin-bottom: 5px;*@
+                                            <div class="col-xs-12  col-md-4" style="text-align: left; ">
+                                                <div>
+                                                    <label style="text-align:left;">RUC:</label>
+                                                </div>
+                                                <div>
+                                                    @*@Html.Hidden("rucOAIni", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:32%", Value = @Session["RucOA"] })*@
+                                                    @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+
+                                                    @Html.Hidden("idOA", (string)"", new { @class = "campoNumero", @maxlength = "8", style = "width:32%" })
+                                                    @Html.Hidden("idTipoSolic", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:32%", disabled = true })
+                                                    @Html.TextBox("permitirAct", (string)"", new { style = "display:none" })
+
+                                                    @Html.Hidden("completado", (string)"", new { @class = "campoTexto", @maxlength = "6", style = "width:32%" })
+                                                    @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:35%", Value = @Session["RucOA"] })
+                                                    <button type="button" class="btn btn-success" id="btnConsultaPideSunat" title="Validar"> <i class="ace-icon fa fa-search"></i>Validar</button><br />
+                                                    <p id="ANroDocIdent" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                                <div><label style="text-align:left;"> Razón social: </label></div>
+                                                <div>
+                                                    @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:90%", disabled = "disabled" })
+                                                    <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+
+                                                <div>
+                                                    <label style="text-align:left;">Tipo de Organización:</label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxTipoOrganizacionFr" class="custom-select" style="width:50%;"> </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:10px;">
+                                            <div id="estCivil" class="col-xs-12 col-md-4" style="text-align: left; display:none">
+                                                <div>
+                                                    <label style="text-align: left;"> Estado civil: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("EstCivil", (string)"", new { @class = "campoTexto", @maxlength = "8", style = "width:65%; ", disabled = "true" })
+                                                    <p id="AEstCivil" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div id="dniCony" class="col-xs-12 col-md-4" style="text-align: left; display:none;">
+                                                <div>
+                                                    <label style="text-align: left;"> D.N.I de conyuge: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("Dnicony", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:65%;" })
+                                                    <button id="btnVerifDniCony" class="btn btn-info2 btn-sm" title="Verificar existencia en SEL"> <ion-icon name="search"></ion-icon></button>
+                                                    <p id="ADnicony" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!----- FECHAS ------>
+                                        <div class="row" style="margin-bottom:10px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align:left;">Fecha de inscripción SUNARP: </label>
+                                                </div>
+                                                <div class="input-group" style="width:50%">
+                                                    @Html.TextBox("FecInscSunarp", (string)"", new { @class = "datetimepicker", @MaxLength = 10, style = "width:100%", disabled = "true" })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">N° Partida registral: </label>
+                                                </div>
+                                                <div style="width:50%;">
+                                                    @Html.TextBox("campofichaRegistro", (string)"", new { @class = "campoNumero", @MaxLength = 9, style = "width:100%;", disabled = true })
+                                                    <p id="AcampofichaRegistro" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;">Fecha de acta de constitución: </label>
+                                                </div>
+
+                                                <div class="input-group" style="width:50%; Text-align:right;">
+                                                    @Html.TextBox("FecActaConstitucion", (string)"", new { @class = "datetimepicker", style = "width:100%;", disabled = true })
+                                                    <span class="input-group-addon" style="text-align:left;">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                                <br />
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Motivo de actualización: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("esActivo", (string)"", new { @class = "campoTexto", style = "width:100%", })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!-- --------- Telefonos -------- -->
+                                        @*<div class="row" style="margin-bottom: 25px;">
+                        <div class="col-xs-11 col-md-11" style="text-align: left; border-bottom: 1px solid #ede9e9; background-color: lightgray">
+                            <label style="text-align:left;">
+                                Teléfono de la Organización
+                            </label>
+                        </div>
+                    </div>*@
+
+                                        @*INICIO PRODUCTOR INDVIDUAL*@
+                                        <div id="datosProductorIndividual" @*style="display:none;"*@>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                    <h3>
+                                                        <i class="ace-icon fa fa-file"></i>
+                                                        Datos productor individual
+                                                    </h3>
+                                                </div>
+                                            </div>
+
+
+                                            <!----- VALIDA RUC ----->
+                                            <div class="row" style="margin-bottom:5px;">
+                                                @*margin-bottom: 5px;*@
+                                                <div class="col-xs-12  col-md-4" style="text-align: left; ">
+                                                    <div>
+                                                        <label style="text-align:left;">RUC :</label>
+                                                    </div>
+                                                    <div>
+                                                        @*@Html.Hidden("rucOAIni", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:32%", Value = @Session["RucOA"] })*@
+                                                        @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:65%;", Value = @Session["IdUsua"] })
+
+                                                        @Html.Hidden("idOA", (string)"", new { @class = "campoNumero", @maxlength = "8", style = "width:32%" })
+                                                        @Html.Hidden("idTipoSolic", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:32%", disabled = true })
+                                                        @Html.TextBox("permitirAct", (string)"", new { style = "display:none" })
+
+                                                        @Html.Hidden("completado", (string)"", new { @class = "campoTexto", @maxlength = "6", style = "width:32%" })
+                                                        @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:35%", Value = @Session["RucOA"] })
+                                                        <button type="button" class="btn btn-success" id="btnConsultaPideSunat" title="Validar"> <i class="ace-icon fa fa-search"></i>Validar</button><br />
+                                                        <p id="ANroDocIdent" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                                    <div><label style="text-align:left;"> Apellidos y nombres: </label></div>
+                                                    <div>
+                                                        @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:90%", disabled = "disabled" })
+                                                        <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                                    &nbsp;
+
+                                                </div>
+
+                                            </div>
+
+                                            <!----- FECHAS ------>
+                                            <div class="row" style="margin-bottom:10px;">
+
+                                                <div class="col-xs-12 col-md-4" style="text-align: left;">
+                                                    <div>
+                                                        <label style="text-align:left;">Fecha de inscripción SUNAT: </label>
+                                                    </div>
+                                                    <div class="input-group" style="width:50%">
+                                                        @Html.TextBox("FecInscSunarp", (string)"", new { @class = "datetimepicker", @MaxLength = 10, style = "width:100%", disabled = "true" })
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                                    <div>
+                                                        <label style="text-align:left;">Estado civil: </label>
+                                                    </div>
+                                                    <div style="width:50%;">
+                                                        @Html.TextBox("campofichaRegistro", (string)"", new { @class = "campoNumero", @MaxLength = 9, style = "width:100%;", disabled = true })
+                                                        <p id="AcampofichaRegistro" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+
+                                                    <div>
+                                                        <label style="text-align:left;">Nro. Dni cónyuge:</label>
+                                                    </div>
+                                                    <div style="width:50%;">
+                                                        @Html.Hidden("idTipoOrgan", (string)"", new { @class = "" })
+                                                        @Html.TextBox("tipoOrganizacion", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:100%", })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row" style="margin-bottom:10px;">
+                                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+
+                                                    <div>
+                                                        <label style="text-align:left;">Domicilio:</label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.Hidden("domicilio", (string)"", new { @class = "" })
+                                                        @Html.TextBox("domicilio", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:90%", })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-md-4" style="text-align: left;">
+                                                    <div>
+                                                        <label style="text-align: left;"> Motivo de actualización: </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("esActivo", (string)"", new { @class = "campoTexto", style = "width:100%", })
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        @*FIN PRODUCTOR INDIVIDUAL*@
+
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3 class="form-inline">
+                                                    <i class="ace-icon fa fa-file"></i>
+                                                    <b>Teléfono de la Organización</b>
+                                                </h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Teléfono fijo: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("NroTelefOA", (string)"", new { @class = "campoTelefono", @MaxLength = "9", style = "width:40%" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Anexo: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("AnexoOA", (string)"", new { @class = "campoTelefono", @MaxLength = "4", style = "width:65%" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+
+                                                <div>
+                                                    <label style="text-align: left;"> Teléfono móvil 1(*):  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("NroTelefOA2", (string)"", new { @class = "campoTelefono", @MaxLength = "9", style = "width:40%" })
+                                                    <p id="ANroTelefOA2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Teléfono móvil 2(*):  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("NroTelefOA3", (string)"", new { @class = "campoTelefono", @maxlength = "9", style = "width:40%" })
+                                                    <p id="ANroTelefOA3" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- --------- fin Telefonos -------- -->
+                                        @*<div class="row" style="margin-bottom: 25px;">
+                        <div class="col-xs-11 col-md-11" style="text-align: left; border-bottom: 1px solid #ede9e9; background-color: lightgray">
+                            <label style="text-align:left;">
+                                Dirección Legal de la Organización :
+                            </label>
+                        </div>
+                    </div>*@
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3 class="form-inline">
+                                                    <i class="ace-icon fa fa-file"></i>
+                                                    <b> Lugar donde se desarrollará el PRP</b>
+                                                </h3>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom: 10px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Departamento:  </label>
+                                                </div>
+                                                <div>
+                                                    @*<select id="cbxDepartamentoFr" class="custom-select" style="width:60%;"> </select>*@
+                                                    @Html.TextBox("departamento", (string)"", new { @class = "campoTexto", style = "width:65%;", disabled = true })
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px; ">
+                                                <div>
+                                                    <label style="text-align: left;"> Provincia:  </label>
+                                                </div>
+                                                <div>
+                                                    @*<select id="cbxProvinciaFr" class="custom-select" style="width:60%;"> </select>*@
+                                                    @Html.TextBox("provincia", (string)"", new { @class = "campoTexto", style = "width:65%;", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Distrito: </label>
+                                                </div>
+                                                <div>
+                                                    @*<select id="cbxDistritoFr" class="custom-select" style="width:60%;"> </select>*@
+                                                    @Html.TextBox("distrito", (string)"", new { @class = "campoTexto", style = "width:65%;", disabled = true })
+                                                    @Html.TextBox("codigoUbigeo", (string)" ", new { style = "width:65%; display:none;", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;">Altitud por distrito: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("altitud", (string)"", new { @class = "campoGenerico", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;">Ámbito de influencia: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("ambito", (string)"", new { @class = "campoGenerico", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;">Valor de quintil: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("valorQuintilPobreza", (string)"", new { @class = "campoGenerico", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Nivel de quintil pobreza:  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("nivelQuintil", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;">Zona geográfica: </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxZonaGeograficaFr" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-xs-12 col-sm-12 col-md-6" style="text-align: left; ">
+                                                <div>
+                                                    <label style="text-align:left;">Domicilio legal:</label>
+                                                </div>
+                                                <div>
+                                                    @Html.Hidden("domicilio", (string)"", new { @class = "" })
+                                                    @Html.TextBox("domicilio", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:90%", })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6" style="text-align: left; ">
+                                                <div>
+                                                    <label style="text-align:left;">Centro poblado:</label>
+                                                </div>
+                                                <div>
+                                                    @Html.Hidden("domicilio", (string)"", new { @class = "" })
+                                                    @Html.TextBox("domicilio", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:80%", })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <br />
+                                        <button id="btnRegistraOA" class="btn btn-success" style="display:none;" title="Registrar">
+                                            <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                                        </button>
+
+                                        <button id="btnModificarOA" class="btn btn-warning" style="display:none;" title="Modificar">
+                                            <i class="ace-icon fa fa-pencil"></i> MODIFICAR
+                                        </button>
+
+                                        <button id="btnGrabarOA" class="btn btn-success" @*style="display:none;"*@ title="Grabar">
+                                            <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                        </button>
+
+                                        <button id="btnCancelarOA" class="btn btn-info" style="display:none;" title="Cancelar">
+                                            <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        <!------- Fin de Acordeon -------->
+                        <!----- Fin Datos de la Organización ----->
+                        <!--------- ACORDEON 2 ------------>
+                        <!----- Datos Representante Legal ----->
+
+                        <div class="card">
+
+                            <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a style="color:white; text-decoration:none;">
+                                        <i class="glyphicon glyphicon-user"> </i>
+                                        Representante Legal de la Organización
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                    <br />
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                &nbsp; Datos del representante legal
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> D.N.I: </label>
+                                            </div>
+                                            <div>
+
+                                                @Html.Hidden("completadoRL", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:65%;", })
+                                                @Html.Hidden("idRepLegal", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:65%;" })
+                                                @Html.Hidden("usuario", (string)"", new { @class = "campoNumero", @MaxLength = "50", style = "width:65%;", Value = @Session["Usuario"] })
+                                                @Html.Hidden("idOA2R", (string)"", new { @class = "campoNumero", @MaxLength = "50", style = "width:65%;" })
+                                                @Html.Hidden("docUsuario", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:42%;", @Value = Session["DocumentoUsua"] })
+                                                @Html.TextBox("dniRepresentanteLegal", (string)"", new { @class = "campoNumero", @maxlength = "8", style = "width:40%", disabled = true })
+                                                <button class="btn btn-success btn-sm" id="idBuscarRepLeg" href="#" title="Validar" style="width:25%"> <i class="ace-icon fa fa-search"></i>Validar </button>
+                                                <p id="ANroDocRep" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Nombres: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NombRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                                <p id="ANombRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Apellido Paterno: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("ApelPatRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                                <p id="AApelPatRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Apellido Materno: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("ApelMatRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                                <p id="AApelMatRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Fecha de nacimiento: </label>
+                                            </div>
+
+                                            <div class="input-group date" style="width: 65%; Text-align: left;">
+                                                @Html.TextBox("FechaNacRepLeg", (string)"", new { @class = "datetimepicker", @MaxLength = "10", style = "width:100%; Text-align:left;" })
+                                                <span class="input-group-addon" style="text-align:left;">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <div id="AlertaFechaNR1" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Verifique la fecha de Nacimiento.</div>
+                                            <div id="AlertaFechaNR2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Edad no permitida.</div>
+
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Estado Civil: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("EstadoCivRepLeg", (string)"", new { @Class = "campoTexto", @maxlength = "8", style = "width:65%;", disabled = true })
+                                                <p id="AEstadoCivRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> D.N.I de conyuge: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("DniConyRepLeg", (string)"", new { @class = "campoNumero", @maxlength = "8", style = "width:55%;", enabled = true })
+                                               
+                                                <p id="ADniConyRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div class="control-group">
+                                                <label class="control-label" style="text-align: left;"> Correo electrónico: </label>
+                                            </div>
+                                            <div class="controls">
+                                                @Html.TextBox("CorreoRepLeg", (string)"", new { @class = "campoEmail", @maxlength = "80", placeholder = "ejemplo@mail.com", style = "width:65%" })
+                                                <p id="ACorreoRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Debe ingresar un correo valido</p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom:10px;">
+                                            <div>
+                                                <label style="text-align: left;"> Cargo:  </label>
+                                            </div>
+                                            <div>
+                                                <select id="cbxOACargoFr" class="custom-select" style="width:60%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom:10px;">
+                                            <div>
+                                                <label style="text-align: left;"> Teléfono fijo:  </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NroTelefRepLeg", (string)"", new { @class = "campoNumero", @maxlength = "9", style = "width:65%" })
+                                                <p id="ANroTelefRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                            <div>
+                                                <label style="text-align: left;"> Anexo:  </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NroTelefContac", (string)"", new { @class = "campoTelefono", @maxlength = "9", style = "width:38%" })
+                                                <p id="ANroTelefContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left;"> Teléfono móvil(*):  </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NroTelefRepLeg2", (string)"", new { @class = "campoNumero", @MaxLength = "9", style = "width:45%" })
+                                                <p id="ANroTelefRepLeg2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- --------- Telefonos -------- -->
+
+
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <br />
+                                    <button id="btnRegistraOARepLegal" class="btn btn-success" style="display:none;" href="" title="Registrar">
+                                        <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                                    </button>
+
+                                    <button id="btnModificarOARepLegal" class="btn btn-warning" style="display:none;" href="" title="Registrar">
+                                        <i class="ace-icon fa fa-pencil"></i> MODIFICAR
+                                    </button>
+
+                                    <button id="btnGrabarOARepLegal" class="btn btn-success" @*style="display:none;"*@ href="" title="Grabar">
+                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                    </button>
+
+                                    <button id="btnCancelarOARepLegal" class="btn btn-info" style="display:none;" href="" title="Cancelar">
+                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!---- Fin Datos del Representante Legal ----->
+                        <!--------- ACORDEON 3 ------------>
+                        <!----  Datos del Contacto ----->
+                        @*<div id="accordion" style="border:1px solid;">*@
+                        <div class="card">
+
+                            <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <a style="color:white; text-decoration:none;">
+                                        <i class="glyphicon glyphicon-user"> </i>
+                                        Persona de Contacto de la Organización
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <a href="#collapseThree" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                    <br />
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                               Datos del contacto de la organización
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> D.N.I : </label>
+                                            </div>
+                                            <div>
+                                                @Html.Hidden("idOA3C", (string)"", new { @class = "campoNumero", @MaxLength = "50", style = "width:65%;" })
+                                                @Html.Hidden("docUsuario", (string)"", new { @class = "campoNumero", @maxlength = "8", style = "width:42%", Value = @Session["DocumentoUsua"] })
+                                                @Html.Hidden("idContacto", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:65%;", })
+                                                @Html.Hidden("completadoC", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:65%;", })
+                                                @Html.Hidden("Usuario", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:65%;", Value = @Session["Usuario"] })
+                                                @Html.TextBox("NroDocCont", (string)"", new { @class = "campoNumero", @MaxLength = "8", style = "width:42%;" })
+                                                <button class="btn btn-success btn-sm" id="idBuscarContacto" href="#" title="Validar"> <i class="ace-icon fa fa-search"></i>Buscar </button>
+                                                <p id="ANroDniContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;">  Nombres: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NombContac", (string)"", new { @class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                                <p id="ANombContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Apellido Paterno: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("ApelPatContac", (string)"", new { @class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                                <p id="AApelPatContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Apellido Materno: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("ApelMatContac", (string)"", new { @class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                                <p id="AApelMatContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Fecha de Nacimiento: </label>
+                                            </div>
+
+                                            <div class="input-group date" style="width: 65%; Text-align: left;">
+                                                @Html.TextBox("FechaNacContac", (string)"", new { @class = "datetimepicker", @MaxLength = "10", style = "width:100%; Text-align: left;" })
+                                                <span class="input-group-addon" style="text-align:left;">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                            <div id="AlertaFechaNC1" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Verifique la fecha de Nacimiento.</div>
+                                            <div id="AlertaFechaNC2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Edad no permitida.</div>
+
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px; ">
+                                            <div>
+                                                <label style="text-align: left;">Estado Civil: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("EstadoCivContac", (string)"", new { @Class = "campoTexto", @maxlength = "8", style = "width:65%;", disabled = true })
+                                                <p id="AEstadoCivContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left;">D.N.I de conyuge: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("DniConyContac", (string)"", new { @class = "campoNumero", @maxLength = "8", style = "width:55%;", })
+                                               
+                                                <p id="ADniConyContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                            </div>
+                                        </div>
+                                         
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left;"> Correo electrónico: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("CorreoContacto", (string)"", new { @type = "email", @Class = "campoEmail", @maxlength = "80", style = "width:65%" })
+
+                                                <p id="ACorreoContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Debe inngresar un correo valido</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom:10px;">
+                                            <div>
+                                                <label style="text-align: left;"> Cargo:  </label>
+                                            </div>
+                                            <div>
+                                                <select id="cbxOACargoFr2" class="custom-select" style="width:60%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 10px;">
+                                            <div>
+                                                <label style="text-align: left;">Teléfono fijo:  </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NroTelefContac", (string)"", new { @class = "campoTelefono", @maxlength = "9", style = "width:38%" })
+                                                <p id="ANroTelefContac" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left;"> Teléfono móvil(*):  </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("NroTelefContac2", (string)"", new { @class = "campoTelefono", @MaxLength = "9", style = "width:45%" })
+                                                <p id="ANroTelefContac2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    @*<div class="row" style="margin-bottom:10px;">
+                                            <div class="col-xs-12 col-md-3 " style="text-align:left;">
+                                                <div class="form-inline">
+                                                    <label style="text-align: left;"> Permito recibir notificaciones al correo registrado.: </label>
+                                                    @Html.CheckBox("chkPermiteRecibirNoti", new { style = "vertical-align: middle; margin-top:-1%", @checked = true })
+
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                </div>
+
+
+                                <br />
+                                <div class="row" style="margin-bottom:25px;">
+                                    <br />
+                                    <button id="btnRegistrarOAContacto" class="btn btn-success" style="display:none;" href="" title="Registrar">
+                                        <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                                    </button>
+
+                                    <button id="btnModificarOAContacto" class="btn btn-warning" style="display:none;" href="" title="Modificar">
+                                        <i class="ace-icon fa fa-pencil"></i> MODIFICAR
+                                    </button>
+                                    <button id="btnGrabarOAContacto" class="btn btn-success" @*style="display:none;"*@ href="" title="Registrar">
+                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                    </button>
+
+                                    <button id="btnCancelarOAContacto" class="btn btn-info" style="display:none;" href="" title="Modificar">
+                                        <i class="ace-icon fa fa-pencil"></i> CANCELAR
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <!---- Fin Datos del Contacto ----->
+                        <!--------- ACORDEON 4 ------------>
+                        <!------- PLAN DE NEGOCIO ------->
+                        <div class="card">
+                            <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <a style="color:white; text-decoration:none;">
+                                        <i class="glyphicon glyphicon-pencil"> </i>
+                                         Datos pedido reconversión productiva
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <a href="collapseFour" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;">
+                                    <br />
+
+
+                                    <!----- TOTAL DE PRODUCTORES ----->
+                                    @*<div class="row" style="margin-bottom:25px;">
+                                            <div class="col-xs-11 col-md-11" style="text-align: left; border-bottom: 1px solid #ede9e9; background-color: lightgray">
+                                                <label style="text-align:left;">  Cantidad de Productores </label>
+                                            </div>
+                                        </div>*@
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                &nbsp; Datos del pedido de reconversión productiva
+                                            </h3>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom: 10px;">
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;">  Actividad económica: </label>
+                                            </div>
+                                            <div>
+                                                <select id="cbxActEconoFr" style="width:60%"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Cadena productiva: </label>
+                                            </div>
+                                            <div>
+                                                <select id="cbxCadenaProdFr" style="width:60%"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Producto: </label>
+                                            </div>
+                                            <div>
+                                                <select id="cbxProductoFr" style="width:60%"> </select>
+                                            </div>
+                                        </div>
+
+                                        <br />
+                                    </div>
+                             
+                                        <div class="row" style="margin-bottom:10px;">
+                                            
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Variedad cadena productiva:   </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("varcadenaProductiva", (string)"", new { @class = "campoTexto", @MaxLength = "10", style = "width:60%", placeholder = "" })
+                                                    <p id="varcadenaProductiva" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:10px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;">  Productores Hombres:  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.Hidden("idOA4D", (string)"", new { @class = "campoNumero", @MaxLength = "50", style = "width:60%;" })
+                                                    @Html.Hidden("idTipoSda", (string)"", new { @class = "campoNumero", @MaxLength = "50", style = "width:60%;", Value = 1 })
+                                                    @Html.Hidden("idOADatos", (string)"", new { @class = "campoNumero", @maxlength = "6", style = "width:60%", placeholder = "0" })
+                                                    @Html.TextBox("ProdHombres", (string)"", new { @class = "campoNumero", @maxlength = "3", style = "width:60%", placeholder = "0" })
+                                                    <p id="AProdHombres" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Productores Mujeres:  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("ProdMujeres", (string)"", new { @class = "campoNumero", @MaxLength = "3", style = "width:60%", placeholder = "0" })
+                                                    <p id="AProdMujeres" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Total de Productores: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("ProdTotal", (string)"0", new { @class = "campoNumero", @maxlength = "4", style = "width:60%", disabled = "true" })
+                                                    <p id="AProdHombres" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+                                            <br />
+                                        </div>
+
+                                  
+                                      
+
+
+                                        <div class="row" style="margin-bottom: 10px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;">  Hectáreas tituladas: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hTituladas", (string)"", new { @class = "campoDecimal", @maxlength = "10", style = "width:60%", placeholder = "0.00" })
+                                                    <p id="AhTituladas" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Hectáreas posesionadas: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hSinTitulo", (string)"", new { @class = "campoDecimal", @maxlength = "10", style = "width:60%", placeholder = "0.00" })
+                                                    <p id="AhSinTitulo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;">  Total de hectáreas: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hTotal", (string)"", new { @class = "campoDecimal", @maxlength = "10", style = "width:60%", disabled = "true", placeholder = "0.0" })
+                                                    <p id="AhTotal" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                      
+
+                                        <div class="row" style="margin-bottom:10px;">
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Hectáreas bajo riego: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hBajoRiego", (string)"", new { @class = "campoDecimal", @maxlength = "10", style = "width:60%", placeholder = "0.00" })
+                                                    <p id="AhBajoRiego" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Hectáreas secano:   </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hSecano", (string)"", new { @class = "campoDecimal", @MaxLength = "10", style = "width:60%", placeholder = "0.00" })
+                                                    <p id="AhSecano" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                        
+                                          
+                                        </div>
+                                 
+
+                                        <div id="soloPecuario" class="row" @*style="display:none;*@ margin-bottom:10px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;">Hectáreas bajo riego PCC: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("cabezaGanado", (string)"0", new { @class = "campoNumero", style = "width:60%" })
+                                                    <p id="AcabezaGanado" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Hectáreas secano PCC:   </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hPastizales", (string)"", new { @class = "campoDecimal", @MaxLength = "10", style = "width:60%", placeholder = "0.00" })
+                                                    <p id="AhPastizales" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Hectáreas totales PCC:   </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("hPastizales", (string)"", new { @class = "campoDecimal", @MaxLength = "10", disabled=true, style = "width:60%", placeholder = "0.00" })
+                                                    <p id="AhPastizales" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                        </div>
+
+                                    <br />
+                                        
+                                    <div id="soloPecuario" class="row" @*style="display:none;*@ margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;">Cantidad cabezas de ganado: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("cabezaGanado", (string)"0", new { @class = "campoNumero", style = "width:60%" })
+                                                <p id="AcabezaGanado" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align: left;"> Hectáreas pastizales:   </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("hPastizales", (string)"", new { @class = "campoDecimal", @MaxLength = "10", style = "width:60%", placeholder = "0.00" })
+                                                <p id="AhPastizales" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                           
+                                        </div>
+
+                                    </div>
+
+                                    </div>
+
+
+                                <br />
+                                <div class="row" style="margin-bottom:25px;">
+                                    <br />
+                                  
+
+                                    <button id="btnModificarOADatos" class="btn btn-warning" style="display:none;" href="" title="Modificar">
+                                        <i class="ace-icon fa fa-pencil"></i> MODIFICAR
+                                    </button>
+
+                                    <button id="btnGrabarOADatos" class="btn btn-success" @*style="display:none;"*@ href="" title="Grabar">
+                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                    </button>
+
+                                    <button id="btnCancelarOADatos" class="btn btn-info" style="display:none;" href="" title="Cancelar">
+                                        <i class="ace-icon fa fa-pencil"></i> CANCELAR
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="row" style="margin-bottom:25px;">
+                &nbsp;
+            </div>
+
+       
+        <div class="row" style="margin-bottom:25px;">
+                <br />
+                <a id="btnRegresar" class="btn btn-success" href="#" title="Regresar">
+                    <i class="ace-icon fa fa-undo"></i> Regresar
+                </a>
+            </div>
+
+        </div><!-- contenido -->
+    </div>
+</div><!-- fin contenedor -->
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        controles_OA_PRP();
+
+
+    });
+</script>

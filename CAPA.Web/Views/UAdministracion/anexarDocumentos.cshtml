@@ -1,0 +1,346 @@
+﻿@model SEL_Entidades.SEL_E.MP_CutExpedienteOA_E
+@{
+    ViewBag.Title = "anexarDocumentos";
+    Layout = "~/Views/Shared/_LayoutMenuUa.cshtml";
+}
+
+<head>
+    <title>
+        Mesa de Parte - Anexar documento a Expediente
+    </title>
+</head>
+
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/index"> U.Administración</a></li>
+                <li class="active">Asignar Cut</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Anexar documentos a expediente  </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12" style="margin-bottom:25px;">
+                <!-- contenido de pasos -->
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+
+                        <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    &nbsp;Datos del Expediente
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                <br />
+
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>RUC :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("desde", (string)"", new { @class = "campoNumero", @MaxLenght = "11", style = "display:none; width:50%", Value = '2' })
+                                            @Html.TextBoxFor(m => m.idUsuarioRegistro, new { @class = "campoNumero", @MaxLenght = "11", style = "display:none;width:50%", disabled = true, Value = @Session["IdUsua"] })
+                                            @Html.TextBoxFor(m => m.rucOA, new { @class = "campoTexto", @MaxLenght = "250", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-6" style="text-align:left">
+                                        <div>
+                                            <label>Razon Social :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.razonSocial, (string)"", new { @class = "campoTexto", style = "width:80%", disabled = true })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>N° Expediente :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.idExpedienteOA, new { @class = "campoTexto", style = "display:none; width:60%", disabled = true })
+                                            @Html.TextBoxFor(m => m.nroExpediente, new { @class = "campoTexto", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>N° Cut :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.idCutExpediente, new { @class = "campoTexto", style = "display:none; width:60%", disabled = true })
+                                            @Html.TextBoxFor(m => m.nroSGD_Cut, new { @class = "campoTexto", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Cod. SEL :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.nroCutSel, new { @class = "campoTexto", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div> 
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Estado actual :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.estado, new { @class = "campoTexto", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div> 
+
+                                </div>
+                                  
+                            </div>
+                            <br />
+
+                        </div>
+
+                    </div>
+                </div><!-- fin contenido-->
+            </div>
+
+            <br />
+            <br />
+
+            <div class="col-xs-12" style="margin-bottom:25px;">
+                <!-- contenido de pasos -->
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+
+                        <div class="widget-header card-header" id="headingTwo" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    &nbsp;Datos a ingresar
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                         
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                <br />
+                                 
+                                <div class="row" style="margin-bottom:10px;">
+                                     
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Unidad PCC de Destino :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("idDocumentoAnexoOA",(string)"", new { @class = "campoTexto", style = "display:none; width:60%", disabled = true })
+                                            <select id="cbxUnidadProgFr" class="custom-select" style="width:60%;"> </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Línea de Acción :</label>
+                                        </div>
+                                        <div> 
+                                            <select id="cbxTipoSDAFr" class="custom-select" style="width:60%;"> </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Tipo documento :</label>
+                                        </div>
+                                        <div> 
+                                            <select id="cbxTipoDocumentoFr" class="custom-select" style="width:60%;"> </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>N° documento :</label>
+                                        </div>
+                                        <div> 
+                                            @Html.TextBox("nroDocumento",(string)"", new {style = "width:60%"})
+                                        </div>
+                                    </div>
+                                      
+                                     
+                                </div>
+                                 
+
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-md-6" style="text-align:left">
+                                        <div>
+                                            <label>Asunto:</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("asunto", (string)"", new { style = "width:100%;" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-6" style="text-align:left">
+                                        <div>
+                                            <label>Descripción :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("descripcion", (string)"", new { style = "width:100%;" })
+                                        </div>
+                                    </div>
+
+                                </div> 
+
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Fecha recepción :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("fechaRecepcionDA", (string)"", new { @class = "campoTexto", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left">
+                                        <div>
+                                            <label>Adjuntar Documento:</label>
+                                        </div>
+
+                                        <div class="inline-block">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <input id="documento" type="file" name="file" accept="application/pdf" style="margin-bottom:5px" />
+                                                    </div>
+                                                </div>
+                                                @Html.TextBox("rutaDoc", (string)"", new { style = "display:none" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+  
+                            </div>
+                            <br />
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- fin contenido-->
+            </div>
+
+        </div>
+        <!-- -->
+    </div>
+
+
+    <br />
+    <br />
+
+    <div class="row" style="margin-bottom:25px;">
+        <a class="btn btn-success" id="btnAnexarDoc" href="#anexar" title="anexar" data-toggle="modal">
+            <i class="ace-icon fa fa-check-circle"></i>Anexar
+        </a>
+
+        <a class="btn btn-success" id="btnCancelarAnexar" href="#cancelar" title="cancelar" data-toggle="modal">
+            <i class="ace-icon fa fa-undo"></i>CANCELAR
+        </a>
+    </div>
+
+
+    <br />
+    <div class="col-xs-12 col-md-12">
+        <div class="col-xs-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+            <h3>
+                Documentos anexados al CUT de Expediente
+            </h3>
+        </div>
+        <br />
+        <div id="div-tabla" class="table-responsive margen">
+            <table id="tablaMP_AnexarDocCut" class="table table-bordered table-hover table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</th> 
+                        <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">IDEXP</th>
+                        <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">IDCUT</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; width:8%; max-width:8%">N° expediente</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">N° Cut</th>
+                        <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Codigo SEL</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Estado Actual</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; width:8%; max-width:8%">Unidad destino </th> 
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Proceso</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo Incentivo</th> 
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Documento</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">N° documento</th> 
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; width:25%; max-width:25%">Asunto</th>
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; width:25%; max-width:25%">Descripción</th>   
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; width:15%; max-width:15%">Fecha de recepción </th>   
+                        <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; width:15%; max-width:15%">Documento Adj. </th>   
+                    </tr>
+
+                </thead>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        controles_MP_DocumentoAnexado();
+
+
+    });
+</script>

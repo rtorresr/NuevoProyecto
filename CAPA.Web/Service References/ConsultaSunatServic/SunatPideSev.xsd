@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEL_Entidades.PIDE_E" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.PIDE_E" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="_filtrarSunatReq_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nroRucCons" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_filtrarSunatReq_E" nillable="true" type="tns:_filtrarSunatReq_E" />
+  <xs:complexType name="_filtrarSunatResp_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datosPrincipales" nillable="true" type="tns:datosPrincipales_E" />
+      <xs:element minOccurs="0" name="datosSecundarios" nillable="true" type="tns:datosSecundarios_E" />
+      <xs:element minOccurs="0" name="datosT1144" nillable="true" type="tns:datosT1144_E" />
+      <xs:element minOccurs="0" name="datosT362" nillable="true" type="tns:datosT362_E" />
+      <xs:element minOccurs="0" name="domicilioLegal" nillable="true" type="tns:domicilioLegal_E" />
+      <xs:element minOccurs="0" name="establecimientoAnexos" nillable="true" type="tns:establecimientosAnexos_E" />
+      <xs:element minOccurs="0" name="estadoAnexosT1150" nillable="true" type="tns:estAnexosT1150_E" />
+      <xs:element minOccurs="0" name="razSocial" nillable="true" type="tns:razonSocial_E" />
+      <xs:element minOccurs="0" name="represLegal" nillable="true" type="tns:repLegales_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_filtrarSunatResp_E" nillable="true" type="tns:_filtrarSunatResp_E" />
+  <xs:complexType name="datosPrincipales_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cod_dep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_dist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_ciiu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_fecact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_fecalt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_fecbaj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_flag22" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_identi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_inter1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_lllttt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_nomvia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_nomzon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_numer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_numreg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_numruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_refer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_secuen" type="xs:int" />
+      <xs:element minOccurs="0" name="ddp_tipvia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_tipzon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_tpoemp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_ciiu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_de" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_dist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_flag22" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_identi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_numreg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_tipvia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_tipzon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_tpoemp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="esActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="esHabido" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="datosPrincipales_E" nillable="true" type="tns:datosPrincipales_E" />
+  <xs:complexType name="datosSecundarios_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dds_asient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_califi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_comext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_consti" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_contab" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_docide" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_domici" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_fecact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_fecnac" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_ficha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_inicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_licenc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_nacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_nfolio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_nomcom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_nrodoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_numfax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_numruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_orient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_paispa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_pasapo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_patron" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_telef1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_telef2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dds_telef3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_comext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_contab" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_docide" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_domici" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_factur" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_orient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_sexo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="datosSecundarios_E" nillable="true" type="tns:datosSecundarios_E" />
+  <xs:complexType name="datosT1144_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cod_ciiu2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_ciiu3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_correo1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_correo2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_depar1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_depar2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_depar3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_depar4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_depar5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_asiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_ciiu2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_ciiu3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_conleg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_depar1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_depar2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_depar3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_depar4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_depar5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_parreg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_proind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="des_refnot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fec_confir1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fec_confir2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ind_conleg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ind_correo1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ind_correo2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ind_proind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_depar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_kilom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_lote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_manza" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_ruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_telef1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_telef2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_telef3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_telef4" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="datosT1144_E" nillable="true" type="tns:datosT1144_E" />
+  <xs:complexType name="datosT362_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="desc_numreg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="t362_fecact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="t362_fecbaj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="t362_indice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="t362_nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="t362_numreg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="t362_numruc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="datosT362_E" nillable="true" type="tns:datosT362_E" />
+  <xs:complexType name="domicilioLegal_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getDomicilioLegalReturn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="domicilioLegal_E" nillable="true" type="tns:domicilioLegal_E" />
+  <xs:complexType name="establecimientosAnexos_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cod_dep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_dist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_dep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_dist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_prov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_tipest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_tipvia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_tipzon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dirección" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_correl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_fecact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_inter1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_licenc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_nomvia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_nomzon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_numer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_numruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_refer1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_tipest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_tipvia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_tipzon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="spr_ubigeo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="establecimientosAnexos_E" nillable="true" type="tns:establecimientosAnexos_E" />
+  <xs:complexType name="estAnexosT1150_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="num_correl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_depar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_kilom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_lote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_manza" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="estAnexosT1150_E" nillable="true" type="tns:estAnexosT1150_E" />
+  <xs:complexType name="razonSocial_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ddp_nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_numruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ddp_secuen" type="xs:int" />
+      <xs:element minOccurs="0" name="esActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="esHabido" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="razonSocial_E" nillable="true" type="tns:razonSocial_E" />
+  <xs:complexType name="repLegales_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cod_cargo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_depar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="desc_docide" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_ord_suce" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_cargoo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_docide" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_fecact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_fecnac" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_nrodoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_numruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rso_vdesde" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="repLegales_E" nillable="true" type="tns:repLegales_E" />
+</xs:schema>

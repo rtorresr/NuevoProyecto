@@ -1,0 +1,170 @@
+﻿@model SEL_Entidades.RRHH_E.TipoLazoFam_E
+@{
+    ViewBag.Title = "lazoFamiliar";
+    Layout = "~/Views/Shared/_LayoutMenuUa.cshtml";
+}
+
+
+<head>
+    <title>LAZO FAMILIAR</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Home/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UAdministracion/Index">U.Administración</a></li>
+                    <li class="active"> <a href="/UAdministracion/lazoFamiliar">Lazo Familiar</a></li>
+                </ul>
+            </div>
+            <!-- Fin ruta -->
+
+            <!-- contenido -->
+             <div class="page-content">
+                
+
+                <!-- Inicio titulo -->
+                <div class="page-header">
+                   
+                    <div class="col-md-12">
+                        <h1> Lazo Familiar </h1>
+                    </div>
+                </div>                  
+                <!-- Fin titulo -->
+
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+
+                    <!-- contenido de pasos -->   
+                    <div class="col-xs-12 col-md-12">
+
+                        <br>
+                        <div align="right" class="row">
+
+                            <button id="btn_nuevo" type="button" class="btn btn-primary" style="width:10%; margin-right:2%;" data-toggle="modal" data-target="#myModal">
+                                <i class="glyphicon glyphicon-plus"></i> Nuevo
+                            </button><br />
+                        </div>
+
+                        <div class="table-responsive margen">
+
+
+
+                            <table id="tablaLazoFam" class="display table table-bordered table-hover table-striped"  style="width:100%">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</th>
+										<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Lazo Familiar</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Sigla</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Registrado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Registro</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha de Modificación</th>
+                                        <th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acción</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="tbody"></tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                     
+                    <div class="modal" id="myModalLazoFam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    <button id="btnCerrarFormulario" type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" id="myModalLabel"> TIPOS DE LAZO FAMILIAR </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        @using (Html.BeginForm())
+                                        {
+                                            <div id="idLazoFam" class="form-inline col-xs-12 col-md-12" style="margin-bottom:5%; display:none;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ID :</label>
+                                                @Html.TextBoxFor(model => model.IdTipoLazoFam, new { @class = "campoNumero", @maxlength = "100", style = "width:31%", disabled = "disabled" })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;"> Lazo Familiar :</label>&nbsp;
+                                                @Html.TextBoxFor(model => model.Descripcion, new { HtmlAttributes = new { @class = "campoTexto", @maxlength = "150", style = "width:85%" } })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Siglas :</label>&nbsp; &nbsp;
+                                                @Html.TextBoxFor(model => model.Siglas, new { HtmlAttributes = new { @class = "campoTexto", @maxlength = "10", style = "width:25%" } })
+                                            </div>
+
+
+                                            <div id="AActivo" class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ACTIVO :</label>&nbsp; &nbsp;
+                                                @Html.TextBox("EActivo", (string)"SI", new { @class = "campoTexto", @MaxLength = "2", style = "width:30%", disabled = "false", })
+                                            </div>
+
+                                            <div id="UActivo" class="form-inline col-xs-12 col-md-12" style="display:none;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ACTIVO :</label>&nbsp; &nbsp;
+                                                @Html.TextBoxFor(model => model.Activo, new { @class = "campoTexto", @maxlength = "10", style = "width:30%", disabled = "disabled", })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                <label style="text-align: left;">Responsable :</label>&nbsp; &nbsp;
+                                                @Html.TextBoxFor(m => m.IdUsuarioRegistro, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = Session["IdUsua"] })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                <label style="text-align: left;">Responsable :</label>&nbsp; &nbsp;
+                                                @Html.TextBoxFor(m => m.IdUsuarioModificacion, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = Session["IdUsua"] })
+                                            </div>
+                                        }
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="btnGrabar">Salvar</button>
+                                    <button type="button" class="btn btn-primary" id="btnModificar" style="display:none;">Modificar</button>
+                                    <button type="button" class="btn btn-danger" id="btnCerrar" data-dismiss="modal">Cerrar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        listarTipoLazoFamiliar();
+        controles_LazoFamiliar();
+    });
+      
+</script>
+ 

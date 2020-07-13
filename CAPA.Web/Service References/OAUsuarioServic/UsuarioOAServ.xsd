@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfOAUsuario_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OAUsuario_E" nillable="true" type="tns:OAUsuario_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOAUsuario_E" nillable="true" type="tns:ArrayOfOAUsuario_E" />
+  <xs:complexType name="OAUsuario_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailRepresentanteLegal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecharegistró" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTipoSolicitante" type="xs:int" />
+      <xs:element minOccurs="0" name="IdUsuarioOA" type="xs:int" />
+      <xs:element minOccurs="0" name="NDniRepresentanteLegal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RepresentanteLegal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RucOA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoSolicitante" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OAUsuario_E" nillable="true" type="tns:OAUsuario_E" />
+</xs:schema>

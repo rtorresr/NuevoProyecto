@@ -1,0 +1,257 @@
+﻿
+@{
+    ViewBag.Title = "reasignarEspecialistaPrpA";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>Reasignar especialista - PRPA</title>
+</head>
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción</a></li>
+            <li class="active">Reasignar especialista - PRPA</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+            <div class="cbp-mc-column">
+                <h1> Reasignar especialista - PRPA </h1>
+            </div>
+        </div>
+        <!-- Fin titulo -->
+        <!-- inicio pasos-->
+
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+            <!-- contenido de pasos -->
+            <!--------- ACORDEON ------------>
+
+            <div id="accordion" style="border:1px solid;">
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-file"></i>
+                                Reasignar especialista - PRP
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                            <br />
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>RUC:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @MaxLenght = "11", style = "width:60%", disabled = true })
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Nro. Expediente:</label>
+                                    </div>
+                                    <div>
+                                        @*<select id="cbxExpedientes" class="custom-select" style="width:60%;"> </select>*@
+                                        @Html.TextBox("nroExpediente", (string)"", new { @Class = "camposTexto", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Nro. CUT:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("nroCutSgd", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Estado:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("estadoExp", (string)"", new { @class = "", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Tipo compromiso:</label>
+                                    </div>
+                                    <div>
+                                        @*<select id="cbxTipoCompromisoFr" class="custom-select" style="width:60%;"> </select>*@
+                                        @Html.TextBox("tipoCompromiso", (string)"", new { @Class = "camposTexto", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Compromiso:</label>
+                                    </div>
+                                    <div>
+                                        @*<select id="cbxCompromisoFr" class="custom-select" style="width:60%;"> </select>*@
+                                        @Html.TextBox("compromiso", (string)"", new { @Class = "camposTexto", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Especialista asignado:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("especialistaAsig", (string)"", new { @Class = "camposTexto", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Especialista actual:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("especialistaAsig", (string)"", new { @Class = "camposTexto", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+                                <div class="col-xs-12 col-md-3" style="text-align:left">
+                                    <div>
+                                        <label>Fecha y hora de asignación:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("fechaHoraAsig", (string)"", new { @Class = "", style = "width:60%", disabled = true })
+                                    </div>
+                                </div>
+
+                                </div>
+
+                                <br />
+
+                            </div>
+                    </div>
+
+                </div>
+                <!-- fin Card-->
+            </div>
+            <!-- fin de Acrodeon -->
+        </div>
+        <!-- fin contenido pasos -->
+
+
+
+        <br />
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+            <div class="col-xs-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                <h3>
+                    Carga Laboral de los Especialistas
+                </h3>
+            </div>
+            <div class="table-responsive margen">
+                <table id="tablaExpedienteAsig" class="table table-bordered table-hover table-striped display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Apellidos y nombres</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:8%">Oficina regional</th>
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:8%">Total de expedientes asignados</th>
+
+                            <th colspan="6" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Expedientes de planes de negocio</th>
+
+                            <th colspan="7" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Expedientes de PRP</th>
+
+                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Asignar especialista</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En evaluación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En observación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En Re-Evaluación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Elegible</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Improcedente</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Otros planes de negocio</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En evaluación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En observación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En Re-Evaluación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Opinión técnica favorable</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">En formulación de proyecto</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Informe de formulación</th>
+                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Otros PRP</th>
+                        </tr>
+
+
+                        @*<tr>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:3%">Asignar Especialista</th>
+                            </tr>*@
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-bottom:10px;">
+
+            <div class="col-xs-12 col-md-4">
+                <div>&nbsp;&nbsp;&nbsp;</div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div>&nbsp;&nbsp;&nbsp;</div>
+                <div>
+
+                    <button id="btnVerlistaAsignaciones" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"> Ver lista de asignaciones  </button>
+                    &nbsp;&nbsp;
+                    <button id="btnCerrarFormAsigEsp" class="btn btn-danger" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"></i>  Cancelar  </button>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div>&nbsp;&nbsp;&nbsp;</div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- fin contenido-->
+
+
+
+
+
+
+</div>
+</div>   

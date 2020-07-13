@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:21970/UbigeoServ.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" />
+  <xs:element name="listarDepartamento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" minOccurs="0" name="objRequest" nillable="true" type="q1:_listarxfiltroUbigeoReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarDepartamentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" minOccurs="0" name="listarDepartamentoResult" nillable="true" type="q2:_listarxfiltroDepartamentoResp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarProvincia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" minOccurs="0" name="objRequest" nillable="true" type="q3:_listarxfiltroUbigeoReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarProvinciaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" minOccurs="0" name="listarProvinciaResult" nillable="true" type="q4:_listarxfiltroProvinciaResp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarDistrito">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" minOccurs="0" name="objRequest" nillable="true" type="q5:_listarxfiltroUbigeoReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarDistritoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" minOccurs="0" name="listarDistritoResult" nillable="true" type="q6:_listarxfiltroDistritoResp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

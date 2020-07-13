@@ -1,0 +1,41 @@
+﻿
+<div class="col-xs-12 col-md-12" style="width: 65%; margin-left: 20%">
+    <div style="text-align:center;background-color:#1A6225; font-size:30px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+        <b> </b>
+        <div class="titulo" style="color:white">Bienvenido al Sistema en Linea (SEL)  </div>
+    </div>
+
+    <div style="background-color:azure; ">
+        <br />
+        <article class="col-xs-12 col-md-6" style="font-size:15px; margin-left: 5%; color:black;">
+            Sr. / Sra.: <br />
+            <strong> @ViewBag.repreLegal </strong> <br />
+            Representante Legal de <strong> @ViewBag.RazSocial </strong>.
+            <br /><br />
+            Reciba nuestro mas cordial saludo, el <strong> Programa de Compensaciones para la Competitividad Agroideas</strong> les da
+            la bienvenida. Sus credenciales de ingreso al sistema son las siguientes:
+            <br />
+        </article>
+
+        
+        <article style="font-size:14px; margin-left: 25%; background-color:#F2F6F4; width:50%; color:black;">
+            <div style="margin-left:20%; margin-right:20%;" class="col-xs-12 col-md-12">
+                <blockquote class="col-xs-12 col-md-6" style="font-size:14px; margin-left: 25%; background-color:#F2F6F4; width:50%; color:black;">
+                    <br />
+                    <strong>Usuario  : </strong> @ViewBag.usuario <br />
+                    <strong>Password : </strong> @ViewBag.clave <br />
+                    <br />
+                </blockquote>
+            </div>
+        </article>
+
+         
+        <article style="font-size:15px; color:black; margin-left: 5%">
+            Para iniciar su sesion haga click <a href="@ViewBag.ConfirmationLink">aqui</a>
+            <p>En breve se le enviará un nuevo correo habilitando los formatos para su registro.</p>
+        </article>
+
+        <br />
+
+    </div>
+</div>

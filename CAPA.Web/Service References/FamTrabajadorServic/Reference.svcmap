@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4fd90f0e-8278-49a3-a1ea-46758015b0d7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:21970/FamTrabajadorServ.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FamTrabajadorServ.xsd" MetadataType="Schema" ID="e9bc25fb-255d-489d-a71c-8aec16ac9195" SourceId="1" SourceUrl="http://localhost:21970/FamTrabajadorServ.svc?xsd=xsd2" />
+    <MetadataFile FileName="FamTrabajadorServ1.xsd" MetadataType="Schema" ID="e10d2b8b-e635-4291-9390-8294ca4f0dbc" SourceId="1" SourceUrl="http://localhost:21970/FamTrabajadorServ.svc?xsd=xsd3" />
+    <MetadataFile FileName="FamTrabajadorServ2.xsd" MetadataType="Schema" ID="7ef11ce9-9f1c-427c-bc16-93d7246da110" SourceId="1" SourceUrl="http://localhost:21970/FamTrabajadorServ.svc?xsd=xsd0" />
+    <MetadataFile FileName="FamTrabajadorServ3.xsd" MetadataType="Schema" ID="452fb3f2-f791-4987-9ef2-0d2bc24823e2" SourceId="1" SourceUrl="http://localhost:21970/FamTrabajadorServ.svc?xsd=xsd1" />
+    <MetadataFile FileName="FamTrabajadorServ.disco" MetadataType="Disco" ID="db9272f0-e271-435e-b2eb-31ce0f632ece" SourceId="1" SourceUrl="http://localhost:21970/FamTrabajadorServ.svc?disco" />
+    <MetadataFile FileName="FamTrabajadorServ.wsdl" MetadataType="Wsdl" ID="bff47a38-58b2-4352-a603-bd3f04c2c1d4" SourceId="1" SourceUrl="http://localhost:21970/FamTrabajadorServ.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

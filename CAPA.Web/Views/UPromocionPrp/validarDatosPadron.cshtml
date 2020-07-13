@@ -1,0 +1,514 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+<title>Validar Datos de los Socios</title> 
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.Promoción</a></li>
+                <li><a href="/UPromocionPrp/validarPadron">Validar Padrón</a></li>
+                <li class="active">Validar Datos de los  socios</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+
+
+                <div class="col-md-6" style="text-align:left">
+
+                    <h1> Validar Datos de los Socios</h1>
+                </div>
+
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            R.U.C :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Razón Social :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Nro de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"1234-2018", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha Inscripción en SUNARP :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20/10/2014", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+                        <label style=" text-align:left;">
+                           Nº de Expediente :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"PRP-130-2018", new { @MaxLength = "500", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            FECHA REGISTRO en S.E.L :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"01/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"07/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+                    <a class="btn btn-success" id="" href="#validarModal" title="Validar" data-toggle="modal">
+                        <i class="ace-icon fa fa-check"></i>VALIDAR PADRON
+                    </a>
+                    <a class="btn btn-success" id="" href="#historialModal" title="Historial" data-toggle="modal">
+                        <i class="ace-icon fa fa-history"></i>HISTORIAL DE VALIDACIONES
+                    </a>
+
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/validarPadron" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+                <br />
+
+
+                <!-- -->
+            </div>
+
+            <br>
+            <br>
+            <br> <div class="col-xs-12">
+                <!-- inicio tabla-->
+                <div class=" table-responsive margen">
+                    <table id="tab_opa" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="3%" class="center">Nº</th>
+                                <th width="7%" class="center">D.N.I</th>
+                                <th width="20%" class="center">Nombre Completo </th>
+                                <th width="7%" class="center">Ha. Tituladas</th>
+                                <th width="7%" class="center">Ha. Sin Titulo</th>
+                                <th width="7%" class="center">Ha. Bajo Riego</th>
+                                <th width="7%" class="center">Ha. Secano</th>
+                                <th width="7%" class="center">Ha. Pastizales</th>
+                                <th width="7%" class="center">Ha. a Reconvertir</th>
+                                <th width="10%" class="center">Cultivo a Reconvertir</th>
+                                <th width="10%" class="center">Cultivo a Instalar</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                            <tr>
+                                <td class="center">4</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                            <tr>
+                                <td class="center">5</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                            <tr>
+                                <td class="center">6</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                            <tr>
+                                <td class="center">7</td>
+                                <td class="center">45879900 </td>
+                                <td style="text-align:left"> JUAN ANTONIO, PEREZ ARANIBAR </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 6 </td>
+                                <td class="center"> 6.56 </td>
+                                <td class="center"> 0 </td>
+                                <td class="center"> 12.56 </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CACAO</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="historialModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Historial de Validaciones</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" table-responsive margen">
+                                <table id="tab_historial" class="table  table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="3%" class="center">Nº</th>
+                                            <th width="10%" class="center">Usuario</th>
+                                            <th width="20%" class="center">Fecha y Hora </th>
+                                            <th width="10%" class="center">Estado del P.R.P</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="center">1</td>
+                                            <td class="center">jorge.amaya </td>
+                                            <td style="text-align:left"> 01/08/2018 08:25 </td>
+                                            <td class="center"> EVALUACION </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td class="center">2</td>
+                                            <td class="center">victor.ormeno </td>
+                                            <td style="text-align:left"> 07/08/2018 14:49 </td>
+                                            <td class="center"> RE-EVALUACION </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center">3</td>
+                                            <td class="center">jorge.amaya </td>
+                                            <td style="text-align:left"> 13/08/2018 17:05 </td>
+                                            <td class="center"> OPINION FAVORABLE </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="validarModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Resultado de la Validación</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Cantidad de Hombres :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                
+                                <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;"> Padrón :</label></div>
+                                <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"10", new { style = "width:100%", disabled = "true" })</div>
+                                <div class="col-xs-3">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Cantidad de Mujeres :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                
+                                <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;"> Padrón :</label></div>
+                                <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"8", new { style = "width:100%", disabled = "true" })</div>
+                                <div class="col-xs-3" style="text-align:left;">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Ha. Totales :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                
+                                <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;"> Padrón :</label></div>
+                                <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"12.56", new { style = "width:100%", disabled = "true" })</div>
+                                <div class="col-xs-3">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Ha. Bajo Riego :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                               
+                                <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;"> Padrón :</label></div>
+                                <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"6", new { style = "width:100%", disabled = "true" })</div>
+                                <div class="col-xs-3">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Ha. Secano :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                               
+                                <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;"> Padrón :</label></div>
+                                <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"6.56", new { style = "width:100%", disabled = "true" })</div>
+                                <div class="col-xs-3">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Ha. a Reconvertir :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                
+                                <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;"> Padrón :</label></div>
+                                <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"12.56", new { style = "width:100%", disabled = "true" })</div>
+                                <div class="col-xs-3">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-12" style="text-align: left; border-bottom: 1px solid #ede9e9;"><label style="text-align:left;">Productores :</label></div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-9" style="text-align:left;"><label style="text-align:left;">No se encontraron productores duplicados.</label></div>
+
+
+                                <div class="col-xs-3">
+                                    <div class=" alert-success">
+                                        <strong>OK!</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on('click', '.Ver_OT', function () {
+
+            var val = $(this).attr('id');
+            var url_scan = "/OrdenTrabajo/Variable_ver_OT/" + val;
+            window.location.href = url_scan;
+
+        });
+
+        $(document).ready(function () {
+            $('.solo-numero').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+
+        $("#tab_opa").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $('#datetimepicker2').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        }); //Initialise any date pickers
+        $('#datetimepicker3').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        });
+    });
+
+
+
+
+</script>
+
+
+
+

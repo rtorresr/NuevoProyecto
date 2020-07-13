@@ -1,0 +1,522 @@
+﻿
+@{
+    ViewBag.Title = "historialSDA";
+    Layout = "~/Views/Shared/_LayoutMenuUn.cshtml";
+}
+
+<head>
+    <title>Historial S.D.A</title>
+</head>
+
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UNegocios/Index">U.Negocios</a></li>
+                <li class="active">Historial S.D.A.</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+
+        <div class="page-content">
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+
+                    <h1> Historial S.D.A. </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+
+            <div class="col-xs-12 col-md-12">
+
+                <div id="accordion" style="border:1px solid;">
+
+                    <div class="card">
+
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"> </i>
+                                    &nbsp; Datos de la Organización
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:35px;padding-right:35px;">
+                                <br />
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; Datos generales
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-left:auto; ">
+                                        <div><label style="text-align:left;"> Razón Social: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                        <div>
+                                            <label style="text-align:left;"> RUC: </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("idJuntaDirectivaf", (string)"", new { style = "width:60%; display:none;" })
+                                            @Html.TextBox("rucOAf", (string)"", new { style = "width:60%", disabled = true, Value = @Session["RucOA"] })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; Datos de dirección
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Departamento: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+                                    @*margin-bottom: 5px;*@
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Provincia: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Distrito: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" style="margin-bottom:10px;">
+
+
+                                    @*margin-bottom: 5px;*@
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Centro poblado </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Teléfono: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;">Altitud por distrito: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*OTRA FILA*@
+
+                                <div class="row" style="margin-bottom:10px;">
+
+
+                                    @*margin-bottom: 5px;*@
+
+                                    <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                        <div>
+                                            <label style="text-align:left;"> Tipo Ámbito: </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("idJuntaDirectivaf", (string)"", new { style = "width:40%; display:none;" })
+                                            @Html.TextBox("rucOAf", (string)"", new { style = "width:60%", disabled = true, Value = @Session["RucOA"] })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Nivel Quintil: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+                                    @*margin-bottom: 5px;*@
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; ">
+                                        <div><label style="text-align:left;"> Valor de Quintil: </label></div>
+                                        <div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:60%", disabled = "disabled" })
+                                            <p id="ARazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*OTRA FILA*@
+
+
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; REPRESENTANTE LEGAL
+                                        </h3>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px; padding-left:0px;">
+                                    <div>
+                                        <label style="text-align: left;"> Apellidos y Nombre: </label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("ApelPatRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                        <p id="AApelPatRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                    <div>
+                                        <label style="text-align: left;"> Correo Electrónico: </label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("ApelMatRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                        <p id="AApelMatRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                    <div>
+                                        <label style="text-align: left;"> Teléfono: </label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("NombRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                        <p id="ANombRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                </div>
+
+                                <br />
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; PERSONA DE CONTACTO
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px; margin-left:auto;">
+                                    <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px; padding-left:0px;">
+                                        <div>
+                                            <label style="text-align: left;"> Apellidos y Nombre: </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("ApelPatRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                            <p id="AApelPatRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+                                    @*<div class="row" style="margin-bottom:10px;">*@
+
+                                    <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                        <div>
+                                            <label style="text-align: left;"> Correo Electrónico: </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("ApelMatRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                            <p id="AApelMatRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                        <div>
+                                            <label style="text-align: left;"> Teléfono: </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("NombRepLeg", (string)"", new { @Class = "campoTexto", @MaxLength = "50", style = "width:65%", disabled = true })
+                                            <p id="ANombRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br />
+
+                                <h2>Datos del Expediente</h2>
+                                @*TABLA EXPEDINETE*@
+                                <div id="div-tabla" class="table-responsive margen">
+                                    <table id="tablaMpExpOA" class="table table-bordered table-hover table-striped" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:7%">Nro. Expediente</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Expediente</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo de S.D.A.</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:8%">Tipo Incentivo</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">CUT_SGD</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">Nombre Grupo (PRP)</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Código SEL</th>
+
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; max-width:4%">Historial de Estados</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; max-width:4%">Documentos Adjuntos</th>
+                                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; max-width:4%">Doc. Anexos Expediente</th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody id="tbodyMPExpOA" class="tbodyMPExpOA">
+
+                                            <tr>
+                                                <td class="center">1</td>
+                                                <td class="center"> - </td>
+                                                <td style="text-align:center"> - </td>
+                                                <td class="center"> - </td>
+                                                <td class="center"> - </td>
+                                                <td class="center"> - </td>
+                                                <td class="center"> - </td>
+
+
+                                                <td class="center">
+                                                    <button id="btnHistorialEstado" class="btn btn-primary" title="Registrar">
+                                                        <i class="ace-icon fa fa-eye"></i>
+                                                    </button>
+
+                                                </td>
+                                                <td class="center">
+
+                                                    <button id="btnDocAdjuntos" class="btn btn-primary" title="Asignar">
+                                                        <i class="ace-icon fa fa-eye"></i>
+                                                    </button>
+                                                </td>
+
+                                                <td class="center">
+
+                                                    <button id="btnAnexoExp" class="btn btn-primary" title="Asignar">
+                                                        <i class="ace-icon fa fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                    @*FIN TABLA*@
+                                </div>
+
+
+                                @*fin div card body*@
+                            </div>
+
+                           
+                           
+                           
+
+
+
+
+
+
+
+                        </div>
+                       
+                      
+
+ @*fin div card*@ </div>
+                   
+                   
+                </div>
+                @*FIN DE ACORDEONES*@
+
+ @*TABLA HSITORIAL ESTADO*@
+                <h2>Historial de Estados</h2>
+                <div id="tbHistorialEstados" class="table-responsive margen">
+                    <table id="tbHistorialEstados" class="table table-bordered table-hover table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:7%">No</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:7%">Estado</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha y hora de registro</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha notificación</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:8%">Especialista</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Dias de Prórroga</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">Comentario</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Usuario de Registro</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Fecha y hora de registro</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">N° comentarios</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Ver comentario</th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody id="tbodyMPExpOA" class="tbodyMPExpOA">
+
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center"> - </td>
+                                <td style="text-align:center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                             
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center">
+                                    <a class="btn btn-warning" id="btnEstructuraInversion" href="#eliminarModal" title="Estructura Inversion" data-toggle="modal">
+                                        <i class="ace-icon fa fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    @*FIN TABLA*@
+                </div>
+
+ @*TABLA HISTORIAL DOC ADJ*@
+
+                <h2>Historial Documentos Adjuntos</h2>
+                <div id="tbHistorialDocAdj" class="table-responsive margen">
+                    <table id="tbHistorialDocAdj" class="table table-bordered table-hover table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:7%">N°</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Unidad PCC</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Oficina regional</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:8%">Tipo documento</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Asunto</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">N° Documento</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Fecha documento</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Estado expediente</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">Fecha registro</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">Fecha revisión OA</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Documento adjunto</th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody id="" class="tbodyMPExpOA">
+
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center"> - </td>
+                                <td style="text-align:center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    @*FIN TABLA*@
+                </div>
+ @*TABLA DOC ANEXOS EXP*@
+
+                <h2>Documentos Anexos del Expediente en Mesa de Partes</h2>
+                <div id="tbDocAnexosExp" class="table-responsive margen">
+                    <table id="tbDocAnexosExp" class="table table-bordered table-hover table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:7%">N°</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:8%">Tipo documento</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">N° documento</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:15%">Fecha registro</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Asunto</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:8%">Descripción</th>
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Unidad de destino</th>
+                          
+                                <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:7%; max-width:10%">Oficina de registro</th>
+
+
+                            </tr>
+
+                        </thead>
+                        <tbody id="tbodyMPExpOA" class="tbodyMPExpOA">
+
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center"> - </td>
+                                <td style="text-align:center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                <td class="center"> - </td>
+                                
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    @*FIN TABLA*@
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+   

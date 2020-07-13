@@ -1,0 +1,272 @@
+﻿@model SEL_Entidades.SEL_E.AsignacionExpedienteOA_E
+
+
+@{
+    ViewBag.Title = "Actualziar Datos de la Organizacion";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<head>
+    <title>Segundo Informe de Evaluación de la Organización</title>
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li><a href="/UPromocion/registrarEvaluacion">Registrar Evaluación</a></li>
+                <li class="active">Registrar Segundo Informe</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="col-xs-12">
+
+                    <h1> Registrar Segundo Informe de Evaluación de la  Organización </h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+
+                <!--------- ACORDEON ------------>
+                <div id="accordion" style="border:1px solid; ">
+                    <div class="card">
+
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse collapse1" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Datos de la Organización
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse collapse1" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!--------- card body ------------>
+                        <div id="collapseOne" class="collapse collapse1" aria-labelledby="headingOne" data-parent="#accordion">
+
+                            <!-- Inicio Card Body  -->
+                            <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                <br />
+                                <br />
+                                <div class="row" style="margin-bottom:10px;">
+                                    <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> R.U.C : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBox("idEvaluacionExp", (string)"", new { @class = "campoNumero", style = "display:none; width:40%", disabled = true })
+                                            @Html.TextBoxFor(m => m.idUnidadPcc, new { @class = "campoNumero", style = "display:none; width:40%", disabled = true })
+                                            @Html.TextBox("nroInforme", (string)"", new { @class = "campoNumero", style = "display:none; width:40%", disabled = true, Value = '2'})
+                                            @Html.TextBoxFor(m => m.idEspecialista, new { @class = "campoNumero", style = "display:none; width:40%", disabled = true })
+                                            @Html.TextBoxFor(m => m.idCutExpediente, new { @class = "campoNumero", style = "display:none; width:40%", disabled = true })
+                                            @Html.TextBoxFor(m => m.idestadoCut, new { @class = "campoNumero", style = "display:none; width:60%", disabled = true })
+                                            @Html.TextBox("idUsuario", (string)"", new { @class = "camponumero", style = "display:none; width:40%", disabled = true, Value = Session["IdUsua"] })
+                                            @Html.TextBoxFor(m => m.rucOA, (string)"", new { @class = "campoNumero", style = "width:60%", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-8 col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> Razón Social : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.idTipoSDA, new { style = "display:none; width:80%", disabled = true })
+                                            @Html.TextBoxFor(m => m.idTipoSolic, new { style = "display:none; width:80%", disabled = true })
+                                            @Html.TextBox("tipoDocEval", (string)"", new { @class = "campoNumero", style = "display:none; width:60%", disabled = true, Value = '3' })
+                                            @Html.TextBoxFor(m => m.razonSocial, new { @class = "col-xs-12 col-sm-12 col-md-10", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label>Nro de Expediente : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.nroExpediente, new { @class = "campoNumero col-xs-12 col-sm-12 col-md-6", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> Nro CUT : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.nroSGDCut, new { @class = "campoNumero  col-xs-12 col-sm-12 col-md-6", disabled = true })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> Fecha Inscripción en SUNARP :</label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.fechaRegSunarp, new { @class = "campoNumero  col-xs-12 col-sm-12 col-md-6", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> Fecha de Constitución : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.fechaconstiLegal, new { @class = "col-xs-12 col-sm-12 col-md-6", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> FECHA REGISTRO en S.E.L : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.fechaRegSel, new { @class = "campoNumero col-xs-12 col-sm-12 col-md-6", disabled = true })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" style="text-align:left;">
+                                        <div>
+                                            <label> Fecha de Expediente : </label>
+                                        </div>
+                                        <div>
+                                            @Html.TextBoxFor(m => m.fechaRegExp, new { @class = "col-xs-12 col-sm-12 col-md-6", disabled = true })
+                                            @Html.TextBox("fechaIniEval", (string)"", new { style = "display:none", disabled = true })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <br />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row" style="margin-bottom:25px;">
+                <br />
+                <a class="btn btn-info" id="btn_ActivarSegundaEval" style="display:none;" href="#" title="Activar">
+                    <i class="ace-icon fa fa-check-circle"></i>INICIAR EVALUACIÓN
+                </a>
+
+                <a class="btn btn-danger" id="btn_CancelarSegundaEval" href="#" title="Cancealar">
+                    <i class="ace-icon fa fa-undo"></i>CERRAR
+                </a>
+
+
+            </div>
+            <br />
+
+            <div id="areaImprimirSE" class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+                <br />
+                <!--------- ACORDEON ------------>
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" data-action="collapse" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Lista de Requisitos - Documentos Presentados por la Organización
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;">
+                                <br/>
+                                <br/>
+                                <div class="row" style="text-align:center; width:98%;">
+                                    <div class="table-responsive margen" style="margin-left:2%">
+                                        <table id="tablaSegundaEvaluacion" class="table table-bordered table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:0px; width:0px; max-width:0px">ID Req</th>
+                                                    <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:0px; width:0px; max-width:0px">ID</th>
+                                                    <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</th>
+                                                    <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:28%; width:28%; max-width:28%">Requisito</th>
+                                                    <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; width:8%; max-width:8%">Cumple</th>
+                                                    <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:30%; width:30%; max-width:30%">Observaciones</th>
+                                                    <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:30%; width:30%; max-width:30%">Recomendaciones</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row" style="margin-bottom:10px;">
+                                    <div class="col-xs-12 col-md-4" style="text-align:right;">
+                                        &nbsp;&nbsp;
+                                    </div>
+                                    <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                          <div>
+                                            <label style="text-align:left;"> Resultado de Evaluación : </label> &nbsp; &nbsp;
+                                            @Html.TextBox("resultadoEval", (string)"", new { @class = "campoTexto", style = "width:40%; text-align:center;", disabled = true })
+                                        </div>
+                                    <div class="col-xs-12 col-md-4" style="text-align:right;">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+             
+            </div>
+        <div class="row" style="margin-bottom:25px;">
+            <div class="col-xs-12 col-md-12" style="margin-bottom:5px;">
+                <br />
+                <button class="btn btn-warning" id="btn_registarAvanceSegundaEval" href="#" title="Registrar Avance" style="display:none;">
+                    <i class="ace-icon fa fa-pencil"></i>REGISTRAR AVANCES DE EVALUACION
+                </button>
+
+                <button class="btn btn-success" id="btn_RegistrarFinalSegundaEval" href="#" title="Registro Final" style="display:none;">
+                    <i class="ace-icon fa fa-pencil"></i>REGISTRO FINAL DE EVALUACION
+                </button>
+
+                <button class="btn btn-success" id="btn_ImprimirSegundoEval" href="#" title="Imprimir" style="display:none;">
+                    <i class="ace-icon fa fa-print"></i>Imprimir Informe
+                </button>
+
+            </div>
+            <div id="alertReq" class="col-xs-12 col-md-12" style="text-align:center; display:none;">
+                <p style="width:100%; color:darkred; font-size:small;">Debe cumplir la evalución de todos los requerimientos.</p>
+            </div>
+        </div>
+        </div><!-- contenido -->
+    </div>
+ 
+<script type="text/javascript">
+	$(document).ready(function () {
+	    controles_SegundaEvaluacion();
+	});
+</script>

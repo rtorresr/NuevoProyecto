@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "reportes_fmto1";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+
+<h2>Reporte Formato 01</h2>
+
+
+<div class="page-content">
+    <!-- contenido -->
+
+          <!-- Fin titulo -->
+    <!-- inicio pasos-->
+    @*<a href="~/Views/OA/reportes_fmto1.cshtml"></a>*@
+
+    <div class="col-xs-12">
+        <!-- contenido de pasos -->
+        <div id="accordion" style="border:1px solid;">
+            <div class="card">
+
+                <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <a href="#" style="color:white; text-decoration:none;">
+                            <i class="ace-icon fa fa-file"></i>
+                            Información Referencial de la Organización
+                        </a>
+                    </h5>
+                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <a href="#" data-action="collapse" style="color:#fff;">
+                            <i class="ace-icon fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <form action="" id="reporte1" class="card-body" style="padding-left:12px;padding-right:12px;">
+                        <br />
+
+                        @using (Html.BeginForm())
+                        {
+                            <div class="row" style="margin-bottom:25px;">
+                                <div class="col-xs-12 col-md-3" style="text-align: left; ">
+									<div>
+										<label style="text-align:left;">R.U.C :</label>
+									</div>
+									<div>
+										@Html.TextBox("idUsuario", (string)"", new { style = "display:none;", Value = @Session["IdUsua"] })
+										@Html.TextBox("idOA", (string)"", new { @class = "campoNumero", @style = "display:none; width:23%", disabled = true })
+										@Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", disabled = true, Value = @Session["RucOA"] })
+										@Html.TextBox("idOAReport", (string)"", new { @class = "campoNumero", @style = "display:none; width:50%", disabled = true })
+									</div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3" style="text-align: left;">
+									<div>
+										<label>Razón Social :</label>
+									</div>
+									<div>
+										@Html.TextBox("razonSocial", (string)"", new { @style = "width:95%", disabled = true })
+									</div>
+                                </div>
+
+								<div class="col-xs-12 col-md-3" style="text-align:left;">
+									<div>
+										&nbsp;&nbsp;&nbsp;
+									</div> 
+								</div>
+
+								<div class="col-xs-12 col-md-3" style="text-align:left;"> 
+									<div>
+										 &nbsp;&nbsp;&nbsp; 
+									</div>
+									<div>
+										<button id="btnGenerarReporteFmto01" class="btn btn-success"><i class="ace-icon fa fa-file"></i> Generar</button>
+										&nbsp;&nbsp;&nbsp;
+										<button id="btnCancelarReporte01" class="btn btn-success"><i class="ace-icon fa fa-undo"></i> Regresar</button>
+									</div>
+								</div>
+								 
+                            </div> 
+                        }
+                    </form>
+					 
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    	controles_ReporteFmto1_OA();
+    }); 
+</script>

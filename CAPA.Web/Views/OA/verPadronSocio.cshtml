@@ -1,0 +1,408 @@
+﻿@{
+    ViewBag.Title = "consultaSocio";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+<head>
+    <title>Padrón de Socios de la Organización</title>
+
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+            <!-- Inicio Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/OA/"> </a>
+                </li>
+                <li><a href="/OA/Index">OA</a></li>
+                <li class="active"><a href="consultaSocio">Padrón de Socios de la Organización</a></li>
+            </ul>
+
+        </div><!-- Fin ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="cbp-mc-column">
+                    <h1> Padrón de Socios de la Organización</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+            <div class="col-xs-12" style="margin-bottom:25px;">
+                <!-- contenido de pasos -->
+                <!--------- ACORDEON ------------>
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" style="color:white; text-decoration:none;">
+                                    <i class="ace-icon fa fa-search"></i>
+                                    Criterios de Búsqueda
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                         
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                <br />
+
+                                @*<form class="cbp-mc-form" id="myForm1" method="post">*@
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                        <label style="width:65%; text-align:left;">D.N.I. :</label>
+                                        @Html.Hidden("idUsuario", (string)"", new { @class = "campoNumero", style = "display:none", Values = Session["idUsua"] })
+                                        @Html.TextBox("idOADatos", (string)"", new { style = "display:none" })
+                                        @Html.Hidden("rucOA", (string)"", new { @class = "campoNumero", Value = @Session["RucOA"] })
+                                        @Html.Hidden("nroExpOA", (string)"", new { })
+                                        @Html.TextBox("nroDniSocio", (string)"", new { @class = "campoNumero", style = "vertical-align:middle; width:45%;" })
+                                        <p id="AndoDniSocio" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                        <label style="width:35%; text-align:left;">Nombre Completo :</label>
+                                        @Html.TextBox("nombreSocio", (string)"", new { @class = "campoTexto", style = "vertical-align:middle; width:90%;" })
+                                        <p id="AnombreSocio" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                    </div>
+                                     
+                                    <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                        <div> <label>&nbsp;</label></div>
+                                        <div> <label>&nbsp;</label></div>
+                                    </div>
+                                     
+                                    <div class="col-xs-12  col-md-3" style="text-align:left;">
+                                        <div>  &nbsp; </div>
+                                        <div>
+                                            <button id="btnConsultarSocio" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-search"></i>  Consultar  </button>
+                                            <button id="btnLimpiarConsultaSocio" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-eraser"></i>  Limpiar  </button>
+                                        </div>
+                                    </div> 
+                                </div>
+                                 
+                                <br />
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-bottom:25px;">
+                <br />
+                <div class="col-xs-1 col-sm-1 col-md-3">
+                     &nbsp; &nbsp;
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-6"> 
+                    <div class="col-xs-12 col-sm-6 col-sm-6">
+                        <button id="btnNuevoSocio" class="btn btn-primary col-xs-12 col-sm-8 col-md-10">
+                            <i class="ace-icon fa fa-user-plus"></i>AGREGAR SOCIO
+                        </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-sm-6">
+                        <button id="btnValidarPadronSocio" class="btn btn-warning col-xs-12 col-sm-8 col-md-10"  data-toggle="modal" data-target="#myModal">
+                            <i class="glyphicon glyphicon-ok"></i> &nbsp; VALIDAR PADRÓN SOCIOS
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-3">
+                     &nbsp; &nbsp;
+                </div>
+            </div>
+
+
+            <!-- fin contenido-->
+            <!--------- Agregrar Socios --------->
+            <div class="col-xs-12" style="margin-bottom:25px;">
+                <!-- inicio tabla-->
+                <div class="table-responsive margen">
+                    <br />
+                    <table id="TablaSocios" class="table table-bordered table-hover table-striped display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">DNI</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; width:20%; max-width:20%">Nombre Completo</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; width:20%; max-width:20%">Genero</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; width:20%; max-width:20%">ubicación</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; width:20%; max-width:20%">Dirección</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; width:20%; max-width:20%">Centro Poblado</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Has. Tituladas</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Has. Sin Título</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Has. Bajo Riego</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Has. Secano</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Has. en Pastizales</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Has. Destinadas al PCC</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Actividad Económica</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Producto Principal</th>
+                                <th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:1%">¿Participa del PCC?</th>
+                                @*<th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Acciones</th>
+                            </tr>
+                            <tr>*@
+                                @*<th class="center">Ver Detalle</th>*@
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:1%; width:1%; max-width:1%">Modificar</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:1%; width:1%; max-width:1%">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tfoot align="right">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"></th>
+                                <th></th>
+                            </tr>
+                        </tfoot> 
+                    </table> 
+                </div> 
+            </div>
+
+
+
+            <div class="modal" id="validarPadron" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto;">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header alert-success alert-dismissible">
+                            <button id="btnCerrarFormularioValidacion2" type="button" class="close" data-dismiss="modal">×</button>
+                            <h4 class="modal-title" id="myModalLabel"> Validar Padrón de Socios </h4>
+                        </div>
+                        <div class="modal-body" style="max-height:90%">
+                            <form>
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:center; width:100%;"> &nbsp;&nbsp; </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label style="text-align:center; width:100%;">Registro OA</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label style="text-align:center; width:100%;">Registro Padrón Socios</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha. tituladas :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haTituladasOA", (string)"", new { style = "width:100%;", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haTituladas", (string)"", new { style = "width:100%;", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha. sin Titulo :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haSinTituloOA", (string)"", new { style = "width:100%;", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haSinTitulo", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha. Totales :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haTotalesOA", (string)"", new { style = "width:100%;", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haTotales", (string)"", new { style = "width:100%;", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha.Bajo Riego :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haBajoRiegoOA", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haBajoRiego", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha. Secano  :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haSecanoOA", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haSecano", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha. Pastizales  :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haPastizalesOA", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("haPastizales", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Ha. destinadas a PCC :</label>
+                                    </div>
+                                    <div class="col-md-4" style="text-align:left">
+                                        @Html.TextBox("haDestinadasPCCOA", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4 inline-block" style="text-align:left">
+                                        @Html.TextBox("haDestinadasPCC", (string)"", new { style = "width:100%", placeholder = "0.00", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Productores Hombres :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProductoresHombOA", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProductoresHomb", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Productores Mujeres :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProductoresMujOA", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProductoresMuj", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Total Productores :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProductoresOA", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProductores", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Productores Hombres Participan :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProdHombParticipanOA", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProdHombParticipan", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Productores Mujeres Participan :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProdMujParticipanOA", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProdMujParticipan", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-inline col-xs-12 col-md-12" style="margin-bottom:2%;">
+                                    <div class="col-md-4">
+                                        <label style="text-align:left; width:100%;">Total Productores Participan :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProdParticipanOA", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.TextBox("totalProdParticipan", (string)"", new { style = "width:100%", placeholder = "0", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <br />
+                                <div class="form-inline col-xs-12 col-md-12" style="margin-bottom:2%;">
+                                    <label style="text-align:left;">Resultado :</label>
+                                    @Html.TextBox("resultado", (string)"", new { @class = "input-sm text-black bg-dark", style = "width:90%", disabled = true })
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="btnCerrarFormularioValidacion" data-dismiss="modal">Cerrar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br />
+            <div class="row">
+                <div id="content" class="col-lg-12">
+                    <img src="~/Content/images/loader.gif" /><br />Un momento, por favor...
+                </div>
+            </div>
+
+
+        </div><!-- fin contenedor -->
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        controles_SocioaOA();
+
+    });
+</script>

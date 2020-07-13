@@ -1,0 +1,781 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+<head>
+    <title>Registrar Socio</title>
+</head>
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.Promoción</a></li>
+                <li><a href="/UPromocionPrp/actualizarPadron">Actualizar Padrón</a></li>
+                <li class="active"><a href="/UPromocionPrp/actualizarDatosPadron">Actualizar Datos del Padrón</a></li>
+                <li class="active">Actualizar Socio</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+
+
+                <div class="col-md-6" style="text-align:left">
+
+                    <h1> Actualizar Datos del Socio</h1>
+                </div>
+
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            R.U.C :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Razón Social :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Nro de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"PRP-130-2018", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha Inscripción en SUNARP :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20/10/2014", new { @class = "solo-numero", style = "width:40%" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            FECHA REGISTRO en S.E.L :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"01/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Fecha de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"07/05/2015", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+
+                <br />
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/actualizarDatosPadron" title="Actualizar Socio">
+                        <i class="ace-icon fa fa-edit"></i>ACTUALIZAR
+                    </a>
+
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/actualizarPadron" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+
+                <!-- -->
+            </div>
+
+
+            <br />
+            <br />
+            <div class="col-xs-12">
+                <br />
+                <br />
+                <div class="row" style="margin-bottom: 25px;">
+                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">D.N.I :</label></div>
+                    <div class="col-xs-2" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"45879900", new { style = "width:50%" })
+                        &nbsp;&nbsp; &nbsp;&nbsp;
+                        <a class="btn btn-success" id="" href="#" title="Validar">
+                            <i class="ace-icon fa fa-file"></i>VALIDAR
+                        </a>
+                    </div>
+                    <div class="col-xs-3" style="text-align:right;"><label style=" text-align:left;">Nombre Completo :</label></div>
+                    <div class="col-xs-4" style="text-align:left;">@Html.TextBox("nro_orden", (string)"JUAN ANTONIO, PEREZ ARANIBAR", new { style = "width:100%", disabled = "true" })</div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Sexo :</label></div>
+                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"MASCULINO", new { style = "width:50%", disabled = "true" })</div>
+                    <div class="col-xs-3" style="text-align:right;"><label style=" text-align:left;">Fecha de Nacimiento :</label></div>
+                    <div class="col-xs-4" style="text-align:left;">@Html.TextBox("nro_orden", (string)"01/02/1869", new { style = "width:20%", disabled = "true" })</div>
+
+                </div>
+
+                <div id="accordion" style="border:1px solid;">
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" style="color:white; text-decoration:none;" data-toggle="collapse">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Datos específicos del productor
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;">
+                                <br />
+                                <div class="row" style="margin-bottom: 25px;">
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Departamento :</label></div>
+                                    <div class="col-xs-3" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList9 = new List<KeyValuePair<int, string>>();
+                                            dropdownList9.Add(new KeyValuePair<int, string>(0, "Arequipa"));
+                                            dropdownList9.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                            dropdownList9.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList9.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                            SelectList selectList9 = new SelectList(dropdownList9, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList9, new { style = "width:50%" })
+                                    </div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Provincia :</label></div>
+                                    <div class="col-xs-3" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList10 = new List<KeyValuePair<int, string>>();
+                                            dropdownList10.Add(new KeyValuePair<int, string>(0, "Arequipa"));
+                                            dropdownList10.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                            dropdownList10.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList10.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                            SelectList selectList10 = new SelectList(dropdownList10, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList10, new { style = "width:50%" })
+                                    </div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Distrito :</label></div>
+                                    <div class="col-xs-3" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList11 = new List<KeyValuePair<int, string>>();
+                                            dropdownList11.Add(new KeyValuePair<int, string>(0, "Arequipa"));
+                                            dropdownList11.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                            dropdownList11.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList11.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                            SelectList selectList11 = new SelectList(dropdownList11, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList11, new { style = "width:50%" })
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom: 25px;">
+
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ubicación :</label></div>
+                                    <div class="col-xs-5">
+                                        @Html.TextBox("nro_orden", (string)"COMUNIDAD", new { style = "width:100%" })
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom: 25px;">
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. Tituladas :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"12.56", new { style = "width:30%" })</div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. Sin Titulo :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"0", new { style = "width:30%" })</div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. Total :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"12.56", new { style = "width:30%", disabled = "true" })</div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. a Reconvertir :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"12.56", new { style = "width:30%" })</div>
+
+                                </div>
+                                <div class="row" style="margin-bottom: 25px;">
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. Bajo Riego :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"6", new { style = "width:30%" })</div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. Secano :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"6.56", new { style = "width:30%" })</div>
+                                    <div class="col-xs-1" style="text-align:left;"><label style="text-align:left;">Ha. Pastizales :</label></div>
+                                    <div class="col-xs-2" style="text-align:left;">@Html.TextBox("nro_orden", (string)"0", new { style = "width:30%" })</div>
+                                </div>
+                                <div class="row" style="margin-bottom: 25px;">
+                                    <div class="col-xs-1" style="text-align:left; padding-right:0px !important;">
+                                        <label style="text-align:left;">Cultivo a Reconvertir :</label>
+                                    </div>
+                                    <div class="col-xs-2" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList23 = new List<KeyValuePair<int, string>>();
+                                            dropdownList23.Add(new KeyValuePair<int, string>(0, "ARROZ"));
+                                            dropdownList23.Add(new KeyValuePair<int, string>(1, "ALGODÓN"));
+                                            dropdownList23.Add(new KeyValuePair<int, string>(2, "HOJA DE COCA"));
+                                            dropdownList23.Add(new KeyValuePair<int, string>(2, "QUINUA"));
+                                            dropdownList23.Add(new KeyValuePair<int, string>(2, "PAPA"));
+                                            SelectList selectList23 = new SelectList(dropdownList23, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList23, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-xs-1" style="text-align:left;">
+                                        <label style="text-align:left;">Cultivo a Instalar :</label>
+                                    </div>
+                                    <div class="col-xs-2" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList24 = new List<KeyValuePair<int, string>>();
+                                            dropdownList24.Add(new KeyValuePair<int, string>(0, "CACAO"));
+                                            dropdownList24.Add(new KeyValuePair<int, string>(1, "CAFE"));
+                                            dropdownList24.Add(new KeyValuePair<int, string>(2, "PIÑA"));
+                                            dropdownList24.Add(new KeyValuePair<int, string>(2, "PALTA"));
+                                            dropdownList24.Add(new KeyValuePair<int, string>(2, "BANANO"));
+                                            SelectList selectList24 = new SelectList(dropdownList24, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList24, new { style = "width:70%" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" style="color:white; text-decoration:none;" data-toggle="collapse">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Documentos de Sustento del Productor
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;">
+                                <br />
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Documento que acredite la propiedad:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList = new List<KeyValuePair<int, string>>();
+                                            dropdownList.Add(new KeyValuePair<int, string>(0, "CONSTANCIA DE POSESION"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(1, "TITULO DE PROPIEDAD"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "CONSTANCIA DE POSESION"));
+                                            SelectList selectList = new SelectList(dropdownList, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList, new { style = "width:80%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Fecha del documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        <div class="txtFormulario" style="width:100% ">
+                                            <div class='input-group date' id='datetimepicker2' style=" width:50%;">
+                                                @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Plano del Predio a Reconvertir:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList1 = new List<KeyValuePair<int, string>>();
+                                            dropdownList1.Add(new KeyValuePair<int, string>(0, "SI TIENE"));
+                                            dropdownList1.Add(new KeyValuePair<int, string>(2, "NO TIENE"));
+                                            SelectList selectList1 = new SelectList(dropdownList1, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList1, new { style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            R.D Otorgando Licencia de Uso de Agua:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        @Html.DropDownList("foo", selectList1, new { style = "width:80%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Nº de Documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "R.D Nº 001-2018-MINAGRI-ANA-AAA", new { @class = "", style = "width:70%" })
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Resultado de Análisis de Suelo :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        @Html.DropDownList("foo", selectList1, new { style = "width:80%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Fecha del documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        <div class="txtFormulario" style="width:100% ">
+                                            <div class='input-group date' id='datetimepicker4' style=" width:50%;">
+                                                @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:25px;">
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        <label style=" text-align:left;">
+                                            Resultado de Análisis de Agua :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+
+                                        @Html.DropDownList("foo", selectList1, new { style = "width:80%" })
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left; padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Adjuntar Documento de Sustento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:left;">
+                                        @Html.TextBox("nro_orden", "", new { type = "file", @class = "solo-numero", style = "width:70%" })
+                                    </div>
+                                    <div class="col-md-1" style="text-align:left;padding-right:0px !important;">
+                                        <label style=" text-align:left;">
+                                            Fecha del documento :
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2" style="text-align:left;">
+                                        <div class="txtFormulario" style="width:100% ">
+                                            <div class='input-group date' id='datetimepicker5' style=" width:50%;">
+                                                @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header widget-header" id="headingThree" style="text-align:left;">
+                            <h5 class="widget-title" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                <a href="#" style="color:white; text-decoration:none;" data-toggle="collapse">
+                                    <i class="ace-icon fa fa-file"></i>
+                                    Vertices de la Parcela del Productor
+                                </a>
+                            </h5>
+                            <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                <a href="#" data-action="collapse" style="color:#fff;">
+                                    <i class="ace-icon fa fa-chevron-down"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body" style="padding-left:12px;">
+                                <div class="row" style="margin-bottom: 25px;">
+                                    <br />
+                                    <div class="col-xs-12" style="text-align:left;">
+                                        <a class="btn btn-success" id="" href="#agregarVerticeModal" title="Agregar Socio" data-toggle="modal">
+                                            <i class="ace-icon fa fa-plus-circle"></i>Agregar Vertice
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="row" style="margin-bottom: 25px;">
+                                    <div class=" table-responsive margen">
+                                        <table id="tab_vertice" class="table  table-bordered table-hover" style="width:50%; margin-left:25%; margin-right:25%;">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%" class="center">Nº</th>
+                                                    <th width="40%" class="center">Eje (X)</th>
+                                                    <th width="40%" class="center">Eje (Y) </th>
+                                                    <th width="15%" class="hidden-480">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        -73.67827198
+                                                    </td>
+                                                    <td>
+                                                        -12.73367205
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-success" id="" href="#actualizarVerticeModal" title="Modificar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger" id="" href="#eliminarVerticeModal" title="Eliminar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2
+                                                    </td>
+                                                    <td>
+                                                        -73.67827198
+                                                    </td>
+                                                    <td>
+                                                        -12.73367205
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-success" id="" href="#actualizarVerticeModal" title="Modificar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger" id="" href="#eliminarVerticeModal" title="Eliminar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        3
+                                                    </td>
+                                                    <td>
+                                                        -73.67827198
+                                                    </td>
+                                                    <td>
+                                                        -12.73367205
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-success" id="" href="#actualizarVerticeModal" title="Modificar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger" id="" href="#eliminarVerticeModal" title="Eliminar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        4
+                                                    </td>
+                                                    <td>
+                                                        -73.67827198
+                                                    </td>
+                                                    <td>
+                                                        -12.73367205
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-success" id="" href="#actualizarVertice" title="Modificar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-edit"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger" id="" href="#eliminarVertice" title="Eliminar Vertice" data-toggle="modal">
+                                                            <i class="ace-icon fa fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div id="agregarVerticeModal" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Agregar Vertice</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;">Eje (X). :</label></div>
+                                                    <div class="col-xs-5" style="text-align:left;">@Html.TextBox("nro_orden", (string)"", new { style = "width:100%" })</div>
+                                                </div>
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-2" style="text-align:left;"><label style=" text-align:left;">Eje (Y). :</label></div>
+                                                    <div class="col-xs-5">@Html.TextBox("nro_orden", (string)"", new { style = "width:100%" })</div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Agregar</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="actualizarVerticeModal" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Modificar Vertice</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;">Eje (X). :</label></div>
+                                                    <div class="col-xs-5" style="text-align:left;">@Html.TextBox("nro_orden", (string)"-73.67827198", new { style = "width:100%" })</div>
+                                                </div>
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-2" style="text-align:left;"><label style=" text-align:left;">Eje (Y). :</label></div>
+                                                    <div class="col-xs-5">@Html.TextBox("nro_orden", (string)"-12.73367205", new { style = "width:100%" })</div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Modificar</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="eliminarVerticeModal" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Eliminar Vertice</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>¿ Está seguro que desea eliminar el vertice ?</p>
+                                                <hr />
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-2" style="text-align:left;"><label style="text-align:left;">Eje (X). :</label></div>
+                                                    <div class="col-xs-5" style="text-align:left;">@Html.TextBox("nro_orden", (string)"-73.67827198", new { style = "width:100%", disabled = "true" })</div>
+                                                </div>
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-2" style="text-align:left;"><label style=" text-align:left;">Eje (Y). :</label></div>
+                                                    <div class="col-xs-5">@Html.TextBox("nro_orden", (string)"-12.73367205", new { style = "width:100%", disabled = "true" })</div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Eliminar</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on('click', '.Ver_OT', function () {
+
+            var val = $(this).attr('id');
+            var url_scan = "/OrdenTrabajo/Variable_ver_OT/" + val;
+            window.location.href = url_scan;
+
+        });
+
+        $(document).ready(function () {
+            $('.solo-numero').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+
+        $("#tab_vertice").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $('#datetimepicker2').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        }); //Initialise any date pickers
+        $('#datetimepicker3').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        });
+        $('#datetimepicker4').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        });
+        $('#datetimepicker5').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        });
+
+
+    });
+
+
+
+
+</script>
+
+
+
+

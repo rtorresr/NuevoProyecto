@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "alternativasSolucion";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+<head>
+    <title>Alternativas de Solucion</title>
+</head>
+ 
+<div class="main-content">
+    <!-- contenedor -->
+    <div class="main-content-inner">
+        <div class="main-container ace-save-state" id="main-container">
+
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<span>Bienvenido  Sr: @Session["NombreUsua"]   </span> 
+
+				<!-- Inicio ruta -->
+				<ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="/OA/"> </a>
+					</li>
+					<li><a href="/OA/Index">OA</a></li>
+					<li class="active"> <a href="alternativasSolucion">Alternativas de Solución</a></li>
+				</ul>
+				<!-- Fin Ruta -->
+			</div>
+
+            <div class="page-content"> 
+				<!-- contenido -->
+				<!-- Inicio titulo -->
+
+                @*<div class="page-header"> 
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<h1> Alternativas de Solucion </h1>
+					</div>
+                </div>*@       
+				<!-- Fin titulo -->
+                 
+				<div class="col-md-12">
+					<div class="row" style="margin-bottom:15px;">
+						<a class="btn btn-success" id="btnRegresarAlternativa" href="index" title="Regresar">
+							<i class="ace-icon fa fa-undo"></i> Regresar
+						</a>
+					</div>
+
+					<div class="row" style="margin-bottom:20px;">
+						<div class="col-md-6" style="text-align:left;">
+							<label style="text-align:left;">Organización : </label> 
+							@Html.TextBox("rucOA", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true", Value = Session["rucOA"] })
+							@Html.TextBox("idCultivoCrianza", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true" })
+							@Html.TextBox("idUsuario", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true", Value = Session["IdUsua"] })
+							@Html.TextBox("razSocialOA", (string)"", new { style = "width:60%; text-align:left;", disabled = "true" })
+						</div>
+					</div>
+					<br />
+
+
+					<div class="col-md-12">
+
+						<div class="nav-tabs-custom">
+
+							<div class="tab-content">
+
+								<div class="active tab-pane" id="pesProrroga">
+
+									<div class="row">
+										<div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+											<h3>
+												<i class="ace-icon fa fa-file"></i>
+												ALTERNATIVAS DE SOLUCIÓN
+											</h3>
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:25px;">
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: left; align-content: center;">
+											<div class="col-xs-12 col-sm-12 col-md-1" style="text-align: left">
+												&nbsp;&nbsp;
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-10" style="text-align: left">
+												<h3 style="text-align:left">Lista de Casuas del Problema</h3>
+												<hr />
+												<div class="table-responsive margen" style="text-align:center;">
+													<table id="tablaAltCausasProb" class="table table-bordered table-hover" style="width:100%;">
+														<thead>
+															<tr>
+																<th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">ID/th>
+																<th rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">IDProb</th>
+																<th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</th>
+																<th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Código Causa</th>
+																<th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:65%; width:65%; max-width:65%">Descripcion de Causa</th>
+																<th rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:4%; width:4%; max-width:4%">Asignar Alternativa de solución</th>
+															</tr>
+														</thead>
+
+													</table>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-1" style="text-align: left">
+												&nbsp;&nbsp;
+											</div>
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:25px;">
+
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: left; align-content: center;">
+											<div class="col-xs-12 col-md-1" style="text-align: left">
+												&nbsp;&nbsp;
+											</div>
+											<div class="col-xs-12 col-md-10" style="text-align: left">
+												<h3 style="text-align:left">Lista de Alternativas por las causa del Problema</h3>
+												<hr />
+												<div class="table-responsive margen" style="text-align:center;">
+													<table id="tablaAlternativasSolCasuasProb" class="table table-bordered table-hover" style="width:100%; ">
+														<thead>
+															<tr>
+																<th rowspan="2" style="display:none;background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">ID.</th>
+																<th rowspan="2" style="display:none;background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">IDCultivoCri</th>
+																<th rowspan="2" style="display:none;background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">IDCausa</th> 
+																<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</th>
+																<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Código Causa</th>
+																<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Código Alternativa</th>
+																<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:65%; width:65%; max-width:65%">Alternativa</th>
+																<th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:4%; width:4%; max-width:4%">Acciones</th>
+															</tr>
+															<tr>
+																<th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Modificar</th>
+																<th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Eliminar</th>
+															</tr>
+														</thead>
+														 
+													</table>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-1" style="text-align: left">
+												&nbsp;&nbsp;
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--------- FIN DE ACORDEON -------->
+					<!--------- MODAL ASIGNA ALTERNATIVA -------->
+					<div id="asignarAlternativa" class="modal fade">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header alert-success alert-dismissible">
+									<h4 class="modal-title"> Asignar Alternativa</h4>
+								</div>
+								<div class="modal-body">
+									<div class="row" style="margin-bottom:5px;">
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left;">
+											<label style="text-align:left; width:15%">Código. Causa :</label> 
+											@Html.TextBox("idCausaProb", (string)"", new { style = "display:none; width:5%", disabled = true}) 
+											@Html.TextBox("codCausaProb", (string)"", new { style = "width:15%", disabled = true})
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:5px;">
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left;">
+											<label style="text-align:left;width:15%">Causa:</label> 
+											@Html.TextBox("descCausaProb", (string)"", new {style = "width:70%", disabled = true})
+										</div>
+									</div>
+
+									<div class="row" style="margin-bottom:5px;">
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left;">
+											<label style="text-align:left;width:15%">Alternativa:</label> 
+										@Html.TextBox("idAlternativa", (string)"", new { style = "display:none; width:10%", disabled = true}) 
+										@Html.TextArea("alternativa", (string)"", new {style = "width:70%", row=5, cols=120 })</div>
+									</div>
+
+									<div id="codAlter" class="row" style="display:none; margin-bottom:5px; vertical-align:central;">
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left;">
+											<label style="text-align:left; width:15%; margin-top:-2%">Código Alternativa:</label> 
+											@Html.TextBox("codAlternativa", (string)"", new { style = "width:15%", disabled =true})
+										</div> 
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button id="btnAgregarAlter" type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-save"></i>  Grabar</button>
+									<button id="btnCerrarAlter" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>  Cerrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!--------- MODAL MODIFICA   ALTERNATIVA -------->
+					<div id="modificarAlternativa" class="modal fade">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header alert-success alert-dismissible">
+									<h4 class="modal-title"> Modificar Alternativa</h4>
+								</div>
+								<div class="modal-body">
+									<p>Modificar Alternativa de Solución</p>
+									<hr />
+									<div class="row" style="margin-bottom:5px;"> 
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left;">
+											<label style="text-align:left;">Cod. Causa :</label> 
+											@Html.TextBox("codCausa", (string)"", new { @class="col-xs-12 col-sm-12 col-md-6", style = "width:100%", disabled = "true" })
+										</div>
+									 
+										<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left;">
+											<label style="text-align:left;">Cod. Alternativa :</label>
+											@Html.TextBox("codAlternativa", (string)"", new { @class = "col-xs-12 col-sm-12 col-md-6", style = "width:100%", disabled = "true" }) 
+										</div> 
+									</div>
+
+									<div class="row" style="margin-bottom:5px;">
+										<div class="col-xs-12 col-md-3" style="text-align:left;"><label style=" text-align:left;">Alternativa:</label></div>
+										<div class="col-xs-12 col-md-8" style="grid-row:2;">@Html.TextBox("nro_orden", (string)" ", new { id = "txtAlternativaM", style = "width:100%", enabled = "true" })</div>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button id="adicionarAlternativa" type="button" class="btn btn-success" data-dismiss="modal">Grabar</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function () { 
+		controles_AlternativasSolucion(); 
+	});
+	 
+</script>
+
+
+

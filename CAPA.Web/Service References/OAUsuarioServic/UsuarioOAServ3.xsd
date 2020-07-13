@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:21970/UsuarioOAServ.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" />
+  <xs:complexType name="_listarxfiltroUsuarioOAReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTipoSolic" type="xs:int" />
+      <xs:element minOccurs="0" name="nroRucOA" type="xs:int" />
+      <xs:element minOccurs="0" name="pageNumb" type="xs:int" />
+      <xs:element minOccurs="0" name="razSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rowsPage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroUsuarioOAReq" nillable="true" type="tns:_listarxfiltroUsuarioOAReq" />
+  <xs:complexType name="_listarxfiltroUsuarioOAResp">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" minOccurs="0" name="lstUsuarioOA" nillable="true" type="q1:ArrayOfOAUsuario_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroUsuarioOAResp" nillable="true" type="tns:_listarxfiltroUsuarioOAResp" />
+</xs:schema>

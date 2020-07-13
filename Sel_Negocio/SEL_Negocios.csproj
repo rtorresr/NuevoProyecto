@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44894D8F-3AF0-443C-8D91-7CBBAB2F4D09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEL_Negocios</RootNamespace>
+    <AssemblyName>Sel_Negocios</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PIDE_N\ConsultaPideReniec_N.cs" />
+    <Compile Include="PIDE_N\ConsultaPideSunat_N.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RRHH_N\Area_N.cs" />
+    <Compile Include="RRHH_N\Cargo_N.cs" />
+    <Compile Include="RRHH_N\Contrato_N.cs" />
+    <Compile Include="RRHH_N\FamTrabajador_N.cs" />
+    <Compile Include="RRHH_N\Sede_N.cs" />
+    <Compile Include="RRHH_N\Sexo_N.cs" />
+    <Compile Include="RRHH_N\TipoCargo_N.cs" />
+    <Compile Include="RRHH_N\TipoContrato_N.cs" />
+    <Compile Include="RRHH_N\TipoDocumentoRRHH_N.cs" />
+    <Compile Include="RRHH_N\TipoLazoFam_N.cs" />
+    <Compile Include="RRHH_N\TrabajadorCargo_N.cs" />
+    <Compile Include="RRHH_N\Trabajador_N.cs" />
+    <Compile Include="RRHH_N\Unidad_N.cs" />
+    <Compile Include="Seguridad_N\AplicacionModulo_N.cs" />
+    <Compile Include="Seguridad_N\Aplicacion_N.cs" />
+    <Compile Include="Seguridad_N\InicioSesion_N.cs" />
+    <Compile Include="Seguridad_N\MenuOpcion_N.cs" />
+    <Compile Include="Seguridad_N\MenuPerfil_N.cs" />
+    <Compile Include="Seguridad_N\ModuloMenu_N.cs" />
+    <Compile Include="Seguridad_N\ModuloPerfil_N.cs" />
+    <Compile Include="Seguridad_N\OpcionPerfil_N.cs" />
+    <Compile Include="Seguridad_N\Perfil_N.cs" />
+    <Compile Include="Seguridad_N\TipoUsuario_N.cs" />
+    <Compile Include="Seguridad_N\UsuarioAplicacion_N.cs" />
+    <Compile Include="Seguridad_N\Usuario_N.cs" />
+    <Compile Include="SEL_N\ActividadEconomica_N.cs" />
+    <Compile Include="SEL_N\ActualizarFmtosOA_N.cs" />
+    <Compile Include="SEL_N\AreaGeografica_N.cs" />
+    <Compile Include="SEL_N\AsignacionExpedienteOA_N.cs" />
+    <Compile Include="SEL_N\BajadeOA_N.cs" />
+    <Compile Include="SEL_N\DocumentoAdjuntosOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2AlterxCausaProblemaEspec_N.cs" />
+    <Compile Include="SEL_N\Fmto2BienesServiciosxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2CausaxProblemaOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2ClientexOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2ContraPartidasOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2Co_FinanciamientoxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2EtapasParticipacionxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2FinanciamientoxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2GravedadProblemaxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2MercadoxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2RiegoxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2ServicioBasicoxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2TipoDocumentoAcreditacion_N.cs" />
+    <Compile Include="SEL_N\Fmto2ViaAccesoPlantaProcesxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2ViaAccesoZonaProdxOA_N.cs" />
+    <Compile Include="SEL_N\GrupoVisualizaDoc_N.cs" />
+    <Compile Include="SEL_N\Notificaciones_N.cs" />
+    <Compile Include="SEL_N\OA_CodidgoValidacionUsuario_N.cs" />
+    <Compile Include="SEL_N\TipoDocEvaluarOA_N.cs" />
+    <Compile Include="SEL_N\UN_BienesServicios_N.cs" />
+    <Compile Include="SEL_N\Categoria_N.cs" />
+    <Compile Include="SEL_N\Compromiso_N.cs" />
+    <Compile Include="SEL_N\DetalleEvaluacionExp_N.cs" />
+    <Compile Include="SEL_N\EstadoExpedienteOA_N.cs" />
+    <Compile Include="SEL_N\Estado_N.cs" />
+    <Compile Include="SEL_N\EvaluacionExp_N.cs" />
+    <Compile Include="SEL_N\Fmto2CondicionesLocales_N.cs" />
+    <Compile Include="SEL_N\Fmto2CultivoCrianza_N.cs" />
+    <Compile Include="SEL_N\Fmto2FormuladorIdeaNegocio_N.cs" />
+    <Compile Include="SEL_N\Fmto2IdeaNegocio_N.cs" />
+    <Compile Include="SEL_N\Fmto2ParticipacionCadenaValorxOA_N.cs" />
+    <Compile Include="SEL_N\Fmto2ProblemaEspecificoOA_N.cs" />
+    <Compile Include="SEL_N\MP_CutExpedienteOA_N.cs" />
+    <Compile Include="SEL_N\MP_DocumentoAnexoOA_N.cs" />
+    <Compile Include="SEL_N\MP_ExpedienteOA_N.cs" />
+    <Compile Include="SEL_N\OA_Cargo_N.cs" />
+    <Compile Include="SEL_N\OA_Contacto_N.cs" />
+    <Compile Include="SEL_N\OA_Datos_N.cs" />
+    <Compile Include="SEL_N\OA_JuntaDirectiva_N.cs" />
+    <Compile Include="SEL_N\OA_MiembroJDirectiva_N.cs" />
+    <Compile Include="SEL_N\OA_N.cs" />
+    <Compile Include="SEL_N\OA_NivelQuintil_N.cs" />
+    <Compile Include="SEL_N\OA_QuintilPobreza_N.cs" />
+    <Compile Include="SEL_N\OA_RepresentanteLegal_N.cs" />
+    <Compile Include="SEL_N\OA_Socio_N.cs" />
+    <Compile Include="SEL_N\OA_TipoIdeaNegocio_N.cs" />
+    <Compile Include="SEL_N\OA_UsuarioPide_N.cs" />
+    <Compile Include="SEL_N\OA_UsuarioValidadoNegativo_N.cs" />
+    <Compile Include="SEL_N\OA_Usuario_N.cs" />
+    <Compile Include="SEL_N\OA_TipoSolicitante_N.cs" />
+    <Compile Include="SEL_N\OficinaRegional_N.cs" />
+    <Compile Include="SEL_N\Periodo_N.cs" />
+    <Compile Include="SEL_N\Producto_N.cs" />
+    <Compile Include="SEL_N\RequisitosDocOA_N.cs" />
+    <Compile Include="SEL_N\SubCategoria_N.cs" />
+    <Compile Include="SEL_N\Prorroga_N.cs" />
+    <Compile Include="SEL_N\TipoCompromiso_N.cs" />
+    <Compile Include="SEL_N\TipoDocumento_N.cs" />
+    <Compile Include="SEL_N\TipoIncentivo_N.cs" />
+    <Compile Include="SEL_N\TIpoOrganizacion_N.cs" />
+    <Compile Include="SEL_N\TipoSDA_N.cs" />
+    <Compile Include="SEL_N\TipoUnidadMedida_N.cs" />
+    <Compile Include="SEL_N\Ubigeo_N.cs" />
+    <Compile Include="SEL_N\UnidadMedida_N.cs" />
+    <Compile Include="SEL_N\UnidadPcc_N.cs" />
+    <Compile Include="SEL_N\UN_CadenaProductiva_N.cs" />
+    <Compile Include="SEL_N\UN_TipoEstructuraInversion_N.cs" />
+    <Compile Include="SEL_N\UN_UnidMedEstandar_N.cs" />
+    <Compile Include="SEL_N\UP_Acciones_N.cs" />
+    <Compile Include="SEL_N\UP_ActividadOperativa_N.cs" />
+    <Compile Include="SEL_N\UP_Compromiso_N.cs" />
+    <Compile Include="SEL_N\UP_FuncionOperativa_N.cs" />
+    <Compile Include="SEL_N\UP_GrupoOA_N.cs" />
+    <Compile Include="SEL_N\UP_Proceso_N.cs" />
+    <Compile Include="SEL_N\UP_Tarea_N.cs" />
+    <Compile Include="SEL_N\UP_TipoCompromiso_N.cs" />
+    <Compile Include="SEL_N\ZonaIntervencion_N.cs" />
+    <Compile Include="SEL_N\UP_AltitudxDistrito_N.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SEL_Datos\SEL_Datos.csproj">
+      <Project>{d6725c04-b2a6-4409-a630-156daa093d7d}</Project>
+      <Name>SEL_Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEL_Entidades\SEL_Entidades.csproj">
+      <Project>{70bc1dd2-cc50-4126-9dc8-0954b1870d62}</Project>
+      <Name>SEL_Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

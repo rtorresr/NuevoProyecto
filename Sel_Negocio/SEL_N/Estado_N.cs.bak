@@ -1,0 +1,29 @@
+﻿using SEL_Datos.SEL_D;
+using SEL_Entidades.SEL_E;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SEL_Negocios.SEL_N
+{
+    public class Estado_N
+    {
+        Estado_D estado_D = new Estado_D();
+
+        public List<Estado_E> listaxfiltros_Estado(int idUnidadPcc, string perfilUsuario, string proceso, string tipoIncentivo)
+        {
+            return estado_D.listaxfiltros_Estado(idUnidadPcc, perfilUsuario, proceso, tipoIncentivo);
+        }
+
+        public List<Estado_E> listaEstadoAct(int idUnidadPcc, string perfilUsuario, string proceso, string tipoIncentivo)
+        {
+            return estado_D.listaEstadoAct(idUnidadPcc, perfilUsuario, proceso, tipoIncentivo);
+        }
+
+
+
+
+    }
+}

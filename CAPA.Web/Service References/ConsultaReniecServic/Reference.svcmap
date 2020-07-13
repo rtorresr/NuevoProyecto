@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="18d0338d-8e55-49ce-9531-4f849cee380c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:21970/ReniecPideServ.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ReniecPideServ.xsd" MetadataType="Schema" ID="fcf59d3e-6e74-48cd-8db7-0c85cd30edf5" SourceId="1" SourceUrl="http://localhost:21970/ReniecPideServ.svc?xsd=xsd1" />
+    <MetadataFile FileName="ReniecPideServ1.xsd" MetadataType="Schema" ID="e41b0d9f-af50-4c34-8a67-4d0966c58dea" SourceId="1" SourceUrl="http://localhost:21970/ReniecPideServ.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReniecPideServ.disco" MetadataType="Disco" ID="bf67acc2-634d-43e5-8348-eddf6d7561e7" SourceId="1" SourceUrl="http://localhost:21970/ReniecPideServ.svc?disco" />
+    <MetadataFile FileName="ReniecPideServ.wsdl" MetadataType="Wsdl" ID="5bcf3784-f3fc-4ef3-9e28-ee669033b2de" SourceId="1" SourceUrl="http://localhost:21970/ReniecPideServ.svc?wsdl" />
+    <MetadataFile FileName="ReniecPideServ2.xsd" MetadataType="Schema" ID="0fcae1d2-c61b-4955-9dbc-a440026fae17" SourceId="1" SourceUrl="http://localhost:21970/ReniecPideServ.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

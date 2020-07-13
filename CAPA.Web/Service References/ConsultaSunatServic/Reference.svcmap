@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1ac1838-d100-44e8-8223-8ef2e274ce78" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:21970/SunatPideSev.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SunatPideSev.xsd" MetadataType="Schema" ID="919aa8db-3a1e-4f9c-9188-06a3fe6ab29f" SourceId="1" SourceUrl="http://localhost:21970/SunatPideSev.svc?xsd=xsd2" />
+    <MetadataFile FileName="SunatPideSev1.xsd" MetadataType="Schema" ID="5a6d948c-89df-4595-8ca7-ac5e88218388" SourceId="1" SourceUrl="http://localhost:21970/SunatPideSev.svc?xsd=xsd1" />
+    <MetadataFile FileName="SunatPideSev.disco" MetadataType="Disco" ID="35c6ab05-1e52-493a-93fb-b049bfb87e74" SourceId="1" SourceUrl="http://localhost:21970/SunatPideSev.svc?disco" />
+    <MetadataFile FileName="SunatPideSev2.xsd" MetadataType="Schema" ID="12364dc3-a475-42d0-a66a-1598c1f9582c" SourceId="1" SourceUrl="http://localhost:21970/SunatPideSev.svc?xsd=xsd0" />
+    <MetadataFile FileName="SunatPideSev.wsdl" MetadataType="Wsdl" ID="cfbadf5d-79f2-4995-945e-68193d6d7508" SourceId="1" SourceUrl="http://localhost:21970/SunatPideSev.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

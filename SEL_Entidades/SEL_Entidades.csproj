@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70BC1DD2-CC50-4126-9DC8-0954B1870D62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEL_Entidades</RootNamespace>
+    <AssemblyName>SEL_Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Seguridad_E\MenuPerfil_E.cs" />
+    <Compile Include="SEL_E\ActualizarFmtosOA_E.cs" />
+    <Compile Include="SEL_E\BajaDeOA_E.cs" />
+    <Compile Include="SEL_E\Compromiso_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoDocumentoAcreditacion_E.cs" />
+    <Compile Include="SEL_E\Fmto2ContraPartidasOA_E.cs" />
+    <Compile Include="SEL_E\GrupoVisualizaDoc_E.cs" />
+    <Compile Include="SEL_E\Notificaciones_E.cs" />
+    <Compile Include="SEL_E\OA_UsuarioPide_E.cs" />
+    <Compile Include="PIDE_E\datosPrincipales_E.cs" />
+    <Compile Include="PIDE_E\datosReniec_E.cs" />
+    <Compile Include="PIDE_E\datosSecundarios_E.cs" />
+    <Compile Include="PIDE_E\datosT1144_E.cs" />
+    <Compile Include="PIDE_E\datosT362_E.cs" />
+    <Compile Include="PIDE_E\domicilioLegal_E.cs" />
+    <Compile Include="PIDE_E\establecimientosAnexos_E.cs" />
+    <Compile Include="PIDE_E\estAnexosT1150_E.cs" />
+    <Compile Include="PIDE_E\razonSocial_E.cs" />
+    <Compile Include="PIDE_E\repLegales_E.cs" />
+    <Compile Include="PIDE_E\_filtrarReniecReq_E.cs" />
+    <Compile Include="PIDE_E\_filtrarReniecResp_E.cs" />
+    <Compile Include="PIDE_E\_filtrarSunatReq_E.cs" />
+    <Compile Include="PIDE_E\_filtrarSunatResp_E.cs" />
+    <Compile Include="RRHH_E\Area_E.cs" />
+    <Compile Include="RRHH_E\Cargo_E.cs" />
+    <Compile Include="RRHH_E\Contrato_E.cs" />
+    <Compile Include="RRHH_E\FamTrabajador_E.cs" />
+    <Compile Include="RRHH_E\filtros\_buscarFamilaTrabxIDReq.cs" />
+    <Compile Include="RRHH_E\filtros\_buscarFamilaTrabxIDResp.cs" />
+    <Compile Include="RRHH_E\filtros\_buscarTrabajadorxDniReq.cs" />
+    <Compile Include="RRHH_E\filtros\_buscarTrabajadorxDniResp.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroFamiliaTrabajadorReq.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroFamiliaTrabajadorResp.cs" />
+    <Compile Include="RRHH_E\MenuPerfil_E.cs" />
+    <Compile Include="RRHH_E\ModuloPerfil_E.cs" />
+    <Compile Include="RRHH_E\TipoCargo_E.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroCargoTrabajadorReq.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroCargoTrabajadorResp.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroContratosReq.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroContratosResp.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroTrabajadorReq.cs" />
+    <Compile Include="RRHH_E\filtros\_listarxfiltroTrabajadorResp.cs" />
+    <Compile Include="RRHH_E\Sede_E.cs" />
+    <Compile Include="RRHH_E\Sexo_E.cs" />
+    <Compile Include="RRHH_E\TipoContrato_E.cs" />
+    <Compile Include="RRHH_E\TipoDocumentoRRHH_E.cs" />
+    <Compile Include="RRHH_E\TipoLazoFam_E.cs" />
+    <Compile Include="RRHH_E\Trabajador_E.cs" />
+    <Compile Include="RRHH_E\TrabajadorCargo_E.cs" />
+    <Compile Include="RRHH_E\Unidad_E.cs" />
+    <Compile Include="Seguridad_E\InicioSesion_E.cs" />
+    <Compile Include="Seguridad_E\ModuloPerfil_E.cs" />
+    <Compile Include="SEL_E\ActividadEconomica_E.cs" />
+    <Compile Include="SEL_E\AcuerdoMesaDialogo_E.cs" />
+    <Compile Include="SEL_E\AlertaNotificaciones_E.cs" />
+    <Compile Include="SEL_E\AlertaxCorreo_E.cs" />
+    <Compile Include="SEL_E\AreaGeografica_E.cs" />
+    <Compile Include="SEL_E\AsignacionExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\ATL_Adenda_E.cs" />
+    <Compile Include="SEL_E\ATL_Convenio_E.cs" />
+    <Compile Include="SEL_E\ATL_DetalleDocAdenda_E.cs" />
+    <Compile Include="SEL_E\ATL_DetalleDocConvenio_E.cs" />
+    <Compile Include="SEL_E\ATL_ReqElaboracionAdenda_E.cs" />
+    <Compile Include="SEL_E\ATL_ReqElaboracionConvenio_E.cs" />
+    <Compile Include="SEL_E\CaracteristicaPrincipal_E.cs" />
+    <Compile Include="SEL_E\Categoria_E.cs" />
+    <Compile Include="SEL_E\ComponenteBS_E.cs" />
+    <Compile Include="SEL_E\CoordenadasUTM_E.cs" />
+    <Compile Include="SEL_E\DetalleEvaluacionExp_E.cs" />
+    <Compile Include="SEL_E\DetalleFormatoExpediente_E.cs" />
+    <Compile Include="SEL_E\DocumentoAdjuntosOA_E.cs" />
+    <Compile Include="SEL_E\DocumentosSocioOA_E.cs" />
+    <Compile Include="SEL_E\EquipamientoSocioNuevo_E.cs" />
+    <Compile Include="SEL_E\EstadoExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\EvaluacionDocumentariaPRP_E.cs" />
+    <Compile Include="SEL_E\EvaluacionExp_E.cs" />
+    <Compile Include="SEL_E\filtros\_listarxfiltroDepartamentoResp.cs" />
+    <Compile Include="SEL_E\filtros\_listarxfiltroDistritoResp.cs" />
+    <Compile Include="SEL_E\filtros\_listarxfiltroProvinciaResp.cs" />
+    <Compile Include="SEL_E\filtros\_listarxfiltroUbigeoReq.cs" />
+    <Compile Include="SEL_E\Fmto2AlterxCausaProblemaEspec_E.cs" />
+    <Compile Include="SEL_E\Fmto2BienesServiciosxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2CausaxProblemaOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2ClientexOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2CondicionesLocales_E.cs" />
+    <Compile Include="SEL_E\Fmto2Co_FinanciamientoxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2CultivoCrianza_E.cs" />
+    <Compile Include="SEL_E\Fmto2EtapaParticipacion_E.cs" />
+    <Compile Include="SEL_E\Fmto2EtapasParticipacionxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2FinanciamientoxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2FormuladorIdeaNegocio_E.cs" />
+    <Compile Include="SEL_E\Fmto2GravedadProblemaxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2GravedadProblema_E.cs" />
+    <Compile Include="SEL_E\Fmto2IdeaNegocio_E.cs" />
+    <Compile Include="SEL_E\Fmto2MercadoxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2ParticipacionCadenaValorxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2ProblemaEspecificoOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2ResumenBienServicioOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2RiegoxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoCliente_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoContrapartida_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoFinanciamiento_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoServicioBasico_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoViasAcceso_E.cs" />
+    <Compile Include="SEL_E\FormatoDocumento_E.cs" />
+    <Compile Include="SEL_E\Fmto2TipoRiego_E.cs" />
+    <Compile Include="SEL_E\Historial_ActividadesUR_E.cs" />
+    <Compile Include="SEL_E\Historial_MP_CutExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\Historial_DocumentoSocioOA_E.cs" />
+    <Compile Include="SEL_E\Historial_EvaluacionDocumentariaPRP_E.cs" />
+    <Compile Include="SEL_E\Historial_EvaluacionExp_E.cs" />
+    <Compile Include="SEL_E\Historial_OA_JuntaDirectiva_E.cs" />
+    <Compile Include="SEL_E\Historial_OA_Contacto_E.cs" />
+    <Compile Include="SEL_E\Historial_OA_Datos_E.cs" />
+    <Compile Include="SEL_E\Historial_OA_E.cs" />
+    <Compile Include="SEL_E\Historial_OA_Socio_E.cs" />
+    <Compile Include="SEL_E\Historial_ValidacionSocio_E.cs" />
+    <Compile Include="SEL_E\Historial_ATL_Convenio_E.cs" />
+    <Compile Include="SEL_E\Historial_MP_ExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\Historial_OA_RepresentanteLegal.cs" />
+    <Compile Include="SEL_E\Historial_UN_DatosSDATAG_E.cs" />
+    <Compile Include="SEL_E\Historial_UN_EstructuraInversion_E.cs" />
+    <Compile Include="SEL_E\InfoOASELv1_E.cs" />
+    <Compile Include="SEL_E\InfoSocioSELv1_E.cs" />
+    <Compile Include="SEL_E\MedioVerificacion_E.cs" />
+    <Compile Include="SEL_E\OA_Contacto_E.cs" />
+    <Compile Include="SEL_E\MP_CutExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\Dependencia_E.cs" />
+    <Compile Include="SEL_E\Especialista_E.cs" />
+    <Compile Include="SEL_E\Estado_E.cs" />
+    <Compile Include="SEL_E\filtros\_listarxfiltroUsuarioOAReq.cs" />
+    <Compile Include="SEL_E\filtros\_listarxfiltroUsuarioOAResp.cs" />
+    <Compile Include="Seguridad_E\AplicacionModulo_E.cs" />
+    <Compile Include="Seguridad_E\Aplicacion_E.cs" />
+    <Compile Include="Seguridad_E\MenuOpcion_E.cs" />
+    <Compile Include="Seguridad_E\ModuloMenu_E.cs" />
+    <Compile Include="Seguridad_E\OpcionPerfil_E.cs" />
+    <Compile Include="Seguridad_E\Perfil_E.cs" />
+    <Compile Include="Seguridad_E\TipoUsuario_E.cs" />
+    <Compile Include="Seguridad_E\UsuarioAplicacion_E.cs" />
+    <Compile Include="Seguridad_E\Usuario_E.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SEL_E\OA_JuntaDirectiva_E.cs" />
+    <Compile Include="SEL_E\MotivoEstado_E.cs" />
+    <Compile Include="SEL_E\MP_DocumentoAnexoOA_E.cs" />
+    <Compile Include="SEL_E\MP_ExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\OA_Cargo_E.cs" />
+    <Compile Include="SEL_E\OA_Datos_E.cs" />
+    <Compile Include="SEL_E\OA_E.cs" />
+    <Compile Include="SEL_E\OA_MiembroJDirectiva_E.cs" />
+    <Compile Include="SEL_E\OA_NivelQuintil_E.cs" />
+    <Compile Include="SEL_E\OA_QuintilPobreza_E.cs" />
+    <Compile Include="SEL_E\OA_RepresentanteLegal_E.cs" />
+    <Compile Include="SEL_E\OA_Socio_E.cs" />
+    <Compile Include="SEL_E\OA_TipoIdeaNegocio_E.cs" />
+    <Compile Include="SEL_E\OA_TipoSolicitante_E.cs" />
+    <Compile Include="SEL_E\OA_UsuarioValidadoNegativo_E.cs" />
+    <Compile Include="SEL_E\OA_Usuario_E.cs" />
+    <Compile Include="SEL_E\ObjetivoEspecifico_E.cs" />
+    <Compile Include="SEL_E\ObjetivoGeneral_E.cs" />
+    <Compile Include="SEL_E\OficinaRegional_E.cs" />
+    <Compile Include="SEL_E\Periodo_E.cs" />
+    <Compile Include="SEL_E\ProblematicaObjetivo_E.cs" />
+    <Compile Include="SEL_E\ProblematicaPN_E.cs" />
+    <Compile Include="SEL_E\Producto_E.cs" />
+    <Compile Include="SEL_E\Prorroga_E.cs" />
+    <Compile Include="SEL_E\ReasignacionExpOA_E.cs" />
+    <Compile Include="SEL_E\ReembolsoPNA_E.cs" />
+    <Compile Include="SEL_E\RequisitosDocOA_E.cs" />
+    <Compile Include="SEL_E\SDAExpedienteOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2ServicioBasicoxOA_E.cs" />
+    <Compile Include="SEL_E\SubCategoria_E.cs" />
+    <Compile Include="SEL_E\OA_CodidgoValidacionUsuario_E.cs" />
+    <Compile Include="SEL_E\TipoDocEvaluarOA_E.cs" />
+    <Compile Include="SEL_E\UP_TipoCompromiso_E.cs" />
+    <Compile Include="SEL_E\UN_AreaForrajera_E.cs" />
+    <Compile Include="SEL_E\UN_AreaProduccion_E.cs" />
+    <Compile Include="SEL_E\UN_CabCriterioCalificacion_E.cs" />
+    <Compile Include="SEL_E\UN_CabPlanProduccion_E.cs" />
+    <Compile Include="SEL_E\UN_CategoriaCalificacion_E.cs" />
+    <Compile Include="SEL_E\UN_Costos_E.cs" />
+    <Compile Include="SEL_E\UN_CriterioCalificacion_E.cs" />
+    <Compile Include="SEL_E\UN_DetalleCriterioCalifica_E.cs" />
+    <Compile Include="SEL_E\UN_DetalleEstructuraInversion_E.cs" />
+    <Compile Include="SEL_E\UN_DetalleProgActPNTPRPA_E.cs" />
+    <Compile Include="SEL_E\UN_IndEspProduccion_E.cs" />
+    <Compile Include="SEL_E\UN_IndicadorSeguimiento_E.cs" />
+    <Compile Include="SEL_E\UN_InversionPNG_E.cs" />
+    <Compile Include="SEL_E\UN_InversionPNTPRPA_E.cs" />
+    <Compile Include="SEL_E\UN_ObjetivoEstrategico_E.cs" />
+    <Compile Include="SEL_E\UN_ObjetivoGeneral_E.cs" />
+    <Compile Include="SEL_E\UN_PlanProduccionAgricola_E.cs" />
+    <Compile Include="SEL_E\UN_PlanProduccionDetallado_E.cs" />
+    <Compile Include="SEL_E\UN_PlanProduccionPecuario_E.cs" />
+    <Compile Include="SEL_E\UN_PlanVenta_E.cs" />
+    <Compile Include="SEL_E\UN_ProgActividadPNTPRPA.cs" />
+    <Compile Include="SEL_E\UN_TipoProductoCamelido_E.cs" />
+    <Compile Include="SEL_E\UN_TotalProductoVCxArea_E.cs" />
+    <Compile Include="SEL_E\UN_UnidMedEstandar_E.cs" />
+    <Compile Include="SEL_E\UN_ValorComercial_E.cs" />
+    <Compile Include="SEL_E\UP_Acciones_E.cs" />
+    <Compile Include="SEL_E\UP_ActividadOperativa_E.cs" />
+    <Compile Include="SEL_E\UP_AcuerdoCompromiso_E.cs" />
+    <Compile Include="SEL_E\UP_AltitudxDistrito_E.cs" />
+    <Compile Include="SEL_E\UP_Compromiso_E.cs" />
+    <Compile Include="SEL_E\UP_DetalleTareaEjecutadaUR_E.cs" />
+    <Compile Include="SEL_E\UP_FuncionOperativa_E.cs" />
+    <Compile Include="SEL_E\UP_GrupoOA_E.cs" />
+    <Compile Include="SEL_E\UP_Proceso_E.cs" />
+    <Compile Include="SEL_E\UP_TareaEjecutadaUR_E.cs" />
+    <Compile Include="SEL_E\TipoAmbito_E.cs" />
+    <Compile Include="SEL_E\TipoDocIdentidad_E.cs" />
+    <Compile Include="SEL_E\TipoDocumento_E.cs" />
+    <Compile Include="SEL_E\TipoIncentivo_E.cs" />
+    <Compile Include="SEL_E\TipoMercado_E.cs" />
+    <Compile Include="SEL_E\TipoOrganizacion_E.cs" />
+    <Compile Include="SEL_E\TipoSDAxEstado_E.cs" />
+    <Compile Include="SEL_E\TipoSDA_E.cs" />
+    <Compile Include="SEL_E\TipoUnidadMedida_E.cs" />
+    <Compile Include="SEL_E\UA_AmpliacionCCP_E.cs" />
+    <Compile Include="SEL_E\UA_CertificacionCCP_E.cs" />
+    <Compile Include="SEL_E\UA_Devengado_E.cs" />
+    <Compile Include="SEL_E\UA_Giro_E.cs" />
+    <Compile Include="SEL_E\UA_TipoDesembolso_E.cs" />
+    <Compile Include="SEL_E\Ubigeo_E.cs" />
+    <Compile Include="SEL_E\UM_CabeceraCotizacionBS_E.cs" />
+    <Compile Include="SEL_E\UM_CabFmtosRTF_E.cs" />
+    <Compile Include="SEL_E\UM_CabFmtosPOA_E.cs" />
+    <Compile Include="SEL_E\UM_CierrePNPRPA_E.cs" />
+    <Compile Include="SEL_E\UM_Cliente_E.cs" />
+    <Compile Include="SEL_E\UM_CoordenadaGeografica_E.cs" />
+    <Compile Include="SEL_E\UM_CostosRTFxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_CostosxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_CotizacionBSxProveedor_E.cs" />
+    <Compile Include="SEL_E\UM_CumplimientoIndicadorRTF_E.cs" />
+    <Compile Include="SEL_E\UM_DetalleF2AdquisicionxPC_E .cs" />
+    <Compile Include="SEL_E\UM_DetalleNoObjecion_E.cs" />
+    <Compile Include="SEL_E\UM_DetallePlanFinancieroProduccionPNPRP_E.cs" />
+    <Compile Include="SEL_E\UM_DetalleSolicitudDesembolsoPN_E.cs" />
+    <Compile Include="SEL_E\UM_DetalleSolicitudDesembolsoPRP_E.cs" />
+    <Compile Include="SEL_E\UM_EjecucionMetaFisica_T1_E.cs" />
+    <Compile Include="SEL_E\UM_EquipamientoProyecto_E.cs" />
+    <Compile Include="SEL_E\UM_EvaluacionDocNoObjecion_E.cs" />
+    <Compile Include="SEL_E\UM_EvaluacionNoObjecion_E.cs" />
+    <Compile Include="SEL_E\UM_F2ProgAdquisicionxPC_E.cs" />
+    <Compile Include="SEL_E\UM_FormatoPOA_E.cs" />
+    <Compile Include="SEL_E\UM_FormatoRTF_E.cs" />
+    <Compile Include="SEL_E\UM_GastosRealizadoRTF_E.cs" />
+    <Compile Include="SEL_E\UM_GastosRealizado_F1_E.cs" />
+    <Compile Include="SEL_E\UM_InfoGralSolicitudDesembolsoPN_E.cs" />
+    <Compile Include="SEL_E\UM_IngresoVentasRTFxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_JornalRTFxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_MAmbientalRTFxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_MAmbientalxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_MercadoObjetivo_E.cs" />
+    <Compile Include="SEL_E\UM_NoObjecion_E.cs" />
+    <Compile Include="SEL_E\UM_PCxPOAxIndicador_E.cs" />
+    <Compile Include="SEL_E\UM_PasoCriticoxPOA_E.cs" />
+    <Compile Include="SEL_E\UM_F1PlanAdquisicionBSxPOA_E.cs" />
+    <Compile Include="SEL_E\UM_JornalxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_PlanMAmbientalxPasoCritico_E.cs" />
+    <Compile Include="SEL_E\UM_POAEtapa_E.cs" />
+    <Compile Include="SEL_E\UM_POA_E.cs" />
+    <Compile Include="SEL_E\UM_ProduccionRTFxPOAxPC_E.cs" />
+    <Compile Include="SEL_E\UM_ProgAdquisicionxPC_E.cs" />
+    <Compile Include="SEL_E\UM_Proveedor_E.cs" />
+    <Compile Include="SEL_E\UM_InformesRTF_E.cs" />
+    <Compile Include="SEL_E\UM_SolicitudDesembolsoPN_E.cs" />
+    <Compile Include="SEL_E\UM_SolicitudDesembolsoPRP_E.cs" />
+    <Compile Include="SEL_E\UM_ViabilidadOperativa_E.cs" />
+    <Compile Include="SEL_E\UM_ViabOperatInfraestructura_E.cs" />
+    <Compile Include="SEL_E\UM_ViabOperativaConclusion_E.cs" />
+    <Compile Include="SEL_E\UM_ViabOperativaDetalleConclusion_E.cs" />
+    <Compile Include="SEL_E\UM_ViabOperativaRecomendacion_E.cs" />
+    <Compile Include="SEL_E\UnidadCaracteristica_E.cs" />
+    <Compile Include="SEL_E\UnidadMedida_E.cs" />
+    <Compile Include="SEL_E\UnidadPcc_E.cs" />
+    <Compile Include="SEL_E\UN_AnalisisPlanFPMA_E.cs" />
+    <Compile Include="SEL_E\UN_BienesServicios_E.cs" />
+    <Compile Include="SEL_E\UN_CabPlanFPMA_E.cs" />
+    <Compile Include="SEL_E\UN_CadenaProductiva_E.cs" />
+    <Compile Include="SEL_E\UN_Comercializacion_E.cs" />
+    <Compile Include="SEL_E\UN_DatosSDATAG_E.cs" />
+    <Compile Include="SEL_E\UN_DetalleComercializacion_E.cs" />
+    <Compile Include="SEL_E\UN_DetalleIndicadorFinancieroProduccion_E.cs" />
+    <Compile Include="SEL_E\UN_EstructuraInversion_E.cs" />
+    <Compile Include="SEL_E\UN_IndicadorFinancieroProduccion_E.cs" />
+    <Compile Include="SEL_E\UN_IndicadorPNPRPA_E.cs" />
+    <Compile Include="SEL_E\UN_IngresoxVentas_E.cs" />
+    <Compile Include="SEL_E\UN_InversionPNA_E.cs" />
+    <Compile Include="SEL_E\UN_Jornal_E.cs" />
+    <Compile Include="SEL_E\UN_ManejoAmbiental_E.cs" />
+    <Compile Include="SEL_E\UN_ObjEspecificoPlanFPMA_E.cs" />
+    <Compile Include="SEL_E\UN_TipoEstructuraInversion_E.cs" />
+    <Compile Include="SEL_E\UN_TipoFmtoxCadenaProductiva_E.cs" />
+    <Compile Include="SEL_E\UN_TipoIndicador_E.cs" />
+    <Compile Include="SEL_E\UN_TipoTecnologia_E.cs" />
+    <Compile Include="SEL_E\UP_Tarea_E.cs" />
+    <Compile Include="SEL_E\UP_ValidacionSocio_E.cs" />
+    <Compile Include="SEL_E\Fmto2ViaAccesoPlantaProcesxOA_E.cs" />
+    <Compile Include="SEL_E\Fmto2ViaAccesoZonaProdxOA_E.cs" />
+    <Compile Include="SEL_E\ViabOperativaSocioNuevo_E.cs" />
+    <Compile Include="SEL_E\ZonaIntervencion_E.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

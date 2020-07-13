@@ -1,0 +1,237 @@
+﻿@model  SEL_Entidades.RRHH_E.Cargo_E
+@{
+    ViewBag.Title = "cargo";
+    Layout = "~/Views/Shared/_LayoutMenuUa.cshtml";
+}
+
+<head>
+    <title>CARGOS</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs"> 
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+             <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Home/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UAdministracion/Index">U.Administración</a></li>
+                    <li class="active"> <a href="/UAdministracion/Cargo">Cargo</a></li>
+                </ul>
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+                    <div class="col-md-12">
+                        <h1>CARGO PROFESIONAL  </h1>
+                    </div>
+                </div>                  <!-- Fin titulo -->
+               
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    <div id="accordion" style="border:1px solid;">
+                        <div class="card">
+
+                            <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-file"></i>
+                                        Criterios de Búsqueda
+                                    </a>
+                                </h5>
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a href="#" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                    <br />
+
+                                    <div class="row" style="margin-bottom:10px;"> 
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div>
+                                                <label style="text-align:left;">Tipo Cargo :</label>
+                                            </div>
+                                            <div>
+                                                <select id="cbxTipoCargoFl" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                 
+
+                                    <div class="row">
+                                        <div class="cbp-mc-column"> 
+                                            <br /> 
+                                        </div>
+
+                                        <div class="cbp-mc-column">
+                                            <br /> 
+                                        </div>
+
+                                        <div class="cbp-mc-column">
+                                            <br /> 
+                                        </div>
+
+                                        <!-- columna  3 -->
+
+                                        <div class="cbp-mc-column ">
+                                            <br>
+                                            <button id="btnConsultarCargo" class="btn btn-success" style="margin-bottom:25px"><i class="ace-icon fa fa-search"></i>Consultar</button>
+                                            <button id="btnLimpiarFiltroCargo" class="btn btn-success" style="margin-bottom:25px"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+
+                                        </div>
+                                    </div>
+
+
+                                </div><!-- fin contenido-->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-xs-12 col-md-12">
+
+                        <br>
+                        <div align="right" class="row">
+                            <button id="btn_nuevo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"  style="width:10%; margin-right:2%; overflow-y: auto;" >
+                                <i class="glyphicon glyphicon-plus"></i> Nuevo
+                            </button><br />
+                        </div>
+
+                        <div id="div-tabla" class="table-responsive margen">
+
+                            <table id="tablaCargo" class="table table-bordered table-hover table-striped" style="width:100%">
+
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; ">Id</th>
+										<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Cargo</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo Cargo</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">Siglas</th>
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Registrado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Registro</th>
+                                        @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificado Por</th>*@
+                                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Modificacion</th>
+                                        <th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acción</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black;">Modificar</th>
+                                        <th class="text-center" style="background-color:darkseagreen; color:black;">Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbodyCa" class="tbodyCa"></tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                    @*fade*@
+                    <div class="modal" id="myModalCargo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header alert-success alert-dismissible">
+                                    <button id="btnClose" type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title" id="myModalLabel"> Cargo profesional</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        @using (Html.BeginForm())
+                                        {
+                                            <div id="idCargo" class="form-inline col-xs-12 col-md-12" style="display:none;">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">ID :</label>
+                                                @Html.TextBoxFor(model => model.IdCargo, new { @class = "campoNumero", style = "width:60%", disabled = "disabled" })
+                                            </div>
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Tipo Cargo :</label>
+                                                <select id="cbxTipoCargoFr" class="custom-select" style="width:60%;"> </select>
+                                            </div>
+
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Cargo :</label>
+                                                @Html.TextBoxFor(model => model.Descripcion, new { @class = "campoTexto", style = "width:60%" })
+                                            </div>
+
+
+                                            <div class="form-inline col-xs-12 col-md-12">
+                                                <label style="text-align:left; margin-bottom:5%; width:30%;">Siglas :</label>
+                                                @Html.TextBoxFor(model => model.Siglas, new { @class = "campoTexto", @maxlength = "5", style = "width:60%" })
+                                            </div>
+
+
+                                                <div id="AActivo" class="form-inline col-xs-12 col-md-12">
+                                                    <label style="text-align:left; margin-bottom:5%; width:30%;">ACTIVO :</label>
+                                                    @Html.TextBox("EActivo", (string)"SI", new { @class = "campoTexto", style = "width:60%", disabled = "false", })
+                                                </div>
+
+                                                <div id="UActivo" class="form-inline col-xs-12 col-md-12" style="display:none;">
+                                                    <label style="text-align:left; margin-bottom:5%;  width:30%;">ACTIVO :</label>
+                                                    @Html.TextBoxFor(model => model.Activo, new { @class = "campoTexto", style = "width:60%", disabled = "disabled", })
+                                                </div>
+
+                                                <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                    <label style="text-align:left; width:30%;">Responsable :</label>
+                                                    @Html.TextBoxFor(m => m.IdUsuarioRegistro, new { @class = "campoNumero", style = "width:30%", Value = Session["IdUsua"] })
+                                                </div>
+
+                                                <div class="form-inline col-xs-12 col-md-12" hidden="hidden" style="margin-bottom:5%;">
+                                                    <label style="text-align:left; width:30%;">Responsable :</label>
+                                                    @Html.TextBoxFor(m => m.IdUsuarioModificacion, new { @class = "campoNumero", style = "width:30%", Value = Session["IdUsua"] })
+                                                </div>
+                                        }
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="btnSalvarCargo">Salvar</button>
+                                    <button type="button" class="btn btn-primary" id="btnModCargo" style="display:none;" >Modificar</button>
+                                    <button type="button" class="btn btn-danger" id="btnCerrarFormCargo" data-dismiss="modal">Cerrar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+     
+
+</div>
+
+ 
+<script>
+    $(document).ready(function () {
+        
+        listarCargos();
+        llenarCboxTipoCargo();
+        controles_Cargo(); 
+    }); 
+</script>

@@ -1,0 +1,506 @@
+﻿@model SEL_Entidades.SEL_E.Fmto2IdeaNegocio_E
+@{
+	ViewBag.Title = "ideadeNegocio";
+	Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+<head>
+	<title>Idea De Negocio</title>
+</head>
+
+
+<!---- contenedor ----->
+<div class="main-content">
+
+	<div class="main-container ace-save-state" id="main-container">
+		<div class="main-content-inner">
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+				<!----- inicip de ruta ----->
+
+				<ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="/OA/"></a>
+					</li>
+					<li><a href="/OA/Index">OA</a></li>
+					<li class="active"><a href="ideaDeNegocio">Idea de Negocio</a></li>
+				</ul>
+			</div>  <!----- fin de ruta ----->
+
+
+			<div class="page-content">
+				<!------- contenido --------->
+				<!------- inicio Titulo -------->
+				@*<div class="page-header">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<h1>
+							Idea de Negocio que Esperamos Implementar
+							(Situacion futura)
+						</h1>
+					</div>
+				</div>*@
+				<!------- Fin Titulo -------->
+
+
+
+				<div class="row" style="margin-bottom:25px; text-align:right">
+					<!------- Inicio Contenido de Pasos ------->
+
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; ">
+						<br />
+						<button id="btnRegistrarIdeaNeg" class="btn btn-success" style="display:none" href="#" title="Registrar">
+							<i class="ace-icon fa fa-pencil-square"> </i> REGISTRAR
+						</button>
+
+						<button id="btnModificarIdeaNeg" class="btn btn-warning" style="display:none" href="#" title="Modificar">
+							<i class="ace-icon fa fa-edit"> </i> MODIFICAR
+						</button>
+
+						<button id="btnGrabarIdeaNeg" class="btn btn-primary" style="display:none" href="#" title="Grabar">
+							<i class="ace-icon fa fa-save"> </i> GRABAR
+						</button>
+
+						<button id="btnCancelarIdeaNeg" class="btn btn-danger" style="display:none" href="#" title="Cancelar">
+							<i class="ace-icon fa fa-undo"> </i> CANCELAR
+						</button>
+
+						<button id="btnSalirIdeaNeg" class="btn btn-success" style="display:none;" href="#" title="regresar">
+							<i class="ace-icon fa fa-undo"> </i> Regresar
+						</button>
+					</div>
+
+				</div>
+
+				<div class="row" style="margin-bottom:25px;">
+					<div class="col-md-12">
+						<!------- Inicio Pasos ------->
+						<!------- Fin Contenido de Pasos ------->
+						<!--------- ACORDEON ------------>
+						<div id="accordion" style="border:1px solid;">
+							<div class="card">
+
+								<div class="card-header widget-header" id="headingOne" style="text-align:left;">
+									<h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										<a style="color:white; text-decoration:none;">
+											<i class="ace-icon fa fa-file"></i>
+											Ideas de Negocio de la Organización
+										</a>
+									</h5>
+									<div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										<a href="#collapseOne" data-action="collapse" style="color:#fff;">
+											<i class="ace-icon fa fa-chevron-down"></i>
+										</a>
+									</div>
+								</div>
+
+
+								<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+									<div class="card-body" style="padding-left: 12px; padding-right: 12px; ">
+										@*<div class="card-body" style="text-align:center">*@
+										<br />
+
+  
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-sm-6 col-md-12" style="text-align: left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-6"  style="text-align:left">2.1. La Idea de negocio que implementará la organización : </label>
+												</div>
+
+												 <div  class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%;">  
+													@Html.TextBoxFor(m => m.idIdeaNegocio, new { @class = "campoNumero", style = "display:none", disabled = true })
+													@Html.TextBox("idOADatos", (string)"", new { @class = "campoNumero", style = "display:none", disabled = true })
+													@Html.TextBox("idUsuario", (string)"", new { style = "width:100%; display:none;", Value = Session["IdUsua"] })
+													@Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", style = "display:none", disabled = true, Value = Session["RucOA"] })
+													@Html.TextBox("idOA", (string)"", new { @class = "campoNumero", style = "display:none", disabled = true })
+													@Html.TextBox("completadoIN", (string)"", new { @class = "", style = "display:none", disabled = true })
+													<select id="cbxIdeaNegFr" class="custom-select col-xs-12 col-sm-6 col-md-6" > </select>
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-4"  style="text-align:left;">2.2. Descripción de la Idea de Negocio : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextAreaFor(m => m.descripcionNegocio, new {@class = "col-xs-12 col-sm-6 col-md-10 campoTexto textArea", @maxlength = "2500", rows="8", cols="80"}) 
+												</div>
+												<div  class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%;" >
+													<p class="col-xs-12 col-sm-6 col-md-10" style="font-family:'Gill Sans'; color:black"> <strong>Nota: Debe describir de manera general la Idea de Negocio planteando la problemática de la organización y la manera como el Plan de Negocio le dará solución.</strong></p>
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-4" style="text-align:left;">2.3. Número de socios que participarán en el plan de negocio : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextBoxFor(m => m.nroSociosNegocio, new { @class = "campoNumero  col-xs-12 col-sm-6 col-md-1", @maxlength = "3", disabled = true })
+													&nbsp;
+													<label style="text-align:left;">socios.</label>
+													<p id="AnroSociosNegocio" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-4" style="text-align:left;">2.4. Hectáreas destinadas al Plan de Negocio : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextBoxFor(m => m.hectareasPlanNegocio, new { @class = "campoDecimal col-xs-12 col-sm-6 col-md-1", @maxlength = "10", disabled = true })
+													&nbsp;
+													<label style="text-align:left;">Ha.</label>
+													<p id="AhectareasPlanNegocio" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+												</div>
+
+											</div>
+										</div>
+										 
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">2.5. Datos de Producto : </label>
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-3" style="margin-left: 1.5%;">
+													<div>
+														<label style="text-align: left;">a. Tipo de Producto : </label>
+													</div>
+													<div style="margin-left: 3.5%;">
+														<select id="cbxActEconoFr" class="custom-select col-xs-12 col-sm-10 col-md-8"> </select>
+													</div>
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-3" style="margin-left: 1.5%;">
+													<div>
+														<label style="text-align: left; ">b. Producto Principal : </label>
+													</div>
+													<div style="margin-left:3.5%;">
+														<select id="cbxCadenaProdFr" class="custom-select col-xs-12 col-sm-10 col-md-8"> </select>
+													</div>
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-3" style="margin-left: 1.5%;">
+													<div>
+														<label style="text-align: left;">c. Tipo de cultivo : </label>
+													</div>
+													<div style="margin-left: 3.5%;">
+														<select id="cbxTipoCultivo" class="custom-select col-xs-12 col-sm-10 col-md-8">
+															<option value="0">Seleccione </option> 
+															<option value="1">Anual </option> 
+															<option value="2">Permanente </option> 
+														</select>
+														
+													</div>
+												</div>
+
+											</div>
+										</div>
+										 
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left;">2.6. Descripción específica del producto que se venderá con el Plan de Negocio y en que presentación : </label>
+												</div> 
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextAreaFor(m => m.descripEspecifica, new { @class = "col-xs-12 col-sm-6 col-md-10 campoTexto textArea", rows="8", cols="100" }) 
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%;">
+													<p class="col-xs-12 col-sm-6 col-md-10" style="font-family:'Gill Sans'; color:black"><strong>Ejemplo: leche fresca en porongos de aluminio XY lt de capacidad; de yogurt de sabor a frutas en botellas de 1 litro; café pergamino en  costales de yute de 46qq ; cacao en baba en baldes de 18 lt, cacao grano seco en sacos de 50kg, pasta de cacao en moldes de 150 gr.     envasados al vacío... , quinua en grano en sacos de 50kg, quinua perlada en bolsas de 25 kg. ,cuy en pie en javas de plástico, cuy beneficiado en empaque al vacío, manzanas en mallas de 1 kg, etc</strong></p>
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left;">2.7. ¿El producto se venderá con alguna certificación de calidad? : </label>
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%;">
+
+													<select id="cbxPresetaCertificacion" class="custom-select col-xs-12 col-sm-6 col-md-6">
+														<option value="0">Seleccione </option>
+														<option value="1">a. Si, actualmente ya contamos con una certificación. </option>
+														<option value="2">b. No </option>
+														<option value="3">c. Si, es parte de la propuesta del Plan de Negocio. </option>
+													</select>
+													 
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-4" style="text-align:left;">2.8. Mencione la certificación o sello de calidad : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextBoxFor(m => m.descripCertificado, new { @class = "campoTexto  col-xs-12 col-sm-6 col-md-6", disabled = true })
+													<p id="AdescripCertificado" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+												</div>
+											</div>
+										</div>
+										 
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-6" style="text-align:left;">2.9. Especificar a quién le venderán directamente con el Plan de Negoco : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextBoxFor(m => m.aquienVendenConPN, new {@class = "col-xs-12 col-sm-6 col-md-6 campoTexto"})
+													<p id="AaquienVendenConPN" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left;">2.10. ¿Cuál es el tamaño de la demanda y qué porcentaje de esa demanda se espera atender? : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextAreaFor(m => m.tamanoDemanda, new { @class = "col-xs-12 col-sm-6 col-md-10 campoTexto textArea", rows = "8", cols = "100" }) 
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1%;">
+													<p  class="col-xs-12 col-sm-6 col-md-10"  style="font-family:'Gill Sans'; color:black"><strong>Ejemplo: En la provincia de Chota,la industria, acopiadores locales y consumidores compran XYZ lt/leche día. La organización atenderá con XY litros/diarios que representan el X% de la demanda</strong></p>
+												</div>
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left; margin-left: 1.5%;">Fuente : </label>
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextBoxFor(m => m.fuenteInformacion, new { @class = "campoNumero  col-xs-12 col-sm-6 col-md-10", })
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left;">2.11. ¿Por qué los clientes comprarian el producto que ofrece la organización? ¿Què lo diferencia de los demás? (Ventajas Competitivas) : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextAreaFor(m => m.ventajasCompetitivas, new { @class = "col-xs-12 col-sm-6 col-md-10 campoTexto textArea", rows = "8", cols = "100" }) 
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													<p style="font-family:'Gill Sans'; color:black"> <strong>(Precisar atributos de calidad, presentación o empaque, ventajas en la comercializacion, oportunidad que entregas, certificaciones, reconocimiemto de origen, sanidad, volúmenes, etc)</strong></p>
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="margin-bottom:10px">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left;">2.12. ¿Cuántos competidores hay en la zona que venden el mismo producto que ofrecerà la organización?</label>
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													<form action="/" method="post" style="margin-left:3.3%;">
+														<table style="text-align:left; margin-bottom:25px;">
+															<tr>
+																<td style="text-align:center;"> Competidores </td>
+																<td> &nbsp;</td>
+																<td> &nbsp;</td>
+																<td> &nbsp;</td>
+																<td style="text-align:center;"> ¿Aplica? </td>
+															</tr>
+															<tr>
+																<td> a. Organización competidora. </td>
+																<td> &nbsp;</td>
+																<td> &nbsp;</td>
+																<td> &nbsp;</td>
+																<td> <input id="chk_OrganCompetidora" type="checkbox" name="chk_Aplica" style="text-align: center; vertical-align: middle;" /></td>
+															</tr>
+															<tr>
+																<td> b. Productores individuales competidores. </td>
+																<td> &nbsp;</td>
+																<td> &nbsp;</td>
+																<td> &nbsp;</td>
+																<td> <input id="chk_OProdIndividuales" type="checkbox" name="chk_Aplica" style="text-align: center; vertical-align: middle; " /></td>
+															</tr>
+														</table>
+													</form>
+												</div>
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left; margin-left: 1.5%;">Mencione que organizaciones : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextAreaFor(m => m.descripCompetidores, new { @class = "col-xs-12 col-sm-6 col-md-10 campoTexto textArea", rows = "8", cols = "100" })
+												</div>
+
+
+											</div>
+										</div>
+
+
+										<div class="row" style="margin-bottom:10px;">
+											<div class="col-xs-12 col-md-12" style="text-align:left;">
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left;">2.13. La organización contará con el respaldo de alguna entidad auspiciadora : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left:1.5%;">
+													<select id="cbxRespaldo" class="custom-select col-xs-12 col-sm-6 col-md-6">
+														<option value="0">Seleccione </option>
+														<option value="1">Si</option>
+														<option value="2">No </option>
+													</select>
+												</div>
+
+												<div>
+													<label class="col-xs-12 col-sm-6 col-md-10" style="text-align:left; margin-left: 1.5%;">Nombre de la entidad auspiciadora : </label>
+												</div>
+												<div class="col-xs-12 col-sm-6 col-md-12" style="margin-left: 1.5%;">
+													@Html.TextBoxFor(m => m.nombreAuspiciador, new { @class = "campoTexto col-xs-12 col-sm-6 col-md-6", @MaxLength = "90", disabled = true })
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+
+
+								</div>
+
+							</div>
+						</div>
+
+
+
+
+						<div id="accordion" style="border:1px solid;">
+							<div class="card">
+
+								<div class="card-header widget-header" id="headingOne" style="text-align:left;">
+									<h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+										<a style="color:white; text-decoration:none;">
+											<i class="ace-icon fa fa-file"></i>
+											Formuladores del Plan de Negocio
+										</a>
+									</h5>
+									<div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+										<a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+											<i class="ace-icon fa fa-chevron-down"></i>
+										</a>
+									</div>
+								</div>
+
+
+								<div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+									<div class="card-body" style="padding-left: 12px; padding-right: 12px; margin-left:15px;">
+										<br />
+
+										<div class="row" style="text-align:left">
+
+											<div class="col-xs-12 col-md-8" style="text-align:left;">
+												<div>
+													<label style="text-align:left">2.14. Nombre del/los formuladores del Plan de Negocio : </label>
+													@Html.TextBox("completoFrmIN", (string)"", new { style = "display:none" })
+												</div>
+											</div>
+										</div>
+
+										<div class="row" style="text-align:left;  margin-left:10px">
+											<br />
+											<div class="col-xs-12 col-md-3" style="text-align:left;">
+												<div>
+													<label>Nombre del Formulador :</label>
+												</div>
+												<div>
+													@Html.TextBox("idFormuladorIdeaNeg", (string)"", new { style = "display:none" })
+													@Html.TextBox("nombFormulador", (string)"", new { @class = "campoTexto", style = "width:90%" })
+													<p id="AnombFormulador" style="display:none; color:palevioletred">Solo letras en este campo.</p>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-3" style="text-align:left;">
+												<div>
+													<label>Telefono del Formulador :</label>
+												</div>
+												<div>
+													@Html.TextBox("telfFormulador", (string)"", new { @class = "campoNumero", @Maxlength = "9", style = "width:60%" })
+													<p id="AtelfFormulador" style="display:none; color:palevioletred">Solo números con un máximo 9 digitos en este campo.</p>
+												</div>
+											</div>
+
+											<div class="col-xs-12 col-md-3" style="text-align:left;">
+												<div>
+													<label>Correo Electrónico :</label>
+												</div>
+												<div>
+													@Html.TextBox("correoFormulador", (string)"", new { @class = "campoEmail", style = "width:90%" })
+													<p id="AcorreoFormulador" style="display:none; color:palevioletred">No es un formato valido para correo electronicos.</p>
+												</div>
+											</div>
+
+											<div class="col-xs-12 col-md-3" style="text-align:left;">
+												<div>
+													&nbsp;&nbsp;&nbsp;&nbsp;
+												</div>
+												<div>
+													<button id="registrarFormulador" class="btn btn-success" title="Registrar" style="width:30%;" disabled>Registrar</button>
+                                                    <button id="cancelarFormulador" class="btn btn-danger" title="Cancelar" style="width:30%; display:none;">Cancelar</button>
+												</div>
+											</div>
+
+										</div>
+
+
+										<br />
+										<br />
+										<h3 style="text-align:left">Listado de Formuladores</h3>
+										<hr />
+										<div class="row" style="text-align:center; margin-bottom:25px;">
+											<div class="table-responsive margen" style="text-align:center;">
+												<table id="tablaForm" class="table table-bordered table-hover" style="width:90%; ">
+													<thead>
+														<tr>
+															<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+															<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">IDIdeaNeg</th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%"><strong>Nro.</strong></th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:25%; width:25%; max-width:25%"><strong> Nombres y Apellidos </strong></th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; width:10%; max-width:10%"><strong>Correo Eléctronico</strong></th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%"><strong>Teléfono</strong></th>
+															<th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; width:10%; max-width:10%"><strong>Acciones</strong></th>
+														</tr>
+														<tr>
+															<th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Modificar</th>
+															<th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Eliminar</th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div> <!------- Fin Pasos ------->
+		</div> <!------- Fin contenido --------->
+	</div>
+</div><!---- fin contenedor ----->
+                 
+
+
+ 
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		controles_IdeaNegocio();
+
+	});
+
+</script>

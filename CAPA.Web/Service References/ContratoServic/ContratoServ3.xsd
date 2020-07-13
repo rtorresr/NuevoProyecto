@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.RRHH_E" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfContrato_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contrato_E" nillable="true" type="tns:Contrato_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContrato_E" nillable="true" type="tns:ArrayOfContrato_E" />
+  <xs:complexType name="Contrato_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FechaCese" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFinContrato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaInicioContrato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaModificacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecharegistró" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdContrato" type="xs:int" />
+      <xs:element minOccurs="0" name="IdTipoContrato" type="xs:int" />
+      <xs:element minOccurs="0" name="IdTrabajador" type="xs:int" />
+      <xs:element minOccurs="0" name="IdUsuarioModificacion" type="xs:int" />
+      <xs:element minOccurs="0" name="IDUSUARIOregistró" type="xs:int" />
+      <xs:element minOccurs="0" name="MontoContrato" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NroContrato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombTrabajador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombUsuarioMod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombUsuarioReg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nroDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoContrato" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contrato_E" nillable="true" type="tns:Contrato_E" />
+</xs:schema>

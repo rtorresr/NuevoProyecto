@@ -1,0 +1,455 @@
+﻿
+@{
+    ViewBag.Title = "modificarEstadoExpUP";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción</a></li>
+            <li class="active">Modifica Estado Asignado</li>
+        </ul>
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1> Modifica Estado Asignado a un Expediente</h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+        <!-- inicio pasos ok-->
+
+        <div class="col-xs-12 col-md-12">
+            <!-- contenido de ACORDEON 1 -->
+            <div id="accordion" style="border:1px solid;">
+
+                <div class="card">
+
+                    <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-pencil-square-o"></i>
+                                &nbsp; MODIFICAR ESTADO ASIGNADO A UN EXPEDIENTE
+                            </a>
+                        </h5>
+
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                            <br />
+
+                            <!----- VALIDA RUC ----->
+
+                            <div class="row" style="margin-bottom:10px; text-align:left; margin-left:auto;">
+
+                                <div class="col-xs-12 col-sm-12 col-md-1" style="text-align: left;">
+
+                                    <label style="text-align:left"><strong> Buscar por:</strong></label>
+
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-2" style="text-align: left;">
+
+                                    <div class="radio">
+
+                                        <label for="text" class="col-lg-12 col-form-label align-right width-35">
+                                            <input type="radio" name="optionsRadios" id="rdbRucFl" value="option1" checked>
+                                            RUC:
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-2" style="text-align: left;">
+
+                                    <div class="radio">
+                                        <label for="text" class="col-lg-12 col-form-label align-left width-50">
+                                            <input type="radio" name="optionsRadios" id="rdbSgdCutFl" value="option2" style="text-align:left">
+                                            N° SGD_CUT:
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto;">
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left;">
+                                    <div>
+                                        <label style="text-align:left;">RUC :</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("btnBuscarRUC", (string)"", new { style = "width:55%" })
+                                        <button type="button" class="btn btn-info" id="btnBuscarRUC" title="Validar"> <i class="ace-icon fa fa-search"></i></button><br />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left;">
+                                    <div> <label style="text-align:left;">Nro Expediente: </label> </div>
+                                    <div>  <select id="cbxNoExpFl" class="custom-select" style="width:55%;"> </select> </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left;">
+                                    <div> <label style="text-align:left;">N° SGD (CUT): </label> </div>
+                                    <div>  <select id="cbxSgdCutFl" class="custom-select" style="width:55%;"> </select> </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="margin-bottom:5px; margin-left:auto;">
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left;">
+                                    <div>  <label style="text-align:left;">Nro.SGD(CUT):</label> </div>
+                                    <div>
+                                        @Html.TextBox("NroSgdCutFl", (string)"", new { @class = "campoNumero", style = "width:55%" })
+
+                                        <p id="NroSgdCutFl" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px; margin-top:25px;">
+                                    <div>
+                                        <button id="btnConsultarExpUP" class="btn btn-success" style="margin-bottom:25px; text-align:left;"><i class="ace-icon fa fa-search"></i>BUSCAR</button>
+                                        &nbsp;
+                                        <button id="btnLimpiarFiltroUP" class="btn btn-success" style="margin-bottom:25px; text-align:left;"><i class="ace-icon fa fa-eraser"></i>LIMPIAR</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                            <!--PESTAÑA 2 DATOS DEL EXPEDIENTE -->
+
+
+                            <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                                <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a style="color:white; text-decoration:none;">
+                                        <i class="ace-icon fa fa-pencil-square-o"></i>
+                                        &nbsp; DATOS DEL EXPEDIENTE
+                                    </a>
+                                </h5>
+
+                                <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                                        <i class="ace-icon fa fa-chevron-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                    <br />
+
+
+                                    <div class="row" style="padding-left:25px;padding-right:25px; padding-bottom:25px;">
+                                       
+
+                                        <div class="row" style="margin-bottom:10px; margin-left: auto;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div> <label style="text-align:left; width:25%">RUC:</label></div>
+
+                                                <div>
+                                                    @Html.TextBox("txbRUC", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="unidadmedidaTE" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div> <label style="text-align:left; width:25%">N° Expediente:</label></div>
+
+                                                <div>
+                                                    @Html.TextBox("txbNoExpediente", (string)"", new { @class = "campoTexto", @MaxLength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="unidadmedidaTE" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left;">
+
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha Recepción Exp: </label>
+                                                </div>
+                                                <div class="input-group date" style="width: 40%; Text-align: left;">
+                                                    @Html.TextBox("fechaRecExp", (string)"", new { @class = "datetimepicker", @MaxLength = "10", style = "width:100%", disabled = "disabled" })
+
+                                                    <span class="input-group-addon" style="text-align:left;">
+
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px; margin-left: auto;">
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Razon Social: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("cargoContacto", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="ACargo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Nro SGD (CUT): </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("telfOA", (string)" ", new { @class = "campoTelefono", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left;">
+
+                                                <div>
+                                                    <label style="text-align: left;"> Fecha CUT.: </label>
+                                                </div>
+                                                <div class="input-group date" style="width: 40%; Text-align: left;">
+                                                    @Html.TextBox("fechaCUTestado", (string)"", new { @class = "datetimepicker", @MaxLength = "10", style = "width:100%", disabled = "disabled" })
+                                                    <span class="input-group-addon" style="text-align:left;">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px; margin-left: auto;">
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Tipo SDA: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("cargoContacto", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="ACargo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Tipo Incentivo </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("telfOA", (string)" ", new { @class = "campoTelefono", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Especialista Asignado: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("correoContacto", (string)" ", new { @class = "campoEmail", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px; margin-left: auto;">
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Unidad PCC: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("cargoContacto", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="ACargo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom: 10px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Oficina Regional: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("telfOA", (string)" ", new { @class = "campoTelefono", @maxlength = "250", style = "width:65%", disabled = "disabled" })
+                                                    <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br />
+                                        <h3><b>Estados del Expediente</b></h3>
+                                        <div class="row" style="margin-bottom:10px;">
+
+                                            <div class="table-responsive margen" style="align-content:center;">
+                                                <table id="tbRegistraAccion" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Estado</th>
+                                                            <th rowspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Fecha de Estado</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Especialista</th>
+                                                            <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Usuario Registro</th>
+                                                            <th rowspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Fecha Registro</th>
+                                                            <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Dias Prórroga</th>
+                                                            <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Unidad PCC</th>
+                                                            <th colspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="center">01</td>
+                                                            <td style="text-align:center"> - </td>
+                                                            <td style="text-align:center"> 20/10/2019 </td>
+                                                            <td style="text-align:center"> Juan mendoza </td>
+                                                            <td style="text-align:center"> Pablo quispe </td>
+                                                            <td style="text-align:center"> 15/10/2019 </td>
+                                                            <td style="text-align:center"> 08 </td>
+                                                            <td style="text-align:center"> Negocios </td>
+                                                            <td class="center">
+                                                                <a class="btn btn-warning" id="btnModificarEstadoExp" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                                                    <i class="ace-icon fa fa-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td class="center">
+                                                                <a> &nbsp;</a>
+                                                                <a class="btn btn-danger" id="btnEliminarRegAcciones" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                                                    <i class="ace-icon fa fa-trash"></i>
+                                                                </a>
+                                                            </td>
+
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- INICIO MODAL ESTADO ASIGNADO-->
+
+                                <div class="modal" id="modalModifEstadoAsig" tabindex="-1" role="dialog" aria-labelledby="recepcionarLabel" aria-hidden="true" style="overflow-y: auto;">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content" style="width:150%; margin-left:-25%;">
+                                            <div class="modal-header">
+                                                <button id="btnCloseAcuerdoComp" type="button" class="close" data-dismiss="modal">x</button>
+                                                <h4 class="modal-title"><strong>MODIFICAR ESTADO ASIGNADO</strong></h4>
+                                            </div>
+
+                                            <div class="modal-body" style="max-height:150%">
+
+                                                <div class="row">
+                                                    <form class="form-horizontal" style="padding-left:30px;padding-right:30px;">
+                                                        <div class="row" style="margin-bottom:10px; margin-left: auto;">
+
+                                                            <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 0px; margin-left:auto">
+                                                                <div>
+                                                                    <label style="text-align: left;"> Estado Asignado:</label>
+                                                                </div>
+                                                                @Html.TextBox("txbDescripAcuerdo", (string)" ", new { @class = "campoTexto", @maxlength = "250", style = "width:55%", disabled = "disabled" })
+                                                                <p id="ACargo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                            </div>
+
+                                                            <div class="col-xs-12 col-sm-12 col-md-6" style="text-align: left;">
+                                                                <div>
+                                                                    <label style="text-align: left;"> Fecha Nuevo Estado: </label>
+                                                                </div>
+                                                                <div class="input-group date" style="width: 40%; Text-align: left;">
+                                                                    @Html.TextBox("fechaRecExp", (string)"", new { @class = "datetimepicker", @MaxLength = "10", style = "width:100%", disabled = "disabled" })
+                                                                    <span class="input-group-addon" style="text-align:left;">
+                                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row" style="margin-bottom:10px; margin-left: auto;">
+
+                                                            <div class="col-xs-12 col-sm-12 col-md-6" style="text-align: left;">
+                                                                <div> <label style="text-align:left;">Nuevo Estado: </label> </div>
+                                                                <div>  <select id="cbxSgdCutFl" class="custom-select" style="width:55%;"> </select> </div>
+                                                            </div>
+
+                                                            <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 0px; margin-left:auto">
+                                                                <div>
+                                                                    <label style="text-align: left;"> Plazo Máximo(Días Utiles): </label>
+                                                                </div>
+                                                                <div>
+                                                                    @Html.TextBox("totalPartTE", (string)" ", new { @class = "campoNumero", @maxlength = "250", style = "width:55%", disabled = "disabled" })
+                                                                    <p id="Areferencia" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row" style="margin-bottom:10px; margin-top: 20px;">
+
+                                                            <button id="btnGuardarModifEst" name="submit" type="submit" class="btn btn-primary"><i class="ace-icon fa fa-floppy-o"></i>GUARDAR</button>
+                                                            &nbsp;
+                                                            <button id="btnSalirModEstadoA" class="btn btn-danger"><i class="ace-icon fa fa-close"></i>CERRAR</button>
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FIN MODAL ACUERDO COMPROMISO-->
+
+                            </div><!-- contenido -->
+                        </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div><!-- fin contenedor -->
+</div>
+
+
+
+<script type="text/javascript">
+                    $(document).ready(function () {
+
+                        eventos_TareasEjec();
+
+                    });
+
+</script>

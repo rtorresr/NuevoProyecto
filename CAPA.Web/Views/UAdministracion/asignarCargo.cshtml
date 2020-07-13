@@ -1,0 +1,389 @@
+﻿@model SEL_Entidades.RRHH_E.Trabajador_E
+
+
+@{
+    ViewBag.Title = "asignarCargo";
+    Layout = "~/Views/Shared/_LayoutMenuUa.cshtml";
+}
+
+
+<head>
+    <title>Asignar Cargo</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+
+        <div class="main-container ace-save-state" id="main-container">
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/Home/Modulos/">Modulos</a>
+                    </li>
+                    <li><a href="/UAdministracion/Index">U.Administración</a></li>
+                    <li class="active"> <a href="/UAdministracion/asignarCargo">Asignar Cargo</a></li>
+                </ul>
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+                    <div class="col-md-12">
+                        <h1>ASIGNAR CARGO </h1>
+                    </div>
+                </div>                  <!-- Fin titulo -->
+                <!-- inicio pasos-->
+                <div class="col-xs-12">
+                    <!-- contenido de pasos -->
+                    <div class="row" style="margin-bottom:25px;">
+                        <br />
+                        <button class="btn btn-success" type="button" id="btnAgregar"  title="Registrar" style="margin-right:1%;">
+                            <i class="ace-icon fa fa-pencil"></i> REGISTRAR
+                        </button>
+
+                        <a class="btn btn-success" type="button" id="btnRegresar" href="/UAdministracion/Trabajador" style="margin-left:1%;" title="Regresar">
+                            <i class="ace-icon fa fa-undo"></i> REGRESAR
+                        </a>
+                         
+                        <button class="btn btn-warning" type="button" id="btnModificar" title="Modificar" style="display:none; margin-right:1%;">
+                            <i class="ace-icon fa fa-pencil"></i> MODIFICAR
+                        </button>
+                          
+                        <button class="btn btn-success" type="button" id="btnCancelar" title="Cancelar" style="display:none; margin-left:1%;">
+                            <i class="ace-icon fa fa-undo"></i> CANCELAR
+                        </button>
+
+                    </div>
+
+                    
+
+                    <div class="col-xs-12 col-md-12">
+                        <div id="accordion" style="border:1px solid;">
+                            <div class="card">
+
+                                <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <a href="#" style="color:white; text-decoration:none;">
+                                            <i class="ace-icon fa fa-file"></i>
+                                            Informacion del Trabajador
+                                        </a>
+                                    </h5>
+                                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <a href="#" data-action="collapse" style="color:#fff;">
+                                            <i class="ace-icon fa fa-chevron-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                        <br />
+                                        <form>
+                                            @using (Html.BeginForm())
+                                            {
+
+                                                <div class="row" style="margin-bottom:5px; display: none">
+
+                                                    <div id="idtrabajadorCargo" class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px; display:none">
+                                                        <div>
+                                                            <label style="text-align:left;">ID:</label>
+                                                       
+                                                            @*@Html.TextBoxFor(model => model.IdTrabajadorCargo, (string)"", new { @class = "campoNumero", style = "width:30%", disabled = true })*@
+                                                            @Html.TextBox("IdTrabajadorCargo", (string)"", new { @class = "campoNumero", style = "width:30%", disabled = true })
+                                                            <p> </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="row" style="margin-bottom:5px;">
+
+                                                    @*<div id="idtrabajadorCargo" class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px; display:none">
+                                                            <div>
+                                                                <label style="text-align:left;">ID:</label>
+                                                            </div>
+                                                            <div>
+                                                                 @Html.TextBoxFor(model => model.IdTrabajadorCargo, (string)"", new { @class = "campoNumero", style = "width:30%",  disabled = true })
+                                                                <p > </p>
+                                                            </div>
+                                                        </div>*@
+
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px; display:none">
+                                                        <div>
+                                                            <label style="text-align:left;">ID Trabajador :</label>
+                                                        </div>
+                                                        <div>
+                                                            @Html.TextBoxFor(model => model.IdTrabajador, (string)"", new { @class = "campoNumero", style = "width:30%", disabled = true }) @*Value = @Session["IdTrabajador"],*@
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Nro. Documento Identidad :</label>
+                                                        </div>
+                                                        <div>   
+                                                            @Html.TextBoxFor(@model => model.NroDocumento, (string)"", new { @class = "campoNumero", style = "width:50%",  disabled = true })  @*@Value = @Session["nroDocumento"],*@
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Trabajador :</label>
+                                                        </div>
+                                                        <div>
+                                                            @Html.TextBoxFor(@model=>model.NombreCompleto, (string)"", new { @class = "campoTexto", style = "width:90%",  disabled = true })  @*Value = @Session["Trabajador"],*@
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Profesión :</label>
+                                                        </div>
+                                                        <div>
+                                                            @Html.TextBoxFor(@model => model.Profesion, (string)"", new { @class = "campoTexto", style = "width:90%",  disabled = true })  @*Value = @Session["Profesion"],*@
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Correo :</label>
+                                                        </div>
+                                                        <div>
+                                                            @Html.TextBoxFor(@model =>model.CorreoElectronico, (string)"", new { @class = "campoEmail", style = "width:90%",  disabled = true }) @*Value = @Session["Correo"],*@
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Tipo Cargo :</label>
+                                                        </div>
+                                                        <div>
+                                                            <select id="cbxTipoCargoFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Cargo :</label>
+                                                        </div>
+                                                        <div>
+                                                            <select id="cbxCargoFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Unidad PCC :</label>
+                                                        </div>
+                                                        <div>
+                                                            @*<select id="cbxUnidadProg3" class="custom-select" style="width:65%;"> </select>*@
+                                                            <select id="cbxUnidadProgFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Tipo de Asignación :</label>
+                                                        </div>
+                                                        <div>
+                                                            <select id="cbxTipoSDAFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+                                                     
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Oficina :</label>
+                                                        </div>
+                                                        <div>
+                                                            <select id="cbxSedeFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+                                                     
+                                                </div>
+
+                                                <div class="row" style="margin-bottom:5px;">
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Área :</label>
+                                                        </div>
+                                                        <div>
+                                                            <select id="cbxAreaFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Jefe directo :</label>
+                                                        </div>
+                                                        <div>
+                                                            <select id="cbxJefesFr" class="custom-select" style="width:65%;"> </select>
+                                                        </div>
+                                                    </div>
+
+                                                    @*<div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                            <div>
+                                                                <label style="text-align:left;">Jefe :</label>
+                                                            </div>
+                                                            <div>
+                                                                @Html.TextBox("NombJefe", (string)"", new { @class = "campoTexto", style = "width:90%", disabled = true })
+                                                            </div>
+                                                        </div>*@
+
+                                                    
+
+                                                </div>
+
+                                                <div class="row" style="margin-bottom:5px;">
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Fecha Inicio :</label>
+                                                        </div>
+                                                        <div>
+                                                            @*@Html.TextBoxFor(model => model.Fecha_Inicio, (string)" ", new { @class = "datetimepicker", style = "width:55%" })*@
+                                                            @Html.TextBox("Fecha_Inicio", (string)" ", new { @class = "datetimepicker", style = "width:55%" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                        <div>
+                                                            <label style="text-align:left;">Fecha Fin :</label>
+                                                        </div>
+                                                        <div>
+                                                            @*@Html.TextBoxFor(model => model.Fecha_Fin, (string)" ", new { @class = "datetimepicker", style = "width:55%" })*@
+                                                            @Html.TextBox("Fecha_Fin", (string)" ", new { @class = "datetimepicker", style = "width:55%" })
+                                                            <p id="AFecha_Fin" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">  </p>
+                                                            @*@Html.TextBox("NombJefe", (string)"", new { @class = "campoTexto", style = "width:90%", disabled = true })*@
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-4" style="text-align: left; margin-bottom: 5px;">
+
+                                                        <div>
+                                                            <label style="text-align:left;">Fecha Cese :</label>
+                                                        </div>
+                                                        <div>
+                                                            @*@Html.TextBoxFor(model => model.Fecha_Cese, (string)" ", new { @class = "datetimepicker", style = "width:55%" })*@
+                                                            @Html.TextBox("Fecha_Cese", (string)" ", new { @class = "datetimepicker", style = "width:55%" })
+                                                            <p id="AFecha_Cese" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred"> </p>
+                                                            @* @Html.TextBox("NombJefe", (string)"", new { @class = "campo", style = "width:90%", disabled = true })*@
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-12" hidden="hidden" style="text-align:left; margin-bottom:5%;">
+                                                            <label style="text-align: left;">Responsable :</label>
+                                                            @Html.TextBoxFor(m => m.IdUsuarioRegistro, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = Session["IdUsua"] })
+                                                        </div>
+
+                                                        <div class="col-xs-12 col-md-12" hidden="hidden" style="text-align:left; margin-bottom:5%;">
+                                                            <label style="text-align: left;">Responsable :</label>
+                                                            @Html.TextBoxFor(m => m.IdUsuarioModificacion, new { @class = "campoNumero", @maxlength = "10", style = "width:25%", Value = Session["IdUsua"] })
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            }
+                                        </form>
+                                     
+                                        <div class="row">
+                                            <div class="cbp-mc-column">
+                                                <br />
+                                            </div>
+
+                                            
+
+                                            <!-- columna  3 -->
+                                             
+                                        </div>
+                                     
+                                    </div><!-- fin contenido-->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xs-12 col-md-12">
+                            <br>
+
+                            <div id="div-tabla" class="table-responsive margen" style="width:100%">
+
+                                <table id="tablaAsigCargoTrab" class="table table-bordered table-hover table-striped" style="width:100%">
+
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">Id</th>
+											<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Nro.</th>
+											<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Trabajador</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Cargo</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Unidad</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Tipo Asignación</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Oficina</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Área</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Jefe</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Inicio</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Fin</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha Cese</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Estado</th>
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Activo</th>
+                                            @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Registrado Por</th>*@
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha de Registro</th>
+                                            @*<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificado Por</th>*@
+                                            <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Fecha de Modificación</th>
+                                            <th colspan="4" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Acción</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                            <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="tbodyCTrab" class="tbodyCTrab"></tbody>
+
+                                </table>
+
+                            </div>
+                             
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript"> 
+    listarCargoTrabajador(); 
+    controles_AsignarCargo();  
+    controles_UAdmin();  
+    llenarCbxTipoSDA();
+    validarCamposSelect();
+
+</script>

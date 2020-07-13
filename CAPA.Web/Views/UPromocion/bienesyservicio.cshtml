@@ -1,0 +1,593 @@
+﻿
+@{
+    ViewBag.Title = "bienesyservicio";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción</a></li>
+            <li class="active">Bien y Servicio</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1> Bienes y Servicios</h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+
+        <div class="col-xs-12 col-md-12">
+
+ <!--CONTENEDOR PESTAÑAS--> 
+            <div class="row" style="margin-bottom:5px;">
+
+                @*INICIO PESTAÑA*@
+
+                <div class="col-md-12">
+
+                    <div class="nav-tabs-custom">
+
+                        <ul class="nav nav-pills">
+
+                            <li class="active"><a href="#pesRegistraCategoria" data-toggle="tab">CATEGORÍA</a></li>
+                            <li><a href="#pesRegistraSubcategoria" data-toggle="tab">SUBCATEGORIA</a></li>
+                            <li><a href="#pesRegistraBienServicio" data-toggle="tab">BIEN / SERVICIO</a></li>
+
+                        </ul>
+
+                        <!--INICIO CONTENEDOR DE TODAS LAS PESTAÑAS-->
+                        <div class="tab-content">
+
+
+                            <!-- INICIO PESTAÑA 1 REGISTRA CATEGORIA-->
+                            <div class="active tab-pane" id="pesRegistraCategoria">
+                                <!-- The indicaEspecifico -->
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            DATOS DE CATEGORÍA
+                                        </h3>
+                                    </div>
+                                </div>
+
+
+                                <br />
+                                <div class="row" style="margin-bottom:5px;">
+
+                                    <div class="col-xs-2 col-xm-2 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+
+                                    <div class="col-xs-8 col-sm-8 col-md-8 panel panel-default">
+                                        <br />
+
+                                        <div class="row" style="margin-bottom: 5px;">
+
+                                            <div class="col-xs-12 col-sm-6 col-md-6" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Tipo Bien / Servicio:  </label>
+                                                    <select id="cbxTipoEstructuraInvFr" class="custom-select" style="width:50%;"> </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-6 col-md-6" style="text-align: center; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Categoría: &nbsp;&nbsp; </label>
+                                                    @Html.TextBox("idUsuario", (string)"", new { @class = "campoNumero", style = "display:none; width:30%", Value = @Session["idUsua"] })
+                                                    @Html.TextBox("idCategoria", (string)"", new { style = "display:none; width:30%" })
+                                                    @Html.TextBox("categoria", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:50%" })
+                                                    <p id="Acategoria" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                                <div>    &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-8 col-md-8" style="text-align: center; margin-bottom: 10px;">
+                                                <div>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div>
+                                                    <button id="btnConsultarCategoria" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarCategoria" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarCategoria" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarCategoria" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                                <div>    &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                            <br />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-12 col-xm-6 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div>&nbsp;&nbsp;</div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4col-md-4" style="text-align:center">
+                                        <button id="btnNuevaCategoria" class="btn btn-info">
+                                            <i class="ace-icon fa fa-pencil-square"></i> AGREGAR CATEGORÍA
+                                        </button>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div>&nbsp;&nbsp;</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-2 col-md-2">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                Listado de Categorías
+                                            </h3>
+                                        </div>
+
+                                        @*TABLA*@
+                                        <br />
+                                        <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+                                            <table id="tablaCategoria" class="table table-bordered table-hover" style="width:100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="15%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tipo Bien / Servicio</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Categoría</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Registrado Por</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha registro</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Modificado Por</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha Modicicacion</th>
+                                                        <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                    </tr>
+                                                </thead>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2 col-md-2">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <!--INICIO 2DA PESTAÑA SUB CATEGORIA -->
+                            <div class="tab-pane" id="pesRegistraSubcategoria">
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; DATOS SUBCATEGORÍA
+                                        </h3>
+                                    </div>
+                                </div>
+
+
+                                <br />
+                                <div class="row" style="margin-bottom:5px;">
+
+                                    <div class="col-xs-2 col-xm-2 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                    <div class="col-xs-8 col-sm-8 col-md-8 panel panel-default">
+                                        <br />
+
+                                        <div class="row" style="margin-bottom: 5px;">
+                                            <div class="col-xs-12 col-sm-6 col-md-6" style="text-align:left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align:left;"> Categoría: </label>
+
+                                                    <select id="cbxCategoriaFr"  class="custom-select" style="width:50%;"> </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-6 col-md-6" style="text-align: center; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Subcategoría: </label> 
+                                                    @Html.TextBox("idSubCategoria", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "display:none; width:50%" })
+                                                    @Html.TextBox("subCategoria", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:50%" })
+                                                    <p id="AsubCategoria" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                                <div>    &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-8 col-md-8" style="text-align: center; margin-bottom: 10px;">
+                                                <div>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div>
+                                                    <button id="btnConsultarSubCategoria" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarSubCategoria" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarSubCategoria" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarSubCategoria" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                                <div>    &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                            <br />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-12 col-xm-6 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div>&nbsp;&nbsp;</div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4col-md-4" style="text-align:center">
+                                        <button id="btnNuevaSubCategoria" class="btn btn-info">
+                                            <i class="ace-icon fa fa-pencil-square"></i> AGREGAR SUBCATEGORÍA
+                                        </button>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div>&nbsp;&nbsp;</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-2 col-md-2">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                Listado de Subcategorías
+                                            </h3>
+                                        </div>
+
+                                        @*TABLA*@
+                                        <br />
+                                        <div class="table-responsive margen col-md-12" style="align-content:center;">
+                                            <table id="tablaSubCategoria" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Categoría</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">SubCategoría</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Registrado por</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha de registro</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Modificado por</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Fecha de modificación</th>
+                                                        <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                    </tr>
+                                                </thead>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            @*</div>*@
+                           
+                            <!-- INICIO 3TA PESTAÑA BIEN Y SERVICIO-->
+                            <div class="tab-pane" id="pesRegistraBienServicio">
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; REGISTRAR BIEN / SERVICIO
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row" style="margin-bottom:5px;">
+
+                                    <div class="col-xs-1 col-xm-1 col-md-1">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                    <div class="col-xs-10 col-sm-10 col-md-10 panel panel-default">
+                                        <br />
+
+                                        <div class="row" style="margin-bottom: 5px;">
+                                            <div class="col-xs-12 col-sm-4 col-md-4 " style="text-align:left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label> Categoría: </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxCategoriaFr2" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label> SubCategoría:  </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxSubCategoriaFr" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Bien / Servicio: &nbsp;&nbsp; </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("idBienServicio", (string)"", new { @class = "campoTexto", style = "display:none; width:65%" })
+                                                    @Html.TextBox("bienServicio", (string)"", new { @class = "campoTexto", style = "width:85%" })
+                                                    <p id="AbienServicio" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                                </div> 
+                                            </div>
+                                        </div>
+
+                                        <div id="camposRegistroBS" class="row camposRegistroBS" style="display:none; margin-bottom:5px;">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="text-align:left; margin-bottom:5px;">
+                                                <div>
+                                                    <label> Tipo Und. medida Característica: </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxTipoUnidMedFr" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="text-align:left; margin-bottom:5px;">
+                                                <div>
+                                                    <label> Und. medida Característica: </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxUnidMedidaFr" class="custom-select" style="width:65%;"> </select>
+                                                </div> 
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="text-align: left; margin-bottom:5px;">
+                                                <div>
+                                                    <label> Tipo und. Medida Adquisición:</label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxTipoUnidMedFr2" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+                                            </div> 
+                                        </div>
+
+
+                                        <div id="camposRegistroBS2" class="row" style="display:none; margin-bottom:10px;">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="text-align:left; margin-bottom:5px;">
+                                                <div>
+                                                    <label> Und. Medida Adquisición:</label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxUnidMedidaFr2" class="custom-select" style="width:65%;"> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                                <div>    &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-8 col-md-8" style="text-align: center; margin-bottom: 10px;">
+                                                <div>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div>
+                                                    <button id="btnConsultarBienServicio" class="btn btn-success" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-search"></i> CONSULTAR
+                                                    </button>
+
+                                                    <button id="btnLimpiarBienServicio" class="btn btn-info" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                    </button>
+
+
+                                                    <button id="btnGrabarBienServicio" class="btn btn-warning" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-floppy-o"></i> GUARDAR
+                                                    </button>
+
+                                                    <button id="btnCancelarBienServicio" class="btn btn-danger" style="display:none; margin-bottom:5px;">
+                                                        <i class="ace-icon fa fa-undo"></i> CANCELAR
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                                <div>    &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                            <br />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-1 col-xm-1 col-md-1">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div>&nbsp;&nbsp;</div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4col-md-4" style="text-align:center">
+                                        <button id="btnNuevoBienServicio" class="btn btn-info">
+                                            <i class="ace-icon fa fa-pencil-square"></i> AGREGAR BIEN / SERVICIO
+                                        </button>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div>&nbsp;&nbsp;</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-xs-1 col-sm-1 col-md-1">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                    <div class="col-xs-10 col-sm-10 col-md-10">
+                                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                Listado de Bienes o Servicios
+                                            </h3>
+                                        </div>
+
+                                        @*TABLA*@
+                                        <br />
+                                        <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                            <table id="tablaBienesServiciosMant" class="table table-bordered table-hover" style="width:80%; align-content:center;">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="3%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                        <th rowspan="2" width="3%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                        <th rowspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Categoría</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">SubCategoría</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Bien / Servicio</th>
+                                                        <th rowspan="2" width="18%" style="background-color:darkseagreen; color:black;" class="center">Característica principal</th>
+                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Unidad de característica</th>
+                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Unidad de adquisición</th>
+                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Registrado por</th>
+                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Fecha registro</th>
+                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Modificado por</th>
+                                                        <th rowspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Fecha modificación</th>
+                                                        <th colspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                    </tr>
+                                                </thead>
+
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 col-md-1">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                       
+
+
+                  
+                        <!-- /.tab-pane -->
+                        @*FINAL DEL DIV CONTENT PESTAÑAS*@
+                    </div>
+                                <!-- /.tab-content -->
+                            </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+
+                @*FIN DE LA PESTAÑA*@
+
+
+                <!--FIN CONTENEDOR PESTAÑAS-->
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_Categoria();
+        controles_SubCategorias();
+        controles_Mant_BienesServicios();
+    })
+</script>

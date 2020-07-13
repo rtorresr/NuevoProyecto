@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewBag.Title = "compromisos";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+        <!-- Inicio ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promocion</a></li>
+            <li class="active">Compromiso</li>
+        </ul>
+        <!-- Fin Ruta -->
+    </div>
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <!-- Inicio titulo -->
+        <div class="page-header"> 
+            <div class="cbp-mc-column"> 
+                <h1> COMPROMISOS </h1>
+            </div>
+        </div>       
+        <!-- Fin titulo -->
+
+        <div class="col-xs-12 col-md-12">
+
+            <!--CONTENEDOR PESTAÑAS-->  
+            <div class="row" style="margin-bottom:5px;">
+
+                @*INICIO PESTAÑA*@
+
+                <div class="col-md-12">
+
+                    <div class="nav-tabs-custom">
+
+                        <ul class="nav nav-pills">
+
+                            <li class="active"><a href="#pesTipoCompromiso" data-toggle="tab">TIPO COMPROMISO</a></li>
+                            <li>
+                                <a href="#pesCompromiso" data-toggle="tab">COMPROMISO</a></li>
+
+                        </ul>
+
+                        <!--INICIO CONTENEDOR DE TODAS LAS PESTAÑAS-->
+                        <div class="tab-content">
+
+                            <!-- INICIO PESTAÑA 1 TIPO UNIDAD MEDIDA-->
+                            <div class="active tab-pane" id="pesTipoCompromiso">
+                                <!-- The indicaEspecifico -->
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; REGISTRAR TIPO DE COMPROMISO
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-xm-6 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6 col-md-8 panel panel-default">
+                                        <br />
+                                        <div class="col-xs-12 col-md-12" style="text-align:center; margin-bottom: 10px;">
+                                            <div>
+                                                <label style="text-align: left;"> Tipo de Compromiso: &nbsp;&nbsp; </label>
+                                                @Html.TextBox("idUsuario", (string)"", new { @class = "campoNumero", style = "display:none; width:30%", Value = @Session["idUsua"] })
+                                                @Html.TextBox("idTipoCompromiso", (string)"", new { style = "display:none; width:30%" })
+                                                @Html.TextBox("tipoCompromiso", (string)"", new { @class = "", @maxlength = "250", style = "width:50%" })
+                                                <p id="txbTipoCompromiso" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div>
+                                        </div>
+                                   
+                                        <div class="col-xs-12 col-md-12" style="text-align:center; margin-bottom: 10px;">
+                                            <button id="btnRegistraTipoComproUP" class="btn btn-primary" style="margin-bottom:auto;">
+                                            <i class="ace-icon fa fa-floppy-o"></i> &nbsp;GUARDAR</button>
+
+                                            <button id="btnLimpiarCompromiso" class="btn btn-info" style="margin-bottom:auto;">
+                                                <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-xm-6 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+                                </div>
+                                     
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-2 col-md-2">
+                                        <div> &nbsp;</div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                Lista de tipo de compromiso
+                                            </h3>
+                                        </div>
+                                        <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+                                            <table id="tablaTipoCompromiso" class="table table-bordered table-hover" style="width:100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tipo de Compromiso</th>
+                                                        <th colspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                    </tr>
+                                                </thead>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-2 col-md-2">
+                                        <div> &nbsp;</div>
+                                    </div>
+
+
+                                </div>
+                                <br />
+                            </div>
+                            <!-- /.tab-pane -->
+                            <!--INICIO 2DA PESTAÑA UNIDADA DE MEDIDA -->
+                            <div class="tab-pane" id="pesCompromiso">
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                        <h3>
+                                            <i class="ace-icon fa fa-file"></i>
+                                            &nbsp; REGISTRAR COMPROMISO
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row" style="margin-bottom:10px;">
+
+                                    <div class="col-xs-12 col-sm-2 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div>
+                                     
+                                    <div class="col-xs-12 col-sm-8 col-md-8 panel panel-default">
+                                        <br />
+
+                                        <div class="row" style="text-align: center; margin-bottom: 10px;" >
+                                            <div class="col-xs-12 col-sm-6 col-md-6" style="margin-bottom:5px">
+                                                <label style="text-align: left;"> Tipo de Compromiso: &nbsp;&nbsp; </label>
+                                                <select id="cbxTipoCompromisoFr" class="custom-select" style="width:40%;"> </select>
+                                            </div>
+                                        @*</div>
+
+                                        <div class="col-xs-12 col-md-6" style="text-align: center; margin-bottom: 10px;">*@
+                                            <div class="col-xs-12 col-sm-6 col-md-6" style="margin-bottom:5px">
+                                                <label style="text-align: left;"> Compromiso: &nbsp;&nbsp; </label>
+                                                @Html.TextBox("idCompromiso", (string)"", new { @class = "campoNumero", style = "display:none; width:50%" })
+                                                @Html.TextBox("compromiso", (string)"", new { @class = "campoTexto", @maxlength = "250", style = "width:80%" })
+                                                <p id="Acompromiso" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Ingresar solo texto en este campo.</p>
+                                            </div> 
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:10px;">
+                                            <div class="col-xs-12 col-md-12" style="text-align: center; margin-bottom: 10px;">
+                                                <button id="btnRegistraCompromiso" class="btn btn-success" style="margin-bottom:auto;">
+                                                <i class="ace-icon fa fa-floppy-o"></i> GUARDAR</button>
+
+                                                <button id="btnLimpiarTipoCompromiso" class="btn btn-info" style="margin-bottom:auto;">
+                                                    <i class="ace-icon fa fa-eraser"></i> LIMPIAR
+                                                </button>
+                                            </div>
+                                        </div>
+                                          
+                                    </div>
+
+                                    <div class="col-xs-12 col-xm-6 col-md-2">
+                                        <div>&nbsp;</div>
+                                    </div> 
+                                </div>
+                                 
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-2">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                Listado de compromisos
+                                            </h3>
+                                        </div>
+                                         
+                                        <div class="table-responsive margen col-xs-12 col-sm-12 col-md-12" style="align-content:center;">
+                                            <table id="tablaCompromiso" class="table table-bordered table-hover" style="width:100%; align-content:center;">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="2%" style="display:none; background-color:darkseagreen; color:black;" class="center">ID</th>
+                                                        <th rowspan="2" width="2%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Tipo de Compromiso</th>
+                                                        <th rowspan="2" width="15%" style="background-color:darkseagreen; color:black;" class="center">Compromiso</th>
+                                                        <th colspan="2" width="12%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                                        <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 col-md-2">
+                                        <div> &nbsp;&nbsp; </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!--FIN 2DA PESTAÑA ACTIVIDAD OPERATIVA -->
+                            @*FINAL DEL DIV CONTENT PESTAÑAS*@
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+
+                @*FIN DE LA PESTAÑA*@
+
+
+                <!--FIN CONTENEDOR PESTAÑAS-->
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_TipoCompromiso();
+        controles_compromiso();
+    });
+</script>
+

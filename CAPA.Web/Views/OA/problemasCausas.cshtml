@@ -1,0 +1,258 @@
+﻿@{
+    ViewBag.Title = "problemasCausas";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+<head>
+    <title>Problemas y Causas</title>
+</head>
+ 
+<div class="main-content">
+	<!-- contenedor -->
+	<div class="main-content-inner">
+		<div class="main-container ace-save-state" id="main-container">
+
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<span>Bienvenido Sr: @Session["NombreUsua"] </span>
+
+				<!-- Inicio ruta -->
+				<ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="/OA/"> </a>
+					</li>
+					<li><a href="/OA/Index">OA</a></li>
+					<li class="active"> <a href="problemasCausas">Problemas y Causas</a></li>
+				</ul>
+				<!-- Fin Ruta -->
+			</div>
+
+			<div class="page-content">
+				<!-- contenido -->
+				<!-- Inicio titulo -->
+				@*<div class="page-header">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<h1> Problemas y Causas </h1>
+					</div>
+				</div>*@
+				<!-- Fin titulo -->
+
+
+				<div class="col-md-12">
+					<div class="row" style="margin-bottom:20px;">
+
+						<a class="btn btn-success" id="btnRegresarProbEsp" href="index" title="Regresar">
+							<i class="ace-icon fa fa-undo"></i> Regresar
+						</a>
+					</div>
+
+
+					<div class="row" style="margin-bottom:20px;">
+						<div class="col-md-6" style="text-align:left;">
+							<label style="text-align:left;">Organización : </label>
+							&nbsp;
+							@Html.TextBox("rucOA", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true", Value = Session["rucOA"] })
+							@Html.TextBox("idCultivoCrianza", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true" })
+							@Html.TextBox("idUsuario", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true", Value = Session["IdUsua"] })
+							@Html.TextBox("razSocialOA", (string)"", new { style = "width:60%; text-align:left;", disabled = "true" })
+						</div>
+					</div>
+
+
+					<div class="col-md-12">
+
+						<div class="nav-tabs-custom">
+
+							<div class="tab-content">
+
+								<div class="active tab-pane" id="pesProrroga">
+
+									<div class="row">
+										<div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+											<h3>
+												<i class="ace-icon fa fa-file"></i>
+                                                PROBLEMAS ESPECÍFICOS QUE AFFECTAN LA COMPETITIVIDAD DEL NEGOCIO
+											</h3>
+										</div>
+									</div>
+									<br />
+									<div class="row" style="margin-bottom:15px;">
+
+										<div class="col-xs-12 col-xm-6 col-md-2">
+											<div>&nbsp;</div>
+										</div>
+
+										<div class="col-xs-12 col-xm-6 col-md-8 panel panel-default">
+											<br />
+											<div class="col-xs-12 col-sm-6 col-md-10" style="text-align:left; margin-bottom:5px;">
+												<div>
+													<label style="width:10%"> Problemas:</label>
+													@Html.TextBox("idProblemaEspOA", (string)"", new { @class = "campoTexto", style = "display:none; width:35%; margin-bottom:25px;" })
+													@Html.TextArea("descripcionProbEspOA", (string)"", new { @class = "", style = "width:100%;"})
+												</div>
+											</div>
+
+											<div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left; margin-bottom:15px;">
+												<div>
+													<button id="btnAgregarProb" class="btn btn-success" type="button">&nbsp;&nbsp;<i class="fa fa-save"></i> Grabar &nbsp;</button>
+												</div>
+											</div>
+
+											<div id="codProb" class="col-xs-12 col-sm-6 col-md-10" style="display:none; text-align:left; margin-bottom:15px;">
+												<div>
+													<label style="width:10%">Código :</label>
+													@Html.TextBox("codigoProblemasOA", (string)"", new { @class = "campoTexto", style = "width:20%;", disabled = true })
+												</div>
+											</div>
+											<div id="btnCancelar" class="col-xs-12 col-sm-6 col-md-2" style="display:none;text-align:left; margin-bottom:15px;">
+												<div>
+													<button id="btnCancelarProb" class="btn btn-danger" type="button"><i class="fa fa-times"></i> Cancelar</button>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-xm-6 col-md-2">
+											<div>&nbsp;</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-xs-12 col-sm-2 col-md-1">
+											<div> &nbsp;&nbsp; </div>
+										</div>
+										
+										<div class="col-xs-12 col-sm-8 col-md-10">
+											<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+												<h3>
+													Lista de Problemas de la OA
+												</h3>
+											</div>
+
+											@*TABLA*@
+											<br />
+											<div class="table-responsive margen">
+												<table id="tablaProblemaEspOA" class="table table-bordered table-hover" style="width:100%; ">
+													<thead>
+														<tr>
+															<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</th>
+															<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">IDCultiCri</th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">N°</th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Código</th>
+															<th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:65%; max-width:65%">Descripción del Problema</th>
+															<th colspan="3" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">Acción</th>
+														</tr>
+														<tr>
+															<th class="text-center" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Causas</th>
+															<th class="text-center" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Modificar</th>
+															<th class="text-center" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%">Eliminar</th>
+														</tr>
+													</thead>
+												</table>
+											</div>
+										</div>
+
+										<div class="col-xs-12 col-sm-2 col-md-1">
+											<div> &nbsp;&nbsp; </div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-------- FIN DE ACORDEON -------->
+						<!-- MODAL CAUSAS DEL PROBLEMA -->
+
+						<div id="causasProblema" class="modal fade">
+							<div class="modal-dialog modal-lg" style="width:90%;">
+								<div class="modal-content" >
+									<div class="modal-header alert-success alert-dismissible">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title">Causas del Problema</h4>
+
+									</div>
+									<div class="modal-body" style="max-height:90%;" >
+										<div class="row" style="margin-bottom:5px;">
+											<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left">
+
+												<div class="col-xs-12 col-sm-6 col-md-8" style="margin-bottom:5px;">
+													<label style="text-align:left; width:15%;"> Problema :</label>
+													@Html.TextBox("idProbEspOA", (string)"", new { @class = "", style = "display:none; width:15%;", disabled = true })
+													@Html.TextArea("descProblemaEsp", (string)"", new { @class = "", style = "width:100%;",  disabled = true })
+												</div>
+
+												<div class="col-xs-12 col-sm-6 col-md-8" style="margin-bottom:5px;">
+													<label style="text-align:left; width:15%;"> Causa :</label>
+													@Html.TextBox("idCausaProblemaEsp", (string)"", new { @class = "", style = "display:none; width:15%;" })
+													@Html.TextArea("descCausaProblemaEsp", (string)"", new { @class = "", style = "width:100%;" }) 
+												</div>
+
+												<div  class="col-xs-12 col-sm-6 col-md-8">
+													<button id="btnAgregarCausa" class="btn btn-success" type="button" href="#"> &nbsp;&nbsp;<i class="fa fa-save"></i> Grabar &nbsp;</button>
+												</div>
+
+
+												<div id="codCausa" class="col-xs-12 col-sm-6 col-md-8" style="display:none; margin-bottom:5px;">
+													<label style="text-align:left; width:15%;"> Código :</label>
+													@Html.TextBox("codigoCausaProbOA", (string)"", new {style = "width:15%;", disabled = true })
+													
+												</div>
+
+												<div id="btnCancelarCausa" class="col-xs-12 col-sm-6 col-md-4" style="display:none;">
+													<button id="btnCancelarCausaProbEsp" class="btn btn-danger"  type="button" href="#"> <i class="fa fa-close"></i> Cancelar</button>
+												</div>
+											</div>
+
+											<br />
+											<div class="col-xs-12 col-sm-12 col-md-12">
+												<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; border-bottom: 1px solid #ede9e9; margin-bottom:25px;">
+													<h3>
+														Lista de Causas del problema
+													</h3>
+												</div>
+												<div id="idtablaCausa" class="table-responsive margen">
+													<table id="tablaCausaProbEsp" class="table table-bordered table-hover" style="width:90%; ">
+														<thead>
+															<tr>
+																<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</th>
+																<th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">IDProblema</th>
+																<th rowspan="2" style="background-color:darkseagreen; color:black; padding:0; text-align:center; vertical-align:middle; width:1%">N°</th>
+																<th rowspan="2" style="background-color:darkseagreen; color:black; padding:0; text-align:center; vertical-align:middle; width:1%">Código</th>
+																<th rowspan="2" style="background-color:darkseagreen; color:black; padding:0; text-align:center; vertical-align:middle; width:90%">Causa</th>
+																<th colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; vertical-align:middle; width:20%">Acción</th>
+															</tr>
+															<tr>
+																<td style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">Modificar</td>
+																<td style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">Eliminar</td>
+															</tr>
+														</thead>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button id="btnCerrarCausa" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+             
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+		  
+    	controles_Problemas();
+    	controles_CausasProblemasEsp();
+
+         
+    }); 
+</script>
+

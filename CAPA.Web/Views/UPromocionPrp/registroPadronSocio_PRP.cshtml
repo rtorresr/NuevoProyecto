@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewBag.Title = "registroPadronSocio_PRP";
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<title>Registro Padrón de Socio PRP</title>
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <!-- INICIO RUTA -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UPromocion/Index">U.Promoción PRP</a></li>
+            <li class="active"><a href="/UPromocionPrp/padronSocios_PRP">Registro Padrón de Socio PRP</a></li>
+        </ul>
+
+    </div><!-- FIN RUTA -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+                <h1> Registro padrón de socio PRP </h1>
+            </div>
+
+        </div>
+        <!-- Fin titulo -->
+        <!-- inicio pasos-->
+        <div class="col-xs-12 col-md-12" style="margin-bottom:25px;">
+            <!-- contenido de pasos -->
+            <!--------- ACORDEON ------------>
+
+            <div id="accordion" style="border:1px solid; ">
+               
+                <!-- 1ER ACORDEOM-->
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingTwo" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                            <a href="#" style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-search"></i>
+                                Registrar padrón de socios PRP
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                            <a href="#" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--------- card body ------------>
+                    <div id="collapsetwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                            <br />
+                            <div id="" class="row" style="margin-bottom:10px; margin-left:auto">
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left">
+                                    <div>
+                                        <label>RUC:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("rucOA", (string)"", new { @class = "campoNumero", @MaxLenght = "11", style = "width:70%", disabled = true })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                    <div>
+                                        <label style="text-align:left;">
+                                            Razón social :
+                                        </label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("razon_social", (string)"", new { @MaxLength = "500", style = "width:70%", disabled = true })
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4" style="text-align:left">
+                                    <div>
+                                        <label>Nombre de PRP:</label>
+                                    </div>
+                                    <div>
+                                        @Html.TextBox("nombrePRP", (string)"", new { @class = "", style = "width:70%", disabled = true })
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row" style="margin-bottom:10px; margin-left:auto">
+
+
+                                <div class="col-xs-12  col-md-12" style="text-align:center;">
+                                    <div>  &nbsp; </div>
+                                    <div>
+                                        <button id="btnNuevoSocioPRP" class="btn btn-success" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-user"></i>  Nuevo socio  </button>
+                                        &nbsp; &nbsp;
+                                        <button id="btnValidarSocioPRP" class="btn btn-warning" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-check"></i>  Validar padrón  </button>
+                                        &nbsp; &nbsp;
+                                        <button id="btnImprimirPadron" class="btn btn-primary" style="margin-bottom: 5px; vertical-align: middle; text-align: center;"><i class="ace-icon fa fa-print"></i>  Imprimir padrón  </button>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                            </div>
+
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FIN 2DO ACORDEOM-->
+
+            </div>
+            <!-- fin de Acrodeon -->
+        </div>
+        <!-- fin  pasos-->
+    </div>
+    <!-- fin contenido-->
+    
+    
+ 
+    <!--TABLA LISTADO SOCIOS OA-->
+    <div class="col-xs-12" style="margin-bottom:25px;">
+        <!-- inicio tabla-->
+        <div class="table-responsive margen">
+            <br />
+            <table id="TablaListaSociosPRP" class="table table-bordered table-hover table-striped display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">ID</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; max-width:2%">Nro.</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:10%; max-width:10%">DNI</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:20%; max-width:25%">Apellidos y nombres</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Género</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:8%; max-width:12%">Edad</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ha. Tituladas</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ha. Sin título</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ha. Bajo riego</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ha. Secano</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ha. Pastizales</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Nro. Cabeza</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Ha. Destinada al PCC</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Fecha de ingreso al padrón</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Motivo de ingreso</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Dado de baja</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Fecha de baja</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Motivo de baja</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Coordenadas UTM</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Documentos del socio</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:8%">Actualizar</th>
+                        <th rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:6%; max-width:10%">Eliminar</th>
+
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                        <td class="center">01</td>
+                        <td class="center">Arequipa </td>
+                        <td style="text-align:center"> 15/10/2016 </td>
+                        <td class="center">20/11/2018 </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center">-</td>
+                        <td class="center">-</td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center">-</td>
+                        <td class="center">-</td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center"> - </td>
+                        <td class="center">
+                            <a class="btn btn-info" id="btnRegistrarCoord" href="#registrarModal" title="RegistrarCoord" data-toggle="modal">
+                                <i class="ace-icon fa fa-arrows"></i>
+                            </a>
+                        </td>
+                        <td class="center">
+                            <a class="btn btn-success" id="btnRegistraDocFichaInventario" href="#registrarModal" title="RegistraDoc" data-toggle="modal">
+                                <i class="ace-icon fa fa-file-text"></i>
+                            </a>
+                        </td>
+                        <td class="center">
+                            <a class="btn btn-warning" id="btnActualizaSocioPRP" href="#registrarModal" title="ActualizarSocio" data-toggle="modal">
+                                <i class="ace-icon fa fa-repeat"></i>
+                            </a>
+                        </td>
+                        <td class="center">
+                            <a class="btn btn-danger" id="btnEliminaSocioPRP" href="#registrarModal" title="Eliminar" data-toggle="modal">
+                                <i class="ace-icon fa fa-trash"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    <!-- FIN TABLA LISTADO SOCIOS OA-->
+
+
+
+</div>
+<!-- fin contenido-->
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_UP_PRP_Socios();
+
+    });
+
+</script>

@@ -1,0 +1,232 @@
+﻿
+ 
+<div id="contendor">
+    <!-- contenedor-->
+
+    <div class="contenido">
+        <!-- contenido-->
+
+        <div class="sideA">
+            <!-- A -->
+            @*<img class="imgs" src="~/Content/img/logo-minagri.jpg" width="401" style="margin-bottom:5px;" />
+            <img class="imgs" src="~/Content/img/logo-agroideas-b.png" width="270">*@
+
+
+            <img class="imgs" src="~/Content/img/logo-minagri.jpg" width="401" style="margin-bottom:5px;" />
+            <img class="imgs" src="~/Content/img/logo-agroideas-b.png" width="270">
+        </div>
+        <!--Fin A -->
+
+        <div class="sideB">
+            <!-- B -->  
+            <div id="form_login" class="login-form"> 
+                <div class="col-xs-12 col-sm-12 col-md-12 titulo" style="text-align:center !important;"> 
+                        <h3 class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:-5px;"> Bienvenido al</h3> 
+                        <h2 class="col-xs-12 col-sm-12 col-md-12" style="font-size:22px">¡ SISTEMA EN LINEA !</h2> 
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 inicia">
+                        Iniciar Sesión
+                </div>
+
+                <div class="form-group" style="display:none">
+                    <i class="fa"> <img src="~/Content/img/ico_user.jpg" width="16" height="17" alt="" /> </i>
+                    @Html.TextBox("idAplicacion", "2", new { @class = "form-control" })
+                </div>
+                <div class="form-group ">
+                    <i class="fa"> <img src="~/Content/img/ico_user.jpg" width="16" height="17" alt="" /> </i>
+                    @Html.TextBox("Usuario", "", new { @class = "form-control", @maxlength = "50", @placeholder = "Usuario" })
+
+                </div>
+                <div class="form-group log-status">
+                    <i class="fa "> <img src="~/Content/img/ico_clave.jpg" width="16" height="17" alt="" /></i>
+                    @Html.Password("Clave", "", new { @class = "form-control", @maxlength = "15", @placeholder = "Clave" })
+
+                </div>
+
+                <div id="msg" style="display:none"><ul style="color:red;"> Usuario o Clave incorrecta</ul></div>
+                <input type="button" class="log-btn" id="btn_ingresar" value="Ingresar" style="width:30%" />
+                <input type="button" class="log-btn" id="btn_limpiar" value="Limpiar" style="width:30%" />
+                <br />
+                <br />
+                <a id="idNuevaPwd" href="#modalRecuperar" data-toggle="modal">¿ Has olvidado tu contraseña ?</a>
+                <br />
+                <br />
+                <a id="idnuevaOA" href="#modalRecomendacion" data-toggle="modal"> Registarse en el Sistema en Linea </a>
+            </div>
+
+
+             
+                <!--RECUPERAR CLAVE -->
+                <div id="modalRecuperar" class="modal fade" role="dialog" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header alert-success alert-dismissible">
+                                <button id="btnCloseMR" type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                <h4 class="modal-title">Solicitud de cambio de contraseña.</h4>
+                            </div>
+                            <div class="modal-body">
+                                <br />
+                                <div class="row" style="margin-bottom:5px;">
+                                    <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: left; margin-bottom: 5px;">
+                                        <p id="ANroDocumento" class="alerta" font-family:'Gill Sans'; color:aqua">Debe ingresar el número de documento con el cual se encuentra registrado.</p>
+
+                                        <br />
+                                    
+                                        <label style="text-align:left; width:30%;">Tipo de Usuario:</label>
+                                        <select id="cbxTipoUsuaFr" class="custom-select" style="width:35%;"> </select>
+                                        <br />
+                                        <br />
+                                    
+                                        <label style="text-align:left; width:30%;">Ingrese Nro. documento:</label>
+                                            @Html.TextBox("NroDocumento", (string)" ", new { @class = "campoNumero", @maxlength = "11", style = "width:35%", enabled = "true" })
+                                        <button id="btn_NuevaClave" class="btn btn-success">Enviar</button>
+                                        <br /><br />
+                                         <p id="ANroDocumento" class="alerta" font-family:'Gill Sans'; color:aqua">Se le enviara su nueva clave al correo registrado en el sistema.</p>
+                                    </div>
+                                </div>
+                                        
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="btnCerrarMRecuper" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            
+
+            <!--INGRESAR PRE INFORMACION-->
+            <div id="modalRegistro" class="modal fade" role="dialog" data-backdrop="false" style="background-color:rgba(0,0,0,0.5);">
+                <div class="modal-dialog modal-lg">
+                    <div id="registoOA" class="modal-content">
+                        <div class="modal-header alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title"> Registrar Nuevo Usuario </h4>
+                        </div>
+
+                        <div id="form_Registro" class="modal-body" style="height:120%">
+
+                            <div class="form-inline col-xs-12 col-sm-6 col-md-12">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">Tipo Organización :</label>
+                                <select id="cbxTipoOrgFr" class="custom-select" style="width:60%;" disabled> </select>
+                                <p id="msgTipoOrg" class="msgTipoOrg" style="display:none; text-align:center; font-size:10px; color:red; "> Seleccione algun tipo de organización.   </p>
+                            </div>
+
+
+                            <div class="form-inline col-xs-12 col-sm-6 col-md-12">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">R.U.C. : </label>
+                                @Html.TextBox("NroRuc", (string)"", new { @class = "campoNumero", @maxlength = "11", style = "width:60%", required = "required", disabled = true })
+                                <p id="msgRuc" class="msgRuc" style="display:none; text-align:center; font-size:10px; color:red;"> Ingresa Ruc </p>
+                                <p id="ANroRuc" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                            </div>
+
+
+                            <div class="form-inline col-xs-12 col-sm-6 col-md-12">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">Razón Social : </label>
+                                @Html.TextBox("razSocial", (string)"", new { @class = "campoTexto", style = "width:60%", required = "required", rows="2", disabled = true })
+                                <p id="msgRazSocial" class="msgRazSocial" style="display:none; text-align:center; font-size:10px; color:red;"> Ingresa Raz. Social. </p>
+                                <p id="ArazSocial" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                            </div>
+
+
+                            <div class="form-inline col-xs-12 col-sm-6 col-md-12">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">D.N.I. Del Representante Legal: </label>
+                                @Html.TextBox("NroDniRepLeg", (string)" ", new { @class = "campoNumero", @maxlength = "8", style = "width:60%",  required = "required", disabled = true })
+                                <p id="msgDni" class="msgDni" style="display:none; text-align:center; font-size:10px; color:red;"> Ingresa Dni  </p>
+                                <p id="ANroDniRepLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                            </div>
+
+
+                            <div class="form-inline col-xs-12 col-sm-6 col-md-12">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">Nombre del Representante Legal :</label>
+                                @Html.TextBox("RepresentanteLeg", (string)"", new { @class = "campoTexto", style = "width:60%", enabled = "true", required = "required",  disabled = true })
+                                <p id="msgRepLeg" class="msgRepLeg" style="display:none; text-align:center; font-size:10px; color:red;"> Ingresa Nombre </p>
+                                <p id="ARepresentanteLeg" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo texto en este campo.</p>
+                            </div>
+
+                            <div class="form-inline col-xs-12 col-sm-6 col-md-12">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">Correo Electronico Del Representante Legal : </label>
+                                @Html.TextBox("CorreoElectronico", (string)"", new { @class = "campoEmail", style = "width:60%", required = "required", disabled = true })
+                                <p id="msgCorreo" class="msgCorreo" style="display:none; text-align:center; font-size:10px; color:red;"> Ingresa Correo Electronico </p>
+                                <p id="ACorreoElectronico" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Formato incompleto o incorrecto para correo.</p>
+                            </div>
+
+                           
+                            <div id="codValidacion" class="form-inline col-xs-12 col-sm-6 col-md-12" style="display:none">
+                                <label style="text-align:left; margin-bottom:15px; width:30%;">Ingrese su Código Validacion :</label> 
+                                @Html.TextBox("codigoValidacion", (string)"", new { style = "width:60%", @maxlength = "6", required = "required" })
+                                <p id="msgTipoOrg" class="msgTipoOrg" style="display:none; text-align:center; font-size:10px; color:red; "> Seleccione algun tipo de organización.   </p>
+                            </div>
+
+                        </div>
+
+                        <div style="display:none" class="row">
+                            <div id="contentNU" class="col-lg-12">
+                                <img src="~/Content/images/loader.gif" /><br />Un momento, por favor...
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button id="btn_Agregar" type="button" class="btn btn-primary">Registrar</button>
+                            <button id="btn_Cerrar" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <button id="btn_Validar" type="button" class="btn btn-primary" style="display:none">Validar</button>
+                        </div>
+                    </div> 
+
+                   
+                </div>
+            </div>
+
+
+
+            <!-- MODAL RECOMENDACION -->
+            <div  id="modalRecomendacion" class="modal fade" role="dialog"  data-backdrop="false" style="background-color:rgba(0,0,0,0.5);">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="modal"></button>
+                            <h4 class="modal-title">Recomendaciones</h4>
+                        </div>
+
+                        <div class="modal-body" style="text-align:justify">
+                            <label> Para registrar su Organización en la base de datos de AGROIDEAS, se pone en conocimiento las siguientes recomendaciones:</label>
+                            
+                            <p><span class="glyphicon glyphicon-ok"></span>	Contar con datos actualizados de la Organización en SUNAT.</></p>
+                            <p><span class="glyphicon glyphicon-ok"></span>  Contar con la lista de los socios de la Organización para su validación en RENIEC.</p>
+                            <p><span class="glyphicon glyphicon-ok"></span>	Revisar correo, una vez registrado sus datos se enviará las credenciales de acceso al correo electrónico del Representante Legal.</p>
+                         
+                        </div>
+                        <div class="modal-footer alert-success alert-dismissible">
+                            <button id="btnSeguir" type="button"  class="btn btn-info"  data-toggle="modal" href="#modalRegistro">Seguir</button>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="footer">
+                <span align="right"><img class="imgs-min" src="~/Content/img/logo-peru.jpg" width="240" height="50" alt="" /> </span>
+            </div>
+
+        </div> <!--Fin B -->
+
+    </div>
+    <!-- FIN contenido-->
+
+</div><!-- Fin Contenedor-->
+
+<script>
+  
+    $(document).ready(function () {
+        llenarCboxTipoOrganizacion();
+        controles_Inicio();
+        llenarCboxTipoUsuario();
+   });
+      
+</script>

@@ -1,0 +1,294 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+
+<head>
+    <title>Registrar Servicio</title> 
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocionPrp/Index">U.Promoción</a></li>
+                <li><a href="/UPromocionPrp/registrarByS">Registrar Bienes y Servicios</a></li>
+                <li class="active"><a href="/UPromocionPrp/registrarBySOpa"> Bienes y Servicios - Datos de la Organización </a></li>
+                <li class="active">Registrar Servicio </li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="col-xs-12" style="text-align:left">
+
+                    <h1> Registrar Servicio</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="row">
+                    <div class="col-xs-12" style="text-align:left; margin-bottom:1%;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos de la Organización
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            R.U.C :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"20570607945", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <label style=" text-align:left;">
+                            Razón Social :
+                        </label>
+                        @Html.TextBox("razon_social", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { @MaxLength = "500", style = "width:70%", disabled = "true" })
+
+                    </div>
+                    <div class="col-md-3" style="text-align:left;">
+
+                        <label style=" text-align:left;">
+                            Nro de Expediente :
+                        </label>
+
+                        @Html.TextBox("nro_orden", (string)"PRP-130-2018", new { @class = "solo-numero", style = "width:40%", disabled = "true" })
+
+                    </div>
+                </div>
+
+                <br />
+                <div class="row" style="margin-bottom:25px;">
+                    <br />
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBySOpa" title="Registrar Bien">
+                        <i class="ace-icon fa fa-pencil"></i>REGISTRAR
+                    </a>
+
+                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBySOpa" title="Cancelar">
+                        <i class="ace-icon fa fa-undo"></i>CANCELAR
+                    </a>
+
+                </div>
+                <br />
+
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-12" style="text-align:left;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos del Servicio a Registrar
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-2" style="text-align:left;">
+                        <label style="text-align:left;">
+                            Rubro del servicio :
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @{
+                            List<KeyValuePair<int, string>> dropdownList =
+                                                                                new List<KeyValuePair<int, string>>();
+                            dropdownList.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                            dropdownList.Add(new KeyValuePair<int, string>(1, "Mano de Obra"));
+                            dropdownList.Add(new KeyValuePair<int, string>(1, "Servicios de Transporte"));
+                            dropdownList.Add(new KeyValuePair<int, string>(2, "Servicios Profesionales"));
+                            SelectList selectList = new SelectList(dropdownList, "key", "value", 0);
+
+                        }
+
+                        @Html.DropDownList("foo", selectList)
+                    </div>
+                    <div class="col-xs-2" style="text-align:left;">
+                        <label style="text-align:left;">
+                            Tipo del servicio :
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @{
+                            List<KeyValuePair<int, string>> dropdownList1 =
+                                                                                new List<KeyValuePair<int, string>>();
+                            dropdownList1.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                            dropdownList1.Add(new KeyValuePair<int, string>(1, "Servicio de Terceros"));
+                            SelectList selectList1 = new SelectList(dropdownList1, "key", "value", 0);
+
+                        }
+
+                        @Html.DropDownList("foo", selectList1)
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-2" style="text-align:left;">
+                        <label style="text-align:left;">
+                            Nombre del servicio :
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @{
+                            List<KeyValuePair<int, string>> dropdownList2 =
+                                                                                new List<KeyValuePair<int, string>>();
+                            dropdownList2.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                            dropdownList2.Add(new KeyValuePair<int, string>(1, "Asistencia en campo "));
+                            dropdownList2.Add(new KeyValuePair<int, string>(2, "Servicio de análisis de caracterización de suelos"));
+                            dropdownList2.Add(new KeyValuePair<int, string>(2, "Número de plantones injertado por servicios profesionales"));
+                            SelectList selectList2 = new SelectList(dropdownList2, "key", "value", 0);
+
+                        }
+
+                        @Html.DropDownList("foo", selectList2)
+                    </div>
+                    <div class="col-xs-2" style=" text-align:left;">
+                        <label style="text-align:left;">
+                            Descripcion del servicio :
+                        </label>
+                    </div>
+                    <div class="col-xs-4" style="text-align:left;">
+                        @Html.TextArea("nro_orden", (string)"", new { @class = "solo-numero", @rows = "3", style = "width:90%; resize:none;" })
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-1" style="text-align:left;">
+                        <label style="text-align:left;">
+                            Cantidad :
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:40%" })
+                    </div>
+                    <div class="col-xs-1" style=" text-align:left;">
+                        <label style="text-align:left;">
+                            Precio Unitario :
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:40%" })
+                    </div>
+                    <div class="col-xs-1" style="text-align:left;">
+                        <label style="text-align:left;">
+                            Monto total :
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"0", new { @class = "solo-numero", style = "width:50%", disabled = "true" })
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-12" style="text-align:left;">
+                        <h3>
+                            <i class="ace-icon fa fa-file"></i>
+                            Datos del Cofinancimiento
+                            <hr />
+                        </h3>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-1" style="text-align:left; padding-right:0px;">
+                        <label style="text-align:left;">
+                            Aporte AGROIDEAS:
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:40%" })
+                    </div>
+                    <div class="col-xs-1" style=" text-align:left;">
+                        <label style="text-align: left; padding-right: 0px;">
+                            (%) AGROIDEAS:
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:40%" })
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-xs-1" style="text-align:left; padding-right:0px;">
+                        <label style="text-align:left;">
+                            Aporte OA:
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:40%" })
+                    </div>
+                    <div class="col-xs-1" style=" text-align:left;">
+                        <label style="text-align: left; padding-right: 0px;">
+                            (%) OA:
+                        </label>
+                    </div>
+                    <div class="col-xs-3" style="text-align:left;">
+                        @Html.TextBox("nro_orden", (string)"", new { @class = "solo-numero", style = "width:40%" })
+                    </div>
+
+                </div>
+
+                <!-- -->
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+<script>
+
+    $("#tab_bien").DataTable({
+        "ordering": false,
+        "lengthChange": false,
+        "searching": false,
+        //"info": false,
+        "language": {
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Siguiente"
+            }
+        }
+    });
+
+    $("#tab_servicio").DataTable({
+        "ordering": false,
+        "lengthChange": false,
+        "searching": false,
+        //"info": false,
+        "language": {
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Siguiente"
+            }
+        }
+    });
+
+</script>

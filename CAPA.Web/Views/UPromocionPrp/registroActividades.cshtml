@@ -1,0 +1,420 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMenuUpPrp.cshtml";
+}
+<head>
+    <title>Registrar Actividades de la Organizacion</title>
+</head>
+
+<div class="main-content">
+    <!-- contenedor -->
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <!-- Fin Ruta -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/Modulos/">Modulos</a>
+                </li>
+                <li><a href="/UPromocion/Index">U.Promoción</a></li>
+                <li class="active">Registrar Actividades de la Organización</li>
+            </ul>
+
+        </div><!-- Inicio ruta -->
+
+        <div class="page-content">
+            <!-- contenido -->
+
+            <div class="page-header">
+                <!-- Inicio titulo -->
+
+                <div class="col-md-12" style="text-align:left">
+
+                    <h1> Registrar Actividades de la Organización</h1>
+                </div>
+            </div>       <!-- Fin titulo -->
+            <!-- inicio pasos-->
+
+            <div class="col-xs-12">
+                <!-- contenido de pasos -->
+
+                <div class="col-xs-12 col-sm-12 widget-container-col" id="widget-container-col-1">
+                    <div class="widget-box" id="widget-box-1">
+                        <div class="widget-header" style="text-align:left;">
+                            <h5 class="widget-title">
+                                <i class="ace-icon fa fa-search"></i>
+                                Criterios de Búsqueda
+                            </h5>
+                            <div class="widget-toolbar">
+                                <a href="#" data-action="collapse">
+                                    <i class="ace-icon fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="widget-body">
+
+                            <form class="cbp-mc-form" id="myForm1" method="post">
+
+                                <div class="row">
+                                    <div class="cbp-mc-column">
+
+                                        <label style="text-align:left;">R.U.C :</label>
+
+                                        @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { @class = "solo-numero" })
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <label style="text-align:left;">Razón Social :</label>
+                                        @Html.TextBox("razon_social", (string)ViewBag.bus_razon, new { @MaxLength = "500" })
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+                                    </div>
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="cbp-mc-column">
+
+                                        <label style="text-align:left;">Departamento : </label>
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList =  new List<KeyValuePair<int, string>>();
+                                            dropdownList.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                            dropdownList.Add(new KeyValuePair<int, string>(1, "Arequipa"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                            SelectList selectList = new SelectList(dropdownList, "key", "value", 0);
+
+                                        }
+
+                                        @Html.DropDownList("foo", selectList)
+
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <label style="text-align:left;">Provincia :</label>
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList3 = new List<KeyValuePair<int, string>>();
+                                            dropdownList3.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(1, "Barranca"));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(2, "Cañete"));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                            dropdownList3.Add(new KeyValuePair<int, string>(2, "Yauyos"));
+                                            SelectList selectList3 = new SelectList(dropdownList3, "key", "value", 0);
+
+                                        }
+
+                                        @Html.DropDownList("foo", selectList3)
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="cbp-mc-column ">
+                                        <label style="text-align:left;">Distrito :</label>
+                                        @{
+                                            List<KeyValuePair<int, string>> dropdownList4 = new List<KeyValuePair<int, string>>();
+                                            dropdownList4.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(1, "Calango"));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(2, "Cerro Azul"));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(2, "Imperial"));
+                                            dropdownList4.Add(new KeyValuePair<int, string>(2, "Mala"));
+                                            SelectList selectList4 = new SelectList(dropdownList4, "key", "value", 0);
+
+                                        }
+                                        @Html.DropDownList("foo", selectList4)
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="cbp-mc-column">
+
+                                        <br />
+
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <br />
+
+                                    </div>
+
+                                    <div class="cbp-mc-column">
+                                        <br />
+
+                                    </div>
+
+                                    <!-- columna  3 -->
+
+                                    <div class="cbp-mc-column ">
+                                        <br>
+                                        <br>
+
+                                        <button class="btn btn-success"><i class="ace-icon fa fa-search"></i>Consultar</button>
+                                        <button class="btn btn-success"><i class="ace-icon fa fa-eraser"></i>Limpiar</button>
+
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+
+                            <br>
+
+                            <br>
+
+
+
+                        </div><!-- fin contenido-->
+                    </div>
+                </div>
+                <!-- -->
+            </div>
+
+            <br>
+            <br>
+            <br> <div class="col-xs-12">
+                <!-- inicio tabla-->
+                <div class=" table-responsive margen">
+                    <table id="tab_opa" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="3%" class="center">Nº</th>
+                                <th width="7%" class="center">R.U.C</th>
+                                <th width="30%" class="center">Razon Social </th>
+                                <th width="17%" class="center">Cadena Productiva a Reconvertir</th>
+                                <th width="10%" class="center">Cadena Productiva a Instalar</th>
+                                <th width="10%" class="center">Estado Actual</th>
+                                <th width="5%" class="center">Fecha del Estado</th>
+                                <th width="15%" class="hidden-480">&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td>
+                                <td class="center">20570607945 </td>
+                                <td style="text-align:left"> ASOC. DE AGRIC. AGROPEC. "RAYOS DEL DIAMANTE" </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CAFE </td>
+                                <td class="center"> OPINION TECNICA FAVORABLE</td>
+                                <td class="center"> 14/08/2018 </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBySOpa" title="Registrar">
+                                        <i class="ace-icon fa fa-file"></i>REGISTRAR ACTIVIDADES
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td class="center">20570607945 </td>
+                                <td style="text-align:left"> ASOC. DE AGRIC. AGROPEC. "RAYOS DEL DIAMANTE" </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CAFE </td>
+                                <td class="center"> OPINION TECNICA FAVORABLE</td>
+                                <td class="center"> 14/08/2018 </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBySOpa" title="Registrar">
+                                        <i class="ace-icon fa fa-file"></i>REGISTRAR ACTIVIDADES
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td class="center">20570607945 </td>
+                                <td style="text-align:left"> ASOC. DE AGRIC. AGROPEC. "RAYOS DEL DIAMANTE" </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CAFE </td>
+                                <td class="center"> OPINION TECNICA FAVORABLE</td>
+                                <td class="center"> 14/08/2018 </td>
+                                <td class="center">
+
+                                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBySOpa" title="Registrar">
+                                        <i class="ace-icon fa fa-file"></i>REGISTRAR ACTIVIDADES
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="center">4</td>
+                                <td class="center">20570607945 </td>
+                                <td style="text-align:left"> ASOC. DE AGRIC. AGROPEC. "RAYOS DEL DIAMANTE" </td>
+                                <td class="center"> ARROZ</td>
+                                <td class="center"> CAFE </td>
+                                <td class="center"> OPINION TECNICA FAVORABLE</td>
+                                <td class="center"> 14/08/2018 </td>
+                                <td class="center">
+                                    <a class="btn btn-success" id="" href="/UPromocionPrp/registrarBySOpa" title="Registrar">
+                                        <i class="ace-icon fa fa-file"></i>REGISTRAR ACTIVIDADES
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="recepcionModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Recepcionar Expediente</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Datos Generales de la Organizacion</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">R.U.C :</label></div>
+                                <div class="col-xs-8" style="text-align:left;">@Html.TextBox("nro_orden", (string)"20570607945", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Razón Social :</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"ASOC. DE AGRIC. AGROPEC. 'RAYOS DEL DIAMANTE'", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style=" text-align:left;">Domicilio Legal</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"CAJAMARCA / SAN IGNACIO / SAN JOSE DE LOURDES", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Representante Legal</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"JUAN PEREZ", new { style = "width:100%", disabled = "true" })</div>
+                            </div>
+                            <div class="row" style="margin-bottom:10px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Persona de Contacto</label></div>
+                                <div class="col-xs-8">@Html.TextBox("nro_orden", (string)"PEDRO LOPEZ", new { style = "width:100%;", disabled = "true" })</div>
+                            </div>
+
+                            <p>Datos para la Recepción</p>
+                            <hr />
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;"><label style="text-align:left;">Origen del Expediente</label></div>
+                                <div class="col-xs-8">
+                                    @{
+                                        List<KeyValuePair<int, string>> dropdownList9 = new List<KeyValuePair<int, string>>();
+                                        dropdownList9.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(1, "Arequipa"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(2, "Apurimac"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(2, "Lima"));
+                                        dropdownList9.Add(new KeyValuePair<int, string>(2, "Ica"));
+                                        SelectList selectList9 = new SelectList(dropdownList9, "key", "value", 0);
+
+                                    }
+                                    @Html.DropDownList("foo", selectList9, new { style = "width:100%" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:5px;">
+                                <div class="col-xs-4" style="text-align:left;">Fecha de Expediente</div>
+                                <div class="col-xs-8">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            @Html.TextBox("nro_orden", (string)ViewBag.bus_num, new { style = "width:100%" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Actualizar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- inicio grid-->
+                <!-- Fin tabla-->
+
+
+            </div><!-- fin grid -->
+        </div><!-- contenido -->
+    </div>
+
+</div><!-- fin contenedor -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on('click', '.Ver_OT', function () {
+
+            var val = $(this).attr('id');
+            var url_scan = "/OrdenTrabajo/Variable_ver_OT/" + val;
+            window.location.href = url_scan;
+
+        });
+
+        $(document).ready(function () {
+            $('.solo-numero').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+
+        $("#tab_opa").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $('#datetimepicker2').datetimepicker({
+            locale: 'es',
+            format: 'DD/MM/YYYY',
+            maxDate: Date.now(),
+            showClose: true,
+            allowInputToggle: true,
+            keepInvalid: true,
+            ignoreReadonly: true,
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'top'
+            }
+        }); //Initialise any date pickers
+
+    });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+

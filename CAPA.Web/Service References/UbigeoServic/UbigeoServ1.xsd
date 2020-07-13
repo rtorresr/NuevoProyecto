@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E.filtros" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:21970/UbigeoServ.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" />
+  <xs:complexType name="_listarxfiltroUbigeoReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoUbigeo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroUbigeoReq" nillable="true" type="tns:_listarxfiltroUbigeoReq" />
+  <xs:complexType name="_listarxfiltroDepartamentoResp">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" minOccurs="0" name="lsDepartamento" nillable="true" type="q1:ArrayOfUbigeo_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroDepartamentoResp" nillable="true" type="tns:_listarxfiltroDepartamentoResp" />
+  <xs:complexType name="_listarxfiltroProvinciaResp">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" minOccurs="0" name="lsProvincia" nillable="true" type="q2:ArrayOfUbigeo_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroProvinciaResp" nillable="true" type="tns:_listarxfiltroProvinciaResp" />
+  <xs:complexType name="_listarxfiltroDistritoResp">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SEL_Entidades.SEL_E" minOccurs="0" name="lsDistrito" nillable="true" type="q3:ArrayOfUbigeo_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_listarxfiltroDistritoResp" nillable="true" type="tns:_listarxfiltroDistritoResp" />
+</xs:schema>

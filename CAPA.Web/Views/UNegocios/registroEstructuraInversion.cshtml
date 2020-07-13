@@ -1,0 +1,791 @@
+﻿
+@{
+    ViewBag.Title = "registroEstructuraInversion";
+    Layout = "~/Views/Shared/_LayoutMenuUn.cshtml";
+}
+
+<div class="main-content">
+<!-- contenedor -->
+
+<div class="main-content-inner">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <span>Bienvenido  Sr: @Session["NombreUsua"] </span>
+        <!-- Fin Ruta -->
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/Modulos/">Modulos</a>
+            </li>
+            <li><a href="/UNegocios/Index">U.Negocios</a></li>
+            <li class="active">Estructura de Inversión</li>
+        </ul>
+
+    </div><!-- Inicio ruta -->
+
+    <div class="page-content">
+        <!-- contenido -->
+
+        <div class="page-header">
+            <!-- Inicio titulo -->
+
+            <div class="cbp-mc-column">
+
+                <h1> Registro de Estructura de Inversión</h1>
+            </div>
+        </div>       <!-- Fin titulo -->
+        <!-- inicio pasos-->
+
+        <div class="col-xs-12 col-md-12">
+            <!-- contenido de ACORDEON 1 -->
+            <div id="accordion" style="border:1px solid;">
+
+                <div class="card">
+
+                    <div class="widget-header card-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-file"></i>
+                                &nbsp; Registrar estructura de inversión
+                            </a>
+                        </h5>
+
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                            <br />
+
+                            <!----- VALIDA RUC ----->
+
+
+                            <div class="row" style="margin-bottom:5px;">
+                                <form class="card-body" style="padding-left:25px;padding-right:25px;">
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left; margin-bottom: 5px;">
+                                            <div>
+                                                <div><label style="text-align:left;"> RUC: </label></div>
+
+                                               @Html.TextBox("ruc", (string)"", new { style = "width:65%", disabled = true, Value = @Session["RucOA"] })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3" style="text-align:left;">
+
+                                            <div>
+                                                <label style=" text-align:left;">
+                                                    Nro de expediente:
+                                                </label>
+                                            </div>
+
+                                            @Html.TextBox("nroExp", (string)"1234-2018", new { @class = "solo-numero", style = "width:65%", disabled = "true" })
+
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:25%">No CUT:</label></div>
+                                          
+
+                                            @Html.TextBox("nroSgdCut", (string)"", new { @class = "campoNumero", @style = "width:65%", disabled = true, Value = @Session["RucOA"] })
+                                            <br />
+                                            <p id="ArucOA" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numéricos en este campo.</p>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left; width:40%">Cadena productiva:</label>
+                                                @Html.TextBox("cadenaProductiva", (string)"", new { @MaxLength = "500", @style = "width:65%", disabled = true })
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left; width:40%">Línea de acción:</label>
+                                                @Html.TextBox("cadenaProductiva", (string)"", new { @MaxLength = "500", @style = "width:65%", disabled = true })
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align:left; width:40%">Tipo de incentivo:</label>
+                                                @Html.TextBox("cadenaProductiva", (string)"", new { @MaxLength = "500", @style = "width:65%", disabled = true })
+                                            </div>
+                                        </div> 
+                                        
+                                        <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom: 5px;">
+                                            <div><label style="text-align:left; width:20%">Razón social:</label></div>
+                                            @Html.TextBox("razonSocial", (string)"", new { @MaxLength = "500", @style = "width:83%", disabled = true })
+                                        </div>
+                                   
+                                       
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:10px;">
+
+                                     
+                                        
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; ">
+                                            <div><label style="text-align:left; width:40%">Producto:</label></div>
+                                            <div>
+                                                @Html.TextBox("producto", (string)"", new { @MaxLength = "500", @style = "width:65%", disabled = true })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; ">
+                                            <div><label style="text-align:left; width:50%">Nombre plan de negocio PRP:</label></div>
+                                            <div>
+                                                @Html.TextBox("nombrePN_PRPA", (string)"", new { @MaxLength = "500", @style = "width:65%", disabled = true })
+                                            </div>
+                                        </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-bottom:10px;">
+                                                <div><label id="comentarioEI" style="text-align: left;">Comentario:</label>
+                                                </div> 
+                                                <div><textarea class="form-control" rows="1" placeholder="Texto .." style="max-width:100%"></textarea>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                </form>
+                            </div>
+                            <div class="row">
+
+                                <div class="cbp-mc-column " style="align-content:center">
+                                    <br>
+                                    <button type="button" class="btn btn-primary" id="btnSalvarPerfil"><i class="ace-icon fa fa-floppy-o"> </i> GUARDAR</button> &nbsp;
+                                    <button id="btnRegistrarSocio2" class="btn btn-success" title="Registrar">
+                                        <i class="ace-icon fa fa-pencil"></i> Registrar B/S
+                                    </button>
+                                  
+                                </div>
+
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="row">
+                        <!-- inicio grid-->
+                        <!-- Fin tabla-->
+
+
+                    </div><!-- fin grid -->
+                </div><!-- contenido -->
+            </div>
+
+            @*ACORDEON 2 ACTUALIZA ESTADO*@
+            <div id="accordion" style="border:1px solid;">
+
+                <div class="card">
+
+                    <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                        <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <a style="color:white; text-decoration:none;">
+                                <i class="ace-icon fa fa-file"> </i>
+                                &nbsp; Registrar Bien / Servicio
+                            </a>
+                        </h5>
+                        <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                                <i class="ace-icon fa fa-chevron-down"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body" style="padding-left:35px;padding-right:35px;">
+                            <br />
+
+                            @*OTRA FILA*@
+
+                            <br />
+
+                            <div class="row" style="margin-bottom:5px;">
+
+                                <form class="card-body" style="padding-left:25px;padding-right:25px;">
+
+
+                                    <div class="row" style="margin-bottom:25px;">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:60%">Bien / Servicios:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxBienServiciosFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:60%">Componente de Bien/Servicios:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxComponBSFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:50%">Categoría:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxCategoriaFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:40%">SubCategoría:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxSubCategoriaFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+
+                                    @*OTRA FILA*@
+                                    <div class="row" style="margin-bottom:25px;">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:60%">Descripción Bien / Servicio:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxEstrucInverFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-6" style="text-align: left; margin-bottom:10px;">
+                                            <div>
+                                                <label style="text-align: left;">Especificaciones técnicas:</label>
+                                            </div>
+                                            <div>
+                                                <textarea id="especificacionBS" class="form-control" rows="1" placeholder="Texto ..." style="width:85%;"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:50%">Característica principal:</label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("caractPrincipal", (string)"", new { @class = "campoTexto", @style = "width:65%", disabled=true })
+                                               
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    @*OTRA FILA*@
+                                    <div class="row" style="margin-bottom:25px;">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:50%">Unidad de característica:</label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:65%", disabled = true })
+
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="col-xs-12 col-sm-12 col-md-3" style="text-align:left;">
+                                            <div>
+                                                <label style="text-align: left; width:30%">Cantidad: </label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("DireccionLegOA", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:65%" })
+                                                <p id="cantidadBS" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:50%">Unidad de medida de adquisición:</label>
+                                            </div>
+                                            <div>
+                                                @Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:65%", disabled=true })
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:60%">Otra unidad de medida de adquisición:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxOtraUnMedFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+                                        
+
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align: left; width:30%">Precio unitario: </label>
+                                            </div>
+
+                                            <div>
+                                                @Html.TextBox("DireccionLegOA", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:65%" })
+                                                <p id="precioUnitarioBS" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align: left; width:30%">Costo total: </label>
+                                            </div>
+
+                                            <div>
+                                                @Html.TextBox("costoTotalBienServicio", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:65%" })
+                                                <p id="costoTotalBS" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                            </div>
+                                        </div>
+
+                                   </div>
+
+
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left;">
+                                            <div>
+                                                <label style="text-align:left; width:60%">Motivo actualización:</label>
+                                            </div>
+                                            <div>
+                                                @*@Html.TextBox("nroExp", (string)"", new { @class = "campoTexto", @style = "width:30%" })*@
+                                                <select id="cbxMotivoActFr" class="custom-select" style="width:65%;"> </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom:10px;">
+                                            <div> <label style="text-align: left;">Otro motivo actualización:</label></div>
+                                            <div><textarea id="comentarioBS" class="form-control" rows="1" placeholder="Texto ..." style="width:80%;"></textarea></div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:25px;">
+                                            <div class="col-xs-12 col-md-4" style="text-align: left; margin-bottom:10px;">
+                                                <div> <label style="text-align: left;">Comentario:</label></div>
+                                                <div><textarea id="comentarioBS" class="form-control" rows="1" placeholder="Texto ..." style="width:80%;"></textarea></div>
+                                            </div>
+                                        </div>
+                                     </div>
+
+
+                                        <div class="row" style="margin-bottom:10px; border: 1px solid green;">
+
+                                            <h2><strong>COFINANCIAMIENTO</strong></h2>
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-top:20px; margin-bottom:20px;">
+                                                <div>
+                                                    <label style="text-align: left; width:30%">Aporte PCC: </label>
+
+                                                    @Html.TextBox("DireccionLegOA", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:40%" })
+                                                    <p id="aportePCC" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-top:20px; margin-bottom:20px;">
+                                                <div>
+                                                    <label style="text-align: left; width:30%">Porcentaje PCC: </label>
+
+                                                    @Html.TextBox("DireccionLegOA", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:40%" })
+                                                    <p id="porcentajePCC" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-top:20px; margin-bottom:20px;">
+                                                <div>
+                                                    <label style="text-align: left; width:30%">Aporte OA: </label>
+
+                                                    @Html.TextBox("DireccionLegOA", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:40%" })
+                                                    <p id="aporteOA" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3" style="text-align: left; margin-top:20px; margin-bottom:20px;">
+                                                <div>
+                                                    <label style="text-align: left; width:30%">Porcentaje OA: </label>
+
+                                                    @Html.TextBox("DireccionLegOA", (string)" ", new { @class = "campoGenerico", @maxlength = "250", style = "width:40%" })
+                                                    <p id="porcentajeOA" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+</form>
+
+
+                            </div>
+
+                            <div class="row" style="margin-bottom:10px;">
+
+                                <button id="btnAgregar" class="btn btn-primary" style="width:8%; margin-right:2%;">
+                                    @*<i class="ace-icon fa fa-user-plus"></i>*@AGREGAR
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="cbp-mc-column">
+                            </div>
+
+                            <div class="cbp-mc-column">
+                                <br />
+
+                            </div>
+
+                            <!-- columna  3 -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+               
+            </div>
+            @*FIN DE ACORDEON 2*@
+
+            <div class="col-xs-12">
+                <br />
+                <h2>Estructura de Inversión de Bienes</h2>
+                <!-- inicio tabla-->
+                <div class="table-responsive margen">
+                    <table id="tabEstructuraInversionBienes" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" width="3%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Componente de inversión</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Categoría</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">SubCategoría</th>
+                                <th rowspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Descripción B/S</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Especificaciones técnicas</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Unid. Medida B/S</th>
+                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Cantidad</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Costo Unitario</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Unid. Medida adquisición</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Año</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Aporte PCC</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Aporte OA</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">%PCC</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">%OA</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Motivo Actualización</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Comentario</th>
+                                <th colspan="2" width="13%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">01</td>
+                                <td class="center">15/10/2019 </td>
+                                <td style="text-align:center"> Robert Rayco </td>
+                                <td class="center"> 05 </td>
+                                <td class="center"> Bueno </td>
+                                <td class="center"> User </td>
+                                <td class="center"> 20/10/2019 </td>
+                                <td class="center">Activo</td>
+                                <td class="center">15/10/2019 </td>
+                                <td class="center">-- </td>
+                                <td class="center">-- </td>
+                                <td style="text-align:center"> Robert Rayco </td>
+                                <td class="center"> 05 </td>
+                                <td class="center"> Bueno </td>
+                                <td class="center"> User </td>
+                                <td class="center"> 20/10/2019 </td>
+                                <td class="center"> Bien producido </td>
+                                <td class="center">
+
+                                    <a class="btn btn-warning" id="btnModificar" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td class="center">
+                                    <a class="btn btn-danger" id="btnEliminar" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-trash"></i>
+                                    </a>
+                                    </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <br />
+
+
+                <h2>Estructura de Inversión de Servicios</h2>
+                <!-- inicio tabla-->
+                <div class="table-responsive margen">
+                    <table id="tabEstructuraInversionServicio" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" width="3%" style="background-color:darkseagreen; color:black;" class="center">N°</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Componente de inversión</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Categoría</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">SubCategoría</th>
+                                <th rowspan="2" width="10%" style="background-color:darkseagreen; color:black;" class="center">Descripción B/S</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Especificación técnicas</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Unid. Medida B/S</th>
+                                <th rowspan="2" width="4%" style="background-color:darkseagreen; color:black;" class="center">Cantidad</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Costo Unitario</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Unid. Medida adquisición</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Año</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Aporte PCC</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Aporte OA</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">%PCC</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">%OA</th>
+                                <th rowspan="2" width="7%" style="background-color:darkseagreen; color:black;" class="center">Motivo Actualización</th>
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Comentario</th>
+                                <th colspan="2" width="13%" style="background-color:darkseagreen; color:black;" class="center">Acciones</th>
+
+                            </tr>
+                            <tr>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Modificar</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Eliminar</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">01</td>
+                                <td class="center">15/10/2019 </td>
+                                <td style="text-align:center"> Robert Rayco </td>
+                                <td class="center"> 05 </td>
+                                <td class="center"> Bueno </td>
+                                <td class="center"> User </td>
+                                <td class="center"> 20/10/2019 </td>
+                                <td class="center">Activo</td>
+                                <td class="center">15/10/2019 </td>
+                                <td class="center">-- </td>
+                                <td class="center">-- </td>
+                                <td style="text-align:center"> Robert Rayco </td>
+                                <td class="center"> 05 </td>
+                                <td class="center"> Bueno </td>
+                                <td class="center"> User </td>
+                                <td class="center"> 20/10/2019 </td>
+                                <td class="center"> Bien producido </td>
+
+                                <td class="center">
+
+                                    <a class="btn btn-warning" id="btnModificar" href="#modificarModal" title="Modificar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-edit"></i>
+                                    </a>
+                                    </td>
+
+                                <td class="center">
+                                    <a class="btn btn-danger" id="btnEliminar" href="#eliminarModal" title="Eliminar" data-toggle="modal">
+                                        <i class="ace-icon fa fa-trash"></i>
+                                    </a>
+                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                @*TABLA RESUMEN*@
+                <h2>Resumen</h2>
+                <div class="table-responsive margen">
+                    <table id="tab_dae" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="15%" style="background-color:darkseagreen; color:black;" class="center">Descripción B/S</th>
+                                <th width="5%" style="background-color:darkseagreen; color:black;" class="center">Inversión Total</th>
+                                <th width="5%" style="background-color:darkseagreen; color:black;" class="center">Aporte PCC</th>
+                                <th width="5%" style="background-color:darkseagreen; color:black;" class="center">%PCC</th>
+                                <th width="5%" style="background-color:darkseagreen; color:black;" class="center">Aporte OA</th>
+                                <th width="5%" style="background-color:darkseagreen; color:black;" class="center">%OA</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">Activo</td>
+                                <td class="center">15/10/2019 </td>
+                                <td style="text-align:center"> Robert Rayco </td>
+                                <td class="center"> 05 </td>
+                                <td class="center"> Bueno </td>
+                                <td class="center"> User </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Total por años</h2>
+                <!-- inicio tabla-->
+                <div class="table-responsive margen">
+                    <table id="tabEstructuraInversionServicio" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                
+                                <th rowspan="2" width="5%" style="background-color:darkseagreen; color:black;" class="center">Descripción</th>
+                                <th colspan="5" width="13%" style="background-color:darkseagreen; color:black;" class="center">Año 1</th>
+                                <th colspan="5" width="13%" style="background-color:darkseagreen; color:black;" class="center">Año 2</th>
+                                <th colspan="5" width="13%" style="background-color:darkseagreen; color:black;" class="center">Año 3</th>
+
+                            </tr>
+                           
+                            <tr>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Inversión total</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Aporte PCC</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">% PCC</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Aporte OA</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">% OA</th>
+
+
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Inversión total</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Aporte PCC</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">% PCC</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Aporte OA</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">% OA</th>
+
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Inversión total</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Aporte PCC</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">% PCC</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Aporte OA</th>
+                                <th class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">% OA</th>
+                            </tr>
+                            
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Total Bienes</td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Total Servicios</td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                               
+                            </tr>
+
+                            <tr>
+                                <td class="text-center" style="background-color:darkseagreen; color:black; min-width:5%; max-width:5%">Total Servicios</td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                                <td class="center"> -- </td>
+                               
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="row" style="margin-bottom:25px;">
+                        <br />
+
+                        <a id="btnRegresar" class="btn btn-success" href="/OA/Index" title="Cancelar">
+                            <i class="ace-icon fa fa-undo"></i> REGRESAR
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+                </div><!-- fin contenedor -->
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+    
+        llenarCboxEstructuraInversion();
+
+        llenarCboxCategoria();
+
+        controles_SDA();
+    
+    });
+
+</script>

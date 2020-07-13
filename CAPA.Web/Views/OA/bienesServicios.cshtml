@@ -1,0 +1,493 @@
+﻿@{
+    ViewBag.Title = "bienesServicios";
+    Layout = "~/Views/Shared/_LayoutMenuOA.cshtml";
+}
+
+<head>
+    <title>Registar Bienes y Servicios</title>
+</head>
+
+<div class="main-content">
+    <!-- Contenedor -->
+    <div class="main-content-inner">
+        <div class="main-container ace-save-state" id="main-container">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <!-- Inicio Rura-->
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/OA/"></a>
+                    </li>
+
+                    <li><a href="/OA/Index">OA</a></li>
+                    <li class="active"> <a href="bienesServicios">Bienes y Servicios</a></li>
+                </ul>
+
+            </div> <!-- Fin de Ruta -->
+
+            <div class="page-content">
+                <!-- Contenido -->
+                <!-- Inicio Titulo -->
+                @*<div class="page-header">
+                        <div class="col-xs-12 col-md-12">
+                            <h1> Bienes y Servicios </h1>
+                        </div>
+                    </div>*@
+                <!-- Fin Titulo -->
+
+                <div class="col-xs-12 col-md-12">
+                    <div class="row" style="margin-bottom:15px;">
+                        <a class="btn btn-success" id="" href="index" title="Regresar">
+                            <i class="ace-icon fa fa-undo"></i> Regresar
+                        </a>
+                    </div>
+
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-xs-12 col-md-12" style="text-align:left;">
+                            <label style="text-align:left;">Organización : </label>
+                            @Html.TextBox("rucOA", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true", Value = Session["rucOA"] })
+                            @Html.TextBox("idCultivoCrianza", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true" })
+                            @Html.TextBox("idUsuario", (string)"", new { style = "width:60%; text-align:left; display:none", disabled = "true", Value = Session["IdUsua"] })
+                            @Html.TextBox("razSocialOA", (string)"", new { style = "width:60%; text-align:left;", disabled = "true" })
+                        </div>
+                    </div>
+                    <br />
+
+
+
+                    <div class="col-md-12">
+
+                        <div class="nav-tabs-custom">
+
+                            <div class="tab-content">
+
+                                <div class="active tab-pane" id="pesProrroga">
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-md-11" style="text-align: left; margin-left: 1%; border-bottom: 1px solid #ede9e9;">
+                                            <h3>
+                                                <i class="ace-icon fa fa-file"></i>
+                                                BIENES Y SERVICIOS
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:25px;">
+                                        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: left; align-content: center;">
+
+                                            @*<div class="col-xs-12 col-md-1" style="text-align: left">
+                                                    &nbsp;&nbsp;
+                                                </div>*@
+                                            <div class="col-xs-12 col-md-12" style="text-align: left">
+
+                                                <div class="row" style="margin-bottom:55px; align-items: center;">
+                                                    <div class="col-xs-12 col-md-10" style="text-align:left; ">
+                                                        <label style="text-align:left; width:10%;"> Problema :</label>
+                                                        <select id="cbxProbEsp" class="custom-select" style="width:80%"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:25px">
+                                                    <!--   Alternativas para el Problema : -->
+                                                    <h3 style="text-align:left">Lista Alternativas de solución del Problema</h3>
+                                                    <hr />
+
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <div class="table-responsive margen" style="align-text:center;">
+                                                            <table id="tablaAlterSolBS" class="table table-bordered table-hover" style="width:100%; ">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <td rowspan="1" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">ID.</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Código</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:35%; width:35%; max-width:65%">Alternativa de solucion del Problema</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:2%; width:2%; max-width:2%">Asignar Bien o Servicio</td>
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <!--   Bienes -->
+                                                <br />
+
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:25px">
+                                                    <h3 style="text-align:left">Lista de Bienes OA</h3>
+                                                    <hr />
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <div class="table-responsive margen " style="align-items:center;">
+                                                            <table id="tablaBienesOA" class="table table-bordered table-hover" style="width:100%;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <td rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; width:15%; max-width:15%">Cod. Alternativa de solucion</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:45%; width:45%; max-width:45%">Bienes</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Cantidad</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Unidad</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Precio Unit.</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Monto Total</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Aporte Agroideas</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Porcentaje Agroideas</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Aporte OA</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Porcentaje OA</td>
+                                                                        <td colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Acción</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Modificar</th>
+                                                                        <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Eliminar</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot align="right">
+                                                                    <tr>
+                                                                        <th style="display:none;"></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:25px">
+                                                    <h3 style="text-align:left">Lista de Servicios OA</h3>
+                                                    <hr />
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <div class="table-responsive margen" style="align-items:center;">
+                                                            <table id="tablaServiciosOA" class="table table-bordered table-hover" style="width:100%;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <td rowspan="2" style="display:none; background-color:darkseagreen; color:black; text-align:center; vertical-align:middle;">ID</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:1%; width:1%; max-width:1%">Nro.</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:15%; width:15%; max-width:15%">Cod. Alternativa de solucion</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:45%; width:45%; max-width:45%">Servicio</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Cantidad</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Unidad</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Precio Unit.</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Monto Total</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Aporte Agroideas</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Porcentaje Agroideas</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Aporte OA</td>
+                                                                        <td rowspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Porcentaje OA</td>
+                                                                        <td colspan="2" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Acción</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Modificar</th>
+                                                                        <th style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:3%; width:3%; max-width:3%">Eliminar</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot align="right">
+                                                                    <tr>
+                                                                        <th style="display:none;"></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <!--   Resumen  -->
+                                                <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:25px;">
+                                                    <h3 style="text-align:left">Resumen Bienes / Servicios :</h3>
+                                                    <hr />
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <div class="table-responsive margen " style="align-items:center;">
+                                                            <table id="tablaResumenBienesServicios" class="table table-bordered table-hover" style="width:50%;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Nro.</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:30%; width:5%; max-width:5%">Descripción</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Monto Total</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Aporte Agroideas</td>
+                                                                        <td rowspan="1" style="background-color:darkseagreen; color:black; text-align:center; vertical-align:middle; min-width:5%; width:5%; max-width:5%">Aporte OA</td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot align="right">
+                                                                    <tr>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                        <th style="background-color:#E8E7E6; color:black; text-align:center; vertical-align:middle; min-width:5%; max-width:5%"></th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            @*<div class="col-xs-12 col-md-1" style="text-align: left">
+                                                    &nbsp;&nbsp;
+                                                </div>*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fin Pasos -->
+                            @* Resumen
+                                Descripción, total general, aporte Agroideas, %agroideas, aporte opa, %opa
+                            *@
+
+
+                            <!-- MODAL ASIGNAR BIEN O SERVICIO -->
+
+                            <div id="asignarBienServicio" class="modal fade" aria-hidden="true">
+                                
+                                <div class="modal-dialog modal-lg"> 
+                                    <div class="modal-content" style="width:120%">
+
+                                        <div class="modal-header alert-success alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="modal"></button>
+                                            <h4 class="modal-title"> BIEN O SERVICIO</h4>
+                                        </div>
+
+                                        <div class="modal-body" id="mdialTamanio" style="max-height:90%">
+
+                                            <div class="row" style="margin-bottom:5px;">
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Organización : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("razoSocial", (string)"", new { style = "width:100%; text-align:left;", disabled = true })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-2" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Cód. Alternativa :</label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("codAlternativa", (string)"", new { style = "width:100%; text-align:left;", disabled = true })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-10" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Alternativa :</label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("idBienServicio", (string)"", new { style = "display:none; width:10%; text-align:left;", disabled = true })
+                                                        @Html.TextBox("idAlternativa", (string)"", new { style = "display:none; width:10%; text-align:left;", disabled = true })
+                                                        @Html.TextBox("alternativa", (string)"", new { style = "width:100%;", disabled = true })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:5px; ">
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Categoría :</label>
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxCategoriaFr" class="custom-select col-sm-12 col-md-12"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Subcategoría:</label>
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxSubCategoriaFr" class="custom-select col-sm-12 col-md-12"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Bien o Servicio :</label>
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxBienServicioFr" class="custom-select col-xs-12 col-sm-12 col-md-12"></select>
+                                                     </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Unidad Medida de Adquisición :</label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("unidReferencial", (string)"", new { @class = "campoDecimal  col-sm-12 col-md-12", style = "text-align:left;", disabled = true })
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom:5px; ">
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Cantidad : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("cantidad", (string)"", new { @class = "campoDecimal", style = "width:100%; text-align:left;", @placeholder = "Ejm: 1,250.60" })
+                                                        <p id="Acantidad" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo valores numericos con separadores de miles o decimales en este campo.</p>
+                                                    </div>
+                                                </div>
+                                                 
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Tipo Unidad Medida :  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <label style="text-align:right"> Otros  </label>    @Html.CheckBox("otraUndMed", new { style = "text-align:left;" })
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxTipoUnidMedFr" class="custom-select" style="width:100%" disabled></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label> Unidad Medida :</label>
+                                                    </div>
+                                                    <div>
+                                                        <select id="cbxUnidMedidaFr" class="custom-select" style="width:100%" disabled></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:5px; ">
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Precio Unitario : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("precioUnitario", (string)"", new { @class = "campoMilesDeci", style = "width:60%;" })
+                                                        <label>soles. </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Monto Total : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("montoTotal", (string)"", new { style = "width:60%;", disabled = true })
+                                                        <label>soles. </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:5px; ">
+
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Aporte Agroideas : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("aporteAgroIdea", (string)"", new { style = "width:60%; text-align:left;", disabled = true })
+                                                        <label style="text-align: left; ">soles. </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Procentaje Agroideas : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("porcentajeAgroIdea", (string)"", new { style = "width:60%; text-align:left;" })
+                                                        <label>%. </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:5px; ">
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Aporte OA : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("aporteOA", (string)"", new { style = "width:60%; text-align:left;", disabled = true })
+                                                        <label>soles. </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        <label>Porcentaje OA : </label>
+                                                    </div>
+                                                    <div>
+                                                        @Html.TextBox("porcentajeOA", (string)"", new { style = "width:60%; text-align:left;", disabled = true })
+                                                        <label>%. </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-4" style="text-align:left; margin-bottom:8px;">
+                                                    <div>
+                                                        &nbsp;&nbsp;
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            <div class="modal-footer">
+                                                <button id="btnGrabarBienServOA" type="button" class="btn btn-success btn-success" data-dismiss="modal">Grabar</button>
+                                                <button id="btnCancelarrBienServOA" type="button" class="btn btn-danger btn-danger" data-dismiss="modal">Cerrar</button>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fin Contenedor -->
+</div>  
+
+
+<script type="text/javascript"> 
+	$(document).ready(function () { 
+		controles_bienServicioOA();
+
+	}); 
+</script>           

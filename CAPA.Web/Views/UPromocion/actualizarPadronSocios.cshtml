@@ -1,0 +1,827 @@
+﻿@model SEL_Entidades.SEL_E.OA_Socio_E
+
+@{
+    ViewBag.Title = "actualizarPadronSocios";
+    Layout = "~/Views/Shared/_LayoutMenuUp.cshtml";
+}
+
+ 
+<title>Actualizar Socio del Padrón OA - U.P.</title>
+
+ 
+<div class="main-content">
+    <!-- contenedor -->
+    <div class="main-content-inner">
+        <div class="main-container ace-save-state" id="main-container">
+
+
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <span>Bienvenido  Sr: @Session["NombreUsua"]   </span>
+                <!-- Inicio Ruta -->
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/UPromocion/"> </a>
+                    </li>
+                    <li><a href="/UPromocion/Index">U. Promocion</a></li>
+                    <li> <a href="/UPromocion/verPadronSocio">Padrón de Socios de la Organización</a></li>
+                    <li class="active"> <a href="/UPromocion/actualizarPadronSocios">Actualizar Socio del Padrón OA</a></li>
+                </ul>
+
+            </div><!-- Fin ruta -->
+
+            <div class="page-content">
+                <!-- contenido -->
+
+                <div class="page-header">
+                    <!-- Inicio titulo -->
+
+                    <div class="col-md-12">
+                        <h1> Actualizar Socio del Padrón OA </h1>
+                    </div>
+                </div>       <!-- Fin titulo -->
+                <!-- inicio pasos-->
+
+
+                <div class="col-md-12">
+                    <!-- contenido de pasos -->
+                    @*<div class="row" style="margin-bottom:25px;">
+                        <br />
+                        <button id="btModificarSocio" class="btn btn-warning" title="Grabar">
+                            <i class="ace-icon fa fa-pencil"></i> GRABAR
+                        </button>
+
+                        <button class="btn btn-success" id="btnCancelarModificarSocio" title="Cancelar">
+                            <i class="ace-icon fa fa-undo"></i> CANCELAR
+                        </button>
+                    </div>*@
+
+                    <br />
+                    <form>
+                        @*@using (Html.BeginForm())
+                        {*@
+
+
+                        <!---- DATOS DE LA OA ----->
+                        <!--------- ACORDEON ------------>
+                        <div id="accordion1" style="border:1px solid;">
+                            <div class="card">
+                                @* Acordeaon Cabecera *@
+                                <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <a style="color:white; text-decoration:none;">
+                                            <i class="ace-icon fa fa-file"></i>
+                                            Datos de la OA
+                                        </a>
+                                    </h5>
+                                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <a href="#collapseOne" data-action="collapse" style="color:#fff;">
+                                            <i class="ace-icon fa fa-chevron-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                @* Acordeaon Cuerpo *@
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
+                                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                                        <br />
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label> RUC:</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.idOADatos, new { @class = "campoNumero", style = "display:none" })
+                                                    @Html.TextBox("idOA", (string)"", new { @class = "campoNumero", style = "display:none" })
+                                                    @Html.TextBox("rucOA", (string)"", new { @class = "camposTexto", style = "width:50%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-8" style="text-align:left;">
+                                                <div>
+                                                    <label>Raz. Social: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("razonSocial", (string)"", new { @class = "camposTexto", style = "width:90%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label>Nro Expediente: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("nroExpedienteOA", (string)"", new { @class = "camposTexto", style = "width:50%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label>Nro SGD: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("NroSGDCut", (string)"", new { @class = "camposTexto", style = "width:50%", disabled = true })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label>Proceso: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("proceso", (string)"", new { @class = "camposTexto", style = "width:50%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <br />
+
+                             
+
+                        <!---- DATOS DEL SOCIO ----->
+                        <!--------- ACORDEON ------------>
+                        <div id="accordion2" style="border:1px solid;">
+                            <div class="card">
+                                @* Acordeaon Cabecera *@
+                                <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <a style="color:white; text-decoration:none;">
+                                            <i class="ace-icon fa fa-file"></i>
+                                            Datos Generales del Socio
+                                        </a>
+                                    </h5>
+                                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <a href="#collapseTwo" data-action="collapse" style="color:#fff;">
+                                            <i class="ace-icon fa fa-chevron-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                @* Acordeaon Cuerpo *@
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+
+                                        <br />
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Nro Documento : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("rucOA", (string)"", new { @class = "camposTexto", style = "display:none", Value = @Session["RucOA"] })
+                                                    @Html.TextBox("idUnidadPcc", (string)"", new { @class = "camposNumero", style = "display:none", Value = "2" })
+                                                    @Html.TextBoxFor(m => m.idOADatos, new { @class = "campoNumero", style = "display:none" })
+                                                    @Html.TextBoxFor(m => m.nroExpedienteOA, new { @class = "campoTexto", style = "display:none" })
+                                                    @Html.TextBoxFor(m => m.nDni, new { @class = "campoNumero", @maxlength = "8", style = "width:65%", disabled = true })
+                                                    @* <a class="btn btn-success" id="btnConsultaPideSocio" href="#" style="width:25%" title="Validar"> <i class="ace-icon fa fa-check-circle"></i>Buscar</a>*@
+                                                    <p id="AnDni" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;"> Nombre Completo : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.HiddenFor(m => m.idSocio, new { @class = "campoNumero" })
+                                                    @Html.HiddenFor(m => m.apellidoPaterno, new { style = "width:30%" })
+                                                    @Html.HiddenFor(m => m.apellidoMaterno, new { style = "width:30%" })
+                                                    @Html.HiddenFor(m => m.nombreSocio, new { style = "width:30%" })
+                                                    @Html.TextBoxFor(m => m.nombreCompleto, new { @MaxLength = "500", style = "width:78%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align:left;"> Fecha de Nac. : </label>
+                                                </div>
+                                                <div class="input-group date col-xs-12 col-md-3" style="width: 65%; Text-align: left;">
+                                                    @Html.TextBoxFor(m => m.fechNacimiento, new { @class = "datetimepicker", style = "width:100%" })
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar" style="text-align:left;"></span>
+                                                    </span>
+                                                </div>
+                                                <div id="AlertaFecha1" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Verifique la fecha de Nacimiento.</div>
+                                                <div id="AlertaFecha2" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Edad no permitida.</div>
+
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;"> Edad :  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.edad, new { @class = "campoNumero", @maxLength = "2", style = "width:40%;", disabled = true })
+                                                    <p id="Aedad" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">  Genero : </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxSexoFr" class="custom-select col-xs-12 col-sm-6 col-md-10">
+                                                        <option value="0">Seleccione</option>
+                                                        <option value="1">MASCULINO</option>
+                                                        <option value="2">FEMENINO</option>
+                                                    </select>
+                                                </div>
+                                                @*<div>
+                                    <select id="cbxSexoFr" class="custom-select col-xs-12 col-sm-6 col-md-10"> </select>
+                                </div>*@
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Estado Civil : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.estadoCivil, new { style = "width:65%;", disabled = "true;" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            @*<div class="col-xs-12 col-md-3" style="text-align:left;">
+                                <div>
+                                    <label style="text-align:left;">D.N.I de conyuge : </label>
+                                </div>
+                                <div>
+                                    @Html.TextBoxFor(m => m.dniConyuge, new { @class = "campoNumero", @maxLength = "8", style = "width:55%;" })
+                                    <button id="btnVerifDniCony" class="btn btn-info2 btn-sm" title="Verificar existencia en SEL"> <ion-icon name="search"></ion-icon></button>
+                                    <p id="Adniconyuge" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                </div>
+                            </div>*@
+
+                                            <div class="col-xs-12 col-sm-6 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">D.N.I de conyuge : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.dniConyuge, new { @class = "campoNumero", @maxLength = "8", style = "width:55%;" })
+                                                    <button type="button" id="btnVerifDniCony" class="btn btn-info2 btn-sm" title="Verificar existencia en SEL"> <ion-icon name="search"></ion-icon></button>
+                                                    <p id="Adniconyuge" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;">Depar. / Provin. / Distr. : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.codigoUbigeo, new { @class = "campoTexto", style = "display:none" })
+                                                    @Html.TextBoxFor(m => m.ubigeoref, new { @class = "campoGenerico", @maxlength = "250", style = "width:90%", disabled = true })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;">Direccion : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.direccionUbigeo, new { @class = "campoGenerico", @maxlength = "250", style = "width:90%", disabled = true })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;">Centro Poblado : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.centroPoblado, new { @class = "campoGenerico", @maxlength = "250", style = "width:90%" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;"> Nivel de Educacion : </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxNivelEduc" class="custom-select col-xs-12 col-sm-6 col-md-6">
+                                                        <option value="0">Seleccione</option>
+                                                        <option value="1">Primaria</option>
+                                                        <option value="2">Secundaria</option>
+                                                        <option value="3">Superior</option>
+                                                        <option value="4">Ninguno</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Teléfono :  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.telefono, new { @class = "campoTelefono", @maxlength = "9", style = "width:40%" })
+                                                    <p id="Atelefono" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Organización Base :  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.OABasePertenece, new { @class = "campoTelefono", @maxlength = "9", style = "width:90%" })
+                                                    <p id="AOABasePertenece" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo digitos en este campo.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-----   Fin de Acordeon 2  ------>
+                        <!---- FIN DE DATOS DE SOCIO ----->
+
+                        <br />
+                        <!---- DATOS ESPECÍFICOS ----->
+                        <!--------- ACORDEON2 ------------>
+                        <div id="accordion3" style="border:1px solid;">
+
+                            <div class="card">
+                                @* Acordeaon Cabecera *@
+                                <div class="card-header widget-header" id="headingOne" style="text-align:left;">
+                                    <h5 class="widget-title" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <a style="color:white; text-decoration:none;">
+                                            <i class="ace-icon fa fa-file"></i>
+                                            Datos Específicos del Socio
+                                        </a>
+                                    </h5>
+                                    <div class="widget-toolbar" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <a href="#collapseThree" data-action="collapse" style="color:#fff;">
+                                            <i class="ace-icon fa fa-chevron-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                @* Acordeaon Cuerpo *@
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body" style="padding-left:12px;padding-right:12px;">
+                                        <br />
+
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    <i class="ace-icon fa fa-file"></i>
+                                                    Datos de Ubigeo
+                                                </h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Departamento :  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.departamento, new { @class = "campoTexto", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left; ">
+                                                <div>
+                                                    <label style="text-align: left;"> Provincia :  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.provincia, new { @class = "campoTexto", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Distrito : </label>
+                                                </div>
+                                                <div>
+                                                    @*<select id="cbxDistritoFr" class="custom-select" style="width:60%;"> </select>*@
+                                                    @Html.TextBoxFor(m => m.distrito, new { @class = "campoTexto", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+                                            <!-- margin-bottom: 5px; -->
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; ">
+                                                <div>
+                                                    <label style="text-align: left;">Tipo Ambito : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.idZonaIntervencion, new { @class = "campoGenerico", @maxlength = "250", style = "display:none; width:65%", disabled = true })
+                                                    @Html.TextBoxFor(m => m.descripAmbito, new { @class = "campoGenerico", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px; ">
+                                                <div>
+                                                    <label style="text-align: left;">Valor de Quintil : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.valorQuintilPobreza, new { @class = "campoGenerico", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Nivel de Quintil Pobreza:  </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nivelQuintil, new { @class = "campoTexto", @maxlength = "250", style = "width:65%", disabled = true })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px; ">
+                                                <div>
+                                                    <label style="text-align: left;">Altitud del distrito : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.altitud, new { @class = "campoGenerico", @maxlength = "250", style = "width:50%", disabled = true })
+                                                    &nbsp;<label>m.s.n.m.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!---- DATOS PARA PN ----->
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    <i class="ace-icon fa fa-file"></i>
+                                                    Datos para el Plan de Negocio
+                                                </h3>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">¿Participa en el Plan de Negocio? :</label>
+                                                </div>
+                                                <div>
+                                                    @{
+                                                        List<KeyValuePair<int, string>> ddlPPN = new List<KeyValuePair<int, string>>();
+                                                        ddlPPN.Add(new KeyValuePair<int, string>(0, "Seleccione..."));
+                                                        ddlPPN.Add(new KeyValuePair<int, string>(1, "SI"));
+                                                        ddlPPN.Add(new KeyValuePair<int, string>(2, "NO"));
+                                                        SelectList sddlPPN = new SelectList(ddlPPN, "key", "value", 0);
+
+                                                    }
+                                                    @Html.DropDownList("cbxParticipaPN", sddlPPN, new { style = "width:65%", enabled = "true" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;">  Actividad Económica : </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxActEconoFr" style="width:65%"> </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; margin-bottom: 5px;">
+                                                <div>
+                                                    <label style="text-align: left;"> Producto Principal : </label>
+                                                </div>
+                                                <div>
+                                                    @*<select id="cbxCadenaProdFr" style="width:65%"> </select>*@
+                                                    @Html.TextBox("principalProducto", (string)"", new { @class = "campoTexto", style = "width:65%" })
+                                                </div>
+                                            </div>
+
+
+                                            @*margin-bottom: 5px;*@
+                                            <div class="col-xs-12 col-md-3" style="text-align: left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Cantidad de Producción : </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.cantidadProduccion, new { @class = "campoDecimal", style = "width:17%;" })
+                                                    <select id="cbxTipoUnidMedFr" class="custom-select" style="width:24%;"> </select>
+                                                    <select id="cbxUnidMedidaFr" class="custom-select" style="width:24%;"> </select>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- ---------------------------------------- -->
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; ">
+                                                <div>
+                                                    <label style="text-align:left;">Cargo :</label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxOACargoFr" class="custom-select" style="width:65%"></select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; ">
+                                                <div>
+                                                    <label>Fecha de ingreso al Padrón : </label>
+                                                </div>
+
+                                                <div class="input-group date" style="width:65%; text-align: left;">
+                                                    @Html.TextBoxFor(m => m.fechaRegistroSocio, new { @class = "datetimepicker", style = "width:100%; text-align:left;", disabled = true })
+                                                    <span class="input-group-addon" style="text-align:left;">
+                                                        <span style="text-align:left;" class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xs-12 col-md-6" style="text-align:left;">
+                                                <div>
+                                                    <label>Motivo de Ingreso:</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.motivoIngreso, new { @Class = "campoTexto col-xs-12 col-sm-12 col-md-10"})
+                                                </div>
+                                            </div>
+                                             
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Dar de baja: </label>
+                                                </div>
+                                            
+                                                <div>
+                                                   <select id="cbxDeBaja" class="custom-select col-xs-12 col-sm-12 col-md-8">
+                                                       <option value="0">Seleccione</option>
+                                                       <option value="1">Si</option>
+                                                       <option value="2">No</option>
+                                                   </select>
+                                                </div>
+                                            </div>
+                                             
+                                            <div class="col-xs-12 col-md-3" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Referencia documento de baja :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.refDocBaja, new {@Class="col-xs-12 col-sm-12 col-md-12", placeholder = "Nombre del documento de referencia", disabled = true })
+                                                    <p id="ArefDocBaja" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-3" style="text-align: left; ">
+                                                <div>
+                                                    <label>Fecha baja del Padrón : </label>
+                                                </div>
+
+                                                <div class="input-group date" style="width:65%; text-align: left;">
+                                                    @Html.TextBoxFor(m => m.fechBaja, new { @class = "datetimepicker", style = "width:100%; text-align:left;", disabled = true })
+                                                    <span class="input-group-addon" style="text-align:left;">
+                                                        <span style="text-align:left;" class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-11" style="text-align: left; margin-bottom: 1%; border-bottom: 1px solid #ede9e9;">
+                                                <h3>
+                                                    <i class="ace-icon fa fa-file"></i>
+                                                    Datos de tierras del socio.
+                                                </h3>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align: left;"> Área Geográfica :  </label>
+                                                </div>
+                                                <div>
+                                                    <select id="cbxAreaGeogFr" class="custom-select" style="width:50%;"> </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Tituladas :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nHectareasTituladas, new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00" })
+                                                    <p id="avisoHaConTitulo" class="alerta" style="font-family:'Gill Sans'; color:black">En caso no existir valor rellenar con "0.00".</p>
+                                                    <p id="AnHectareasTituladas" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. sin Título :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nHectareasSinTitulo, new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00" })
+                                                    <p id="avisoHaSinTitulo" class="alerta" style="font-family:'Gill Sans'; color:black">En caso no existir valor rellenar con "0.00".</p>
+                                                    <p id="AnHectareasSinTitulo" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Total :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.totalHectareas, new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00", disabled = true })
+                                                    <p id="AtotalHectareas" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Bajo Riego :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nHectareasBajoRiego, new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00" })
+                                                    <p id="avisoHaBajoRiego" class="alerta" style="font-family:'Gill Sans'; color:black">En caso no existir valor rellenar con "0.00".</p>
+                                                    <p id="AnHectareasBajoRiego" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Secano :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nHectareasSecano, (string)"", new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00" })
+                                                    <p id="avisoHaSecano" class="alerta" style="font-family:'Gill Sans'; color:black">En caso no existir valor rellenar con "0.00".</p>
+                                                    <p id="AhSecano" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Total :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBox("nHectareasTotales", (string)"", new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00", disabled = true })
+                                                    <p id="AhPastizales" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="paraPecuario" class="row" style="margin-bottom:5px; display:none;">
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Pastizales :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nHectareasPastizales, new { @class = "campoDecimal", style = "width:50%", placeholder = "0.00" })
+                                                    <p id="avisonHectareasPastizales" class="alerta" style="font-family:'Gill Sans'; color:black">En caso no existir valor rellenar con "0.00".</p>
+                                                    <p id="AhPastizales" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Cabezas de Ganado :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.unidadGanado, new { @class = "campoNumero", style = "width:50%", placeholder = "0" })
+                                                    <p id="avisounidadGanado" class="alerta" style="font-family:'Gill Sans'; color:black">En caso no existir valor rellenar con "0".</p>
+                                                    <p id="AunidadGanado" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                <div>
+                                                    <label style="text-align:left;">Ha. Destinadas al PCC :</label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextBoxFor(m => m.nHectareasPCC, new { style = "width:50%", placeholder = "0.00", @maxlength = "250" })
+                                                    <p id="AhDestinadasPCC" class="alerta" style="display:none; font-family:'Gill Sans'; color:darkred">Solo números o números con decimales</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-4" style="text-align:left;">
+                                                &nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:10px">
+                                            <div class="col-xs-12 col-sm-6 col-md-12" style="text-align:left;">
+                                                <div>
+                                                    <label>Motivo de Actualización: </label>
+                                                </div>
+                                                <div>
+                                                    @Html.TextArea("motivoActualizacion", (string)"", new { @class = "campoTexto col-xs-12 col-sm-6 col-md-11", rows = "2", cols = "120" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" style="margin-bottom:5px;">
+
+                                            <div>
+                                                @Html.TextBoxFor(m => m.idUsuarioModificacion, new { @class = "", style = "display:none", Value = Session["idUsua"] })
+                                            </div>
+
+                                        </div>
+
+                                        <br />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-----   Fin de Acordeon 2  ------>
+                                                                                            
+                    </form>
+
+                    <div class="row" style="margin-bottom:25px;">
+                        <br />
+                        <button id="btModificarSocioUP" class="btn btn-warning" title="Grabar">
+                            <i class="ace-icon fa fa-pencil"></i> GRABAR
+                        </button>
+                          
+                        <button class="btn btn-success" id="btnCancelarModificarSocioUP" title="Cancelar">
+                            <i class="ace-icon fa fa-undo"></i> CANCELAR
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        controles_SocioaOA();
+    });
+</script>
+
